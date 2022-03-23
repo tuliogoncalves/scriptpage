@@ -1,0 +1,95 @@
+a {
+    color: #858796;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+  color: #1B8FC8;
+}
+
+.bg-default {
+  background-color: #1B8FC8;
+}
+
+.text-default {
+  color: #1B8FC8;
+}
+
+.btn-default {
+  color: #858796;
+  border-color: #d1d3e2;
+}
+
+.btn-default:hover {
+  color: #fff;
+  background-color: #1B8FC8;
+  border-color: #1B8FC8;
+}
+
+.btn-default:focus, .btn-default.focus {
+  box-shadow: 0 0 0 0.2rem rgba(133, 135, 150, 0.5);
+}
+
+.btn-default.disabled, .btn-default:disabled {
+  color: #858796;
+  background-color: transparent;
+}
+
+.btn-default:not(:disabled):not(.disabled):active, .btn-default:not(:disabled):not(.disabled).active,
+.show > .btn-default.dropdown-toggle {
+  color: #fff;
+  background-color: #858796;
+  border-color: #858796;
+}
+
+.btn-default:not(:disabled):not(.disabled):active:focus, .btn-default:not(:disabled):not(.disabled).active:focus,
+.show > .btn-default.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(133, 135, 150, 0.5);
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #858796;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #dddfeb;
+}
+
+.page-link:hover {
+  color: #fff;
+  background-color: #1B8FC8;
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: #858796;
+  border-color: #858796;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #858796;
+}
+
+/* Step 1: Common Properties: All required to make icons render reliably */
+.icon::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Step 2: Reference Individual Icons */
+.edit::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f304";
+}
