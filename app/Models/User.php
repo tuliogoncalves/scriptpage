@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     protected $table = 'users';
-    
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -43,11 +43,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-        
+
     protected $attributes = [
+        'name' => '',
+        'email' => '',
         'password' => ''
     ];
-    
+
     public function hasRole($name)
     {
         $role = $this->roles()->where('name', $name)->first();
@@ -57,4 +59,5 @@ class User extends Authenticatable
     function roles()
     {
         return $this->hasMany(Role::class);
-    }}
+    }
+}

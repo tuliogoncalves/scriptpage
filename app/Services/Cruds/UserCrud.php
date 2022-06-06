@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Cruds;
+namespace App\Services\Cruds;
 
 use App\Models\Role;
 use App\Models\User;

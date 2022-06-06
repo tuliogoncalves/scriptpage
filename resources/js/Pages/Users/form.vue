@@ -6,7 +6,7 @@
 		updateTitle="Update User"
 		:urlUpdate="route('users.update', form.id ? form.id : 0)"
 		:urlStore="route('users.store', form.id ? form.id : 0)"
-		:urlDestroy="route('users.destroy',form.id ? form.id : 0)"
+		:urlDestroy="route('users.destroy', form.id ? form.id : 0)"
 		:form="form"
 	>
 		<!-- Name -->
@@ -77,6 +77,7 @@
 				}),
 			};
 		},
+
 		mounted() {
 			var userRoles = $("#user-roles");
 			var data = this.data;
@@ -90,10 +91,14 @@
 				form.roles = userRoles.val();
 			});
 
+			var roles = null;
+
 			// Filtre name roles
-			var roles = data.roles.map(function (obj) {
-				return obj.name;
-			});
+			if (data.roles) {
+				var roles = data.roles.map(function (obj) {
+					return obj.name;
+				});
+			}
 
 			// Set value to select2 filed
 			userRoles.val(roles);

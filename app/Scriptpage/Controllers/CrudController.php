@@ -70,10 +70,7 @@ class CrudController extends BaseController
         // Set request data
         $this->crud->setData($request->all());
 
-        // Valida data
-        $validator = $this->crud->validate();
-        $validator->validate();
-
+        // Valida datause Illuminate\Http\Request;
         // Try storage new data
         $this->crud->store();
 
@@ -156,7 +153,7 @@ class CrudController extends BaseController
     /**
      * dataCreate
      *
-     * @param  mixed $request
+     * @param  Request $request
      * @param  mixed $id
      * @param  mixed $id2
      * @return array
@@ -172,7 +169,7 @@ class CrudController extends BaseController
     /**
      * dataEdit
      *
-     * @param  mixed $request
+     * @param  Request $request
      * @param  mixed $id
      * @param  mixed $id2
      * @return array
