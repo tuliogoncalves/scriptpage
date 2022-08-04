@@ -32,4 +32,3 @@ else
     echo ""
     echo -e "${WHITE}Thank you! We hope you build something incredible. Dive in with:${NC} ./vendor/bin/sail up"
 fi
-

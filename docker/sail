@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+
+UNAMEOUT="$(uname -s)"
+
+# Verify operating system is supported...
+case "${UNAMEOUT}" in
+    Linux*)             MACHINE=linux;;
+    Darwin*)            MACHINE=mac;;
+    *)                  MACHINE="UNKNOWN"
+esac
+
+if [ "$MACHINE" == "UNKNOWN" ]; then
+    echo "Unsupported operating system [$(uname -s)]. Laravel Sail supports macOS, Linux, and Windows (WSL2)." >&2
+
+    exit 1
+fi
+
+# Determine if stdout is a terminal...
+if test -t 1; then
+    # Determine if colors are supported...
+    ncolors=$(tput colors)
+
+    if test -n "$ncolors" && test "$ncolors" -ge 8; then
+        BOLD="$(tput bold)"
+        YELLOW="$(tput setaf 3)"
+        GREEN="$(tput setaf 2)"
+        NC="$(tput sgr0)"
+    fi
+fi
+
+# Function that prints the available commands...
+function display_help {
+    echo "Scriptpage Sail"
+    echo
+    echo "${YELLOW}Usage:${NC}" >&2
+    echo "  sail COMMAND [options] [arguments]"
+    echo
+    echo "Unknown commands are passed to the docker-compose binary."
+    echo
+    echo "${YELLOW}docker-compose Commands:${NC}"
+    echo "  ${GREEN}sail up${NC}        Start the application"
+    echo "  ${GREEN}sail up -d${NC}     Start the application in the background"
+    echo "  ${GREEN}sail stop${NC}      Stop the application"
+    echo "  ${GREEN}sail restart${NC}   Restart the application"
+    echo "  ${GREEN}sail ps${NC}        Display the status of all containers"
+    echo
+    echo "${YELLOW}Artisan Commands:${NC}"
+    echo "  ${GREEN}sail artisan ...${NC}          Run an Artisan command"
+    echo "  ${GREEN}sail artisan queue:work${NC}"
+    echo
+
+    exit 1
+}
+
+# Proxy the "help" command...
+if [ $# -gt 0 ]; then
+    if [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "-help" ] || [ "$1" == "--help" ]; then
+        display_help
+    fi
+else
+    display_help
+fi
+
+# Source the ".env" file so Laravel's environment variables are available...
+if [ -f ./.env ]; then
+    source ./.env
+fi
+
+# Define environment variables...
+# export APP_PORT=${APP_PORT:-80}
+# export APP_SERVICE=${APP_SERVICE:-"app"}
+# export DB_PORT=${DB_PORT:-3306}
+# export WWWUSER=${WWWUSER:-$UID}
+# export WWWGROUP=${WWWGROUP:-$(id -g)}
+
+if [ $# -gt 0 ]; then
+    if [ "$1" == "on" ]; then
+        if sudo -n true 2>/dev/null; then
+            sudo systemctl start docker.socket
+            sudo systemctl start docker
+            echo -e "${WHITE}Docker started"
+        else
+            echo ""
+            echo -e "${WHITE}Please provide your password to your application's permissions.${NC}"
+            sudo systemctl start docker.socket
+            sudo systemctl start docker
+        fi
+        exit 1
+    fi
+
+    if [ "$1" == "off" ]; then
+        if sudo -n true 2>/dev/null; then
+            sudo systemctl stop docker.socket
+            sudo systemctl stop docker
+            echo -e "${WHITE}Docker stoped"
+        else
+            echo -e "${WHITE}Please provide your password to your application's permissions.${NC}"
+            echo ""
+            sudo systemctl stop docker.socket
+            sudo systemctl start docker
+        fi
+        exit 1
+    fi
+fi
+
+# Define Docker Compose command prefix...
+docker compose &> /dev/null
+if [ $? == 0 ]; then
+    DOCKER_COMPOSE=(docker compose)
+else
+    DOCKER_COMPOSE=(docker-compose)
+fi
+
+if [ -z "$SAIL_SKIP_CHECKS" ]; then
+    # Ensure that Docker is running...
+    if ! docker info > /dev/null 2>&1; then
+        echo "${BOLD}Docker is not running.${NC}" >&2
+
+        exit 1
+    fi
+fi
+
+ARGS=("$@")
+
+# Run Docker Compose with the defined arguments...
+"${DOCKER_COMPOSE[@]}" "${ARGS[@]}"

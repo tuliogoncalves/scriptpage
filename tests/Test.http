@@ -6,3 +6,14 @@ get http://127.0.0.1:8000/process/10/elements/12
 
 ###
 get https://qa.scriptpage.com.br/v13/api/d602b6a6-4d65-5c98-b0a7-a3ff58b4ead5
+
+
+###
+post http://api.ms.gov.br/integracaospf/v1/autenticacao/Autenticar
+content-type: application/json
+
+{
+  "usuario": "usr_reinf_ms",
+  "senha": "J@ZwSzg#GJVSe"
+}
+
