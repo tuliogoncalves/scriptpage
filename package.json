@@ -19,7 +19,9 @@
         "resolve-url-loader": "^4.0.0",
         "sass": "~1.32.12",
         "sass-loader": "^12.1.0",
-        "vue-loader": "^16.8.1"
+        "vue-loader": "^16.8.1",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0"
     },
     "dependencies": {
         "@inertiajs/inertia": "^0.10.1",

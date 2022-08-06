@@ -33,6 +33,38 @@ services:
         networks: 
             - app_network
 
+    # image project
+    nodejs:
+        container_name: nodejs
+        build:
+            args:
+                user: tulio
+                uid: 1000
+            context: ./docker/node
+            dockerfile: Dockerfile
+        image: nodejs
+        tty: true
+        restart: unless-stopped
+        working_dir: /var/www/
+        volumes:
+            - ./:/var/www
+        depends_on: 
+            - app
+        networks: 
+            - app_network
+
+    # npm
+    # npm:  
+    #     container_name: npm
+    #     image: node:14
+    #     tty: true
+    #     working_dir: /var/www
+    #     entrypoint: ["npm","start"]
+    #     volumes: 
+    #         - ./:/var/www
+    #     networks: 
+    #         - app_network
+
     # MariaDB
     db:
         container_name: db
