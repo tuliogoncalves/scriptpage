@@ -1,14 +1,14 @@
 version: "3.7"
 
 services:
-    # image project
+    # app
     app:
         container_name: app
         build:
             args:
-                user: tulio
-                uid: 1000
-            context: ./docker
+                user: '${WWWUSER}'
+                uid: '${WWWGROUP}'
+            context: ./docker/laravel-app
             dockerfile: Dockerfile
         image: laravel-app
         restart: unless-stopped
@@ -33,13 +33,13 @@ services:
         networks: 
             - app_network
 
-    # image project
+    # nodeJs
     nodejs:
         container_name: nodejs
         build:
             args:
-                user: tulio
-                uid: 1000
+                user: '${WWWUSER}'
+                uid: '${WWWGROUP}'
             context: ./docker/node
             dockerfile: Dockerfile
         image: nodejs
@@ -53,24 +53,12 @@ services:
         networks: 
             - app_network
 
-    # npm
-    # npm:  
-    #     container_name: npm
-    #     image: node:14
-    #     tty: true
-    #     working_dir: /var/www
-    #     entrypoint: ["npm","start"]
-    #     volumes: 
-    #         - ./:/var/www
-    #     networks: 
-    #         - app_network
-
     # MariaDB
     db:
         container_name: db
         image: mariadb:10.7.4-focal
         ports:
-            - '${FORWARD_DB_PORT:-3306}:3306'
+            - '${DB_PORT:-3306}:3306'
         environment:
             MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ROOT_HOST: "%"
@@ -101,6 +89,8 @@ services:
     redis:
         container_name: redis
         image: redis:latest
+        volumes: 
+            - ./.docker/redis/data:/data
         networks: 
             - app_network
 

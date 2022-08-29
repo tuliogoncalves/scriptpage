@@ -10,7 +10,7 @@ case "${UNAMEOUT}" in
 esac
 
 if [ "$MACHINE" == "UNKNOWN" ]; then
-    echo "Unsupported operating system [$(uname -s)]. Laravel Sail supports macOS, Linux, and Windows (WSL2)." >&2
+    echo "Unsupported operating system [$(uname -s)]. Scriptpage Sail supports macOS, Linux, and Windows (WSL2)." >&2
 
     exit 1
 fi
@@ -30,12 +30,15 @@ fi
 
 # Function that prints the available commands...
 function display_help {
+    echo
     echo "Scriptpage Sail"
     echo
     echo "${YELLOW}Usage:${NC}" >&2
     echo "  sail COMMAND [options] [arguments]"
     echo
-    echo "Unknown commands are passed to the docker-compose binary."
+    echo "${YELLOW}docker Commands in the background:${NC}"
+    echo "  ${GREEN}sail on${NC}        Start the docker service's"
+    echo "  ${GREEN}sail off${NC}       Finish the docker service's"
     echo
     echo "${YELLOW}docker-compose Commands:${NC}"
     echo "  ${GREEN}sail up${NC}        Start the application"
@@ -44,9 +47,24 @@ function display_help {
     echo "  ${GREEN}sail restart${NC}   Restart the application"
     echo "  ${GREEN}sail ps${NC}        Display the status of all containers"
     echo
-    echo "${YELLOW}Artisan Commands:${NC}"
-    echo "  ${GREEN}sail artisan ...${NC}          Run an Artisan command"
-    echo "  ${GREEN}sail artisan queue:work${NC}"
+    echo "${YELLOW}artisan Commands:${NC}"
+    echo "  ${GREEN}sail artisan ...${NC}   Run an Artisan command"
+    echo "  ${GREEN}sail art ...${NC}       Run an Artisan command"
+    echo
+    echo "${YELLOW}composer Commands:${NC}"
+    echo "  ${GREEN}sail composer ...${NC}   Run an composer command"
+    echo
+    echo "${YELLOW}nodeJS Commands:${NC}"
+    echo "  ${GREEN}sail node ...${NC}       Run an node command"
+    echo
+    echo "${YELLOW}npm Commands:${NC}"
+    echo "  ${GREEN}sail npm ...${NC}       Run an npm command"
+    echo
+    echo "${YELLOW}npx Commands:${NC}"
+    echo "  ${GREEN}sail npx ...${NC}       Run an npx command"
+    echo
+    echo "${YELLOW}yarn Commands:${NC}"
+    echo "  ${GREEN}sail yarn ...${NC}      Run an yarn command"
     echo
 
     exit 1
@@ -67,47 +85,38 @@ if [ -f ./.env ]; then
 fi
 
 # Define environment variables...
-# export APP_PORT=${APP_PORT:-80}
 export APP_SERVICE=${APP_SERVICE:-"app"}
-# export DB_PORT=${DB_PORT:-3306}
-# export WWWUSER=${WWWUSER:-$UID}
-# export WWWGROUP=${WWWGROUP:-$(id -g)}
-
-# Function that outputs Sail is not running...
-function sail_is_not_running {
-    echo "${BOLD}Sail is not running.${NC}" >&2
-    echo "" >&2
-    echo "${BOLD}You may Sail using the following commands:${NC} './vendor/bin/sail up' or './vendor/bin/sail up -d'" >&2
-
-    exit 1
-}
+export WWWUSER=${WWWUSER:-"sail"}
+export WWWGROUP=${WWWGROUP:-$(id -g)}
 
 if [ $# -gt 0 ]; then
     if [ "$1" == "on" ]; then
+        echo
         if sudo -n true 2>/dev/null; then
             sudo systemctl start docker.socket
             sudo systemctl start docker
             echo -e "${WHITE}Docker started"
         else
-            echo ""
             echo -e "${WHITE}Please provide your password to your application's permissions.${NC}"
             sudo systemctl start docker.socket
             sudo systemctl start docker
         fi
+        echo
         exit 1
     fi
 
     if [ "$1" == "off" ]; then
+        echo
         if sudo -n true 2>/dev/null; then
             sudo systemctl stop docker.socket
             sudo systemctl stop docker
             echo -e "${WHITE}Docker stoped"
         else
             echo -e "${WHITE}Please provide your password to your application's permissions.${NC}"
-            echo ""
             sudo systemctl stop docker.socket
             sudo systemctl start docker
         fi
+        echo
         exit 1
     fi
 fi
@@ -130,13 +139,12 @@ if [ -z "$SAIL_SKIP_CHECKS" ]; then
 fi
 
 ARGS=()
-EXEC="yes"
 
 # Proxy Composer commands to the "composer" binary on the application container...
 if [ "$1" == "composer" ]; then
     shift 1
 
-    ARGS+=(exec)
+    ARGS+=(exec -u $WWWUSER)
     [ ! -t 0 ] && ARGS+=(-T)
     ARGS+=("$APP_SERVICE" "composer" "$@")
 
@@ -144,7 +152,7 @@ if [ "$1" == "composer" ]; then
 elif [ "$1" == "artisan" ] || [ "$1" == "art" ]; then
     shift 1
 
-    ARGS+=(exec)
+    ARGS+=(exec -u $WWWUSER)
     [ ! -t 0 ] && ARGS+=(-T)
     ARGS+=("$APP_SERVICE" php artisan "$@")
 
@@ -152,7 +160,7 @@ elif [ "$1" == "artisan" ] || [ "$1" == "art" ]; then
 elif [ "$1" == "phpunit" ]; then
     shift 1
 
-    ARGS+=(exec -u sail)
+    ARGS+=(exec -u $WWWUSER)
     [ ! -t 0 ] && ARGS+=(-T)
     ARGS+=("$APP_SERVICE" php vendor/bin/phpunit "$@")
 
@@ -160,7 +168,7 @@ elif [ "$1" == "phpunit" ]; then
 elif [ "$1" == "node" ]; then
     shift 1
 
-    ARGS+=(exec)
+    ARGS+=(exec -u $WWWUSER)
     [ ! -t 0 ] && ARGS+=(-T)
     ARGS+=(nodejs node "$@")
 
@@ -168,7 +176,7 @@ elif [ "$1" == "node" ]; then
 elif [ "$1" == "npm" ]; then
     shift 1
 
-    ARGS+=(exec)
+    ARGS+=(exec -u $WWWUSER)
     [ ! -t 0 ] && ARGS+=(-T)
     ARGS+=(nodejs npm "$@")
 
@@ -176,7 +184,7 @@ elif [ "$1" == "npm" ]; then
 elif [ "$1" == "npx" ]; then
     shift 1
 
-    ARGS+=(exec -u sail)
+    ARGS+=(exec -u $WWWUSER)
     [ ! -t 0 ] && ARGS+=(-T)
     ARGS+=(nodejs npx "$@")
 
@@ -184,7 +192,7 @@ elif [ "$1" == "npx" ]; then
 elif [ "$1" == "yarn" ]; then
     shift 1
 
-    ARGS+=(exec -u sail)
+    ARGS+=(exec -u $WWWUSER)
     [ ! -t 0 ] && ARGS+=(-T)
     ARGS+=(nodejs yarn "$@")
 
@@ -192,7 +200,7 @@ elif [ "$1" == "yarn" ]; then
 elif [ "$1" == "shell" ] || [ "$1" == "bash" ]; then
     shift 1
 
-    ARGS+=(exec -u tulio)
+    ARGS+=(exec -u $WWWUSER)
     [ ! -t 0 ] && ARGS+=(-T)
     ARGS+=("$APP_SERVICE" bash "$@")
 
@@ -200,7 +208,7 @@ elif [ "$1" == "shell" ] || [ "$1" == "bash" ]; then
 elif [ "$1" == "root-shell" ] || [ "$1" == "root-bash" ]; then
     shift 1
 
-    ARGS+=(exec)
+    ARGS+=(exec -u root)
     [ ! -t 0 ] && ARGS+=(-T)
     ARGS+=("$APP_SERVICE" bash "$@")
 
@@ -217,8 +225,9 @@ else
     ARGS+=("$@")
 fi
 
-echo "${DOCKER_COMPOSE[@]}"
-echo "${ARGS[@]}"
+# echo ""
+# echo "${DOCKER_COMPOSE[@]} ${ARGS[@]}"
+# echo ""
 
 # Run Docker Compose with the defined arguments...
 "${DOCKER_COMPOSE[@]}" "${ARGS[@]}"
