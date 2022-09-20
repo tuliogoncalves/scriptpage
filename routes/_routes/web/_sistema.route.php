@@ -12,6 +12,7 @@ Route::get('/', function () {
 Route::get('info', function () {
     phpinfo();
 });
+
 Route::view('dashboard', 'dashboard.index')->name('dashboard');
 Route::get('getdata/{model}', [GetdataController::class, 'getData'])->name('getdata');
 

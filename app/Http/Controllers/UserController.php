@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Scriptpage\Controllers\CrudController;
-use App\Services\Cruds\UserCrud;
-use App\Services\Repositories\UserRepository;
+use App\Cruds\UserCrud;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
 class UserController extends CrudController
