@@ -1,0 +1,4128 @@
+{
+	"success": true,
+	"data": [
+		{
+			"id": 107,
+			"evento": "R1000",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Informações do Contribuinte",
+			"situacao": "Não Enviado",
+			"nrInsc": null,
+			"nfs": []
+		},
+		{
+			"id": 1412,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "21071247000179",
+			"nfs": [
+				{
+					"id": 4215,
+					"serie": "nfse",
+					"numDocto": "79",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "410215.53",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 79, REFERENTE A 05 MEDIO  PERIODO DE 01072022 A 31072022  REAJUSTAMENTO AO CONTRATO N 0432022  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA VICINAL DENOMINADA ROD"
+				},
+				{
+					"id": 4216,
+					"serie": "NFSe",
+					"numDocto": "78",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "1905541.97",
+					"obs": "APROPRIAO PARA PAGAMENTO PARTE DA NF. 78  5 MEDIO PERIODO 01072022A 31072022. OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA VICINAL DENOMINADA RODOVIA DO TURISMO, INCLUINDO OBRAS DE ARTE ESPECIAI"
+				},
+				{
+					"id": 4217,
+					"serie": "NFSe",
+					"numDocto": "83",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "626606.17",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 82  07 MEDIO DE REAJUSTAMENTO PERODO 01072022 A 31072022, REFERENTE A EXECUO DA OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA, INCLUSIVE OBRAS DE ARTES ESPECIAIS, DA RODOVIA M"
+				},
+				{
+					"id": 4218,
+					"serie": "NFSe",
+					"numDocto": "82",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "3065442.65",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE DA NF.202282, REFERENTE PARTE DA 7 MEDIO DO PERODO DE 01072022 A 31072022 DA OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA, INCLUSIVE OBRAS DE ARTES ESPECIAIS, DA RODOVIA MS"
+				},
+				{
+					"id": 4219,
+					"serie": "NFSe",
+					"numDocto": "92",
+					"dtEmissaoNF": "2022-08-23",
+					"vlrBruto": "958124.18",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE DA NF.202292, REFERENTE A 1 MEDIO DO PERODO DE 30062022 A 31072022 DA OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA MS382, INCLUSIVE OBRA DE ARTE ESPECIAL, TRECHO"
+				},
+				{
+					"id": 4220,
+					"serie": "NFSe",
+					"numDocto": "91",
+					"dtEmissaoNF": "2022-08-23",
+					"vlrBruto": "3020230.57",
+					"obs": "APROPRIAO PARA PAGAMENTO PARTE DA NF. 91  9 MEDIO  PERIODO 01072022 A 31072022. REPROGRAMAO AO CONTRATO N 1252021  OBRA DE IMPLANTAO E AVIMENTAO ASFLTICA, INCLUSIVE OBRA DE ARTE ESPECIAL, DA RODOVIA M"
+				}
+			],
+			"ValorBruto": "9986161.07",
+			"VlrBaseRet": "2238528.60",
+			"VlrRetencao": "246238.15"
+		},
+		{
+			"id": 1413,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "19758842000135",
+			"nfs": [
+				{
+					"id": 4221,
+					"serie": "NFSE",
+					"numDocto": "3948",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "19640.69",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3948  19 MED  PERODO 2606  25072022  REFERENTE A  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 15 RESIDNCIA REGIONAL DE CAMAP"
+				},
+				{
+					"id": 4222,
+					"serie": "NFSE",
+					"numDocto": "3949",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "93647.84",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3949  19 MED  PERODO 2606  25072022  REFERENTE A  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 15 RESIDNCIA REGIONAL DE CAMAP"
+				},
+				{
+					"id": 4223,
+					"serie": "NFSE",
+					"numDocto": "3950",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "79257.81",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3950  19 MED  PERODO 2606  25072022  REFERENTE A  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 15 RESIDNCIA REGIONAL DE CAMAP"
+				},
+				{
+					"id": 4224,
+					"serie": "NFSE",
+					"numDocto": "4199",
+					"dtEmissaoNF": "2022-08-24",
+					"vlrBruto": "12166.95",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 4199  10 MED  PERODO 0104  30042022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 0612021  OBRA DE RESTAURAO DE PAVIMENTO, MELHORAMENTO E ADEQUAO DE CAPACIDADE DE TRFEGO, "
+				},
+				{
+					"id": 4225,
+					"serie": "NFSE",
+					"numDocto": "4200",
+					"dtEmissaoNF": "2022-08-24",
+					"vlrBruto": "12133.91",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 4200  11 MED  PERODO 0105  31052022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 0612021  OBRA DE RESTAURAO DE PAVIMENTO, MELHORAMENTO E ADEQUAO DE CAPACIDADE DE TRFEGO, "
+				},
+				{
+					"id": 4226,
+					"serie": "NFSE",
+					"numDocto": "4201",
+					"dtEmissaoNF": "2022-08-24",
+					"vlrBruto": "3337247.56",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 4201  12 MED  PERODO 0106  30062022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 0612021  OBRA DE RESTAURAO DE PAVIMENTO, MELHORAMENTO E ADEQUAO DE CAPACIDADE DE TRFEGO, "
+				}
+			],
+			"ValorBruto": "3554094.76",
+			"VlrBaseRet": "355409.48",
+			"VlrRetencao": "39095.05"
+		},
+		{
+			"id": 1414,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "26472911000105",
+			"nfs": [
+				{
+					"id": 4227,
+					"serie": "NFSe",
+					"numDocto": "109",
+					"dtEmissaoNF": "2022-08-01",
+					"vlrBruto": "255363.62",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.109, REFERENTE AO REAJUSTAMENTO DA 5 MEDIO DO PERODO DE 01052022 A 31052022 DO CONTRATO N 1772021  CONSTRUO DE 2 PONTES DE CONCRETO 1. VAZ DA MARGARIDA, COM EXT. DE 59,20"
+				},
+				{
+					"id": 4228,
+					"serie": "NFSe",
+					"numDocto": "108",
+					"dtEmissaoNF": "2022-08-01",
+					"vlrBruto": "42626.47",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 108  06 A 08 MEDIO DE REAJUSTAMENTO PERODO 01042022 A 30062022, REFERENTE A EXECUO DA OBRA DE CONSTRUO DE PONTE DE CONCRETO ARMADO SOBRE O CRREGO VILAS BOAS, COM EXTENSO "
+				},
+				{
+					"id": 4229,
+					"serie": "NFSE",
+					"numDocto": "114",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "1505470.91",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 114  6 MED  PERODO 0107  31072022  REFERENTE A OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA MS010, TRECHO INCIO DO TRECHO URBANO DE ROCHEDINHO  ENTR MS244, SUBTRE"
+				},
+				{
+					"id": 4230,
+					"serie": "NFSe",
+					"numDocto": "113",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "448966.60",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 113 6 MEDIO REAJUSTAMENTO  PERODO 01072022 A 31072022  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA MS 010 TRECHO INICIO DO TRECHO URBANO DE ROCHEDINHO, EN"
+				},
+				{
+					"id": 4231,
+					"serie": "NFSE",
+					"numDocto": "116",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "90440.97",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 116  5 MED PERIODO 0104  30042022 REFERENTE A  OBRA DE CONSTRUO DE 02 PONTES EM CONCRETO NAROD. MS347 1. CRR. TAQUARUU, EXT. 52,20M, COORD 205542.92S 554024.19O, NO LIM"
+				},
+				{
+					"id": 4232,
+					"serie": "NFSe",
+					"numDocto": "117",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "16986.34",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.117, REFERENTE PARTE DO REAJUSTAMENTO DA 5 MEDIO DO PERODO DE 01042022 A 30042022 DO CONTRATO N 1782021  OBRA DE CONSTRUO DE 02 PONTES EM CONCRETO NA ROD. MS347 1. CRREGO"
+				},
+				{
+					"id": 4233,
+					"serie": "NFSE",
+					"numDocto": "118",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "90440.96",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 118  5 MED PERIODO 0104  30042022 REFERENTE A  OBRA DE CONSTRUO DE 02 PONTES EM CONCRETO NAROD. MS347 1. CRR. TAQUARUU, EXT. 52,20M, COORD 205542.92S 554024.19O, NO LIM"
+				},
+				{
+					"id": 4234,
+					"serie": "NFSe",
+					"numDocto": "119",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "16986.34",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.119, REFERENTE PARTE DO REAJUSTAMENTO DA 5 MEDIO DO PERODO DE 01042022 A 30042022 DO CONTRATO N 1782021  OBRA DE CONSTRUO DE 02 PONTES EM CONCRETO NA ROD. MS347 1. CRREGO"
+				},
+				{
+					"id": 4235,
+					"serie": "NFSE",
+					"numDocto": "120",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "114349.73",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 120  5 MED PERIODO 0104  30042022 REFERENTE A  OBRA DE CONSTRUO DE 02 PONTES EM CONCRETO NAROD. MS347 1. CRR. TAQUARUU, EXT. 52,20M, COORD 205542.92S 554024.19O, NO LIM"
+				},
+				{
+					"id": 4236,
+					"serie": "NFSe",
+					"numDocto": "121",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "21483.86",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.121, REFERENTE PARTE DO REAJUSTAMENTO DA 5 MEDIO DO PERODO DE 01042022 A 30042022 DO CONTRATO N 1782021  OBRA DE CONSTRUO DE 02 PONTES EM CONCRETO NA ROD. MS347 1. CRREGO"
+				}
+			],
+			"ValorBruto": "2603115.80",
+			"VlrBaseRet": "159568.76",
+			"VlrRetencao": "17552.55"
+		},
+		{
+			"id": 1415,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "02137259000104",
+			"nfs": [
+				{
+					"id": 4237,
+					"serie": "nfse",
+					"numDocto": "336",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "5629290.12",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 336, REFERENTE A 10 MEDIO PERIODO DE 01072022 A 31072022  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA ESTADUAL MS166, TRECHO ENTR MS460  ENTR BR267 A, SUBTRECHO "
+				},
+				{
+					"id": 4238,
+					"serie": "NFSe",
+					"numDocto": "337",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "3038585.50",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 337 10 MEDIO REAJUSTAMENTO  PERODO 01072022 A 31072022  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA ESTADUAL MS 166, TRECHO ENTR BR 460 ENTR BR 267 SUBTRE"
+				},
+				{
+					"id": 4239,
+					"serie": "NFSE",
+					"numDocto": "341",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "135668.51",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 341  1 MED  PERODO 0507  31072022  REFERENTE A  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA MS316, TRECHO ENTR MS223  ENTR BR060, SUBTRECHO KM 23,50  KM 54,3 LOT"
+				}
+			],
+			"ValorBruto": "8803544.13",
+			"VlrBaseRet": "937921.03",
+			"VlrRetencao": "103171.31"
+		},
+		{
+			"id": 1416,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "28660716000134",
+			"nfs": [
+				{
+					"id": 4240,
+					"serie": "NFSe",
+					"numDocto": "98",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "2658911.33",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 98, 2 MEDIO 21062022 A 20072022  PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS NA RUA ANTNIO CAMPELO E RESTAURAO FUNCIONAL DO PAVIMENTO RECAPEAMENTO EM DIVERSAS RUAS NO"
+				}
+			],
+			"ValorBruto": "2658911.33",
+			"VlrBaseRet": "265891.13",
+			"VlrRetencao": "29248.03"
+		},
+		{
+			"id": 1417,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "12023805000130",
+			"nfs": [
+				{
+					"id": 4241,
+					"serie": "NFSe",
+					"numDocto": "351",
+					"dtEmissaoNF": "2022-08-01",
+					"vlrBruto": "78752.62",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 351  3 E 4 MEDIO PERODO 01072022 A 31072022, REFERENTE EXECUO DA OBRA DE SUBSTITUIO DE ALAMBRADOFECHAMENTO E CONSTRUO DO PRDIO DA GUARITA DA DIRETORIA GERAL DA POLCIA CI"
+				},
+				{
+					"id": 4242,
+					"serie": "NFSe",
+					"numDocto": "358",
+					"dtEmissaoNF": "2022-08-25",
+					"vlrBruto": "181358.26",
+					"obs": "LIQUIDAO PARA PAGAMENTO NF 358  11 MEDIO PERODO 2602022 A 25072022, REFERENTE A EXECUO DA OBRA DE MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENT"
+				},
+				{
+					"id": 4243,
+					"serie": "NFSe",
+					"numDocto": "359",
+					"dtEmissaoNF": "2022-08-25",
+					"vlrBruto": "19547.82",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 359 11 MEDIO REAJUSTAMENTO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADA"
+				}
+			],
+			"ValorBruto": "279658.70",
+			"VlrBaseRet": "97880.55",
+			"VlrRetencao": "10766.85"
+		},
+		{
+			"id": 1418,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "24734198000103",
+			"nfs": [
+				{
+					"id": 4244,
+					"serie": "NFSe",
+					"numDocto": "174",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "233223.30",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 174  3 MEDIO PERODO 01072022 A 31072022, REFERENTE EXECUO DE OBRAS DE INFRAESTRUTURA URBANA DE PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS NA RUAS 7 DE SETEMBRO, EST"
+				}
+			],
+			"ValorBruto": "233223.30",
+			"VlrBaseRet": "81628.15",
+			"VlrRetencao": "8979.10"
+		},
+		{
+			"id": 1419,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "23864908000149",
+			"nfs": [
+				{
+					"id": 4245,
+					"serie": "nfse",
+					"numDocto": "137",
+					"dtEmissaoNF": "2022-08-01",
+					"vlrBruto": "1669189.43",
+					"obs": "APROPRIAO PARA PAGAMENTO DANF. 137, REFERENTE A 02 MEDIO PERIODO DE 01072022 A 31072022  OBRA DE INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS NA RUA AYRES LIMA, DISTRITO DE P"
+				},
+				{
+					"id": 4246,
+					"serie": "NFSE",
+					"numDocto": "138",
+					"dtEmissaoNF": "2022-08-01",
+					"vlrBruto": "1068674.10",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 138  2 MED  PERODO 0107  31072022  REFERENTE A  OBRA INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS NO BAIRRO SO MIGUEL IMPLANTAO E RESTAURAO FU"
+				}
+			],
+			"ValorBruto": "2737863.53",
+			"VlrBaseRet": "273786.35",
+			"VlrRetencao": "30116.50"
+		},
+		{
+			"id": 1420,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "24617458000152",
+			"nfs": [
+				{
+					"id": 4247,
+					"serie": "NFSe",
+					"numDocto": "664",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "115422.77",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE DA 664, REFERENTE SALDO DA 5 E 6 MEDIES, 7 MEDIO E PARTE DA 8 MEDIO DO PERODO DE 15082020 A 26102021  EXECUO DE OBRAS DE INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA E D"
+				},
+				{
+					"id": 4248,
+					"serie": "NFSe",
+					"numDocto": "662",
+					"dtEmissaoNF": "2022-08-25",
+					"vlrBruto": "180950.21",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 662 6 7 8 9 10 11 MEDIO  PERODO 15092020 A 08112021  EXECUO DE OBRAS DE INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA E DRENAGEM DE AGUAS PLUVIAIS NA RUA DOS IPS E "
+				},
+				{
+					"id": 4249,
+					"serie": "NFSE",
+					"numDocto": "666",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "7105.56",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 666  11 MED  PERODO 2606 A 25072022  REFERENTE A  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADAS DA 16 RESID"
+				},
+				{
+					"id": 4250,
+					"serie": "NFSE",
+					"numDocto": "667",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "221711.21",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 667  11 MED  PERODO 2606 A 25072022  REFERENTE A  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADAS DA 16 RESID"
+				},
+				{
+					"id": 4251,
+					"serie": "NFSE",
+					"numDocto": "669",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "25959.70",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 669, 11 MEDIO DE REAJUSTAMENTO 26062022 A 25072022  REAJUSTAMENTO DOS SERVIOS DE MANUTENO E CONSERVAO DAS PONTES DE MADEIRA, NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIR"
+				}
+			],
+			"ValorBruto": "551149.45",
+			"VlrBaseRet": "118809.07",
+			"VlrRetencao": "13068.99"
+		},
+		{
+			"id": 1421,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "17634508000144",
+			"nfs": [
+				{
+					"id": 4252,
+					"serie": "NFSe",
+					"numDocto": "1068",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "4542789.96",
+					"obs": "LIQUIDAO DE PARTE DE SALDO PARA PAGAMENTO DA NF. 1068  2 MEDIO PERODO 01072022 A 31072022, REFERENTE A EXECUO DA OBRA DE INFRAESTRUTURA URBANA DE RESTAURAO FUNCIONAL DO PAVIMENTO E SINALIZAO VIRIA EM "
+				}
+			],
+			"ValorBruto": "4542789.96",
+			"VlrBaseRet": "681418.49",
+			"VlrRetencao": "74956.03"
+		},
+		{
+			"id": 1422,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "07238773000150",
+			"nfs": [
+				{
+					"id": 4253,
+					"serie": "NFSe",
+					"numDocto": "1851",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "150125.13",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1851, REFERENTE PARTE DA 2 MEDIO DO PERODO DE 26062022 A 25072022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 10 RESIDNCIA R"
+				},
+				{
+					"id": 4254,
+					"serie": "NFSe",
+					"numDocto": "1852",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "402725.36",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1852, REFERENTE SALDO DA 2 MEDIO DO PERODO DE 26062022 A 25072022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 10 RESIDNCIA R"
+				},
+				{
+					"id": 4255,
+					"serie": "NFSe",
+					"numDocto": "1853",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "1916137.20",
+					"obs": "APROPRIAO PARA PAGAMENTO PARTE DA NF. 1853  10 MEDIO  PERODO 26062022 A 25072022. IMPLANTAO EM REVESTIMENTO PRIMRIO DE RODOVIA NO PAVIMENTADA, NA RODOVIA MS 214, TRECHO  KM 70,000  KM 129,200, EXTENSO"
+				},
+				{
+					"id": 4256,
+					"serie": "NFSe",
+					"numDocto": "1854",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "357034.72",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 1854  10 MEDIO DE REAJUSTAMENTO PERODO 26062022 A 25072022, REFERENTE A EXECUO DA OBRA DE IMPLANTAO EM REVESTIMENTO DE RODOVIAS NO PAVIMENTADA, NA RODOVIA MS214, TRECHO "
+				},
+				{
+					"id": 4257,
+					"serie": "NFSe",
+					"numDocto": "1863",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "91846.96",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1863, REFERENTE PARTE DO REAJUSTAMENTO DA 21 MEDIO DO PERODO DE 26062022 A 25072022 DO CONTRATO N 2342020  SERVIO DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO P"
+				},
+				{
+					"id": 4258,
+					"serie": "NFSe",
+					"numDocto": "1855",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "450977.72",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1855 21 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTAS DA MALHA RODOVIRIA DA 5 RESIDNCIA REGIONAL DE PONTA POR"
+				},
+				{
+					"id": 4259,
+					"serie": "NFSe",
+					"numDocto": "1864",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "43236.59",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE NF.1864, REFERENTE PARTE DO REAJUSTAMENTO DA 21 MEDIO DO PERODO DE 26062022 A 25072022 DO CONTRATO N 2342020  SERVIO DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS "
+				},
+				{
+					"id": 4260,
+					"serie": "NFSe",
+					"numDocto": "1856",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "212295.97",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1856 21 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTAS DA MALHA RODOVIRIA DA 5 RESIDNCIA REGIONAL DE PONTA POR"
+				},
+				{
+					"id": 4261,
+					"serie": "NFSe",
+					"numDocto": "1865",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "903.12",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1865, REFERENTE PARTE DO REAJUSTAMENTO DA 21 MEDIO DO PERODO DE 26062022 A 25072022 DO CONTRATO N 2342020  SERVIO DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO P"
+				},
+				{
+					"id": 4262,
+					"serie": "NFSe",
+					"numDocto": "1857",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "4434.43",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1857 21 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTAS DA MALHA RODOVIRIA DA 5 RESIDNCIA REGIONAL DE PONTA POR"
+				},
+				{
+					"id": 4263,
+					"serie": "NFSe",
+					"numDocto": "1858",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "4578.44",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1858 21 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTAS DA MALHA RODOVIRIA DA 5 RESIDNCIA REGIONAL DE PONTA POR"
+				},
+				{
+					"id": 4264,
+					"serie": "NFSe",
+					"numDocto": "1866",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "932.45",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1866, REFERENTE PARTE DO REAJUSTAMENTO DA 21 MEDIO DO PERODO DE 26062022 A 25072022 DO CONTRATO N 2342020  SERVIO DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO P"
+				},
+				{
+					"id": 4265,
+					"serie": "NFSE",
+					"numDocto": "1859",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "345574.11",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1859  1 MED  PERODO 0106  25062022  REFERENTE A  REAJUSTAMENTO AO CONTRATO N 1252020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIR"
+				},
+				{
+					"id": 4266,
+					"serie": "NFSE",
+					"numDocto": "1860",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "459798.98",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1860  12 MED  PERODO 0106  25072022  REFERENTE A  REAJUSTAMENTO AO CONTRATO N 1252020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVI"
+				},
+				{
+					"id": 4267,
+					"serie": "NFSE",
+					"numDocto": "1867",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "29623.38",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1867  1 MED  PERODO 0106  25062022  REFERENTE A  REAJUSTAMENTO AO CONTRATO N 1252020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIR"
+				},
+				{
+					"id": 4268,
+					"serie": "NFSE",
+					"numDocto": "1861",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "354093.16",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1861  12 MED  PERODO 0106  25072022  REFERENTE A  REAJUSTAMENTO AO CONTRATO N 1252020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVI"
+				},
+				{
+					"id": 4269,
+					"serie": "NFSe",
+					"numDocto": "1874",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "59811.92",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 1874  22 MEDIO DE REAJUSTAMENTO PERODO 26072022 A 25082022, REFERENTE AS OBRAS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA "
+				},
+				{
+					"id": 4270,
+					"serie": "NFSe",
+					"numDocto": "1875",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "2759.13",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 1875  22 MEDIO DE REAJUSTAMENTO PERODO 26072022 A 25082022, REFERENTE AS OBRAS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA "
+				},
+				{
+					"id": 4271,
+					"serie": "NFSe",
+					"numDocto": "1876",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "15020.07",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 1876  22 MEDIO DE REAJUSTAMENTO PERODO 26072022 A 25082022, REFERENTE AS OBRAS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA "
+				},
+				{
+					"id": 4272,
+					"serie": "NFSe",
+					"numDocto": "1877",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "5803.40",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 1877  22 MEDIO DE REAJUSTAMENTO PERODO 26072022 A 25082022, REFERENTE AS OBRAS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA "
+				},
+				{
+					"id": 4273,
+					"serie": "NFSe",
+					"numDocto": "1878",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "469.64",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 1878  22 MEDIO DE REAJUSTAMENTO PERODO 26072022 A 25082022, REFERENTE AS OBRAS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA "
+				},
+				{
+					"id": 4274,
+					"serie": "NFSe",
+					"numDocto": "1869",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "295994.28",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1869, REFERENTE PARTE DA 22 MEDIO DO PERODO DE 26072022 A 25082022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 5 RESIDNCIA R"
+				},
+				{
+					"id": 4275,
+					"serie": "NFSe",
+					"numDocto": "1870",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "13671.53",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1870, REFERENTE PARTE DA 22 MEDIO DO PERODO DE 26072022 A 25082022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 5 RESIDNCIA R"
+				},
+				{
+					"id": 4276,
+					"serie": "NFSe",
+					"numDocto": "1871",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "74334.83",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1871, REFERENTE PARTE DA 22 MEDIO DO PERODO DE 26072022 A 25082022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 5 RESIDNCIA R"
+				},
+				{
+					"id": 4277,
+					"serie": "NFSe",
+					"numDocto": "1872",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "28729.67",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1872, REFERENTE PARTE DA 22 MEDIO DO PERODO DE 26072022 A 25082022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 5 RESIDNCIA R"
+				},
+				{
+					"id": 4278,
+					"serie": "NFSe",
+					"numDocto": "1873",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "2315.93",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1873, REFERENTE PARTE DA 22 MEDIO DO PERODO DE 26072022 A 25082022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 5 RESIDNCIA R"
+				}
+			],
+			"ValorBruto": "5323228.12",
+			"VlrBaseRet": "802375.76",
+			"VlrRetencao": "89718.11"
+		},
+		{
+			"id": 1423,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "04879275000106",
+			"nfs": [
+				{
+					"id": 4279,
+					"serie": "NFSE",
+					"numDocto": "216",
+					"dtEmissaoNF": "2022-08-26",
+					"vlrBruto": "23918.37",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 216  17 MED  PERODO 0103  29032022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 1962020  IMPLANTAO E PAVIMENTAO DA RODOVIA MS427, TRECHO BALNERIO SETE QUEDAS  BARRO PRETO"
+				},
+				{
+					"id": 4280,
+					"serie": "NFSE",
+					"numDocto": "215",
+					"dtEmissaoNF": "2022-08-25",
+					"vlrBruto": "219171.12",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 215  17 MED  PERODO 0103  29032022  REFERENTE A  IMPLANTAO E PAVIMENTAO DA RODOVIA MS427, TRECHO BALNERIO SETE QUEDAS  BARRO PRETO, COM EXTENSO DE 5,74 KM, NO MUNICPIO "
+				},
+				{
+					"id": 4281,
+					"serie": "NFSe",
+					"numDocto": "213",
+					"dtEmissaoNF": "2022-08-22",
+					"vlrBruto": "121469.23",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 213  20 MEDIO FINAL DE REAJUSTAMENTO PERODO 01042022 A 30042022, REFERENTE A EXECUO EXECUO DA OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA DE ACESSO AO BALNERIO MUN"
+				}
+			],
+			"ValorBruto": "364558.72",
+			"VlrBaseRet": "36455.87",
+			"VlrRetencao": "4010.14"
+		},
+		{
+			"id": 1424,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "36798718000112",
+			"nfs": [
+				{
+					"id": 4282,
+					"serie": "NFSe",
+					"numDocto": "2750",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "3108118.21",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE SALDO DA NF.2750, REFERENTE PARTE DA 13 MEDIO DO PERODO DE 01062022 A 30062022 DA OBRA DE RESTAURAO DE PAVIMENTO, COM O MELHORAMENTO E ADEQUAO DE CAPACIDADE DE TRFEGO, SEGUR"
+				},
+				{
+					"id": 4283,
+					"serie": "NFSe",
+					"numDocto": "2751",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "111496.42",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.2751, REFERENTE SALDO DA 13 MEDIO DO PERODO DE 01062022 A 30062022 DA OBRA DE RESTAURAO DE PAVIMENTO, COM O MELHORAMENTO E ADEQUAO DE CAPACIDADE DE TRFEGO, SEGURANA E DRE"
+				},
+				{
+					"id": 4284,
+					"serie": "NFSe",
+					"numDocto": "2752",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "28134.99",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2752  19 MEDIO PERIODO 26062022 A 25072022. MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 1 RESIDNCIA REGIONAL DE CAMPO GRANDE"
+				},
+				{
+					"id": 4285,
+					"serie": "NFSe",
+					"numDocto": "2753",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "143206.65",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2753  19 MEDIO PERIODO 26062022 A 25072022. MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 1 RESIDNCIA REGIONAL DE CAMPO GRANDE"
+				},
+				{
+					"id": 4286,
+					"serie": "NFSe",
+					"numDocto": "2754",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "6276.64",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2754  19 MEDIO PERIODO 26062022 A 25072022. MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 1 RESIDNCIA REGIONAL DE CAMPO GRANDE"
+				},
+				{
+					"id": 4287,
+					"serie": "NFSe",
+					"numDocto": "2755",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "710293.07",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2755  19 MEDIO PERIODO 26062022 A 25072022. MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 1 RESIDNCIA REGIONAL DE CAMPO GRANDE"
+				},
+				{
+					"id": 4288,
+					"serie": "NFSe",
+					"numDocto": "2756",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "151963.32",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2756  19 MEDIO PERIODO 26062022 A 25072022. MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 1 RESIDNCIA REGIONAL DE CAMPO GRANDE"
+				},
+				{
+					"id": 4292,
+					"serie": "NFSE",
+					"numDocto": "2760",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "184387.36",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2760  19 MEDIO DE REAJUSTAMENTO  PERIODO  26062022 A 2507 2022.REAJUSTAMENTO DO CONTRATO N 2362020 DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PA"
+				},
+				{
+					"id": 4293,
+					"serie": "NFSE",
+					"numDocto": "2761",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "28808.60",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2761  19 MEDIO DE REAJUSTAMENTO  PERIODO  26062022 A 2507 2022.REAJUSTAMENTO DO CONTRATO N 2362020 DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PA"
+				},
+				{
+					"id": 4294,
+					"serie": "nfse",
+					"numDocto": "2762",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "1702800.67",
+					"obs": "APROPRIAO PARA PAGAMENTO PARTE DA NF. 2762, REFERENTE A 13 MEDIO PERODO DE 01062022 A 30062022  REAJUSTAMENTO AO CONTRATO N 0582021  RESTAURAO DE PAVIMENTO, COM O MELHORAMENTO E ADEQUAO DE CAPACIDADE "
+				},
+				{
+					"id": 4295,
+					"serie": "nfse",
+					"numDocto": "2763",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "36087.53",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2763, REFERENTE A 13 MEDIO PERODO DE 01062022 A 30062022  REAJUSTAMENTO AO CONTRATO N 0582021  RESTAURAO DE PAVIMENTO, COM O MELHORAMENTO E ADEQUAO DE CAPACIDADE DE TRF"
+				},
+				{
+					"id": 4297,
+					"serie": "NFSE",
+					"numDocto": "2757",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "5184.05",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE REGULARIZAO CONTBIL, REFERENTE A NF 2757  19 MEDIO 26062022 A 25072022  REAJUSTAMENTO DO CONTRATO N 2362020 DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E N"
+				},
+				{
+					"id": 4298,
+					"serie": "NFSE",
+					"numDocto": "2758",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "26683.05",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE REGULARIZAO CONTBIL, REFERENTE A NF 2758  19 MEDIO 26062022 A 25072022  REAJUSTAMENTO DO CONTRATO N 2362020 DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E N"
+				},
+				{
+					"id": 4299,
+					"serie": "NFSE",
+					"numDocto": "2759",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "1133.40",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE REGULARIZAO CONTBIL, REFERENTE A NF 2759  19 MEDIO 26062022 A 25072022  REAJUSTAMENTO DO CONTRATO N 2362020 DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E N"
+				}
+			],
+			"ValorBruto": "6244573.96",
+			"VlrBaseRet": "682878.03",
+			"VlrRetencao": "75116.57"
+		},
+		{
+			"id": 1425,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "03090909000176",
+			"nfs": [
+				{
+					"id": 4300,
+					"serie": "NFSe",
+					"numDocto": "42",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "343548.79",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.42, REFERENTE A 1 MEDIO DO PERODO DE 26042022 A 31072022  DA OBRA DE INFRAESTRUTURA URBANA  RESTAURAO FUNCIONAL DO PAVIMENTO RECAPEAMENTO E DRENAGEM DE GUAS PLUVIAIS NA R"
+				}
+			],
+			"ValorBruto": "343548.79",
+			"VlrBaseRet": "34354.88",
+			"VlrRetencao": "3779.03"
+		},
+		{
+			"id": 1426,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "14992612000112",
+			"nfs": [
+				{
+					"id": 4301,
+					"serie": "NFSe",
+					"numDocto": "800",
+					"dtEmissaoNF": "2022-08-01",
+					"vlrBruto": "330489.00",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 800 2 MEDIO  PERODO 22042022 A 21052022  INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS NA VILA BOCAJ  1 FASE NO MUNICPIO DE LAGUNA CARAP"
+				},
+				{
+					"id": 4302,
+					"serie": "NFSE",
+					"numDocto": "802",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "662843.60",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 802  2 MED  PERODO 0107  31072022  REFERENTE A  OBRA DE INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA, DRENAGEM DE GUAS PLUVIAIS E RESTAURAO FUNCIONAL DO PAVIMENTO DE DIVE"
+				}
+			],
+			"ValorBruto": "993332.60",
+			"VlrBaseRet": "99333.26",
+			"VlrRetencao": "10926.66"
+		},
+		{
+			"id": 1427,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "11388737000140",
+			"nfs": [
+				{
+					"id": 4303,
+					"serie": "NFSe",
+					"numDocto": "1949",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "1371384.95",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 1949, 19 MEDIO PARCIAL 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 13 RESIDENCIAL REGIONAL DE MARACAJU CO"
+				},
+				{
+					"id": 4304,
+					"serie": "NFSe",
+					"numDocto": "1951",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "193797.41",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 1951, 19 MEDIO PARCIAL 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 13 RESIDENCIAL REGIONAL DE MARACAJU CO"
+				},
+				{
+					"id": 4305,
+					"serie": "NFSe",
+					"numDocto": "1952",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "1218.80",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 1952, 19 MEDIO PARCIAL 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 13 RESIDENCIAL REGIONAL DE MARACAJU CO"
+				},
+				{
+					"id": 4306,
+					"serie": "NFSe",
+					"numDocto": "1953",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "22530.16",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 1953, 19 MEDIO PARCIAL 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 13 RESIDENCIAL REGIONAL DE MARACAJU CO"
+				},
+				{
+					"id": 4307,
+					"serie": "NFSe",
+					"numDocto": "1954",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "32152.16",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 1954, 19 MEDIO PARCIAL 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 13 RESIDENCIAL REGIONAL DE MARACAJU CO"
+				},
+				{
+					"id": 4308,
+					"serie": "NFSe",
+					"numDocto": "1950",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "20890.86",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 1950, 19 MEDIO PARCIAL 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 13 RESIDENCIAL REGIONAL DE MARACAJU CO"
+				},
+				{
+					"id": 4309,
+					"serie": "NFSe",
+					"numDocto": "1956",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "307700.95",
+					"obs": "LIQUIDAO PARA PAGAMENTO PARTE REFERENTE A NF 1956 19 MEDIO REAJUSTAMENTO  PERODO 26062022 A 25072022  EXECUO DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA R"
+				},
+				{
+					"id": 4310,
+					"serie": "NFSe",
+					"numDocto": "1957",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "4687.33",
+					"obs": "LIQUIDAO PARA PAGAMENTO PARTE REFERENTE A NF 1957 19 MEDIO REAJUSTAMENTO  PERODO 26062022 A 25072022  EXECUO DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA R"
+				},
+				{
+					"id": 4311,
+					"serie": "NFSe",
+					"numDocto": "1958",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "43482.79",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1958 19 MEDIO REAJUSTAMENTO  PERODO 26062022 A 25072022  EXECUO DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIR"
+				},
+				{
+					"id": 4312,
+					"serie": "NFSe",
+					"numDocto": "1960",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "5055.14",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1960 19 MEDIO REAJUSTAMENTO  PERODO 26062022 A 25072022  EXECUO DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIR"
+				},
+				{
+					"id": 4313,
+					"serie": "NFSe",
+					"numDocto": "1961",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "7214.06",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1961 19 MEDIO REAJUSTAMENTO  PERODO 26062022 A 25072022  EXECUO DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIR"
+				}
+			],
+			"ValorBruto": "2010114.61",
+			"VlrBaseRet": "301517.10",
+			"VlrRetencao": "33166.90"
+		},
+		{
+			"id": 1428,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "82595174000109",
+			"nfs": [
+				{
+					"id": 4314,
+					"serie": "NFSE",
+					"numDocto": "3088",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "90714.80",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3088  5671213  PERODO 1402  13112021  REFERENTE AO  REEQUILBRIO ECONMICO FINANCEIRO AO CONTRATO N 1922020  EXECUO DE OBRAS DE INFRAESTRUTURA URBANA  RESTAURAO FUNCIONAL"
+				},
+				{
+					"id": 4315,
+					"serie": "NFSe",
+					"numDocto": "3086",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "43274.35",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3086, REFERENTE A 7 MEDIO DO PERODO DE 11052022 A 10062022 DA CONTRATAO DE EMPRESA ESPECIALIZADA PARA EXECUO DE OBRAS DE INFRAESTRUTURA URBANA  RESTAURAO FUNCIONAL DO PAV"
+				},
+				{
+					"id": 4316,
+					"serie": "NFSe",
+					"numDocto": "3087",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "483693.50",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3087, REFERENTE AO REEQUILBRIO ECONMICO FINANCEIRO DA 2 A 6 MEDIO DO PERODO DE 11122021 A 10052022 DO CONTRATO N 1732021  REF. A EXECUO DE OBRAS DE INFRAESTRUTURA URBANA "
+				},
+				{
+					"id": 4317,
+					"serie": "NFSe",
+					"numDocto": "3099",
+					"dtEmissaoNF": "2022-08-16",
+					"vlrBruto": "373677.66",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3099, REFERENTE AO REAJUSTAMENTO DA 14 MEDIO DO PERODO DE 01072022 A 31072022 DO CONTRATO N 0602021  OBRA DE RESTAURAO DE PAVIMENTO, COM MELHORAMENTO E ADEQUAO DE CAPACID"
+				},
+				{
+					"id": 4318,
+					"serie": "NFSe",
+					"numDocto": "3106",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "1016642.04",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 3106, 3 MEDIO 16072022 A 15082022  EXECUO DE OBRA DE INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS NO BAIRRO SEAC, NO MUNICPIO DE LADRIOMS. PROCE"
+				},
+				{
+					"id": 4319,
+					"serie": "NFSE",
+					"numDocto": "3098",
+					"dtEmissaoNF": "2022-08-16",
+					"vlrBruto": "814134.12",
+					"obs": "APROPRIAO DA NF. 3098  14 MED  PERODO 0107  31072022  REFERENTE A  OBRA DE RESTAURAO DE PAVIMENTO, COM MELHORAMENTO E ADEQUAO DE CAPACIDADE DE TRFEGO, SEGURANA E DRENAGEM DA RODOVIA MS162 LOTE 1, TREC"
+				},
+				{
+					"id": 4320,
+					"serie": "NFSe",
+					"numDocto": "3110",
+					"dtEmissaoNF": "2022-08-22",
+					"vlrBruto": "211120.20",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3110, REFERENTE AO REAJUSTAMENTO DA 11 MEDIO DO PERODO DE 16072022 A 15082022 DO CONTRATO N 1432021  IMPLANTAO EM REVESTIMENTO PRIMRIO DE RODOVIA NO PAVIMENTADA, RODOVIA "
+				},
+				{
+					"id": 4321,
+					"serie": "NFSe",
+					"numDocto": "3109",
+					"dtEmissaoNF": "2022-08-22",
+					"vlrBruto": "1179874.38",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 3109 11 MEDIO  PERODO 16072022 A 15082022  IMPLANTAO EM REVESTIMENTO PRIMRIO DE RODOVIA NO PAVIMENTADA, RODOVIA ACESSO AO PORTO ESPERANA , TRECHO BR 262 KM700218"
+				},
+				{
+					"id": 4322,
+					"serie": "NFSE",
+					"numDocto": "3108",
+					"dtEmissaoNF": "2022-08-22",
+					"vlrBruto": "4048.30",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3108  3 MED  PERODO 160715082022  REFERENTE A  INFRAESTRUTURA URBANA  RESTAURAO FUNCIONAL DO PAVIMENTO RECAPEAMENTO NO BAIRRO GUATS EM CORUMBMS. 57000.0962022"
+				}
+			],
+			"ValorBruto": "4217179.35",
+			"VlrBaseRet": "421717.94",
+			"VlrRetencao": "46388.97"
+		},
+		{
+			"id": 1429,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "03818852000189",
+			"nfs": [
+				{
+					"id": 4323,
+					"serie": "NFSe",
+					"numDocto": "922",
+					"dtEmissaoNF": "2022-08-01",
+					"vlrBruto": "142560.30",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 922 2 MEDIO  PERODO 24062022 A 23072022  PAVIMENTAO ASFLTICA E DRENAGEM DE AGUAS PLUVIAIS EM PARTE DAS RUAS DOS JARDINS EUROPA SUL, ITLIA, ELDORADO E SO JOSE, NO"
+				},
+				{
+					"id": 4324,
+					"serie": "NFSe",
+					"numDocto": "923",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "284227.16",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 923 6 MEDIO  PERODO 01072022 A 31072022  EXECUO DE OBRA DE INFRAESTRUTURA PAVIMENTAO ASFLTICA E DRENAGEM DE AGUAS PLUVIAIS NO MUNICPIO DE NOVO HORIZONTE DO SUL M"
+				}
+			],
+			"ValorBruto": "426787.46",
+			"VlrBaseRet": "107856.70",
+			"VlrRetencao": "11864.24"
+		},
+		{
+			"id": 1430,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "14021849000156",
+			"nfs": [
+				{
+					"id": 4325,
+					"serie": "nfse",
+					"numDocto": "60",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "366994.52",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 60, REFERENTE A 02 MEDIO PERIODO DE 01072022 A 31072022  INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS DA RUA SANTO ANTNIO, NO MUNICPIO DE NOVA"
+				}
+			],
+			"ValorBruto": "366994.52",
+			"VlrBaseRet": "183497.26",
+			"VlrRetencao": "20184.70"
+		},
+		{
+			"id": 1431,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "01618204000153",
+			"nfs": [
+				{
+					"id": 4326,
+					"serie": "NFSe",
+					"numDocto": "3397",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "471595.09",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 3397, 12 MEDIO 01052022 A 31052022  EXECUO DE OBRAS DE INFRAESTRUTURA URBANA  RESTAURAO FUNCIONAL DO PAVIMENTO RECICLAGEM, DRENAGEM DE AGUAS PLUVIAIS, URBANIZAO COM IMPLA"
+				},
+				{
+					"id": 4327,
+					"serie": "NFSe",
+					"numDocto": "3398",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "199513.04",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3398  1 MEDIO  PERIODO 07062022 A 31072022. INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS E RESTAURAO FUNCIONAL DO PAVIMENTO RECAPEAMENTO DE DI"
+				},
+				{
+					"id": 4328,
+					"serie": "nfse",
+					"numDocto": "3406",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "608430.77",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3406, REFERENTE A 38 MEDIO FINAL PERIODO DE 01012022 A 10022022  PAVIMENTAO ASFLTICA NA RODOVIA MS379, TRECHO LAGUNA CARAP  POSTO TAJI, COM EXTENSO DE 42,580 KM, NOS MU"
+				},
+				{
+					"id": 4329,
+					"serie": "NFSe",
+					"numDocto": "3421",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "41807.09",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3421, REFERENTE PARTE DA 11 MEDIO DO PERODO DE 26052022 A 25062022 DA OBRA DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2 RES"
+				},
+				{
+					"id": 4330,
+					"serie": "NFSe",
+					"numDocto": "3422",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "251421.91",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3422, REFERENTE PARTE DA 11 MEDIO DO PERODO DE 26052022 A 25062022 DA OBRA DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2 RES"
+				},
+				{
+					"id": 4331,
+					"serie": "NFSe",
+					"numDocto": "3423",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "23092.53",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3423, REFERENTE PARTE DA 11 MEDIO DO PERODO DE 26052022 A 25062022 DA OBRA DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2 RES"
+				},
+				{
+					"id": 4332,
+					"serie": "NFSe",
+					"numDocto": "3424",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "190647.80",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3424, REFERENTE PARTE DA 11 MEDIO DO PERODO DE 26052022 A 25062022 DA OBRA DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2 RES"
+				},
+				{
+					"id": 4333,
+					"serie": "NFSe",
+					"numDocto": "3425",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "39988.16",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3425, REFERENTE PARTE DA 11 MEDIO DO PERODO DE 26052022 A 25062022 DA OBRA DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2 RES"
+				},
+				{
+					"id": 4334,
+					"serie": "NFSe",
+					"numDocto": "3426",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "108812.73",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3426, REFERENTE PARTE DA 12 MEDIO DO PERODO DE 26062022 A 22072022 DA OBRA DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2 RES"
+				},
+				{
+					"id": 4335,
+					"serie": "NFSe",
+					"numDocto": "3427",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "64060.25",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3427, REFERENTE PARTE DA 12 MEDIO DO PERODO DE 26062022 A 22072022 DA OBRA DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2 RES"
+				},
+				{
+					"id": 4336,
+					"serie": "NFSe",
+					"numDocto": "3428",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "89258.21",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3428, REFERENTE PARTE DA 12 MEDIO DO PERODO DE 26062022 A 22072022 DA OBRA DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2 RES"
+				},
+				{
+					"id": 4337,
+					"serie": "nfse",
+					"numDocto": "3430",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "12479.56",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3430, REFERENTE A 11 MEDIO PERIODO DE 26052022 A 25062022  REAJUSTAMENTO AO CONTRATO N 0702021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALH"
+				},
+				{
+					"id": 4338,
+					"serie": "nfse",
+					"numDocto": "3431",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "75050.32",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3431, REFERENTE A 11 MEDIO PERIODO DE 26052022 A 25062022  REAJUSTAMENTO AO CONTRATO N 0702021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALH"
+				},
+				{
+					"id": 4339,
+					"serie": "nfse",
+					"numDocto": "3432",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "6893.20",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3432, REFERENTE A 11 MEDIO PERIODO DE 26052022 A 25062022  REAJUSTAMENTO AO CONTRATO N 0702021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALH"
+				},
+				{
+					"id": 4340,
+					"serie": "nfse",
+					"numDocto": "3433",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "56909.04",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3433, REFERENTE A 11 MEDIO PERIODO DE 26052022 A 25062022  REAJUSTAMENTO AO CONTRATO N 0702021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALH"
+				},
+				{
+					"id": 4341,
+					"serie": "nfse",
+					"numDocto": "3434",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "11936.61",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3434, REFERENTE A 11 MEDIO PERIODO DE 26052022 A 25062022  REAJUSTAMENTO AO CONTRATO N 0702021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALH"
+				},
+				{
+					"id": 4342,
+					"serie": "nfse",
+					"numDocto": "3435",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "40307.12",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3435, REFERENTE A 12 MEDIO PERIODO DE 26062022 A 22072022  REAJUSTAMENTO AO CONTRATO N 0702021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALH"
+				},
+				{
+					"id": 4343,
+					"serie": "nfse",
+					"numDocto": "3436",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "23729.61",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3436, REFERENTE A 12 MEDIO PERIODO DE 26062022 A 22072022  REAJUSTAMENTO AO CONTRATO N 0702021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALH"
+				},
+				{
+					"id": 4344,
+					"serie": "nfse",
+					"numDocto": "3437",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "33063.61",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 3437, REFERENTE A 12 MEDIO PERIODO DE 26062022 A 22072022  REAJUSTAMENTO AO CONTRATO N 0702021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALH"
+				}
+			],
+			"ValorBruto": "2348996.65",
+			"VlrBaseRet": "234899.62",
+			"VlrRetencao": "25838.98"
+		},
+		{
+			"id": 1432,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "03703179000131",
+			"nfs": [
+				{
+					"id": 4345,
+					"serie": "NFSe",
+					"numDocto": "46535",
+					"dtEmissaoNF": "2022-08-22",
+					"vlrBruto": "32373.10",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 46535  REFERENTE AO MS DE JULHO2022 SERVIOS DE LIMPEZA, ASSEIO E CONSERVAO PREDIAL, COPA, COZINHA, JARDINAGEM, MANUTENO, COM FORNECIMENTO DE MATERIAIS, PARA ATENDER A A"
+				}
+			],
+			"ValorBruto": "32373.10",
+			"VlrBaseRet": "25898.48",
+			"VlrRetencao": "2848.83"
+		},
+		{
+			"id": 1433,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "97485593000165",
+			"nfs": [
+				{
+					"id": 4346,
+					"serie": "NFSE",
+					"numDocto": "233",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "24409.09",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 233  11 MED  PERODO 260625072022  REFERENTE AO REAJUSTAMENTO AO CONTRATO N 1012021  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUEM FAZEM PARTE DA MALHA RO"
+				},
+				{
+					"id": 4347,
+					"serie": "NFSe",
+					"numDocto": "232",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "239162.17",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.232, REFERENTE A 11 MEDIO DO PERODO DE 26062022 A 25072022 DA MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUEM FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADAS "
+				}
+			],
+			"ValorBruto": "263571.26",
+			"VlrBaseRet": "92249.93",
+			"VlrRetencao": "10147.48"
+		},
+		{
+			"id": 1434,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "01397004000118",
+			"nfs": [
+				{
+					"id": 4348,
+					"serie": "NFSe",
+					"numDocto": "484",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "153471.56",
+					"obs": "APROPRIAO PARA PAGAMENTO PARTE DA NF. 484  17 MEDIO  PERODO 01112022 A 30112022, 18 MEDIO  PERODO 01122022 A 31122022, 19 MEDIO  PERODO 01012022 A 31012022. 20 MEDIO  PERODO 01022022 A 28022022. 21 ME"
+				},
+				{
+					"id": 4349,
+					"serie": "NFSe",
+					"numDocto": "485",
+					"dtEmissaoNF": "2022-08-22",
+					"vlrBruto": "694216.54",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE DA NF.485, REFERENTE A SALDO DA 7 MEDIO FINAL DO PERODO DE 01072022 A 31072022 E DE 01082022 A 22082022 DA OBRA DE INFRAESTRUTURA URBANA  DRENAGEM DE GUA PLUVIAL E COM"
+				}
+			],
+			"ValorBruto": "847688.10",
+			"VlrBaseRet": "296690.83",
+			"VlrRetencao": "32635.98"
+		},
+		{
+			"id": 1435,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "14418821000157",
+			"nfs": [
+				{
+					"id": 4350,
+					"serie": "NFSe",
+					"numDocto": "135",
+					"dtEmissaoNF": "2022-08-01",
+					"vlrBruto": "330910.27",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 135  1 MEDIO  PERODO 23052022 A 31052022. 2 MEDIO  PERODO 01062022 A 30062022. 3 MEDIO FINAL  PERODO 01072022 A 21072022. CONTRATAO DE EMPRESA ESPECIALIZADA PARA A CONS"
+				},
+				{
+					"id": 4351,
+					"serie": "NFSe",
+					"numDocto": "136",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "95166.37",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 136, 12 MEDIO FINAL 01062022 A 05062022  CONSTRUO DE PONTE DE CONCRETO ARMADO SOBRE O RIO VERDE, EM ESTRADA VICINAL, TRECHO ENTR. BR163, COM EXTENSO DE 50,00M, COORDENADA"
+				},
+				{
+					"id": 4352,
+					"serie": "NFSe",
+					"numDocto": "138",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "134411.16",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 138 2 3 MEDIO REAJUSTAMENTO  01032022 A 30042022  CONSTRUO DE PONTE EM CONCRETO ARMADO SOBRE O CRREGO PONTE VERMELHA, RODOVIA MS 435, COM EXTENSO DE 20,00M, LARG"
+				}
+			],
+			"ValorBruto": "560487.80",
+			"VlrBaseRet": "152946.42",
+			"VlrRetencao": "16824.09"
+		},
+		{
+			"id": 1436,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "00635391000110",
+			"nfs": [
+				{
+					"id": 4353,
+					"serie": "NFSe",
+					"numDocto": "2527",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "97396.23",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 2527, 18 MEDIO  26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 17 REGIONAL DE RIO NEGROMS. PROCESSO 57100515"
+				},
+				{
+					"id": 4354,
+					"serie": "NFSe",
+					"numDocto": "2528",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "114001.16",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 2528, 18 MEDIO  26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 17 REGIONAL DE RIO NEGROMS. PROCESSO 57100515"
+				},
+				{
+					"id": 4355,
+					"serie": "NFSe",
+					"numDocto": "2529",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "343800.95",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 2529, 18 MEDIO  26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 17 REGIONAL DE RIO NEGROMS. PROCESSO 57100515"
+				},
+				{
+					"id": 4356,
+					"serie": "NFSe",
+					"numDocto": "2530",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "17891.82",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 2530  18 MEDIO DE REAJUSTAMENTO PERODO 26062022 A 25072022, REFERENTE A EXECUO DA OBRA DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODO"
+				},
+				{
+					"id": 4357,
+					"serie": "NFSe",
+					"numDocto": "2531",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "20941.80",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 2531  18 MEDIO DE REAJUSTAMENTO PERODO 26062022 A 25072022, REFERENTE A EXECUO DA OBRA DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODO"
+				},
+				{
+					"id": 4358,
+					"serie": "NFSe",
+					"numDocto": "2532",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "63172.21",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 2532  18 MEDIO DE REAJUSTAMENTO PERODO 26062022 A 25072022, REFERENTE A EXECUO DA OBRA DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODO"
+				},
+				{
+					"id": 4359,
+					"serie": "NFSe",
+					"numDocto": "2533",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "188642.53",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 2533  1 A 7 MEDIO PERODO 03012022 A 31072022, REFERENTE A EXECUO DOS SERVIOS DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA VICINAL SERRA DO BOLICHO SECO TRECHO INCIO DA "
+				},
+				{
+					"id": 4360,
+					"serie": "NFSE",
+					"numDocto": "2525",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "153928.94",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 2525  REFERENTE A 10 MEDIO DO PERODO DE 01072022  31072022  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA MS162, INCLUSIVE OBRAS DE ARTE ESPECIAIS, TRECHO ENTR. BR26"
+				},
+				{
+					"id": 4361,
+					"serie": "NFSE",
+					"numDocto": "2526",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "26253.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF.2526  10 MED  PERODO 010731072022  REFERENTE A  REAJUSTAMENTO DO CONTRATO N.1392021 DA OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA MS162, INCLUSIVE OBRAS DE ARTE "
+				}
+			],
+			"ValorBruto": "1026029.26",
+			"VlrBaseRet": "102602.92",
+			"VlrRetencao": "11286.32"
+		},
+		{
+			"id": 1437,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "25217122000165",
+			"nfs": [
+				{
+					"id": 4362,
+					"serie": "NFSE",
+					"numDocto": "78",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "32127.00",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 78  4  5 MED  PERODO 0105  300620222  REFERENTE A  OBRA DE INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS NO ACESSO  MARGINAL NO MUNICPIO DE VIC"
+				},
+				{
+					"id": 4363,
+					"serie": "NFSe",
+					"numDocto": "81",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "132114.38",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 81 2 MEDIO  PERODO 01072022 A 31072022  INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA E DRENAGEM DE AGUAS PLUVIAIS NA RUA CELINO BERTO VIEIRA, PARTES DAS RUAS MANOE"
+				},
+				{
+					"id": 4364,
+					"serie": "NFSe",
+					"numDocto": "82",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "93595.56",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 82, 6 A MEDIO FINAL, 17062022 A 29072222  PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS NA AV. TRUMA, NO MUNICPIO DE NAVIRAMS. PROCESSO 57008.7752021."
+				}
+			],
+			"ValorBruto": "257836.94",
+			"VlrBaseRet": "25783.68",
+			"VlrRetencao": "2836.19"
+		},
+		{
+			"id": 1438,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "02011044000142",
+			"nfs": [
+				{
+					"id": 4365,
+					"serie": "NFSE",
+					"numDocto": "728",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "61595.27",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 728  6MED  PERODO 2606  25072022  REFERENTE A  EXECUO DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 9 RESIDNCIA "
+				},
+				{
+					"id": 4366,
+					"serie": "NFSE",
+					"numDocto": "729",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "85185.12",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 729  6MED  PERODO 266  25072022  REFERENTE A  EXECUO DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 9 RESIDNCIA R"
+				},
+				{
+					"id": 4367,
+					"serie": "NFSE",
+					"numDocto": "730",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "165649.53",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 730  6MED  PERODO 266  25072022  REFERENTE A  EXECUO DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 9 RESIDNCIA R"
+				},
+				{
+					"id": 4368,
+					"serie": "NFSE",
+					"numDocto": "731",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "379635.43",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 731  6MED  PERODO 266  25072022  REFERENTE A  EXECUO DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 9 RESIDNCIA R"
+				},
+				{
+					"id": 4369,
+					"serie": "NFSE",
+					"numDocto": "732",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "538413.38",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 732  6MED  PERODO 266  25072022  REFERENTE A  EXECUO DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 9 RESIDNCIA R"
+				},
+				{
+					"id": 4370,
+					"serie": "NFSE",
+					"numDocto": "733",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "503233.73",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 733  6MED  PERODO 266  25072022  REFERENTE A  EXECUO DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 9 RESIDNCIA R"
+				},
+				{
+					"id": 4371,
+					"serie": "NFSe",
+					"numDocto": "734",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "15138.48",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 734, 06 MEDIO 26062022 A 25072022  REAJUSTAMENTO DO PROCESSO DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 9 RESIDNCIA REGION"
+				},
+				{
+					"id": 4372,
+					"serie": "NFSe",
+					"numDocto": "735",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "20938.01",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 735, 06 MEDIO 26062022 A 25072022  REAJUSTAMENTO DO PROCESSO DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 9 RESIDNCIA REGION"
+				},
+				{
+					"id": 4373,
+					"serie": "NFSe",
+					"numDocto": "736",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "40724.65",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 736, 06 MEDIO 26062022 A 25072022  REAJUSTAMENTO DO PROCESSO DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 9 RESIDNCIA REGION"
+				},
+				{
+					"id": 4374,
+					"serie": "NFSe",
+					"numDocto": "737",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "93389.50",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 737, 06 MEDIO 26062022 A 25072022  REAJUSTAMENTO DO PROCESSO DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 9 RESIDNCIA REGION"
+				},
+				{
+					"id": 4375,
+					"serie": "NFSe",
+					"numDocto": "738",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "132451.05",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 738, 06 MEDIO 26062022 A 25072022  REAJUSTAMENTO DO PROCESSO DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 9 RESIDNCIA REGION"
+				},
+				{
+					"id": 4376,
+					"serie": "NFSe",
+					"numDocto": "739",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "123794.39",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 739, 06 MEDIO 26062022 A 25072022  REAJUSTAMENTO DO PROCESSO DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 9 RESIDNCIA REGION"
+				}
+			],
+			"ValorBruto": "2160148.54",
+			"VlrBaseRet": "331973.32",
+			"VlrRetencao": "36516.99"
+		},
+		{
+			"id": 1439,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "15242537000135",
+			"nfs": [
+				{
+					"id": 4377,
+					"serie": "NFSe",
+					"numDocto": "444",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "7599.98",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 444  22 MEDIO DE REAJUSTAMENTO PERODO 06042022 A 05052022, REFERENTE A EXECUO DA OBRA DE CONSTRUO DO PRDIO DA CLNICA DE ATENDIMENTO NO CENTRO DE REABILITAO DE ANIMAIS SI"
+				}
+			],
+			"ValorBruto": "7599.98",
+			"VlrBaseRet": "2659.99",
+			"VlrRetencao": "292.60"
+		},
+		{
+			"id": 1440,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "04955783000118",
+			"nfs": [
+				{
+					"id": 4378,
+					"serie": "NFSe",
+					"numDocto": "1563",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "107794.84",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1563  3MEDIO FINAL  PERIODO 26042022 A 25052022. CONSTRUO DE PONTES DE MADEIRA EM VIGAMENTO SIMPLES SOBRE VAZANTES VAZANTE 32, 12,00 M VAZANTE 37 DE 12,00M VAZANTE 38 D"
+				},
+				{
+					"id": 4379,
+					"serie": "NFSE",
+					"numDocto": "1561",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "109413.72",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1561  11 MED  PERODO 2606  25072022  REFERENTE A  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADA DA 13 RESIDN"
+				},
+				{
+					"id": 4380,
+					"serie": "nfse",
+					"numDocto": "1565",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "11735.33",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1565, REFERENTE A 11 MEDIO PERIODO DE 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 1162021  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE "
+				},
+				{
+					"id": 4381,
+					"serie": "nfse",
+					"numDocto": "1564",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "8652.31",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1565, REFERENTE A 10 MEDIO PERIODO DE 26052022 A 25062022  REAJUSTAMENTO AO CONTRATO N 1162021  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE "
+				}
+			],
+			"ValorBruto": "237596.20",
+			"VlrBaseRet": "93938.15",
+			"VlrRetencao": "10333.19"
+		},
+		{
+			"id": 1441,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "01551589000189",
+			"nfs": [
+				{
+					"id": 4382,
+					"serie": "NFSe",
+					"numDocto": "1462",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "204111.58",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1462, REFERENTE PARTE DA 30 MEDIO DO PERODO DE 26062022 A 25072022 DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2"
+				},
+				{
+					"id": 4383,
+					"serie": "NFSe",
+					"numDocto": "1463",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "15550.15",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1463, REFERENTE PARTE DA 30 MEDIO DO PERODO DE 26062022 A 25072022 DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2"
+				},
+				{
+					"id": 4384,
+					"serie": "NFSe",
+					"numDocto": "1464",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "416188.68",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1464, REFERENTE PARTE DA 30 MEDIO DO PERODO DE 26062022 A 25072022 DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2"
+				},
+				{
+					"id": 4385,
+					"serie": "NFSe",
+					"numDocto": "1465",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "7447.55",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1465, REFERENTE PARTE DA 30 MEDIO DO PERODO DE 26062022 A 25072022 DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2"
+				},
+				{
+					"id": 4386,
+					"serie": "NFSe",
+					"numDocto": "1466",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "218285.13",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1466, REFERENTE PARTE DA 30 MEDIO DO PERODO DE 26062022 A 25072022 DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2"
+				},
+				{
+					"id": 4387,
+					"serie": "NFSe",
+					"numDocto": "1467",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "195085.45",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1467, REFERENTE PARTE DA 30 MEDIO DO PERODO DE 26062022 A 25072022 DOS SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 2"
+				},
+				{
+					"id": 4388,
+					"serie": "nfse",
+					"numDocto": "1468",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "49956.60",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1468, REFERENTE A 30 MEDIO PERIODO DE 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 0012020  SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTA"
+				},
+				{
+					"id": 4389,
+					"serie": "nfse",
+					"numDocto": "1469",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "3801.05",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1469, REFERENTE A 30 MEDIO PERIODO DE 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 0012020  SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTA"
+				},
+				{
+					"id": 4390,
+					"serie": "nfse",
+					"numDocto": "1470",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "101852.50",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1470, REFERENTE A 30 MEDIO PERIODO DE 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 0012020  SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTA"
+				},
+				{
+					"id": 4391,
+					"serie": "nfse",
+					"numDocto": "1471",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "1810.02",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1471, REFERENTE A 30 MEDIO PERIODO DE 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 0012020  SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTA"
+				},
+				{
+					"id": 4392,
+					"serie": "nfse",
+					"numDocto": "1472",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "53421.49",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1472, REFERENTE A 30 MEDIO PERIODO DE 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 0012020  SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTA"
+				},
+				{
+					"id": 4393,
+					"serie": "nfse",
+					"numDocto": "1473",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "47732.86",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1473, REFERENTE A 30 MEDIO PERIODO DE 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 0012020  SERVIOS DE MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTA"
+				}
+			],
+			"ValorBruto": "1315243.06",
+			"VlrBaseRet": "183664.07",
+			"VlrRetencao": "20203.02"
+		},
+		{
+			"id": 1442,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "12058497000188",
+			"nfs": [
+				{
+					"id": 4394,
+					"serie": "NFSe",
+					"numDocto": "830",
+					"dtEmissaoNF": "2022-08-04",
+					"vlrBruto": "388598.22",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 830  20 MEDIO PERODO 01072022 A 31072022, REFERENTE A EXECUO DAS OBRAS DE INFRAESTRUTURA URBANA DE PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS, CONTENO DE ASSOREAMEN"
+				}
+			],
+			"ValorBruto": "388598.22",
+			"VlrBaseRet": "136009.38",
+			"VlrRetencao": "14961.03"
+		},
+		{
+			"id": 1443,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "26631473000180",
+			"nfs": [
+				{
+					"id": 4395,
+					"serie": "NFSE",
+					"numDocto": "2571",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "33496.32",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2571  17 MED  PERODO 260625072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 0192021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIR"
+				},
+				{
+					"id": 4396,
+					"serie": "NFSE",
+					"numDocto": "2572",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "3760.73",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2572  17 MED  PERODO 260625072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 0192021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIR"
+				},
+				{
+					"id": 4397,
+					"serie": "NFSE",
+					"numDocto": "2573",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "10766.02",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2573  17 MED  PERODO 260625072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 0192021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIR"
+				},
+				{
+					"id": 4398,
+					"serie": "NFSE",
+					"numDocto": "2574",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "136326.51",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2574  17 MED  PERODO 260625072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 0192021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIR"
+				},
+				{
+					"id": 4399,
+					"serie": "NFSe",
+					"numDocto": "2567",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "177692.23",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 2567 17 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 14 RESIDNCIA REGIONAL DE COSTA"
+				},
+				{
+					"id": 4400,
+					"serie": "NFSe",
+					"numDocto": "2568",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "19952.71",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 2568 17 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 14 RESIDNCIA REGIONAL DE COSTA"
+				},
+				{
+					"id": 4401,
+					"serie": "NFSe",
+					"numDocto": "2569",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "57100.72",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 2569 17 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 14 RESIDNCIA REGIONAL DE COSTA"
+				},
+				{
+					"id": 4402,
+					"serie": "NFSe",
+					"numDocto": "2570",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "723309.07",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 2570 17 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 14 RESIDNCIA REGIONAL DE COSTA"
+				}
+			],
+			"ValorBruto": "1162404.31",
+			"VlrBaseRet": "218039.48",
+			"VlrRetencao": "23984.35"
+		},
+		{
+			"id": 1444,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "79986949000162",
+			"nfs": [
+				{
+					"id": 4403,
+					"serie": "NFSe",
+					"numDocto": "2686",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "189785.11",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 2686 4 MEDIO REAJUSTAMENTO  PERODO 01052022 A 31052022  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA ESTADUAL MS 352 TRECHO ENTR BR 262MS355  ENTR MS 447, "
+				},
+				{
+					"id": 4404,
+					"serie": "NFSe",
+					"numDocto": "2688",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "809230.87",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 2688 5 MEDIO REAJUSTAMENTO  PERODO 01052022 A 31052022  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA ESTADUAL MS 352 TRECHO ENTR BR 262MS355  ENTR MS 447, "
+				},
+				{
+					"id": 4405,
+					"serie": "NFSE",
+					"numDocto": "2687",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "2398016.08",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.2.687, REFERENTE A 5 MEDIO DO PERODO 01062022 A 30062022  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA ESTADUAL MS 352, TRECHO ENTR BR 262MS355  ENTR MS447, SUBTREC"
+				}
+			],
+			"ValorBruto": "3397032.06",
+			"VlrBaseRet": "339703.20",
+			"VlrRetencao": "37367.36"
+		},
+		{
+			"id": 1445,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "00779059000120",
+			"nfs": [
+				{
+					"id": 4406,
+					"serie": "NFSe",
+					"numDocto": "7552",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "1033399.08",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.7552, REFERENTE AO REAJUSTAMENTO DA 7 MEDIO DO PERODO DE 01072022 A 31072022 DO CONTRATO N 2442021  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA, INCLUSIVE OBRA DE ARTES ESPEC"
+				},
+				{
+					"id": 4407,
+					"serie": "NFSE",
+					"numDocto": "7551",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "4157377.90",
+					"obs": "LIQUIDAO DE SALDO DE PAGAMENTO DA NF. 7551  7 MEDIO PERODO 01072022 A 31072022, REFERENTE EXECUO DA OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA, INCLUSIVE OBRAS DE ARTES ESPECIAIS, DA RODOVIA MS345, LOTE "
+				},
+				{
+					"id": 4408,
+					"serie": "NFSe",
+					"numDocto": "7569",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "7780076.60",
+					"obs": "LIQUIDAO DE SALDO PARA PAGAMENTO DA NF 7569  10 MEDIO PERODO 01072022 A 31072022, REFERENTE A EXECUO DA OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA MS162, INCLUSIVE OBRAS DE ARTES ESPECIAIS, TR"
+				},
+				{
+					"id": 4409,
+					"serie": "NFSE",
+					"numDocto": "7580",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "2243975.15",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 7580  10 MED  PERODO 0107  31072022 REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 1332021  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA MS162, INCLUSIVE OBRAS DE ARTE"
+				},
+				{
+					"id": 4410,
+					"serie": "NFSE",
+					"numDocto": "7615",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "614896.53",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 7615  1 MED  PERODO 0206  31072022  REFERENTE A  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA VICINAL DE ACESSO AO CAPO BONITO, TRECHO ENTR MS162  ENTR MS455, SUB"
+				}
+			],
+			"ValorBruto": "15829725.26",
+			"VlrBaseRet": "1582972.52",
+			"VlrRetencao": "174126.98"
+		},
+		{
+			"id": 1446,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "08594032000174",
+			"nfs": [
+				{
+					"id": 4411,
+					"serie": "NFSe",
+					"numDocto": "2393",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "3437169.25",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE DA NF.2393, REFERENTE PARTE DA 10 MEDIO DO PERODO DE 26052022 A 25062022 DA IMPLANTAO EM REVESTIMENTO PRIMRIO DE RODOVIA NO PAVIMENTADAS, NA RODOVIA MS 228, TRECHO KM "
+				},
+				{
+					"id": 4412,
+					"serie": "NFSe",
+					"numDocto": "2394",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "544813.21",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.2394, REFERENTE PARTE DA 11 MEDIO DO PERODO DE 26062022 A 25072022 DA IMPLANTAO EM REVESTIMENTO PRIMRIO DE RODOVIA NO PAVIMENTADAS, NA RODOVIA MS 228, TRECHO KM 96,500  K"
+				},
+				{
+					"id": 4413,
+					"serie": "NFSe",
+					"numDocto": "2395",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "1190856.82",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 2395 5 MEDIO  PERODO 26052022 A 25062022  IMPLANTAO DE REVESTIMENTO PRIMRIO DE RODOVIA NO PAVIMENTADA, RODOVIA ACESSO A VAZANTE DO CASTELO , EXT 16980 KM, NO MUN"
+				},
+				{
+					"id": 4414,
+					"serie": "NFSe",
+					"numDocto": "2396",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "248063.50",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 2396, 05 MEDIO REAJUSTAMENTO 26052022 A 25062022  REAJUSTAMENTO DO SERVIO DE IMPLANTAO EM REVESTIMENTO PRIMRIO DE RODOVIA NO PAVIMENTADA, RODOVIA ACESSO A VAZANTE DO CAST"
+				},
+				{
+					"id": 4415,
+					"serie": "NFSe",
+					"numDocto": "2398",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "39321.39",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 2398 19 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 4 RESIDNCIA REGIONAL DE MIRANDA"
+				},
+				{
+					"id": 4416,
+					"serie": "NFSe",
+					"numDocto": "2399",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "794379.30",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 2399 19 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 4 RESIDNCIA REGIONAL DE MIRANDA"
+				},
+				{
+					"id": 4417,
+					"serie": "NFSe",
+					"numDocto": "2400",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "61988.55",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 2400 19 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 4 RESIDNCIA REGIONAL DE MIRANDA"
+				},
+				{
+					"id": 4418,
+					"serie": "NFSe",
+					"numDocto": "2401",
+					"dtEmissaoNF": "2022-08-16",
+					"vlrBruto": "335970.68",
+					"obs": "LIQUIDAO PARA PAGAMENTO PARTE EFERENTE A NF 2401 19 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 4 RESIDNCIA REGIONAL DE MI"
+				}
+			],
+			"ValorBruto": "6652562.70",
+			"VlrBaseRet": "1084431.92",
+			"VlrRetencao": "119287.51"
+		},
+		{
+			"id": 1447,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "07725339000102",
+			"nfs": [
+				{
+					"id": 4419,
+					"serie": "nfse",
+					"numDocto": "1816",
+					"dtEmissaoNF": "2022-08-03",
+					"vlrBruto": "631745.11",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1816, 01 MEDIO PERIODO DE 04072022 A 31072022  CONSTRUO DE PONTE DE CONCRETO SOBRE AFLUENTE DO RIO PUIT, COORD 234225.38S 55 137.46O, DIMENSES 25,00 X 6,00 METROS, LOCA"
+				},
+				{
+					"id": 4420,
+					"serie": "NFSE",
+					"numDocto": "1823",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "104671.93",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1823  6 MED FINAL  PERODO 0107  07082022  REFERENTE A  CONSTRUO DE PONTE EM CONCRETO SOBRE O CRREGO CEDRO, COM EXTENSO DE 25,00 M E LARGURA DE 10,00M, LOCALIZADA NA RUA"
+				}
+			],
+			"ValorBruto": "736417.04",
+			"VlrBaseRet": "331387.65",
+			"VlrRetencao": "36452.64"
+		},
+		{
+			"id": 1448,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "00984641000128",
+			"nfs": [
+				{
+					"id": 4421,
+					"serie": "NFSe",
+					"numDocto": "1381",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "5901.97",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1381 21 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 12 RESIDNCIA REGIONAL DE JARDIM"
+				},
+				{
+					"id": 4422,
+					"serie": "NFSe",
+					"numDocto": "1382",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "473278.49",
+					"obs": "LIQUIDAO PARA PAGAMENTO PARTE REFERENTE A NF 1382 21 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 12 RESIDNCIA REGIONAL DE "
+				},
+				{
+					"id": 4423,
+					"serie": "NFSe",
+					"numDocto": "1383",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "456886.81",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1383 21 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 12 RESIDNCIA REGIONAL DE JARDIM"
+				},
+				{
+					"id": 4424,
+					"serie": "NFSe",
+					"numDocto": "1384",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "17126.06",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1384 21 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 12 RESIDNCIA REGIONAL DE JARDIM"
+				}
+			],
+			"ValorBruto": "953193.33",
+			"VlrBaseRet": "142978.99",
+			"VlrRetencao": "15727.67"
+		},
+		{
+			"id": 1449,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "05442641000110",
+			"nfs": [
+				{
+					"id": 4425,
+					"serie": "NFSe",
+					"numDocto": "1432",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "113064.17",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1432  4 MEDIO  PERIODO 01072022 A 31072022. CONSTRUO DE PONTE DE CONCRETO SOBRE O CRREGO DA VIGA, COM 30,00M DE EXTENSO E 6,00M DE LARGURA, INCLUINDO OBRAS DE CONTROLE "
+				},
+				{
+					"id": 4426,
+					"serie": "NFSe",
+					"numDocto": "1433",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "197252.19",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE DA NF.1433, REFERENTE PARTE DA 6 MEDIO DO PERODO DE 01072022 A 31072022 DA CONSTRUO DE PONTE EM CONCRETO SOBRE O RIO TERER, COM EXTENSO DE 39,60M E LARGURA DE 10,00M, "
+				},
+				{
+					"id": 4427,
+					"serie": "NFSE",
+					"numDocto": "1455",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "8331.59",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 455  9 MED PERODO 2605  25062022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 1302021  MANUTANO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RO"
+				},
+				{
+					"id": 4428,
+					"serie": "NFSE",
+					"numDocto": "1456",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "27673.54",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1456  9 MED PERODO 2605  25062022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 1302021  MANUTANO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA R"
+				},
+				{
+					"id": 4429,
+					"serie": "NFSe",
+					"numDocto": "1453",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "77357.80",
+					"obs": "LIQUIDAO PRA PAGAMENTO REFERENTE A NF 1453 9 MEDIO  PERODO 26052022 A 25062022  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADA DA 17 RESIDNCI"
+				},
+				{
+					"id": 4430,
+					"serie": "NFSe",
+					"numDocto": "1454",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "256940.18",
+					"obs": "LIQUIDAO PRA PAGAMENTO REFERENTE A NF 1454 9 MEDIO  PERODO 26052022 A 25062022  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADA DA 17 RESIDNCI"
+				},
+				{
+					"id": 4431,
+					"serie": "NFSe",
+					"numDocto": "1457",
+					"dtEmissaoNF": "2022-08-16",
+					"vlrBruto": "114607.97",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 1457, 4 5 E 6 MEDIO E REAJUSTE 01052022 A 31072022  REFERENTE A CONSTRUO DE PONTE EM CONCRETO SOBRE O RIO TERER, COM EXTENSO DE 39,60M E LARGURA DE 10,00M, NA RODOVIA MS2"
+				},
+				{
+					"id": 4432,
+					"serie": "NFSE",
+					"numDocto": "1436",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "9794.64",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1436  6 MED  PERODO 0107  31072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 2312021  CONSTRUO DE PONTE EM CONCRETO ARMADO SOBRE A CABECEIRA DO RIO COXIM, RODOVIA MS43"
+				},
+				{
+					"id": 4433,
+					"serie": "NFSe",
+					"numDocto": "1435",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "51131.39",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1435, REFERENTE A 6 MEDIO DO PERODO DE 01072022 A 31072022 DA CONSTRUO DE PONTE EM CONCRETO ARMADO SOBRE A CABECEIRA DO RIO COXIM, RODOVIA MS430, COM EXTENSO DE 20,00 M, "
+				},
+				{
+					"id": 4434,
+					"serie": "NFSe",
+					"numDocto": "1459",
+					"dtEmissaoNF": "2022-08-25",
+					"vlrBruto": "284263.88",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1459 5 MEDIO  PERODO 01062022 A 30062022  CONSTRUO DE PONTE EM CONCRETO ARMADO SOBRE O CRREGO BAIXADO RODOVIA MS 142, COM EXTENSO DE 30,00M, LARGURA DE 10,00M, C"
+				},
+				{
+					"id": 4435,
+					"serie": "NFSe",
+					"numDocto": "1460",
+					"dtEmissaoNF": "2022-08-25",
+					"vlrBruto": "424160.20",
+					"obs": "LIQUIDAO PARA PAGAMENTO PARTE REFERENTE A NF 1460 6 MEDIO  PERODO 01072022 A 31072022  CONSTRUO DE PONTE EM CONCRETO ARMADO SOBRE O CRREGO BAIXADO RODOVIA MS 142, COM EXTENSO DE 30,00M, LARGURA DE 10,"
+				}
+			],
+			"ValorBruto": "1564577.55",
+			"VlrBaseRet": "667029.60",
+			"VlrRetencao": "73373.25"
+		},
+		{
+			"id": 1450,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "03618386000198",
+			"nfs": [
+				{
+					"id": 4436,
+					"serie": "nfse",
+					"numDocto": "02",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "397610.30",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 02, REFERENTE A 09 MEDIO PERIODO DE 01052022 A 31052022  REAJUSTAMENTO AO CONTRATO N 1192021  OBRA DE IMPLANTAO E PAVIMENTAO, INCLUSIVE OBRA DE ARTE ESPECIAL, DA RODOVI"
+				},
+				{
+					"id": 4437,
+					"serie": "NFSE",
+					"numDocto": "01",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "2168760.77",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 01 MEDIO PERIODO 01052022 A 30052022  OBRA DE IMPLANTAO E PAVIMENTAO, INCLUSIVE OBRA DE ARTE ESPECIAL, DA RODOVIA MS295, TRECHO ENTR BR163  PORTO MORUMBI, SUBTRECHO ENT"
+				}
+			],
+			"ValorBruto": "2566371.07",
+			"VlrBaseRet": "256637.10",
+			"VlrRetencao": "28230.07"
+		},
+		{
+			"id": 1451,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "01326359000116",
+			"nfs": [
+				{
+					"id": 4438,
+					"serie": "NFSe",
+					"numDocto": "520",
+					"dtEmissaoNF": "2022-08-05",
+					"vlrBruto": "427547.65",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 520, 1 MEDIO 29062022 A 29072022  EXECUO DE OBRA DE INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA, DRENAGEM PLUVIAL NO BAIRRO SANTOS DUMONT, NO MUNICPIO E GUA CLARAMS. PROCE"
+				}
+			],
+			"ValorBruto": "427547.65",
+			"VlrBaseRet": "42754.76",
+			"VlrRetencao": "4703.02"
+		},
+		{
+			"id": 1452,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "07127846000136",
+			"nfs": [
+				{
+					"id": 4439,
+					"serie": "NFSe",
+					"numDocto": "691",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "813335.72",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.691, REFERENTE A 3 MEDIO DO PERODO DE 01072022 A 31072022  OBRA DE INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA E DRENAGEM DE AGUAS PLUVIAIS NA AVENIDA FRANCISCO MARCOLINO "
+				},
+				{
+					"id": 4440,
+					"serie": "NFSe",
+					"numDocto": "693",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "289137.37",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 693 1 MEDIO  PERODO 19072022 A 31072022  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DE RODOVIA VICINAL, TRECHO ENTR MS 147  CENTRAL ENERGTICA VICENTINA, SEG.01 EST "
+				}
+			],
+			"ValorBruto": "1102473.09",
+			"VlrBaseRet": "472000.20",
+			"VlrRetencao": "51920.02"
+		},
+		{
+			"id": 1453,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "67156943000260",
+			"nfs": [
+				{
+					"id": 4441,
+					"serie": "NFSe",
+					"numDocto": "1106",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "1443065.80",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1106, REFERENTE A 1 MEDIO DO PERODO DE 25042022 A 31052022 DA INFRAESTRUTURA URBANA  RESTAURAO FUNCIONAL DO PAVIMENTO RECAPEAMENTO EM DIVERSAS RUAS, NO MUNICPIO DE JAPORM"
+				}
+			],
+			"ValorBruto": "1443065.80",
+			"VlrBaseRet": "144306.58",
+			"VlrRetencao": "15873.72"
+		},
+		{
+			"id": 1454,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "04607970000100",
+			"nfs": [
+				{
+					"id": 4442,
+					"serie": "NFSE",
+					"numDocto": "2385",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "273015.15",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2385  15 MED  PERODO 0106  30062022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 2112020  OBRA DE INFRAESTRUTURA URBANA  RESTAURAO FUNCIONAL DO PAVIMENTO, DRENAGEM DE GUA"
+				},
+				{
+					"id": 4443,
+					"serie": "NFSe",
+					"numDocto": "2388",
+					"dtEmissaoNF": "2022-08-24",
+					"vlrBruto": "233879.49",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.2388, REFERENTE AO REAJUSTAMENTO DA 4 MEDIO DO PERODO DE 01062022 A 30062022 AO CONTRATO N 2512021  RESTAURAO FUNCIONAL DO PAVIMENTO, DRENAGEM DE GUAS PLUVIAIS, CALAMENTO"
+				},
+				{
+					"id": 4444,
+					"serie": "NFSe",
+					"numDocto": "2389",
+					"dtEmissaoNF": "2022-08-24",
+					"vlrBruto": "79450.40",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 2389 1 MEDIO REAJUSTAMENTO  PERODO 25052022 A 31052022  OBRA DE INFRAESTRUTURA URBANA  PAVIMENTAO ASFALTICA E DRENAGEM DE AGUAS PLUVIAIS NO DISTRITO DE VILA VARG"
+				},
+				{
+					"id": 4445,
+					"serie": "NFSE",
+					"numDocto": "2391",
+					"dtEmissaoNF": "2022-08-25",
+					"vlrBruto": "52892.16",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2391  16 MED FINAL  PERODO 0205  25082022  REFERENTE  AO CONTRATO N 1992020 DA RESTAURAO FUNCIONAL DO PAVIMENTO, DRENAGEM DE GUAS PLUVIAIS, SINALIZAO VIRIA, CALAMENTO E"
+				},
+				{
+					"id": 4447,
+					"serie": "NFSe",
+					"numDocto": "2392",
+					"dtEmissaoNF": "2022-08-25",
+					"vlrBruto": "15765.34",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2392  16 MEDIO DE REAJUSTAMENTO FINAL  PERIODO 02052022 A 25082022. REAJUSTAMENTO AO CONTRATO N 1992020  RESTAURAO FUNCIONAL DO PAVIMENTO, DRENAGEM DE GUAS PLUVIAIS, SI"
+				},
+				{
+					"id": 4448,
+					"serie": "NFSE",
+					"numDocto": "2386",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "1486843.67",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2386  9101112 MED  PERODO 010231052022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 0492021  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA, INCLUSIVE DE OBRA DE ARTE ESPECIAL, "
+				}
+			],
+			"ValorBruto": "2141846.21",
+			"VlrBaseRet": "627538.27",
+			"VlrRetencao": "69029.44"
+		},
+		{
+			"id": 1455,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "01092686002366",
+			"nfs": [
+				{
+					"id": 4449,
+					"serie": "NFSe",
+					"numDocto": "39123",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "103738.42",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 39123, 06 MEDIO 01042022 A 30042022  EXECUO DA AUTOMAO CENTRO DE PESQUISA E REABILITAO DA ICTIOFUNA PANTANEIRA DO AQURIO PANTANAL , CAMPO GRANDEMS PROCESSO 57001.8712022"
+				},
+				{
+					"id": 4450,
+					"serie": "NFSe",
+					"numDocto": "39124",
+					"dtEmissaoNF": "2022-08-08",
+					"vlrBruto": "79023.98",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 39124, 06 MEDIO 01042022 A 30042022  EXECUO DA AUTOMAO CENTRO DE PESQUISA E REABILITAO DA ICTIOFUNA PANTANEIRA DO AQURIO PANTANAL , CAMPO GRANDEMS PROCESSO 57001.8712022"
+				},
+				{
+					"id": 4451,
+					"serie": "NFSe",
+					"numDocto": "325714",
+					"dtEmissaoNF": "2022-08-22",
+					"vlrBruto": "625624.35",
+					"obs": "APROPRIAO PARA PAGAMENTO PARTE DA NF. 39287  9 MEDIO FINAL  PERODO  01072022 A 08082022. SERVIOS TCNICOS ESPECIALIZADAOS PARA EXECUO DA AUTOMAO DO CENTRO DE PESQUISA E DE REABILITAO DA ICTIOFAUNA PANT"
+				},
+				{
+					"id": 4452,
+					"serie": "NFSE",
+					"numDocto": "39406",
+					"dtEmissaoNF": "2022-08-24",
+					"vlrBruto": "108589.59",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 39406  9 MED FINAL  PERODO 010708082022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 1372021  SERVIOS TCNICOS ESPECIALIZADAOS PARA EXECUO DA AUTOMAO DO CENTRO DE PESQUISA"
+				}
+			],
+			"ValorBruto": "916976.34",
+			"VlrBaseRet": "916976.34",
+			"VlrRetencao": "100867.40"
+		},
+		{
+			"id": 1456,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "00568986000109",
+			"nfs": [
+				{
+					"id": 4453,
+					"serie": "NFSe",
+					"numDocto": "782",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "114225.48",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.782, REFERENTE PARTE DA 20 MEDIO DO PERODO DE 26062022 A 25072022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 11 RESIDNCIA "
+				},
+				{
+					"id": 4454,
+					"serie": "NFSe",
+					"numDocto": "783",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "140994.78",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.783, REFERENTE PARTE DA 20 MEDIO DO PERODO DE 26062022 A 25072022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 11 RESIDNCIA "
+				},
+				{
+					"id": 4455,
+					"serie": "NFSE",
+					"numDocto": "788",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "21947.05",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 788  20 MED  PERODO 2606 A 25072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 2382020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOV"
+				},
+				{
+					"id": 4456,
+					"serie": "NFSe",
+					"numDocto": "784",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "19092.17",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.784, REFERENTE PARTE DA 20 MEDIO DO PERODO DE 26062022 A 25072022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 11 RESIDNCIA "
+				},
+				{
+					"id": 4457,
+					"serie": "NFSE",
+					"numDocto": "789",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "27090.43",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 789  20 MED  PERODO 2606 A 25072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 2382020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOV"
+				},
+				{
+					"id": 4458,
+					"serie": "NFSe",
+					"numDocto": "785",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "1136325.63",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.785, REFERENTE PARTE DA 20 MEDIO DO PERODO DE 26062022 A 25072022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 11 RESIDNCIA "
+				},
+				{
+					"id": 4459,
+					"serie": "NFSe",
+					"numDocto": "786",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "14568.95",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.786, REFERENTE PARTE DA 20 MEDIO DO PERODO DE 26062022 A 25072022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 11 RESIDNCIA "
+				},
+				{
+					"id": 4460,
+					"serie": "NFSe",
+					"numDocto": "787",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "84131.76",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.787, REFERENTE PARTE DA 20 MEDIO DO PERODO DE 26062022 A 25072022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 11 RESIDNCIA "
+				},
+				{
+					"id": 4461,
+					"serie": "NFSE",
+					"numDocto": "790",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "3668.34",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 790  20 MED  PERODO 2606 A 25072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 2382020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOV"
+				},
+				{
+					"id": 4462,
+					"serie": "NFSE",
+					"numDocto": "791",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "218331.18",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 791  20 MED  PERODO 2606 A 25072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 2382020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOV"
+				},
+				{
+					"id": 4463,
+					"serie": "nfse",
+					"numDocto": "792",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "2799.24",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 792  20 MED  PERODO 2606 A 25072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 2382020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOV"
+				},
+				{
+					"id": 4464,
+					"serie": "nfse",
+					"numDocto": "793",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "16164.89",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 793  20 MED  PERODO 2606 A 25072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 2382020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOV"
+				},
+				{
+					"id": 4465,
+					"serie": "NFSe",
+					"numDocto": "798",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "735975.66",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 798, 2 MEDIO PARCIAL 09072022 A 08082022  PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS N BAIRRO BAIXADA CORINTHIANA E RESTAURAO FUNCIONAL DO PAVIMENTO NA RUA BARO DE L"
+				},
+				{
+					"id": 4466,
+					"serie": "NFSe",
+					"numDocto": "796",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "1161453.88",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 796  5 MEDIO DE REAJUSTAMENTO  PERODO  01072022 A 31072022. REAJUSTMAENTO AO CONTRATO 0232022  OBRA DE RESTAURAO, ADEQUAO DA CAPACIDADE DE TRFEGO E DRENAGEM DA RODOVIA "
+				},
+				{
+					"id": 4467,
+					"serie": "NFSE",
+					"numDocto": "795",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "2937918.04",
+					"obs": "LIQUIDAO PARA PAGAMENTO NF.795  REFERENTE A 5 MEDIO PARCIAL 01072022  31072022  OBRA DE RESTAURAO, ADEQUAO DA CAPACIDADEDE TRFEGO E DRENAGEM DA RODOVIA ESTADUAL MS286, TRECHO ENTR MS386 POSTO TAJI  IN"
+				},
+				{
+					"id": 4468,
+					"serie": "NFSe",
+					"numDocto": "805",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "441798.02",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 805 1 MEDIO  PERODO 12072022 A 15082022  PAVIMENTAO ASFLTICA E DRENAGEM DE AGUAS PLUVIAIS, DUPLICAO DA RODOVIA FEDERAL BR 267, NO MUNCIPIO DE PORTO MURTINHOMS. P"
+				},
+				{
+					"id": 4469,
+					"serie": "NFSE",
+					"numDocto": "816",
+					"dtEmissaoNF": "2022-08-31",
+					"vlrBruto": "439947.09",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 816  21 MED  PERODO 260725082022  REFERENTE A  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 11 RESIDNCIA REGIONAL DE AMAMBAI "
+				},
+				{
+					"id": 4470,
+					"serie": "NFSE",
+					"numDocto": "817",
+					"dtEmissaoNF": "2022-08-31",
+					"vlrBruto": "20665.05",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 817  21 MED  PERODO 260725082022  REFERENTE A  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 11 RESIDNCIA REGIONAL DE AMAMBAI "
+				},
+				{
+					"id": 4471,
+					"serie": "NFSE",
+					"numDocto": "818",
+					"dtEmissaoNF": "2022-08-31",
+					"vlrBruto": "157479.41",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 818  21 MED  PERODO 260725082022  REFERENTE A  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 11 RESIDNCIA REGIONAL DE AMAMBAI "
+				},
+				{
+					"id": 4472,
+					"serie": "NFSE",
+					"numDocto": "819",
+					"dtEmissaoNF": "2022-08-31",
+					"vlrBruto": "6198.34",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 819  21 MED  PERODO 260725082022  REFERENTE A  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 11 RESIDNCIA REGIONAL DE AMAMBAI "
+				},
+				{
+					"id": 4473,
+					"serie": "NFSE",
+					"numDocto": "822",
+					"dtEmissaoNF": "2022-08-31",
+					"vlrBruto": "9778.43",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 822  21 MED  PERODO 260725082022  REFERENTE A  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 11 RESIDNCIA REGIONAL DE AMAMBAI "
+				},
+				{
+					"id": 4474,
+					"serie": "NFSE",
+					"numDocto": "820",
+					"dtEmissaoNF": "2022-08-31",
+					"vlrBruto": "1080843.40",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 820  21 MED  PERODO 260725082022  REFERENTE A  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 11 RESIDNCIA REGIONAL DE AMAMBAI "
+				},
+				{
+					"id": 4475,
+					"serie": "NFSE",
+					"numDocto": "821",
+					"dtEmissaoNF": "2022-08-31",
+					"vlrBruto": "8658.07",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 821  21 MED  PERODO 260725082022  REFERENTE A  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 11 RESIDNCIA REGIONAL DE AMAMBAI "
+				}
+			],
+			"ValorBruto": "8800055.29",
+			"VlrBaseRet": "1320008.23",
+			"VlrRetencao": "145200.95"
+		},
+		{
+			"id": 1457,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "05864917000158",
+			"nfs": [
+				{
+					"id": 4476,
+					"serie": "NFSe",
+					"numDocto": "1810",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "20492.41",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1810 17 18 MEDIO DE REAJUSTAMENTO  PERODO 26052022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 3 RESIDNCIA"
+				},
+				{
+					"id": 4477,
+					"serie": "NFSe",
+					"numDocto": "1811",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "19788.12",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1811 17 18 MEDIO DE REAJUSTAMENTO  PERODO 26052022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 3 RESIDNCIA"
+				},
+				{
+					"id": 4478,
+					"serie": "NFSe",
+					"numDocto": "1808",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "29403.34",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 1808, 18 MEDIO PARCIAL 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADA, DA MALHAS RODOVIRIA DA 3 RESIDNCIA REGIONAL DE TRS LAGOASMS. "
+				},
+				{
+					"id": 4479,
+					"serie": "NFSe",
+					"numDocto": "1807",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "14847.15",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 1807, 18 MEDIO PARCIAL 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADA, DA MALHAS RODOVIRIA DA 3 RESIDNCIA REGIONAL DE TRS LAGOASMS. "
+				},
+				{
+					"id": 4480,
+					"serie": "NFSe",
+					"numDocto": "1809",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "200743.36",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 1809 17 18 MEDIO DE REAJUSTAMENTO  PERODO 26052022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 3 RESIDNCIA"
+				},
+				{
+					"id": 4481,
+					"serie": "NFSe",
+					"numDocto": "1806",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "566131.74",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 1806, 18 MEDIO PARCIAL 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADA, DA MALHAS RODOVIRIA DA 3 RESIDNCIA REGIONAL DE TRS LAGOASMS. "
+				},
+				{
+					"id": 4482,
+					"serie": "NFSE",
+					"numDocto": "1815",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "29468.45",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1815  19 MED  PERODO 0107  31072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 0232021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOV"
+				},
+				{
+					"id": 4483,
+					"serie": "NFSe",
+					"numDocto": "1812",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "157972.30",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1812, REFERENTE PARTE DA 19 MEDIO DO PERODO DE 01072022 A 31072022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 15 RESIDNCIA"
+				},
+				{
+					"id": 4484,
+					"serie": "NFSE",
+					"numDocto": "1816",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "9827.58",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1816  19 MED  PERODO 0107  31072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 0232021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOV"
+				},
+				{
+					"id": 4485,
+					"serie": "NFSe",
+					"numDocto": "1813",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "52711.09",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1813, REFERENTE PARTE DA 19 MEDIO DO PERODO DE 01072022 A 31072022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 15 RESIDNCIA"
+				},
+				{
+					"id": 4486,
+					"serie": "NFSe",
+					"numDocto": "1814",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "556172.64",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.1814, REFERENTE PARTE DA 19 MEDIO DO PERODO DE 01072022 A 31072022 DA MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 15 RESIDNCIA"
+				},
+				{
+					"id": 4487,
+					"serie": "nfse",
+					"numDocto": "1817",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "103754.67",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1817  19 MED  PERODO 0107  31072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 0232021  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOV"
+				},
+				{
+					"id": 4488,
+					"serie": "NFSE",
+					"numDocto": "1821",
+					"dtEmissaoNF": "2022-08-25",
+					"vlrBruto": "117290.39",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF.1821  63 MED  PERODO 0107  31072022  REFERENTE AO  REAJUSTAMENTO AO CONTRATO N 1042017  CONTRATAO DE SERVIOS DE DRENAGENS NAS RODOVIAS ESTADUAIS PAVIMENTADAS E NO PAVIME"
+				},
+				{
+					"id": 4489,
+					"serie": "NFSE",
+					"numDocto": "1820",
+					"dtEmissaoNF": "2022-08-25",
+					"vlrBruto": "303563.02",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1820  63 MED  PERODO 0107  31072022  REFERENTE A  CONTRATAO DE SERVIOS DE DRENAGENS NAS RODOVIAS ESTADUAIS PAVIMENTADAS E NO PAVIMENTADAS QUE FAZEM PARTE DA MALHA RODOV"
+				}
+			],
+			"ValorBruto": "2182166.26",
+			"VlrBaseRet": "487431.30",
+			"VlrRetencao": "53617.38"
+		},
+		{
+			"id": 1458,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "05919414000132",
+			"nfs": [
+				{
+					"id": 4490,
+					"serie": "NFSE",
+					"numDocto": "938",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "73119.41",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 938, REFERENTE A 26 MEDIO PERODO 01072022 A 31072022  CONSTRUO DE PRDIO DO BATALHO DA POLCIA MILITAR, NO MUNICPIO DE COXIM  MS. NC.6 SEJUSP. PROCESSO 57101.3562019"
+				},
+				{
+					"id": 4491,
+					"serie": "NFSE",
+					"numDocto": "941",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "166616.19",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 941, REFERENTE A 9 A 20 MEDIO PERODO DE FEVEREIRO DE 2021 A JANEIRO2022  REEQUILBRIO ECONMICO FINANCEIRO AO CONTRATO N 0382020  CONSTRUO DE PRDIO DO BATALHO DA POLCIA MIL"
+				}
+			],
+			"ValorBruto": "239735.60",
+			"VlrBaseRet": "83907.46",
+			"VlrRetencao": "9229.81"
+		},
+		{
+			"id": 1459,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "33546583000100",
+			"nfs": [
+				{
+					"id": 4492,
+					"serie": "NFSe",
+					"numDocto": "99",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "8354.67",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.99, REFERENTE AO REAJUSTAMENTO DA 7 MEDIO DO PERODO DE 18062022 A 17072022, DO CONTRATO N 1702021  CONSTRUO DO GRUPAMENTO DA POLCIA MILITAR, NO DISTRITO DE ITAHUM, NO MUN"
+				},
+				{
+					"id": 4493,
+					"serie": "NFSe",
+					"numDocto": "97",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "61225.18",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 97, 7 MEDIO 18062022 A 17072022  CONSTRUO DO AGRUPAMENTO DA POLICIA MILITAR, NO DISTRITO DE ITAHUM, NO MUNICPIO DE DOURADOSMS. PROCESSO 57003.8892021."
+				},
+				{
+					"id": 4494,
+					"serie": "NFSE",
+					"numDocto": "098",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "10119.14",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 098  REFERENTE A 2 MEDIO DE REAJUSTAMENTO 19022022 A 21032022  REAJUSTAMENTO AO CONTRATO N 2062021  REFORMA DAS CELAS E CONSTRUO DO SOLRIO DA DELEGACIA DE POLCIA CIVIL, N"
+				},
+				{
+					"id": 4495,
+					"serie": "NFSe",
+					"numDocto": "96",
+					"dtEmissaoNF": "2022-08-09",
+					"vlrBruto": "65509.14",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.96, REFERENTE A 1 MEDIO DO PERODO DE 30052022 A 05082022 DA REFORMA DO GABINETE E CIRCULAO DO ANDAR SUPERIOR DA SEMAGRO, EM CAMPO GRANDEMS. PROCESSO 57000.8332022"
+				},
+				{
+					"id": 4496,
+					"serie": "NFSe",
+					"numDocto": "104",
+					"dtEmissaoNF": "2022-08-24",
+					"vlrBruto": "68268.58",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE DA NF.104, REFERENTE A 3, 4, 5, 6 E 7 MEDIES DO PERODO DE 22032022 A 21082022 DA REFORMA DAS CELAS E CONSTRUO DO SOLRIO DA DELEGACIA DE POLCIA CIVIL, NO MUNICPIO DE IT"
+				},
+				{
+					"id": 4497,
+					"serie": "NFSe",
+					"numDocto": "105",
+					"dtEmissaoNF": "2022-08-29",
+					"vlrBruto": "50473.45",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 105  5 MEDIO  PERODO 01062022 A 30062022.6 MEDIO  PERODO 01072022 A 31072022. CONSTRUO DO NCLEO REGIONAL DE MEDICINA LEGAL, EM NAVIRAMS. NC034  UG310101. PROCESSO57006."
+				}
+			],
+			"ValorBruto": "263950.16",
+			"VlrBaseRet": "92382.55",
+			"VlrRetencao": "10162.08"
+		},
+		{
+			"id": 1460,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "24610826000130",
+			"nfs": [
+				{
+					"id": 4498,
+					"serie": "nfse",
+					"numDocto": "866",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "626665.33",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 866, REFERENTE A 03 MEDIO PERIODO DE 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 16 RESIDENCIA REGIONAL "
+				},
+				{
+					"id": 4499,
+					"serie": "nfse",
+					"numDocto": "867",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "69286.19",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 867, REFERENTE A 03 MEDIO PERIODO DE 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 16 RESIDENCIA REGIONAL "
+				},
+				{
+					"id": 4500,
+					"serie": "nfse",
+					"numDocto": "868",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "526375.11",
+					"obs": "APROPRIAO PARA PAGAMENTO PARTE DA NF. 868, REFERENTE A 03 MEDIO PERIODO DE 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS DA MALHA RODOVIRIA DA 16 RESIDENCIA REG"
+				}
+			],
+			"ValorBruto": "1222326.63",
+			"VlrBaseRet": "183348.97",
+			"VlrRetencao": "20168.39"
+		},
+		{
+			"id": 1461,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "15439139000103",
+			"nfs": [
+				{
+					"id": 4501,
+					"serie": "NFSe",
+					"numDocto": "1358",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1358  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4502,
+					"serie": "NFSe",
+					"numDocto": "1359",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "36985.24",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1359  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4503,
+					"serie": "NFSe",
+					"numDocto": "1360",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1360  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4504,
+					"serie": "NFSe",
+					"numDocto": "1361",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1361  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4505,
+					"serie": "NFSe",
+					"numDocto": "1362",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1362  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4506,
+					"serie": "NFSe",
+					"numDocto": "1363",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1363  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4507,
+					"serie": "NFSe",
+					"numDocto": "1364",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1364  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4508,
+					"serie": "NFSe",
+					"numDocto": "1365",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1365  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4509,
+					"serie": "NFSe",
+					"numDocto": "1366",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1366  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4510,
+					"serie": "NFSe",
+					"numDocto": "1367",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1367 PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4511,
+					"serie": "NFSe",
+					"numDocto": "1368",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1368 PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4512,
+					"serie": "NFSe",
+					"numDocto": "1370",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1370  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4513,
+					"serie": "NFSe",
+					"numDocto": "1371",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1371  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4514,
+					"serie": "NFSe",
+					"numDocto": "1372",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1372  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4515,
+					"serie": "NFSe",
+					"numDocto": "1373",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1373  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4516,
+					"serie": "NFSe",
+					"numDocto": "1374",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1374  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4517,
+					"serie": "NFSe",
+					"numDocto": "1375",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1375  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4518,
+					"serie": "NFSe",
+					"numDocto": "1376",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1376  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4519,
+					"serie": "NFSe",
+					"numDocto": "1377",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1377  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4520,
+					"serie": "NFSe",
+					"numDocto": "1378",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "36985.24",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1378 PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				},
+				{
+					"id": 4521,
+					"serie": "NFSe",
+					"numDocto": "1379",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "18492.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1379  PERIODO 01072022 A 27072022. CONTRATAO DE EMPRESA ESPECIALIZADA EM SERVIOS DE VIGILNCIA PATRIMONIAL OSTENSIVA ARMADA 24 HORAS. PROCESSO 57101.6772020"
+				}
+			],
+			"ValorBruto": "425330.26",
+			"VlrBaseRet": "425330.26",
+			"VlrRetencao": "46786.37"
+		},
+		{
+			"id": 1462,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "50344902000113",
+			"nfs": [
+				{
+					"id": 4522,
+					"serie": "NFSe",
+					"numDocto": "8763",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "1014374.57",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 8763 14 MEDIO  PERODO 01072022 A 31072022  IMPLANTAO E PAVIMENTAO DA RODOVIA MS 165 TRECHO CORONEL SAPUCAIA  PARANHOS, SEGMENTO CORONEL SAPUCAIA KM 33,000, NUMA "
+				},
+				{
+					"id": 4523,
+					"serie": "NFSe",
+					"numDocto": "8764",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "367294.63",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 8764 14 MEDIO REAJUSTAMENTO  PERODO 01072022 A 31072022  OBRA DE IMPLANTAO E PAVIMENTAO DA RODOVIA MS 165 TRECHO CORONEL SAPUCAIA  PARANHOS, SEGMENTO CORONEL SAP"
+				},
+				{
+					"id": 4524,
+					"serie": "NFSE",
+					"numDocto": "8780",
+					"dtEmissaoNF": "2022-08-22",
+					"vlrBruto": "7328664.85",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 8780  REFERENTE A 6 MEDIO REFERENTE A 01072022 A 31072022  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA MS338, TRECHO ENTR BR060  ENTR MS357, SUBTRECHO EST. 0,00  E"
+				},
+				{
+					"id": 4525,
+					"serie": "nfse",
+					"numDocto": "8781",
+					"dtEmissaoNF": "2022-08-22",
+					"vlrBruto": "1805226.05",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 8781, REFERENTE A 06 MEDIO PERIODO DE 01072022 A 31072022  REAJUSTAMENTO AO CONTRATO N 1892021  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA MS338, TRECHO ENTR BR"
+				}
+			],
+			"ValorBruto": "10515560.10",
+			"VlrBaseRet": "1051556.02",
+			"VlrRetencao": "115671.16"
+		},
+		{
+			"id": 1463,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "04516268000131",
+			"nfs": [
+				{
+					"id": 4526,
+					"serie": "nfse",
+					"numDocto": "180",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "380884.49",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 180, REFERENTE A 7 MEDIO 010522  310522, 8 MEDIO 01062022  30062022 E 9 MEDIO 01072022 31072022  REPROGRAMAO AO CONTRATO N 1942021  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTI"
+				},
+				{
+					"id": 4527,
+					"serie": "NFSe",
+					"numDocto": "182",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "84317.00",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.182, REFERENTE AO REAJUSTAMENTO DA 7, 8 E 9 MEDIO DO PERODO DE 01052022 A 31052022, 01062022 A 30062022 E DE 01072022 A 31072022 DO CONTRATO N 1942021  OBRA DE IMPLANTAO "
+				}
+			],
+			"ValorBruto": "465201.49",
+			"VlrBaseRet": "46520.14",
+			"VlrRetencao": "5117.21"
+		},
+		{
+			"id": 1464,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "14416381000107",
+			"nfs": [
+				{
+					"id": 4528,
+					"serie": "NFSe",
+					"numDocto": "170",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "74519.65",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 170, 03 MEDIO 06072022 A 05082022  REFORMAS NO PARQUE ESTADUAL DO PROSA E PARQUE DAS NAES INDGENAS 1 ETAPA, NO MUNICPIO DE CAMPO GRANDEMS PROCESSO 57009.3442021."
+				}
+			],
+			"ValorBruto": "74519.65",
+			"VlrBaseRet": "26081.87",
+			"VlrRetencao": "2869.01"
+		},
+		{
+			"id": 1465,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "07649405000102",
+			"nfs": [
+				{
+					"id": 4529,
+					"serie": "NFSe",
+					"numDocto": "516",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "299194.76",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 516, 19 MEDIO 26062022 A 25072022  REAJUSTAMENTO DO PROCESSO DE MANUTENO E CONSERVAO DS RODOVIAS ESTADUAIS NO PAVIMENTADAS, NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRI"
+				},
+				{
+					"id": 4530,
+					"serie": "NFSe",
+					"numDocto": "515",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "1582838.61",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 515 19 MEDIO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS RODOVIAS ESTADUAIS NO PAVIMENTADAS, NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA DA 8 RESID"
+				},
+				{
+					"id": 4531,
+					"serie": "nfse",
+					"numDocto": "517",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "1121387.74",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 517, REFERENTE A 06 MEDIO PERIODO DE 26062022 A 25072022  IMPLANTAO EM REVESTIMENTO PRIMRIO DE RODOVIA NO PAVIMENTADA, NA RODOVIA MS 228, TRECHO  KM 231,500, COM EXTENSO"
+				},
+				{
+					"id": 4532,
+					"serie": "NFSe",
+					"numDocto": "518",
+					"dtEmissaoNF": "2022-08-30",
+					"vlrBruto": "201286.22",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 518 6 MEDIO REAJUSTAMENTO  PERODO 26062022 A 25072022  IMPLANTAO EM REVESTIMENTO PRIMRIO DE RODOVIA NO PAVIMENTADAS, RODOVIA MS 228 TRECHO KM 181,500  KM 231,500"
+				}
+			],
+			"ValorBruto": "3204707.33",
+			"VlrBaseRet": "480706.09",
+			"VlrRetencao": "52877.67"
+		},
+		{
+			"id": 1466,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "24784665000100",
+			"nfs": [
+				{
+					"id": 4533,
+					"serie": "NFSe",
+					"numDocto": "103",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "5890.23",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 103 10 MEDIO REAJUSTAMENTO  PERODO 26062022 A 25072022  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADA"
+				},
+				{
+					"id": 4534,
+					"serie": "nfse",
+					"numDocto": "102",
+					"dtEmissaoNF": "2022-08-02",
+					"vlrBruto": "51769.89",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 102, REFERENTE A 10 MEDIO PERIODO DE 26062022 A 25072022  REPROGRAMAO AO CONTRATO N 1492021  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA "
+				}
+			],
+			"ValorBruto": "57660.12",
+			"VlrBaseRet": "20181.04",
+			"VlrRetencao": "2219.91"
+		},
+		{
+			"id": 1467,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "37488100000119",
+			"nfs": [
+				{
+					"id": 4536,
+					"serie": "NFSe",
+					"numDocto": "152",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "52535.28",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A N 152 10 MEDIO REAJUSTAMENTO  PERODO 01042022 A 30042022  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA SA RODOVIA MS 258 TRECHO ENTR BR MS 455  CAPO SECO ENT. BRMS 163MS"
+				},
+				{
+					"id": 4537,
+					"serie": "NFSe",
+					"numDocto": "151",
+					"dtEmissaoNF": "2022-08-15",
+					"vlrBruto": "457885.26",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.151, REFERENTE A 10 MEDIO DO PERODO 01042022 A 30042022  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA MS258, TRECHO ENTR MS455 CAPO SECO ENTR BRMS163MS ANHANDUI NUM"
+				}
+			],
+			"ValorBruto": "510420.54",
+			"VlrBaseRet": "51042.06",
+			"VlrRetencao": "5614.63"
+		},
+		{
+			"id": 1468,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "01117559000169",
+			"nfs": [
+				{
+					"id": 4538,
+					"serie": "NFSE",
+					"numDocto": "998",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "59235.47",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 998  10  260625072022  REFERENTE A  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADA DA 6 RESIDNCIA REGIONAL DE"
+				},
+				{
+					"id": 4539,
+					"serie": "NFSE",
+					"numDocto": "999",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "65866.95",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 999  10  260625072022  REFERENTE A  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADA DA 6 RESIDNCIA REGIONAL DE"
+				},
+				{
+					"id": 4540,
+					"serie": "NFSE",
+					"numDocto": "1000",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "8921.17",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1000  10  260625072022  REFERENTE A  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADA DA 6 RESIDNCIA REGIONAL D"
+				},
+				{
+					"id": 4541,
+					"serie": "NFSE",
+					"numDocto": "1001",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "883.96",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1001  10  260625072022  REFERENTE A  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADA DA 6 RESIDNCIA REGIONAL D"
+				}
+			],
+			"ValorBruto": "134907.55",
+			"VlrBaseRet": "53016.40",
+			"VlrRetencao": "5193.95"
+		},
+		{
+			"id": 1469,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "10699348000172",
+			"nfs": [
+				{
+					"id": 4542,
+					"serie": "NFSe",
+					"numDocto": "284",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "403599.58",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.284, REFERENTE PARTE DA 2 MEDIO DO PERODO DE 01072022 A 31072022 DA CONSTRUO DE PONTE EM CONCRETO ARMADO SOBRE O RIO NEGRO, COM EXTENSO DE 50,00M E LARGURA DE 6,00M, LOCA"
+				},
+				{
+					"id": 4543,
+					"serie": "NFSE",
+					"numDocto": "285",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "156799.29",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.285, REFERENTE DA 1 MEDIO DE REAJUSTAMENTO DO PERODO DE 16052022 A 30062022 E 2 MEDIO REAJUSTAMENTO 01072022 A 31072022  DA CONSTRUO DE PONTE EM CONCRETO ARMADO SOBRE O R"
+				}
+			],
+			"ValorBruto": "560398.87",
+			"VlrBaseRet": "252179.49",
+			"VlrRetencao": "27739.74"
+		},
+		{
+			"id": 1470,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "04983553000162",
+			"nfs": [
+				{
+					"id": 4544,
+					"serie": "NFSe",
+					"numDocto": "6158",
+					"dtEmissaoNF": "2022-08-16",
+					"vlrBruto": "1738755.46",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 6158, 6 MEDIO 19062022 A 18072022  EXECUO DE OBRAS DE INFRAESTRUTURA URBANA  RESTAURAO FUNCIONAL DO PAVIMENTO, DRENAGEM DE AGUAS PLUVIAIS, SINALIZAO VIRIA, CALAMENTO E AC"
+				}
+			],
+			"ValorBruto": "1738755.46",
+			"VlrBaseRet": "173875.54",
+			"VlrRetencao": "19126.30"
+		},
+		{
+			"id": 1471,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "19431243000102",
+			"nfs": [
+				{
+					"id": 4545,
+					"serie": "nfse",
+					"numDocto": "250",
+					"dtEmissaoNF": "2022-08-16",
+					"vlrBruto": "2168405.35",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 250, REFERENTE A 05 MEDIO PERIODO DE 01072022 A 31072022  OBRA INFRAESTRUTURA URBANA  RESTAURAO FUNCIONAL DO PAVIMENTO, EM DIVERSAS RUAS NO MUNICPIO DE PEDRO GOMESMS. 5"
+				},
+				{
+					"id": 4546,
+					"serie": "NFSe",
+					"numDocto": "251",
+					"dtEmissaoNF": "2022-08-24",
+					"vlrBruto": "521710.90",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 251 4 5 MEDIO REAJUSTAMENTO  PERODO 01062022 A 31072022  OBRA DE INFRAESTRUTURA URBANA  RESTAURAO FUNCIONAL DO PAVIMENTO, EM DIVERSAS RUAS NO MUNICPIO DE PEDRO G"
+				}
+			],
+			"ValorBruto": "2690116.25",
+			"VlrBaseRet": "269011.62",
+			"VlrRetencao": "29591.28"
+		},
+		{
+			"id": 1472,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "36084831000136",
+			"nfs": [
+				{
+					"id": 4547,
+					"serie": "NFSE",
+					"numDocto": "93",
+					"dtEmissaoNF": "2022-08-11",
+					"vlrBruto": "70283.19",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 93  23 MED PERODO 290528072022  REFERENTE A  PINTURA EXTERNA E REFORMA DO PISO DOS PALCOS DA CONCHA ACSTICA HELENA MEIRELLES  PARQUES DOS PODERES, EM CAMPO GRANDEMS. 57"
+				}
+			],
+			"ValorBruto": "70283.19",
+			"VlrBaseRet": "24599.11",
+			"VlrRetencao": "2705.90"
+		},
+		{
+			"id": 1473,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "59598029000160",
+			"nfs": [
+				{
+					"id": 4548,
+					"serie": "NFSe",
+					"numDocto": "295",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "488741.21",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 295 19 MEDIO  PERODO 01072022 A 31072022  IMPLANTAO E PAVIMENTAO ASFLTICA DA MS 382 LOTE 1 TRECHO ENTR BR 060 GUIA LOPES DA LAGUNA ENTR MS 270 TRECHO ESTACA 8000"
+				},
+				{
+					"id": 4549,
+					"serie": "NFSe",
+					"numDocto": "296",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "66520.33",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 296 19 MEDIO  PERODO 01072022 A 31072022  IMPLANTAO E PAVIMENTAO ASFLTICA DA MS 382 LOTE 1 TRECHO ENTR BR 060 GUIA LOPES DA LAGUNA ENTR MS 270 TRECHO ESTACA 8000"
+				},
+				{
+					"id": 4550,
+					"serie": "NFSe",
+					"numDocto": "297",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "88535.99",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.297, REFERENTE PARTE DO REAJUSTAMENTO DA 19 MEDIO DO PERODO DE 01072022 A 31072022 RELATIVO AO CONTRATO N 2292020  IMPLANTAO E PAVIMENTAO ASFLTICA DA MS382 LOTE 1, TRECHO"
+				},
+				{
+					"id": 4551,
+					"serie": "NFSe",
+					"numDocto": "298",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "12050.23",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.298, REFERENTE PARTE DO REAJUSTAMENTO DA 19 MEDIO DO PERODO DE 01072022 A 31072022 RELATIVO AO CONTRATO N 2292020  IMPLANTAO E PAVIMENTAO ASFLTICA DA MS382 LOTE 1, TRECHO"
+				},
+				{
+					"id": 4552,
+					"serie": "NFSe",
+					"numDocto": "301",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "1534503.36",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 301  10 MEDIO DE REAJUSTAMENTO PERODO 01072022 A 31072022, REFERENTE A EXECUO DA OBRA DE PAVIMENTAO ASFLTICA DA RODOVIA MS382 LOTE 02, TRECHO ENTR. BR060 GUIA LOPES DA LA"
+				},
+				{
+					"id": 4553,
+					"serie": "NFSe",
+					"numDocto": "300",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "6611746.61",
+					"obs": "APROPRIAO PARA PAGAMENTO PARTE DA NF. 300  10 MEDIO  PERIODO01072022 A 31072022. OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA MS382 LOTE 2, TRECHO ENTR. BR060 GUIA LOPES DA LAGUNA  ENTR. MS270, SUBTRECH"
+				},
+				{
+					"id": 4554,
+					"serie": "nfse",
+					"numDocto": "293",
+					"dtEmissaoNF": "2022-08-16",
+					"vlrBruto": "3053180.31",
+					"obs": "APROPRIAO PARA PAGAMENTO PARTE DA NF. 293, REFERENTE A 05 MEDIO PERIODO DE 01072022 A 31072022  OBRA DE RESTAURAO, ADEQUAO DA CAPACIDADE DE TRFEGO E DRENAGEM DA RODOVIA ESTADUAL MS384, TRECHO ENTR MS1"
+				},
+				{
+					"id": 4555,
+					"serie": "nfse",
+					"numDocto": "294",
+					"dtEmissaoNF": "2022-08-16",
+					"vlrBruto": "1308505.84",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 294, REFERENTE A 05 MEDIO PERIODO DE 01072022 A 31072022  OBRA DE RESTAURAO, ADEQUAO DA CAPACIDADE DE TRFEGO E DRENAGEM DA RODOVIA ESTADUAL MS384, TRECHO ENTR MS164  AN"
+				},
+				{
+					"id": 4556,
+					"serie": "NFSe",
+					"numDocto": "308",
+					"dtEmissaoNF": "2022-08-24",
+					"vlrBruto": "46567.25",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 308  5 MEDIO PERODO 01062022 A 30062022, REFERENTE A EXECUO DAS OBRAS DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA MS357, INCLUSIVE OBRAS DE ARTE ESPECIAIS, TRECHO RODO"
+				},
+				{
+					"id": 4558,
+					"serie": "NFSe",
+					"numDocto": "307",
+					"dtEmissaoNF": "2022-08-24",
+					"vlrBruto": "285694.98",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 307 5 MEDIO  PERIODO 01062022 A 30062022  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA MS 357, INCLUSIVE OBRAS DE ARTE ESPECIAIS, TRECHO RODOVIA MS 340 FIN"
+				},
+				{
+					"id": 4559,
+					"serie": "NFSe",
+					"numDocto": "306",
+					"dtEmissaoNF": "2022-08-23",
+					"vlrBruto": "920370.22",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 306  4 MEDIO PERODO 11072022 A 10082022, REFERENTE A EXECUO DA OBRA DE INFRAESTRUTURA URBANA DE PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS, NO ACESSO AO POLO INDUSTR"
+				}
+			],
+			"ValorBruto": "14416416.33",
+			"VlrBaseRet": "3196068.68",
+			"VlrRetencao": "351567.57"
+		},
+		{
+			"id": 1474,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "03492589000180",
+			"nfs": [
+				{
+					"id": 4560,
+					"serie": "NFSe",
+					"numDocto": "519",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "156404.13",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE DA NF.519, REFERENTE AO REAJUSTAMENTO DA 22 MEDIO DO PERODO DE 15062022 A 14072022 DA OBRA DE CONSTRUO DO PRDIO DO DEPARTAMENTO DE OPERAES DE FRONTEIRA  DOF  EM DOURAD"
+				},
+				{
+					"id": 4561,
+					"serie": "NFSE",
+					"numDocto": "520",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "442594.79",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 520  23 MED  PERODO 1507  14082022  REFERENTE A  CONSTRUO DO PRDIO DO DEPARTAMENTO DE OPERAO DE FRONTEIRA  DOF  EM DOURADOS  MS. 2022NC000017 SEJUSP. 57100.7112020"
+				}
+			],
+			"ValorBruto": "598998.92",
+			"VlrBaseRet": "179699.68",
+			"VlrRetencao": "6289.48"
+		},
+		{
+			"id": 1475,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "01156039000165",
+			"nfs": [
+				{
+					"id": 4563,
+					"serie": "NFSE",
+					"numDocto": "1346",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "15651.34",
+					"obs": "LIQUIDAO PARA PAGAMENTO NF 1346  REFERENTE A 19 MEDIO 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 2342020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA "
+				},
+				{
+					"id": 4564,
+					"serie": "NFSE",
+					"numDocto": "1347",
+					"dtEmissaoNF": "2022-08-24",
+					"vlrBruto": "54333.05",
+					"obs": "LIQUIDAO PARA PAGAMENTO NF 1346  REFERENTE A 19 MEDIO 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 2342020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA "
+				},
+				{
+					"id": 4565,
+					"serie": "NFSe",
+					"numDocto": "1340",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "188678.84",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE NF 1340, 19 MEDIO PARCIAL 26062022 A 25072022 MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 7 RESIDNCIA REGIONAL DE NAVIRAMS. PROCE"
+				},
+				{
+					"id": 4566,
+					"serie": "NFSe",
+					"numDocto": "1341",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "421357.61",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE NF 1341, 19 MEDIO PARCIAL 26062022 A 25072022 MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 7 RESIDNCIA REGIONAL DE NAVIRAMS. PROCE"
+				},
+				{
+					"id": 4567,
+					"serie": "NFSe",
+					"numDocto": "1342",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "863827.25",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE NF 1342, 19 MEDIO PARCIAL 26062022 A 25072022 MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 7 RESIDNCIA REGIONAL DE NAVIRAMS. PROCE"
+				},
+				{
+					"id": 4568,
+					"serie": "NFSe",
+					"numDocto": "1343",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "986245.55",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE NF 1343, 19 MEDIO PARCIAL 26062022 A 25072022 MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 7 RESIDNCIA REGIONAL DE NAVIRAMS. PROCE"
+				},
+				{
+					"id": 4569,
+					"serie": "NFSe",
+					"numDocto": "1344",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "2626.15",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE NF 1344, 19 MEDIO PARCIAL 26062022 A 25072022 MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 7 RESIDNCIA REGIONAL DE NAVIRAMS. PROCE"
+				},
+				{
+					"id": 4570,
+					"serie": "NFSe",
+					"numDocto": "1345",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "16794.35",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE NF 1345, 19 MEDIO PARCIAL 26062022 A 25072022 MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 7 RESIDNCIA REGIONAL DE NAVIRAMS. PROCE"
+				},
+				{
+					"id": 4571,
+					"serie": "NFSE",
+					"numDocto": "1348",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "121336.59",
+					"obs": "LIQUIDAO PARA PAGAMENTO NF 1348  REFERENTE A 19 MEDIO 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 2342020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA "
+				},
+				{
+					"id": 4572,
+					"serie": "NFSe",
+					"numDocto": "1339",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "54351.37",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE DA NF 1339, 19 MEDIO PARCIAL 26062022 A 25072022 MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA 7 RESIDNCIA REGIONAL DE NAVIRA"
+				},
+				{
+					"id": 4573,
+					"serie": "NFSE",
+					"numDocto": "1349",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "248752.71",
+					"obs": "LIQUIDAO PARA PAGAMENTO NF 1349  REFERENTE A 19 MEDIO 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 2342020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA "
+				},
+				{
+					"id": 4574,
+					"serie": "NFSE",
+					"numDocto": "1350",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "284005.00",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE NF 1350  REFERENTE A 19 MEDIO 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 2342020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODO"
+				},
+				{
+					"id": 4575,
+					"serie": "NFSE",
+					"numDocto": "1351",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "756.24",
+					"obs": "LIQUIDAO PARA PAGAMENTO NF 1351  REFERENTE A 19 MEDIO 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 2342020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA "
+				},
+				{
+					"id": 4576,
+					"serie": "NFSE",
+					"numDocto": "1352",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "4836.20",
+					"obs": "LIQUIDAO PARA PAGAMENTO NF 1352  REFERENTE A 19 MEDIO 26062022 A 25072022  REAJUSTAMENTO AO CONTRATO N 2342020  MANUTENO E CONSERVAO DAS RODOVIAS PAVIMENTADAS E NO PAVIMENTADAS, DA MALHA RODOVIRIA DA "
+				}
+			],
+			"ValorBruto": "3263552.25",
+			"VlrBaseRet": "730937.10",
+			"VlrRetencao": "53848.62"
+		},
+		{
+			"id": 1476,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "15113881000124",
+			"nfs": [
+				{
+					"id": 4577,
+					"serie": "NFSe",
+					"numDocto": "247",
+					"dtEmissaoNF": "2022-08-22",
+					"vlrBruto": "671235.41",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 247  REFERENTE A 1 MEDIO  PERODO 12072022 A 12082022. PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS NA RUA IRENE SIQUEIRA DOS SANTOS E ADJACNCIAS  SETOR 1 EM NOVA ALV"
+				}
+			],
+			"ValorBruto": "671235.41",
+			"VlrBaseRet": "67123.54",
+			"VlrRetencao": "7383.59"
+		},
+		{
+			"id": 1477,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "01105661000144",
+			"nfs": [
+				{
+					"id": 4578,
+					"serie": "NFSE",
+					"numDocto": "967",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "116448.31",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 967  12 MED  PERODO 260609082022 REFERENTE A  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADAS DA 4 RESIDNCIA "
+				},
+				{
+					"id": 4579,
+					"serie": "NFSE",
+					"numDocto": "968",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "27158.03",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 968  12 MED  PERODO 260609082022 REFERENTE A  MANUTENO E CONSERVAO DAS PONTES DE MADEIRA NAS RODOVIAS QUE FAZEM PARTE DA MALHA RODOVIRIA NO PAVIMENTADAS DA 4 RESIDNCIA "
+				}
+			],
+			"ValorBruto": "143606.34",
+			"VlrBaseRet": "50262.22",
+			"VlrRetencao": "5528.84"
+		},
+		{
+			"id": 1478,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "36810042000135",
+			"nfs": [
+				{
+					"id": 4580,
+					"serie": "NFSe",
+					"numDocto": "541",
+					"dtEmissaoNF": "2022-08-17",
+					"vlrBruto": "1841353.53",
+					"obs": "LIQUIDAO DE SALDO PARA PAGAMENTO DA NF. 541  3 MEDIO PERODO 01072022 A 31072022, REFERENTE A EXECUO DA OBRA DE INFRAESTRUTURA URBANA  RESTAURAO FUNCIONA DO PAVIMENTO RECAPEAMENTO, REDE E LIGAES DOMICI"
+				}
+			],
+			"ValorBruto": "1841353.53",
+			"VlrBaseRet": "184135.35",
+			"VlrRetencao": "20254.89"
+		},
+		{
+			"id": 1479,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "06916581000192",
+			"nfs": [
+				{
+					"id": 4581,
+					"serie": "NFSe",
+					"numDocto": "109",
+					"dtEmissaoNF": "2022-08-22",
+					"vlrBruto": "115215.93",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE DA NF.109, REFERENTE A 2 MEDIO DO PERODO 23062022 A 22072022  OBRAS DE INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA E DRENAGEM DE AGUAS PLUVIAIS NO SETOR I JARDIM PARATI"
+				}
+			],
+			"ValorBruto": "115215.93",
+			"VlrBaseRet": "18867.05",
+			"VlrRetencao": "2075.37"
+		},
+		{
+			"id": 1480,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "25388869000186",
+			"nfs": [
+				{
+					"id": 4582,
+					"serie": "NFSE",
+					"numDocto": "86",
+					"dtEmissaoNF": "2022-08-19",
+					"vlrBruto": "1670440.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 86  23 MED  PERODO 0107  31072022  REFERENTE A IMPLANTAO E PAVIMENTAO ASFLTICA DNA RODOVIA MS472, TRECHO ENTR. BR267 BONFIM  BARRA DO RIO CARACOL, SUBTRECHO ENTR. RUA C"
+				}
+			],
+			"ValorBruto": "1670440.62",
+			"VlrBaseRet": "584654.22",
+			"VlrRetencao": "64311.96"
+		},
+		{
+			"id": 1481,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "13628966000110",
+			"nfs": [
+				{
+					"id": 4583,
+					"serie": "NFSE",
+					"numDocto": "585",
+					"dtEmissaoNF": "2022-08-23",
+					"vlrBruto": "774036.17",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 585, REFERENTE A 1 MEDIO PERODO DE 20062022 A 20082022  EXECUO DE OBRA DE INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA E DRENAGEM DE GUAS PLUVIAIS EM DIVERSAS RUAS NO DISTR"
+				}
+			],
+			"ValorBruto": "774036.17",
+			"VlrBaseRet": "77403.61",
+			"VlrRetencao": "8514.40"
+		},
+		{
+			"id": 1482,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "14224175000197",
+			"nfs": [
+				{
+					"id": 4584,
+					"serie": "NFSe",
+					"numDocto": "622",
+					"dtEmissaoNF": "2022-08-22",
+					"vlrBruto": "313895.47",
+					"obs": "LIQUIDAO DE PARTE DE SALDO PARA PAGAMENTO DA NF 622  10 MEDIO PERODO 26062022 A 25072022, REFERENTE A EXECUO DA OBRA DE MANUTENO E CONSERVAO DAS PONTES DE MADEIRA, NAS RODOVIAS QUE FAZEM PARTE DA MALH"
+				}
+			],
+			"ValorBruto": "313895.47",
+			"VlrBaseRet": "109863.41",
+			"VlrRetencao": "12084.98"
+		},
+		{
+			"id": 1483,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "73307043000198",
+			"nfs": [
+				{
+					"id": 4585,
+					"serie": "NFSE",
+					"numDocto": "46",
+					"dtEmissaoNF": "2022-08-16",
+					"vlrBruto": "211612.62",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF.46  2 MED  PERODO 0106  30062022 REFERENTE A  CONSTRUO DE PONTE EM CONCRETO ARMADO SOBRE O CRREGO PICADA, RODOVIA MS142, COM EXTENSO DE 20,00 M, LARGURA DE 10,00 M, NO M"
+				},
+				{
+					"id": 4586,
+					"serie": "NFSE",
+					"numDocto": "47",
+					"dtEmissaoNF": "2022-08-16",
+					"vlrBruto": "149702.24",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF.47  3 MED  PERODO 0107  31072022 REFERENTE A  CONSTRUO DE PONTE EM CONCRETO ARMADO SOBRE O CRREGO PICADA, RODOVIA MS142, COM EXTENSO DE 20,00 M, LARGURA DE 10,00 M, NO M"
+				}
+			],
+			"ValorBruto": "361314.86",
+			"VlrBaseRet": "162591.68",
+			"VlrRetencao": "17885.08"
+		},
+		{
+			"id": 1484,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "44061083000102",
+			"nfs": [
+				{
+					"id": 4587,
+					"serie": "NFSe",
+					"numDocto": "26381",
+					"dtEmissaoNF": "2022-08-23",
+					"vlrBruto": "309293.07",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 26381 1 MEDIO  PERODO 22072022 A 31072022  EXECUO DOS SERVIOS DE SEGURANA VIRIA COM MELHORIA NA CONDIO DE SEGURANA DA MALHA RODOVIRIA DO ESTADO DE MATO GROSSO DO"
+				},
+				{
+					"id": 4588,
+					"serie": "NFSe",
+					"numDocto": "26382",
+					"dtEmissaoNF": "2022-08-23",
+					"vlrBruto": "74442.22",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 26382 1 MEDIO  PERODO 22072022 A 31072022  EXECUO DOS SERVIOS DE SEGURANA VIRIA COM MELHORIA NA CONDIO DE SEGURANA DA MALHA RODOVIRIA DO ESTADO DE MATO GROSSO DO"
+				},
+				{
+					"id": 4589,
+					"serie": "NFSe",
+					"numDocto": "26383",
+					"dtEmissaoNF": "2022-08-23",
+					"vlrBruto": "58499.89",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 26383 1 MEDIO  PERODO 22072022 A 31072022  EXECUO DOS SERVIOS DE SEGURANA VIRIA COM MELHORIA NA CONDIO DE SEGURANA DA MALHA RODOVIRIA DO ESTADO DE MATO GROSSO DO"
+				},
+				{
+					"id": 4590,
+					"serie": "NFSe",
+					"numDocto": "26379",
+					"dtEmissaoNF": "2022-08-23",
+					"vlrBruto": "1980363.87",
+					"obs": "LIQUIDAO PARA PAGAMENTO REFERENTE A NF 26379 1 MEDIO  PERODO 22072022 A 31072022  EXECUO DOS SERVIOS DE SEGURANA VIRIA COM MELHORIA NA CONDIO DE SEGURANA DA MALHA RODOVIRIA DO ESTADO DE MATO GROSSO DO"
+				},
+				{
+					"id": 4591,
+					"serie": "NFSe",
+					"numDocto": "26380",
+					"dtEmissaoNF": "2022-08-23",
+					"vlrBruto": "2104479.23",
+					"obs": "LIQUIDAO PARA PAGAMENTO RESTANTE REFERENTE A NF 26380 1 MEDIO  PERODO 22072022 A 31072022  EXECUO DOS SERVIOS DE SEGURANA VIRIA COM MELHORIA NA CONDIO DE SEGURANA DA MALHA RODOVIRIA DO ESTADO DE MATO "
+				}
+			],
+			"ValorBruto": "4527078.28",
+			"VlrBaseRet": "1584477.39",
+			"VlrRetencao": "174292.50"
+		},
+		{
+			"id": 1485,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "05269841000112",
+			"nfs": [
+				{
+					"id": 4592,
+					"serie": "nfse",
+					"numDocto": "1270",
+					"dtEmissaoNF": "2022-08-23",
+					"vlrBruto": "19989029.56",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 1270, REFERENTE A 08 E 09 MEDIO PERIODO DE 01062022 A 31072022  EXECUO DE OBRAS DE INFRAESTRUTURA URBANA  PAVIMENTAO ASFLTICA, DRENAGEM DE GUAS PLUVIAIS E RESTAURAO FUN"
+				}
+			],
+			"ValorBruto": "19989029.56",
+			"VlrBaseRet": "237610.25",
+			"VlrRetencao": "26137.09"
+		},
+		{
+			"id": 1486,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "00237518000143",
+			"nfs": [
+				{
+					"id": 4593,
+					"serie": "NFSe",
+					"numDocto": "7578",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "159208.85",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.7578, REFERENTE AO REAJUSTAMENTO DA 5 MEDIO DO PERODO DE 01062022 A 30062022 DO CONTRATO N 1922021  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA, INCLUSIVE OBRA DE ARTES ESPEC"
+				},
+				{
+					"id": 4594,
+					"serie": "NFSe",
+					"numDocto": "7580",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "212469.89",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.7580, REFERENTE AO REAJUSTAMENTO DA 6 MEDIO DO PERODO DE 01072022 A 31072022 DO CONTRATO N 1922021  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA, INCLUSIVE OBRA DE ARTES ESPEC"
+				},
+				{
+					"id": 4595,
+					"serie": "NFSe",
+					"numDocto": "7577",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "989294.21",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.7577, REFERENTE A 5 MEDIO DO PERODO DE 01062022 A 30062022 DA OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA, INCLUSIVE OBRAS DE ARTES ESPECIAIS, DA RODOVIA MS345 LOTE 1, TRECHO"
+				},
+				{
+					"id": 4596,
+					"serie": "NFSe",
+					"numDocto": "7579",
+					"dtEmissaoNF": "2022-08-12",
+					"vlrBruto": "1337049.13",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE DA NF.7579, REFERENTE A 6 MEDIO DO PERODO DE 01072022 A 31072022 DA OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA, INCLUSIVE OBRAS DE ARTES ESPECIAIS, DA RODOVIA MS345 LOTE "
+				}
+			],
+			"ValorBruto": "2698022.08",
+			"VlrBaseRet": "790455.83",
+			"VlrRetencao": "86950.08"
+		},
+		{
+			"id": 1487,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "00437218000108",
+			"nfs": [
+				{
+					"id": 4597,
+					"serie": "NFSe",
+					"numDocto": "2168",
+					"dtEmissaoNF": "2022-08-29",
+					"vlrBruto": "531873.61",
+					"obs": "APROPRIAO PARA PAGAMENTO DA NF. 2168  11 MEDIO DE REAJUSTAMENTO  PERODO 01072022 A 31072022. REAJUSTAMENTO AO CONTRATO N 0952021  OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DAS RODOVIAS MS425, MS229 E MS"
+				},
+				{
+					"id": 4598,
+					"serie": "NFSE",
+					"numDocto": "2160",
+					"dtEmissaoNF": "2022-08-22",
+					"vlrBruto": "1360900.48",
+					"obs": "LIQUIDAO PARA PAGAMENTO NF 2160  REFERENTE A 11 MEDIO PERODO DE 01072022  31072022 OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DAS RODOVIAS MS425, MS229 E MS320, TRECHO ENTR. BR060  ENTR. MS316, COM EXTEN"
+				}
+			],
+			"ValorBruto": "1892774.09",
+			"VlrBaseRet": "612133.20",
+			"VlrRetencao": "67334.65"
+		},
+		{
+			"id": 1488,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "55333769000113",
+			"nfs": [
+				{
+					"id": 4599,
+					"serie": "NFSe",
+					"numDocto": "3190",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "46378.72",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3190, REFERENTE PARTE DA 10 MEDIO DO PERODO DE 01072022 A 31072022 DA OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA ESTADUAL MS378, INCLUSIVE OBRAS DE ARTES ESPECIAI"
+				},
+				{
+					"id": 4600,
+					"serie": "NFSe",
+					"numDocto": "3191",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "76775.08",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF.3191, REFERENTE PARTE DA 10 MEDIO DO PERODO DE 01072022 A 31072022 DA OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA ESTADUAL MS378, INCLUSIVE OBRAS DE ARTES ESPECIAI"
+				},
+				{
+					"id": 4601,
+					"serie": "NFSe",
+					"numDocto": "3192",
+					"dtEmissaoNF": "2022-08-10",
+					"vlrBruto": "664139.40",
+					"obs": "LIQUIDAO PARA PAGAMENTO DE PARTE DA NF.3192, REFERENTE PARTE DA 10 MEDIO DO PERODO DE 01072022 A 31072022 DA OBRA DE IMPLANTAO E PAVIMENTAO ASFLTICA DA RODOVIA ESTADUAL MS378, INCLUSIVE OBRAS DE ARTES"
+				}
+			],
+			"ValorBruto": "787293.20",
+			"VlrBaseRet": "284737.91",
+			"VlrRetencao": "31321.17"
+		},
+		{
+			"id": 1489,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "03492162000182",
+			"nfs": [
+				{
+					"id": 4602,
+					"serie": "NFSE",
+					"numDocto": "2051",
+					"dtEmissaoNF": "2022-08-23",
+					"vlrBruto": "116274.43",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF 2051  REFERENTE A 28062022A 31072022  CONTRATAO DE EMPRESA ESPECIALIZADA PARA EXECUO DA REFORMA E AMPLIAO DO CENTRO CULTURAL JOS OTVIO GUIZZO EM CAMPO GRANDEMS. PROCESSO "
+				}
+			],
+			"ValorBruto": "116274.43",
+			"VlrBaseRet": "40696.05",
+			"VlrRetencao": "4476.56"
+		},
+		{
+			"id": 1490,
+			"evento": "R2010",
+			"periodo_apuracao": "2022-08",
+			"descricao": "Retenção Contribuição Previdenciária",
+			"situacao": "Não Enviado",
+			"nrInsc": "34023887000155",
+			"nfs": [
+				{
+					"id": 4604,
+					"serie": "NFSe",
+					"numDocto": "6111    ",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "197838.74",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 6111  1 MEDIO PERODO 18072022  31072022, REFERENTE A EXECUO DOS SERVIOS DE SEGURANA VIRIA COM MELHORIA NA CONDIO DE SEGURANA DA MALHA RODOVIRIA DO ESTADO DE MATO GROSSO "
+				},
+				{
+					"id": 4605,
+					"serie": "NFSe",
+					"numDocto": "6110",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "47849.70",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 6110  1 MEDIO PERODO 18072022  31072022, REFERENTE A EXECUO DOS SERVIOS DE SEGURANA VIRIA COM MELHORIA NA CONDIO DE SEGURANA DA MALHA RODOVIRIA DO ESTADO DE MATO GROSSO "
+				},
+				{
+					"id": 4606,
+					"serie": "NFSe",
+					"numDocto": "6112",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "1534835.14",
+					"obs": "LIQUIDAO PARA PAGAMENTO DA NF. 6112  1 MEDIO PERODO 18072022  31072022, REFERENTE A EXECUO DOS SERVIOS DE SEGURANA VIRIA COM MELHORIA NA CONDIO DE SEGURANA DA MALHA RODOVIRIA DO ESTADO DE MATO GROSSO "
+				},
+				{
+					"id": 4607,
+					"serie": "NFSe",
+					"numDocto": "6113",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "526425.49",
+					"obs": "LIQUIDAO DE SALDO PARA PAGAMENTO DA NF. 6113  1 MEDIO PERODO 18072022  31072022, REFERENTE A EXECUO DOS SERVIOS DE SEGURANA VIRIA COM MELHORIA NA CONDIO DE SEGURANA DA MALHA RODOVIRIA DO ESTADO DE MAT"
+				},
+				{
+					"id": 4608,
+					"serie": "NFSe",
+					"numDocto": "6114",
+					"dtEmissaoNF": "2022-08-18",
+					"vlrBruto": "50166.13",
+					"obs": "LIQUIDAO DE SALDO PARA PAGAMENTO DA NF. 6114  1 MEDIO PERODO 18072022  31072022, REFERENTE A EXECUO DOS SERVIOS DE SEGURANA VIRIA COM MELHORIA NA CONDIO DE SEGURANA DA MALHA RODOVIRIA DO ESTADO DE MAT"
+				}
+			],
+			"ValorBruto": "2357115.20",
+			"VlrBaseRet": "824990.33",
+			"VlrRetencao": "90748.93"
+		}
+	],
+	"message": [
+		"Eventos Enviados com sucesso"
+	],
+	"reaberturas": [
+		"2022-07",
+		"2015-01"
+	]
+}
