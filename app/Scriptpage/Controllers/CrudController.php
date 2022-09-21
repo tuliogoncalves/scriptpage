@@ -7,57 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\ValidationException;
-use Inertia\Response;
 
 class CrudController extends BaseController
 {
-
-    /**
-     * create
-     * @param Request $request
-     * @param mixed $id
-     * @param mixed $id2
-     * @return Response
-     */
-    public function create(Request $request, $id = null, $id2 = null)
-    {
-        return $this->render(
-            $this->template . '/form',
-            $this->dataCreate($request, $id, $id2)
-        );
-    }
-
-
-    /**
-     * show
-     *
-     * @param  mixed $request
-     * @param  mixed $id
-     * @param  mixed $id2
-     * @return Response
-     */
-    public function show(Request $request, $id = null, $id2 = null)
-    {
-        return $this->edit($request, $id, $id2);
-    }
-
-
-    /**
-     * edit
-     *
-     * @param  mixed $request
-     * @param  mixed $id
-     * @param  mixed $id2
-     * @return Response
-     */
-    public function edit(Request $request, $id, $id2 = null)
-    {
-        return $this->render(
-            $this->template . '/form',
-            $this->dataEdit($request, $id, $id2)
-        );
-    }
-
 
     /**
      * store
@@ -70,7 +22,10 @@ class CrudController extends BaseController
         // Set request data
         $this->crud->setData($request->all());
 
-        // Valida datause Illuminate\Http\Request;
+        // Valida data
+        $validator = $this->crud->validate();
+        $validator->validate();
+
         // Try storage new data
         $this->crud->store();
 
@@ -83,8 +38,6 @@ class CrudController extends BaseController
         } else {
             $id2 = $this->crud->getId();
         }
-
-        return Redirect::to($this->getUrl('store', $id, $id2));
     }
 
 
@@ -112,8 +65,6 @@ class CrudController extends BaseController
 
         // Success flash message
         Session::flash('success', 'Registro Atualizado com Sucesso');
-
-        return Redirect::to($this->getUrl('update', $id, $id2));
     }
 
 
@@ -132,8 +83,6 @@ class CrudController extends BaseController
 
         // Success flash message
         Session::flash('success', 'Registro Removido com Sucesso');
-
-        return Redirect::to($this->getUrl('destroy', $id, $id2));
     }
 
 
@@ -149,35 +98,4 @@ class CrudController extends BaseController
         return is_null($id2) ? $id : $id2;
     }
 
-
-    /**
-     * dataCreate
-     *
-     * @param  Request $request
-     * @param  mixed $id
-     * @param  mixed $id2
-     * @return array
-     */
-    protected function dataCreate(Request $request, $id = null, $id2 = null): array
-    {
-        return [
-            'data' => $this->crud->create()
-        ];
-    }
-
-
-    /**
-     * dataEdit
-     *
-     * @param  Request $request
-     * @param  mixed $id
-     * @param  mixed $id2
-     * @return array
-     */
-    protected function dataEdit(Request $request, $id, $id2 = null): array
-    {
-        return [
-            'data' => $this->repository->find($id)
-        ];
-    }
 }

@@ -3,8 +3,6 @@
 namespace App\Scriptpage\Core;
 
 use App\Scriptpage\Contracts\ICore;
-use App\Scriptpage\Contracts\ICrud;
-use App\Scriptpage\Contracts\IRepository;
 
 abstract class BaseCore
 implements ICore

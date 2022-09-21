@@ -3,89 +3,134 @@
 namespace App\Scriptpage\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Scriptpage\Contracts\ICrud;
 use Illuminate\Http\JsonResponse;
+use App\Scriptpage\Contracts\IRepository;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 use Inertia\Response;
 
 class BaseController extends Controller
 {
 
-    use TraitController;
+    /**
+     * template
+     *
+     * @var string
+     */
+    protected $template;
+
 
 
     /**
-     * index
+     * repository
+     *
+     * @var IRepository
+     */
+    protected IRepository $repository;
+
+
+
+    /**
+     * crud
+     *
+     * @var mixed
+     */
+    protected ICrud $crud;
+
+    
+
+    /**
+     * repositoryClass
+     *
+     * @var String
+     */
+    protected $repositoryClass;
+
+
+
+    /**
+     * crudClass
+     *
+     * @var String
+     */
+    protected $crudClass;
+
+
+
+    /**
+     * __construct
      *
      * @param  Request $request
-     * @param  mixed $id
-     * @param  mixed $id2
-     * @return Response
+     * @return BaseController
      */
-    public function index(Request $request, $id = null, $id2 = null)
+    public function __construct(Request $request)
     {
-        $this->setBack($request);
-        return $this->render(
-            $this->template . '/index',
-            $this->dataIndex($request, $id, $id2)
-        );
-    }
-
-
-    /**
-     * dataIndex
-     *
-     * @param  Request $request
-     * @param  mixed $id
-     * @param  mixed $id2
-     * @return array
-     */
-    protected function dataIndex(Request $request, $id = null, $id2 = null): array
-    {
-        return [
-            'paginator' => $this->repository->getData()
-        ];
-    }
-
-    /**
-     * success response method.
-     *
-     * @param $result
-     * @param $message
-     * @param bool $valida
-     * @return JsonResponse
-     */
-    public function sendResponse($result, $message, bool $valida = true): JsonResponse
-    {
-        $response = [
-            'success' => $valida,
-            'data'    => $result,
-            'message' => $message,
-        ];
-        return response()->json($response, 200);
-    }
-
-    /**
-     * return error response.
-     *
-     * @param $error
-     * @param array $errorMessages
-     * @param int $code
-     *
-     * @return JsonResponse
-     */
-    public function sendError($error, array $errorMessages = [], int $code = 404): JsonResponse
-    {
-        $response = [
-            'success' => false,
-            'message' => $error,
-        ];
-
-
-        if (!empty($errorMessages)) {
-            $response['data'] = $errorMessages;
+        if (!empty($this->repositoryClass)) {
+            $this->repository = app($this->repositoryClass);
+            $this->repository->requestData($request);
         }
 
+        if (!empty($this->crudClass)) $this->crud = app($this->crudClass);
 
-        return response()->json($response, $code);
+        // Custom init
+        $this->bootstrap();
+
+        return $this;
     }
+
+
+
+    /**
+     * Custom init
+     *
+     * @return void
+     */
+    protected function bootstrap()
+    {
+    }
+
+
+
+    /**
+     * render
+     *
+     * @param  mixed $component
+     * @param  mixed $props
+     * @return \Inertia\Response
+     */
+    final function render($component, $props = []): Response
+    {
+        return Inertia::render($component, $props);
+    }
+
+
+
+    /**
+     * setBack
+     *
+     * @param  Request $request
+     * @return void
+     */
+    public function setSessionUrl(Request $request)
+    {
+        session(['url' => $request->fullUrl()]);
+    }
+
+
+
+    /**
+     * Get redirect url
+     *
+     * @param String $route
+     * @param  mixed $id
+     * @param  mixed $id2
+     * @return String
+     */
+    // final function getUrl(string $route = 'index', $id = null, $id2 = null)
+    final function getSessionUrl()
+    {
+        return session('url');
+    }
+
 }
