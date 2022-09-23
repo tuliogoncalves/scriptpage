@@ -1,18 +1,15 @@
 <?php
 
-namespace App\Scriptpage\Core;
+namespace App\Scriptpage\Contracts;
 
-use App\Scriptpage\Contracts\ICore;
-
-abstract class BaseCore
-implements ICore
+abstract class BaseService
+implements IService
 {
 
     /**
      * __construct
      *
-     * @param  Illuminate\Http\Request $request
-     * @return App\Scriptpage\BaseController
+     * @return BaseService
      */
     public function __construct()
     {

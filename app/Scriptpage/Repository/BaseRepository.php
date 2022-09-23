@@ -33,7 +33,9 @@ abstract class BaseRepository
      */
     function __construct()
     {
-        $this->model = app($this->modelClass);
+        if (!empty($this->modelClass)) {
+            $this->model = app($this->modelClass);
+        }
     }
 
 

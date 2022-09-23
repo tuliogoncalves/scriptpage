@@ -22,7 +22,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'password'
     ];
 
     /**
@@ -41,13 +41,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime'
     ];
 
     protected $attributes = [
-        'name' => '',
-        'email' => '',
         'password' => ''
+    ];
+
+    protected $appends = [
+        'listOfRoles'
     ];
 
     public function hasRole($name)
@@ -59,5 +61,21 @@ class User extends Authenticatable
     function roles()
     {
         return $this->hasMany(Role::class);
+    }
+
+    public function getListOfRolesAttribute(): array
+    {
+        return Array(
+            self::addListRole('admin', 'Adminstrador'),
+            self::addListRole('opt1', 'Opção1'),
+            self::addListRole('opt2', 'opção2')
+        );
+    }
+
+    private static function addListRole($id, $name): array {
+        return [
+            'id' => $id,
+            'name' => $name
+        ];
     }
 }

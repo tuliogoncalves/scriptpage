@@ -45,8 +45,12 @@
 				name="user-roles"
 				data-placeholder="Select a Roles"
 			>
-				<option value="admin">Administração</option>
-				<option value="opt2">Option 2</option>
+				<option
+					v-for="role in $page.props.flash.user.listOfRoles"
+					:value=role.id
+				>
+					{{ role.name }}
+				</option>
 			</select>
 		</div>
 	</crud>

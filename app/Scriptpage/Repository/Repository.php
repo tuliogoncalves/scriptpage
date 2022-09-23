@@ -6,6 +6,7 @@ use App\Scriptpage\Contracts\IRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 
 abstract class Repository
 extends BaseRepository
@@ -134,7 +135,7 @@ implements IRepository
      * @param int   $take
      * @param bool  $paginate
      *
-     * @return EloquentCollection|Paginator
+     * @return Collection|EloquentCollection|Paginator
      */
     function getData($take = null, $paginate = null)
     {

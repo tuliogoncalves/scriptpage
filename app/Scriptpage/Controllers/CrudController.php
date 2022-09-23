@@ -17,7 +17,7 @@ class CrudController extends BaseController
      * @param mixed $id2
      * @return RedirectResponse
      */
-    public function store(Request $request, $id = null, $id2 = null)
+    final function crudStore(Request $request, $id = null, $id2 = null)
     {
         // Set request data
         $this->crud->setData($request->all());
@@ -50,7 +50,7 @@ class CrudController extends BaseController
      * @return RedirectResponse
      * @throws ValidationException
      */
-    public function update(Request $request, $id = null, $id2 = null)
+    final function crudUpdate(Request $request, $id = null, $id2 = null)
     {
         // Set request data
         $this->crud->setData($request->all());
@@ -76,7 +76,7 @@ class CrudController extends BaseController
      * @param  mixed $id2
      * @return RedirectResponse
      */
-    public function destroy(Request $request, $id = null, $id2 = null)
+    final function crudDestroy(Request $request, $id = null, $id2 = null)
     {
         // Delete record
         $this->crud->delete($this->getId($id, $id2));

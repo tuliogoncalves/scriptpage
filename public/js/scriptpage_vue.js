@@ -20599,23 +20599,22 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_7 = {
   "class": "invalid-feedback"
 };
-
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_8 = {
   "class": "form-group"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, "Roles"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, "Roles", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = {
   id: "user-roles",
   "class": "form-control select2",
   multiple: "multiple",
   name: "user-roles",
   "data-placeholder": "Select a Roles"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "admin"
-}, "Administração"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "opt2"
-}, "Option 2")])], -1
-/* HOISTED */
-);
-
+};
+var _hoisted_11 = ["value"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_crud = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("crud");
 
@@ -20655,7 +20654,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.email]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.email), 1
       /* TEXT */
-      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Roles "), _hoisted_8];
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Roles "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", _hoisted_10, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$page.props.flash.user.listOfRoles, function (role) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+          value: role.id
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(role.name), 9
+        /* TEXT, PROPS */
+        , _hoisted_11);
+      }), 256
+      /* UNKEYED_FRAGMENT */
+      ))])])];
     }),
     _: 1
     /* STABLE */

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cruds\UserCrud;
+
 use App\Repositories\UserRepository;
 use App\Scriptpage\Controllers\CrudController;
 use Illuminate\Http\Request;
@@ -15,12 +16,11 @@ class UserController extends CrudController
 
     protected $template = "Users";
 
-
     public function index(Request $request, $id = null, $id2 = null)
     {
         $this->setSessionUrl($request);
-        return $this->render(
-            $this->template.'/index',
+        return $this->sendResponse(
+            $this->template . '/index',
             [
                 'paginator' => $this->repository->getData()
             ]
@@ -30,8 +30,8 @@ class UserController extends CrudController
 
     public function create(Request $request, $id = null, $id2 = null)
     {
-        return $this->render(
-            $this->template.'/form',
+        return $this->sendResponse(
+            $this->template . '/form',
             [
                 'data' => $this->crud->create()
             ]
@@ -47,8 +47,8 @@ class UserController extends CrudController
 
     public function edit(Request $request, $id, $id2 = null)
     {
-        return $this->render(
-            $this->template.'/form',
+        return $this->sendResponse(
+            $this->template . '/form',
             [
                 'data' => $this->repository->with('roles')->find($id)
             ]
@@ -58,22 +58,21 @@ class UserController extends CrudController
 
     public function store(Request $request, $id = null, $id2 = null)
     {
-        parent::store($request, $id, $id2);
+        parent::crudStore($request, $id, $id2);
         return Redirect::to($this->getSessionUrl());
     }
 
 
     public function update(Request $request, $id = null, $id2 = null)
     {
-        parent::update($request, $id, $id2);
+        parent::crudUpdate($request, $id, $id2);
         return Redirect::to($this->getSessionUrl());
     }
 
 
     public function destroy(Request $request, $id = null, $id2 = null)
     {
-        parent::destroy($request, $id, $id2);
+        parent::crudDestroy($request, $id, $id2);
         return Redirect::to($this->getSessionUrl());
     }
-
 }

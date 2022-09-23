@@ -4,8 +4,8 @@ namespace App\Scriptpage\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Scriptpage\Contracts\ICrud;
-use Illuminate\Http\JsonResponse;
 use App\Scriptpage\Contracts\IRepository;
+use App\Scriptpage\Contracts\IService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -28,6 +28,15 @@ class BaseController extends Controller
      * @var IRepository
      */
     protected IRepository $repository;
+
+
+
+    /**
+     * service
+     *
+     * @var IService
+     */
+    protected IService $service;
 
 
 
@@ -57,6 +66,13 @@ class BaseController extends Controller
     protected $crudClass;
 
 
+    /**
+     * serviceClass
+     *
+     * @var String
+     */
+    protected $serviceClass;
+
 
     /**
      * __construct
@@ -72,6 +88,7 @@ class BaseController extends Controller
         }
 
         if (!empty($this->crudClass)) $this->crud = app($this->crudClass);
+        if (!empty($this->serviceClass)) $this->service = app($this->serviceClass);
 
         // Custom init
         $this->bootstrap();
@@ -112,7 +129,7 @@ class BaseController extends Controller
      * @param  Request $request
      * @return void
      */
-    public function setSessionUrl(Request $request)
+    final function setSessionUrl(Request $request)
     {
         session(['url' => $request->fullUrl()]);
     }
@@ -133,4 +150,26 @@ class BaseController extends Controller
         return session('url');
     }
 
+
+
+    /**
+     * success response method.
+     *
+     * @param $result
+     * @param $message
+     * @param bool $valida
+     * @return Response
+     */
+    public function sendResponse($component, $result, $message=null, bool $success = true, int $code = 200): Response
+    {
+        $resp = [
+            'success'   => $success,
+            'paginator' => null,
+            'data'      => null,
+            'code'      => $code,
+            'message'   => $message,
+        ];
+        $response = array_merge($resp, $result);
+        return $this->render($component, $response);
+    }
 }
