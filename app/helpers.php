@@ -1,37 +1,44 @@
 <?php
 
+
 /**
- * Inclui o arquivo de rotas de um módulo/área especifica.
+ * Add routes
+ * 
+ * @param  string $route example: 
+ *                          to "/_route/web/home.route.php",
+ *                          lets, "web/home"
  *
- * @return string
+ * @return null
  */
-if (!function_exists('incluirRota')) {
-    function incluirRota($arquivo, $namespace)
+if (!function_exists('addRoute')) {
+    function addRoute($route)
     {
-        require  base_path("routes/_routes/$namespace/$arquivo");
+        $file = explode('/', $route);
+        require_once  base_path("routes/_routes/$file[0]/$file[1].route.php");
     }
 }
 
+
 /**
- * Remove máscara de um valor específico.
+ * Remove mask.
  *
- * @param  string $valor Valor para editar.
- * @param  mixed $outros Caso deseja passar outros valores a serem removidos.
+ * @param  string $value value to clear
+ * @param  mixed $others add others values to be removed.
  *
  * @return string
  */
-function removerMascara($valor, $outros = null)
+function clearMask($value, Array $others = null)
 {
-    $remover = [
+    $clear = [
         '.', ',', '/', '-', '(', ')', '[', ']', ' ', '+'
     ];
 
-    if (!is_null($outros)) {
-        if (!is_array($outros)) {
-            $outros = [$outros];
+    if (!is_null($others)) {
+        if (!is_array($others)) {
+            $outros = [$others];
         }
-        $remover = array_merge($remover, $outros);
+        $clear = array_merge($clear, $others);
     }
 
-    return str_replace($remover, '', $valor);
+    return str_replace($clear, '', $value);
 }

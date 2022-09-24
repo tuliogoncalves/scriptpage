@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Scriptpage\Contracts\IRepository;
 use Illuminate\Http\Request;
-use App\Scriptpage\Repository;
 
 class GetdataController extends Controller
 {
-    private static function getRepository(String $model): Repository
+    private static function getRepository(String $model): IRepository
     {
         $class = [
             'UserRepository' => 'App\Repositories\UserRepository'

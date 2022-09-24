@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\Roles\RoleService;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -65,17 +66,6 @@ class User extends Authenticatable
 
     public function getListOfRolesAttribute(): array
     {
-        return Array(
-            self::addListRole('admin', 'Adminstrador'),
-            self::addListRole('opt1', 'Opção1'),
-            self::addListRole('opt2', 'opção2')
-        );
-    }
-
-    private static function addListRole($id, $name): array {
-        return [
-            'id' => $id,
-            'name' => $name
-        ];
+        return RoleService::listOfRoles();
     }
 }

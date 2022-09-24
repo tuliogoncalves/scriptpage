@@ -16,26 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function () {
 
     /**
-     * Rotas de Sistema Global Autenticada ...
-     *
-     * @return string
+     * Home routes
      */
-    incluirRota('_sistema.route.php', 'web');
+    addRoute('web/home');
 
     /**
-     * Rotas de USUÁRIOS -[users] em geral..
-     *
-     * @return string
+     * Users routes
      */
-    incluirRota('_users.route.php', 'web');
-
-
+    addRoute('web/users');
 });
 
 /**
- * Rotas de LOGIN -[login] em geral..
- *
- * @return string
+ * Login routes
  */
-incluirRota('_login_all.route.php', 'web');
-
+addRoute('web/login');

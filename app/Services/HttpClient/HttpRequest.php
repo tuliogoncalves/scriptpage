@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core;
+namespace App\Services\HttpClient;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
