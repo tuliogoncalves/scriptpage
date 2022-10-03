@@ -1,14 +1,24 @@
 <?php
 
-namespace App\Scriptpage\Controllers;
+namespace App\Http\Controllers;
 
+use App\Cruds\UserCrud;
+
+use App\Repositories\UserRepository;
+use App\Scriptpage\Controllers\BaseController;
+use App\Scriptpage\Controllers\CrudTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
-class CrudController extends BaseController
+class ExampleBaseController extends BaseController
 {
-    use CrudTrait;
+    protected $repositoryClass = UserRepository::class;
+    protected $crudClass = UserCrud::class;
 
+    protected $template = "Users";
+
+    use CrudTrait;
+    
     public function index(Request $request, $id = null, $id2 = null)
     {
         $this->setSessionUrl($request);
@@ -51,21 +61,21 @@ class CrudController extends BaseController
 
     public function store(Request $request, $id = null, $id2 = null)
     {
-        self::crudStore($request, $id, $id2);
+        parent::crudStore($request, $id, $id2);
         return Redirect::to($this->getSessionUrl());
     }
 
 
     public function update(Request $request, $id = null, $id2 = null)
     {
-        self::crudUpdate($request, $id, $id2);
+        parent::crudUpdate($request, $id, $id2);
         return Redirect::to($this->getSessionUrl());
     }
 
 
     public function destroy(Request $request, $id = null, $id2 = null)
     {
-        self::crudDestroy($request, $id, $id2);
+        parent::crudDestroy($request, $id, $id2);
         return Redirect::to($this->getSessionUrl());
     }
 }
