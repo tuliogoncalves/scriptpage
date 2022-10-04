@@ -14,4 +14,10 @@ class UserController extends CrudController
 
     protected $template = "Users";
 
+    protected function dataEdit($id = null, $id2 = null)
+    {
+        return [
+            'data' => $this->repository->with('roles')->find($id)
+        ];
+    }
 }

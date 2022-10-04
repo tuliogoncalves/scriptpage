@@ -6,14 +6,42 @@ use App\Cruds\UserCrud;
 
 use App\Repositories\UserRepository;
 use App\Scriptpage\Controllers\CrudController;
-use App\Scriptpage\Controllers\CrudTrait;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class ExampleBaseController extends CrudController
 {
     protected $repositoryClass = UserRepository::class;
     protected $crudClass = UserCrud::class;
+    // protected $serviceClass = UserService::class;
 
     protected $template = "Users";
+
+
+    // protected function dataIndex($id = null, $id2 = null)
+    // {
+    //     return [
+    //         'paginator' => $this->repository->getData()
+    //     ];
+    // }
+
+
+    // protected function dataCreate($id = null, $id2 = null)
+    // {
+    //     return [
+    //         'data' => $this->crud->create()
+    //     ];
+    // }
+
+
+    // protected function dataShow($id = null, $id2 = null)
+    // {
+    //     return $this->dataIndex($id, $id2);
+    // }
+
+    
+    // protected function dataEdit($id = null, $id2 = null)
+    // {
+    //     return [
+    //         'data' => $this->repository->find($id)
+    //     ];
+    // }
 }
