@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 interface ICrud
 {
     /**
+     * initialization method
+     */
+    function init();
+    
+    
+    /**
      * create new model.
      *
      * @return created new model object.

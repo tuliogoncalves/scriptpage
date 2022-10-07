@@ -4,9 +4,9 @@ namespace App\Cruds;
 
 use App\Models\Role;
 use App\Models\User;
-use App\Scriptpage\Repository\Crud;
+use App\Scriptpage\Repository\BaseCrud;
 
-class UserCrud extends Crud
+class UserCrud extends BaseCrud
 {
     protected string $modelClass = User::class;
 

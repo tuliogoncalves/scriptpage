@@ -5,6 +5,12 @@ namespace App\Scriptpage\Contracts;
 interface IRepository
 {
     /**
+     * initialization method
+     */
+    function init();
+
+    
+    /**
      * Start new query
      */
     function newQuery($table = '');

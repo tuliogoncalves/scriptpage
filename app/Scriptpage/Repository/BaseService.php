@@ -11,18 +11,17 @@ implements IService
      *
      * @return BaseService
      */
-    public function __construct()
+    function __construct()
     {
-        $this->bootstrap();
+        $this->init();
         return $this;
     }
 
     /**
      * Custom init
      *
-     * @return void
      */
-    protected function bootstrap()
+    function init()
     {
     }
 }

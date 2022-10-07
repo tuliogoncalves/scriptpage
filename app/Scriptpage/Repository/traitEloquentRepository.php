@@ -2,15 +2,11 @@
 
 namespace App\Scriptpage\Repository;
 
-use App\Scriptpage\Contracts\IRepository;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 
-abstract class Repository
-extends BaseRepository
-implements IRepository
+trait traitEloquentRepository
 {
     /**
      * Request paginate data.
@@ -20,22 +16,31 @@ implements IRepository
     protected $paginate = true;
 
     
-    function requestData(Request $request)
+    protected function searchData(array $data)
     {
-        $this->search = $request->input('search');
-        $this->take = (int)$request->input('take', '5');
-        $this->paginate = ($request->input('paginate', 'true')) == 'true';
+        $this->search = $data['search'];
+    }
+
+
+    /**
+     * @return array()
+     */
+    protected function appends()
+    {
+        return array();
     }
 
 
     /**
      * @return EloquentQueryBuilder|QueryBuilder
      */
-    function newQuery($table = '')
+    final function newQuery($table = '')
     {
         if ($table <> '') {
+            // QueryBuilder
             $query = DB::table($table);
         } else {
+            // EloquentQueryBuilder
             $query = app($this->modelClass)->newQuery();
             $query->with($this->with);
         }
@@ -50,7 +55,7 @@ implements IRepository
      *
      * @return EloquentCollection|Paginator
      */
-    function doQuery($query = null, $take = null, $paginate = null)
+    final function doQuery($query = null, $take = null, $paginate = null)
     {
 
         if (is_null($query)) {
@@ -76,15 +81,6 @@ implements IRepository
 
 
     /**
-     * @return array()
-     */
-    protected function appends()
-    {
-        return ['search' => $this->search];
-    }
-
-
-    /**
      * Returns all records.
      * If $take is false then brings all records
      * If $paginate is true returns Paginator instance.
@@ -94,7 +90,7 @@ implements IRepository
      *
      * @return EloquentCollection|Paginator
      */
-    function getAll($take = null, $paginate = null)
+    final function getAll($take = null, $paginate = null)
     {
         return $this->doQuery(null, $take, $paginate);
     }
@@ -106,7 +102,7 @@ implements IRepository
      *
      * @return \Illuminate\Support\Collection
      */
-    function lists($column, $key = null)
+    final function lists($column, $key = null)
     {
         return $this->newQuery()->lists($column, $key);
     }
@@ -121,7 +117,7 @@ implements IRepository
      *
      * @return Model
      */
-    function find($id, $fail = true)
+    final function find($id, $fail = true)
     {
         if ($fail) {
             return $this->newQuery()->findOrFail($id);

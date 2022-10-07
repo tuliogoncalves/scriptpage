@@ -22,7 +22,6 @@ class TestsController extends Controller
      */
     public function index(Request $request)
     {
-        // dd($this->repository->getData($request));
         return view('tests.index', [
                         'data' => $this->repository->getData($request)
         ]);

@@ -14,10 +14,20 @@ class ExampleBaseController extends BaseController
 {
     protected $repositoryClass = UserRepository::class;
     protected $crudClass = UserCrud::class;
+    // protected $serviceClass = UserService::class;
 
     protected $template = "Users";
 
     use CrudTrait;
+    
+    // /**
+    //  * Custom init
+    //  *
+    //  * @return void
+    //  */
+    // protected function init()
+    // {
+    // }
     
     public function index(Request $request, $id = null, $id2 = null)
     {

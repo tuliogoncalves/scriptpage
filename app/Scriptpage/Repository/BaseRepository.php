@@ -2,63 +2,35 @@
 
 namespace App\Scriptpage\Repository;
 
+use App\Scriptpage\Contracts\IRepository;
+
 abstract class BaseRepository
+implements IRepository
 {
-    /**
-     * Model class for repo.
-     *
-     * @var string
-     */
-    protected string $modelClass;
-
+    use traitRepository;
+    use traitEloquentRepository;
 
     /**
-     * Eloquent model instance.
+     * Request paginate data.
      */
-    protected $model;
+    protected $search;
+    protected $take = 5;
+    protected $paginate = true;
 
-
-    /**
-     * with
-     *
-     * @var array
-     */
-    protected $with = [];
-
-
-    /**
-     * load default class dependencies.
-     *
-     * @dependencies Model $model Illuminate\Database\Eloquent\Model
-     */
-    function __construct()
+    
+    function searchData(array $data)
     {
-        if (!empty($this->modelClass)) {
-            $this->model = app($this->modelClass);
-        }
+        $this->search = empty($data['search']) ? '' : $data['search'];
+        $this->take = (int)(empty($data['take']) ? 5 : $data['take']);
+        $this->paginate = (empty($data['paginate']) ? 'true' : $data['paginate']) == 'true';
     }
 
-
     /**
-     * get ID
-     *
-     * @return mixed
+     * @return array()
      */
-    function getId()
+    protected function appends()
     {
-        return $this->model->getKey();
+        return ['search' => $this->search];
     }
 
-
-    /**
-     * @param Array|String $with
-     *
-     * @return Repository
-     */
-    function with($with = [])
-    {
-        if (is_string($with)) $with = explode(',', $with);
-        $this->with = $with;
-        return $this;
-    }
 }

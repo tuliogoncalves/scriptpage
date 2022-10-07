@@ -16,6 +16,16 @@ class ExampleBaseController extends CrudController
     protected $template = "Users";
 
 
+    // /**
+    //  * Custom init
+    //  *
+    //  * @return void
+    //  */
+    // protected function init()
+    // {
+    // }
+    
+    
     // protected function dataIndex($id = null, $id2 = null)
     // {
     //     return [

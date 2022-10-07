@@ -14,7 +14,7 @@ class CrudController extends BaseController
         $this->setSessionUrl($request);
         return $this->sendResponse(
             $this->template . '/index',
-            $this->dataIndex()
+            $this->dataIndex($id, $id2)
         );
     }
 
@@ -23,7 +23,7 @@ class CrudController extends BaseController
     {
         return $this->sendResponse(
             $this->template . '/form',
-            $this->dataCreate()
+            $this->dataCreate($id, $id2)
         );
     }
 
@@ -32,7 +32,7 @@ class CrudController extends BaseController
     {
         return $this->sendResponse(
             $this->template . '/form',
-            $this->dataShow()
+            $this->dataShow($id, $id2)
         );
     }
 
@@ -41,7 +41,7 @@ class CrudController extends BaseController
     {
         return $this->sendResponse(
             $this->template . '/form',
-            $this->dataEdit()
+            $this->dataEdit($id, $id2)
         );
     }
 
@@ -82,7 +82,7 @@ class CrudController extends BaseController
 
     protected function dataShow($id = null, $id2 = null)
     {
-        return $this->dataIndex($id, $id2);
+        return $this->dataEdit($id, $id2);
     }
 
     protected function dataEdit($id = null, $id2 = null)

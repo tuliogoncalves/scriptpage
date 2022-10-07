@@ -6,16 +6,26 @@ use App\Scriptpage\Contracts\ICrud;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
 
-abstract class Crud
-extends BaseRepository
+abstract class BaseCrud
 implements ICrud
 {
+    use traitRepository;
+    
     /**
      * messages
      *
      * @var array
      */
     protected array $messages = [];
+
+
+    /**
+     * customAttributes
+     *
+     * @var array
+     */
+    protected array $customAttributes = [];
+
 
     /**
      * data
@@ -106,12 +116,13 @@ implements ICrud
      *
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    public function validate(): \Illuminate\Contracts\Validation\Validator
+    final function validate(): \Illuminate\Contracts\Validation\Validator
     {
         $validator = Validator::make(
             $this->data,
             $this->setDataValidation(),
-            $this->messages
+            $this->messages,
+            $this->customAttributes
         );
 
         return $validator;

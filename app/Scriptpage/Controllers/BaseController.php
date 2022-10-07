@@ -84,14 +84,14 @@ class BaseController extends Controller
     {
         if (!empty($this->repositoryClass)) {
             $this->repository = app($this->repositoryClass);
-            $this->repository->requestData($request);
+            $this->repository->searchData($request->all());
         }
 
         if (!empty($this->crudClass)) $this->crud = app($this->crudClass);
         if (!empty($this->serviceClass)) $this->service = app($this->serviceClass);
 
         // Custom init
-        $this->bootstrap();
+        $this->init();
 
         return $this;
     }
@@ -103,7 +103,7 @@ class BaseController extends Controller
      *
      * @return void
      */
-    protected function bootstrap()
+    protected function init()
     {
     }
 
