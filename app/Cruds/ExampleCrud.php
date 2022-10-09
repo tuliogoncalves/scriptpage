@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Scriptpage\Repository\BaseCrud;
 
-class UserCrud extends BaseCrud
+class ExampleCrud extends BaseCrud
 {
 
     protected array $messages = [

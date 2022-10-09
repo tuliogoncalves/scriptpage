@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Scriptpage\Contracts;
+namespace App\Scriptpage\Repository;
+
+use App\Scriptpage\Contracts\IService;
 
 abstract class BaseService
 implements IService

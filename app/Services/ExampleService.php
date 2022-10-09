@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Services\Roles;
+namespace App\Services;
 
-use App\Scriptpage\Contracts\BaseService;
+use App\Scriptpage\Repository\BaseService;
 
 class ExampleService extends BaseService
 {
-    /**
-     * Initialization
-     */
-    function init()
-    {
-    }
+    // /**
+    //  * Initialization
+    //  */
+    // function init()
+    // {
+    // }
 }

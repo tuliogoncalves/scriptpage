@@ -2,7 +2,9 @@
 
 namespace App\Services\Roles;
 
-class RoleService
+use App\Scriptpage\Repository\BaseService;
+
+class RoleService extends BaseService
 {
     static function listOfRoles() {
         return Array(

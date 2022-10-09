@@ -7,7 +7,7 @@ use App\Cruds\UserCrud;
 use App\Repositories\UserRepository;
 use App\Scriptpage\Controllers\CrudController;
 
-class ExampleBaseController extends CrudController
+class ExampleCrudController extends CrudController
 {
     protected $repositoryClass = UserRepository::class;
     protected $crudClass = UserCrud::class;
