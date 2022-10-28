@@ -10,7 +10,7 @@ abstract class BaseCrud
 implements ICrud
 {
     use traitRepository;
-    
+
     /**
      * messages
      *
@@ -41,7 +41,8 @@ implements ICrud
      * @param array $data
      * @return void
      */
-    public function setData(array $data) {
+    public function setData(array $data)
+    {
         $this->data = $data;
     }
 
@@ -77,8 +78,13 @@ implements ICrud
      */
     public function store()
     {
+        $storeData = array_merge(
+            $this->setDataPayload($this->data),
+            $this->setStoreDataPayload($this->data)
+        );
+        
         $obj = $this->create();
-        $obj->fill($this->setDataPayload($this->data));
+        $obj->fill($storeData);
         $obj->save();
         return $obj;
     }
@@ -150,6 +156,19 @@ implements ICrud
     {
         return array();
     }
+
+
+    /**
+     * set data for saving
+     *
+     * @param array $data
+     * @return array of data.
+     */
+    protected function setStoreDataPayload(array $data): array
+    {
+        return array();
+    }
+
 
     /**
      * getValue

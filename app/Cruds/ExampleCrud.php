@@ -44,9 +44,16 @@ class ExampleCrud extends BaseCrud
     }
 
 
-    /**
-     * Initialization
-     */
+    // function setStoreDataPayload(array $data): array
+    // {
+    //     return [
+    //         'created_at' => date('Y-m-d H:i:s')
+    //     ];
+    // }
+
+    
+    // Initialization
+    //
     // function init()
     // {
     // }
