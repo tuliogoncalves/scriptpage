@@ -8,9 +8,9 @@ services:
             args:
                 user: '${WWWUSER}'
                 uid: '${WWWGROUP}'
-            context: ./docker/laravel-app
+            context: ./docker/php74
             dockerfile: Dockerfile
-        image: laravel-app
+        image: scriptpage-app
         restart: unless-stopped
         working_dir: /var/www/
         volumes:
@@ -74,14 +74,14 @@ services:
     # queue
     queue:
         container_name: queue
-        image: laravel-app
+        image: scriptpage-app
         restart: unless-stopped
         command: "php artisan queue:work"
         volumes: 
             - ./:/var/www
         depends_on: 
-            - redis
             - app
+            - redis
         networks: 
             - app_network
 

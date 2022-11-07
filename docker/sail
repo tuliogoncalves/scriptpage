@@ -70,6 +70,15 @@ function display_help {
     exit 1
 }
 
+function validate_sudo {
+    if sudo -n true 2>/dev/null; then
+        nothing=""
+    else
+        echo
+        echo -e "${WHITE}Please provide your password to your application's permissions.${NC}"
+    fi
+}
+
 # Proxy the "help" command...
 if [ $# -gt 0 ]; then
     if [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "-help" ] || [ "$1" == "--help" ]; then
@@ -91,31 +100,21 @@ export WWWGROUP=${WWWGROUP:-$(id -g)}
 
 if [ $# -gt 0 ]; then
     if [ "$1" == "on" ]; then
+        validate_sudo
+        sudo systemctl start docker.socket
+        sudo systemctl start docker
         echo
-        if sudo -n true 2>/dev/null; then
-            sudo systemctl start docker.socket
-            sudo systemctl start docker
-            echo -e "${WHITE}Docker started"
-        else
-            echo -e "${WHITE}Please provide your password to your application's permissions.${NC}"
-            sudo systemctl start docker.socket
-            sudo systemctl start docker
-        fi
+        echo -e "${WHITE}Docker started"
         echo
         exit 1
     fi
 
     if [ "$1" == "off" ]; then
+        validate_sudo
+        sudo systemctl stop docker.socket
+        sudo systemctl stop docker
         echo
-        if sudo -n true 2>/dev/null; then
-            sudo systemctl stop docker.socket
-            sudo systemctl stop docker
-            echo -e "${WHITE}Docker stoped"
-        else
-            echo -e "${WHITE}Please provide your password to your application's permissions.${NC}"
-            sudo systemctl stop docker.socket
-            sudo systemctl start docker
-        fi
+        echo -e "${WHITE}Docker stoped"
         echo
         exit 1
     fi
@@ -133,7 +132,6 @@ if [ -z "$SAIL_SKIP_CHECKS" ]; then
     # Ensure that Docker is running...
     if ! docker info > /dev/null 2>&1; then
         echo "${BOLD}Docker is not running.${NC}" >&2
-
         exit 1
     fi
 fi
