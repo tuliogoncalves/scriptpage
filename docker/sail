@@ -228,4 +228,4 @@ fi
 # echo ""
 
 # Run Docker Compose with the defined arguments...
-"${DOCKER_COMPOSE[@]}" "${ARGS[@]}"
+${DOCKER_COMPOSE[@]} ${ARGS[@]}
