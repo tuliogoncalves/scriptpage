@@ -11,7 +11,7 @@
     >
         <!-- Name -->
         <div class="form-group w-75">
-            <label for="cliente-name">Name</label>
+            <label for="cliente-name">Nome</label>
             <input
                 id="cliente-name"
                 type="text"
@@ -67,6 +67,7 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import Crud from "@/Scriptpage/Content/Crud.vue";
 
 export default {
+ 
     components: {
         Crud,
     },
@@ -83,6 +84,8 @@ export default {
                 id: data.id,
                 name: data.name,
                 email: data.email,
+                cpf: data.cpf,
+                telephone: data.telephone,
             }),
         };
     },

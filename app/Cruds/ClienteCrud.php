@@ -32,6 +32,8 @@ class ClienteCrud extends BaseCrud
         return [
             'name' => 'required|max:25',
             'email' => 'required|email',
+            'cpf' => 'required|max:11',
+            'telephone' => 'required|max:12',
         ];
     }
 
@@ -39,7 +41,9 @@ class ClienteCrud extends BaseCrud
     {
         return [
             'name' => $data['name'],
-            'email' => $data['email']
+            'email' => $data['email'],
+            'cpf' => $data['cpf'],
+            'telephone' => $data['telephone'],
         ];
     }
 

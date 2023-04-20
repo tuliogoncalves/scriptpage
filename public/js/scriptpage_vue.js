@@ -19958,7 +19958,9 @@ __webpack_require__.r(__webpack_exports__);
       form: (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm)({
         id: data.id,
         name: data.name,
-        email: data.email
+        email: data.email,
+        cpf: data.cpf,
+        telephone: data.telephone
       })
     };
   }
@@ -20825,7 +20827,7 @@ var _hoisted_2 = {
 };
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "cliente-name"
-}, "Name", -1 /* HOISTED */);
+}, "Nome", -1 /* HOISTED */);
 var _hoisted_4 = {
   "class": "invalid-feedback"
 };
@@ -20852,7 +20854,7 @@ var _hoisted_11 = {
 };
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "cliente-telephone"
-}, "CPF", -1 /* HOISTED */);
+}, "Telefone", -1 /* HOISTED */);
 var _hoisted_13 = {
   "class": "invalid-feedback"
 };
