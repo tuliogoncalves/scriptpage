@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function () {
      * Users routes
      */
     addRoute('web/users');
+    
+    addRoute('web/clientes');
 });
 
 /**
