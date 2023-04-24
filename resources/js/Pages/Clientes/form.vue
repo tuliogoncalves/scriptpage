@@ -46,7 +46,7 @@
             />
             <div class="invalid-feedback">{{ errors.cpf }}</div>
         </div>
-
+        <!-- TELEFONE -->
         <div class="form-group w-50">
             <label for="cliente-telephone">Telefone</label>
             <input

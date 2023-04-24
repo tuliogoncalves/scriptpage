@@ -24,9 +24,15 @@ Route::middleware('auth')->group(function () {
      * Users routes
      */
     addRoute('web/users');
+
+
+    /**
+     * Users clientes
+     */
     
     addRoute('web/clientes');
 });
+
 
 /**
  * Login routes
