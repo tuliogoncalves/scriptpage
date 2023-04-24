@@ -42,6 +42,7 @@
 						@click="onSubmit"
 						title="Add new data"
 					/>
+					
 				</div>
 				<div class="col-sm text-right"></div>
 			</template>
@@ -80,6 +81,7 @@
 		methods: {
 			onSubmit() {
 				var form = this.form;
+				console.log(form)
 				if (form.id) {
 					form.put(this.urlUpdate);
 				} else {
