@@ -16,8 +16,10 @@ class ClienteController extends CrudController
 
     protected function dataEdit($id = null, $id2 = null)
     {
+        $teste = $this->repository->find($id);
+        dd($teste);
         return [
-            'data' => $this->repository->with('roles')->find($id)
+            'data' => $teste
         ];
     }
 }

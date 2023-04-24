@@ -28,7 +28,7 @@ class Cliente extends Authenticatable
         'birth',
         'state',
         'city',
-        'address'
+        'address',
     ];
 
     /**
@@ -37,7 +37,6 @@ class Cliente extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
@@ -50,9 +49,9 @@ class Cliente extends Authenticatable
         'email_verified_at' => 'datetime'
     ];
 
-    protected $attributes = [
-        'password' => ''
-    ];
+    // protected $attributes = [
+    //     'password' => ''
+    // ];
 
     // protected $appends = [
     //     'listOfRoles'

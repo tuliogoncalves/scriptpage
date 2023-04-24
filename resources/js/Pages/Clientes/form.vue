@@ -48,6 +48,7 @@
             <div class="invalid-feedback">{{ errors.email }}</div>
         </div>
 
+        <!-- Telefone -->
         <div class="form-group w-40">
             <label for="cliente-telephone">Telefone</label>
             <input
@@ -60,6 +61,7 @@
             <div class="invalid-feedback">{{ errors.telephone }}</div>
         </div>
 
+        <!-- Data de Nascimento -->
         <div class="form-group w-30">
             <label for="cliente-birth">Data de Nascimento</label>
             <input
@@ -72,6 +74,7 @@
             <div class="invalid-feedback">{{ errors.birth }}</div>
         </div>
 
+        <!-- Estado -->
         <div class="form-group w-50">
             <label for="cliente-state">Estado</label>
             <input
@@ -84,6 +87,7 @@
             <div class="invalid-feedback">{{ errors.state }}</div>
         </div>
 
+        <!-- Cidade -->
         <div class="form-group w-50">
             <label for="cliente-city">Cidade</label>
             <input
@@ -96,6 +100,7 @@
             <div class="invalid-feedback">{{ errors.city }}</div>
         </div>
 
+        <!-- Endereço -->
         <div class="form-group w-50">
             <label for="cliente-address">Endereço</label>
             <input
