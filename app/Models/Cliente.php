@@ -19,7 +19,12 @@ class Cliente extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password'
+        'cpf',
+        'telephone',
+        'birth',
+        'state',
+        'city',
+        'address'
     ];
 
     
@@ -37,23 +42,23 @@ class Cliente extends Authenticatable
         'password' => ''
     ];
 
-    protected $appends = [
-        'listOfRoles'
-    ];
+    // protected $appends = [
+    //     'listOfRoles'
+    // ];
 
-    public function hasRole($name)
-    {
-        $role = $this->roles()->where('name', $name)->first();
-        return isset($role);
-    }
+    // public function hasRole($name)
+    // {
+    //     $role = $this->roles()->where('name', $name)->first();
+    //     return isset($role);
+    // }
 
-    function roles()
-    {
-        return $this->hasMany(Role::class);
-    }
+    // function roles()
+    // {
+    //     return $this->hasMany(Role::class);
+    // }
 
-    public function getListOfRolesAttribute(): array
-    {
-        return RoleService::listOfRoles();
-    }
+    // public function getListOfRolesAttribute(): array
+    // {
+    //     return RoleService::listOfRoles();
+    // }
 }
