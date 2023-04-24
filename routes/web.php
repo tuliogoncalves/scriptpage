@@ -31,6 +31,14 @@ Route::middleware('auth')->group(function () {
      */
     
     addRoute('web/clientes');
+
+    /**
+     * Users Fornecedores
+     */
+    
+     addRoute('web/fornecedores');
+
+
 });
 
 
