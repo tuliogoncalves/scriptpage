@@ -13,8 +13,13 @@ class ClientCrud extends BaseCrud
     {
         return [
             'name' => 'required|max:25',
-            'email' => 'required|email',
             'cpf' => 'required|max:11',
+            'email' => 'required|email',
+            'birth' => 'required|date',
+            'tel_num' => 'required|numeric',
+            'cep' => 'required|max:11',
+            'state' => 'required|max:35',
+            'city' => 'required|max:35'
         ];
     }
 
@@ -22,8 +27,13 @@ class ClientCrud extends BaseCrud
     {
         return [
             'name' => $data['name'],
-            'email' => $data['email'],
             'cpf' => $data['cpf'],
+            'email' => $data['email'],
+            'birth' => $data['birth'],
+            'tel_num' => $data['tel_num'],
+            'cep' => $data['cep'],
+            'state' => $data['state'],
+            'city' => $data['city'],
         ];
     }
 

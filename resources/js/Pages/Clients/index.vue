@@ -11,8 +11,13 @@
 				<tr>
 					<th scope="col"></th>
 					<th scope="col">Nome</th>
-					<th scope="col">Email</th>
 					<th scope="col">CPF</th>
+					<th scope="col">Email</th>
+					<th scope="col">Data de Nascimento</th>
+					<th scope="col">Telefone</th>
+					<th scope="col">CEP</th>
+					<th scope="col">Estado</th>
+					<th scope="col">Cidade</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -27,8 +32,13 @@
 						</Link>
 					</th>
 					<td>{{ client.name }}</td>
-					<td>{{ client.email }}</td>
 					<td>{{ client.cpf }}</td>
+					<td>{{ client.email }}</td>
+					<td>{{ client.birth }}</td>
+					<td>{{ client.tel_num }}</td>
+					<td>{{ client.cep }}</td>
+					<td>{{ client.state }}</td>
+					<td>{{ client.city }}</td>
 				</tr>
 			</tbody>
 		</table>
