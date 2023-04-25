@@ -1,10 +1,10 @@
 <template>
 	<index
-		contentHeader="Cliente Manager"
-		pageTitle="Clientes"
-		:urlButton="route('clientes.create')"
+		contentHeader="Client Manager"
+		pageTitle="Clients"
+		:urlButton="route('clients.create')"
 		:paginator="paginator"
-		:urlSearch="route('clientes.index')"
+		:urlSearch="route('clients.index')"
 	>
 		<table class="table table-bordered table-hover mb-5">
 			<thead>
@@ -13,30 +13,22 @@
 					<th scope="col">Nome</th>
 					<th scope="col">Email</th>
 					<th scope="col">CPF</th>
-					<th scope="col">Telefone</th>
-					<th scope="col">Nascimento</th>
-					<th scope="col">Endereço</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr v-for="cliente in paginator.data">
+				<tr v-for="client in paginator.data">
 					<th scope="row" class="text-center" style="width:30px">
 						<Link
 							class="text-decoration-none"
-							:href="route('clientes.show', cliente.id)"
-							title="Edit Cliente"
+							:href="route('clients.show', client.id)"
+							title="Edit Client"
 						>
 							<i class="icon edit"></i>
 						</Link>
 					</th>
-					<td>{{ cliente.name }}</td>
-					<td>{{ cliente.email }}</td>
-					<td>{{ cliente.cpf }}</td>
-					<td>{{ cliente.telephone }}</td>
-					<td>{{ cliente.data_nascimento }}</td>
-					<td>{{ cliente.estado }}</td>
-					<td>{{ cliente.cidade }}</td>
-					<td>{{ cliente.endereco }}</td>
+					<td>{{ client.name }}</td>
+					<td>{{ client.email }}</td>
+					<td>{{ client.cpf }}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -48,7 +40,6 @@
 	import { Link } from "@inertiajs/inertia-vue3";
 
 	export default {
-		name: "UserIndex",
 
 		components: {
 			Index,

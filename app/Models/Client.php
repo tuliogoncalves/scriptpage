@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
-use App\Services\Roles\RoleService;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Cliente extends Authenticatable
+class Client extends Authenticatable
 {
-    protected $table = 'clientes';
+    protected $table = 'clients';
 
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -24,11 +23,6 @@ class Cliente extends Authenticatable
         'name',
         'email',
         'cpf',
-        'telephone',
-        'birth',
-        'state',
-        'city',
-        'address',
     ];
 
     /**
@@ -37,6 +31,7 @@ class Cliente extends Authenticatable
      * @var array
      */
     protected $hidden = [
+        // 'password',
         'remember_token',
     ];
 
@@ -53,23 +48,4 @@ class Cliente extends Authenticatable
     //     'password' => ''
     // ];
 
-    // protected $appends = [
-    //     'listOfRoles'
-    // ];
-
-    // public function hasRole($name)
-    // {
-    //     $role = $this->roles()->where('name', $name)->first();
-    //     return isset($role);
-    // }
-
-    // function roles()
-    // {
-    //     return $this->hasMany(Role::class);
-    // }
-
-    // public function getListOfRolesAttribute(): array
-    // {
-    //     return RoleService::listOfRoles();
-    // }
 }
