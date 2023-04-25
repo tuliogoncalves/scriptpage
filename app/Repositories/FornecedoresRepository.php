@@ -7,7 +7,7 @@ use App\Scriptpage\Repository\BaseRepository;
 
 class FornecedoresRepository extends BaseRepository
 {
-    protected string $modelClass = User::class;
+    protected string $modelClass = Fornecedores::class;
 
     function getData($take = null, $paginate = null) {
         $query = $this->newQuery();

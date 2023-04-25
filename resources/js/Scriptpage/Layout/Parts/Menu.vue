@@ -58,6 +58,34 @@
 					</li>
 				</ul>
 			</li>
+
+
+			<li
+				class="nav-item"
+				:class="{
+					'menu-is-opening menu-open': route().current('fornecedores.*'),
+				}">
+				<a href="#" class="nav-link">
+					<i class="fas fa-handshake p-1"></i>
+					<p>
+						<i class="right fas fa-angle-left"></i> Fornecedores
+					</p>
+				</a>
+				<ul class="nav nav-treeview">
+					<li class="nav-item">
+						<a
+							:href="route('fornecedores.index')"
+							class="nav-link"
+							:class="{ active: route().current('fornecedores.*') }">
+							<i class="far fa-circle nav-icon"></i>
+							<p>Fornecedores</p>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+
+
 			<li class="nav-item">
 				<a :href="route('logout')" class="nav-link">
 					<i class="nav-icon fas fa-th"></i>

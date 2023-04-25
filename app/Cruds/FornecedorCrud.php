@@ -6,9 +6,9 @@ use App\Models\Role;
 use App\Models\Fornecedores;
 use App\Scriptpage\Repository\BaseCrud;
 
-class UserCrud extends BaseCrud
+class FornecedorCrud extends BaseCrud
 {
-    protected string $modelClass = User::class;
+    protected string $modelClass = Fornecedores::class;
 
     function setDataValidation(): array
     {
