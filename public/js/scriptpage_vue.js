@@ -21233,8 +21233,8 @@ var _hoisted_19 = {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_crud = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("crud");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_crud, {
-    contentHeader: "User Manager",
-    createTitle: "Add new User",
+    contentHeader: "Cadastro",
+    createTitle: "Add novo cadastro",
     updateTitle: "Update User",
     urlUpdate: _ctx.route('fornecedores.update', $data.form.id ? $data.form.id : 0),
     urlStore: _ctx.route('fornecedores.store', $data.form.id ? $data.form.id : 0),

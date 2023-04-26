@@ -1,8 +1,8 @@
 <template>
     <head> </head>
     <crud
-        contentHeader="User Manager"
-        createTitle="Add new User"
+        contentHeader="Cadastro"
+        createTitle="Add novo cadastro"
         updateTitle="Update User"
         :urlUpdate="route('fornecedores.update', form.id ? form.id : 0)"
         :urlStore="route('fornecedores.store', form.id ? form.id : 0)"
