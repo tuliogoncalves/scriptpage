@@ -81,7 +81,6 @@
 		methods: {
 			onSubmit() {
 				var form = this.form;
-				console.log(form)
 				if (form.id) {
 					form.put(this.urlUpdate);
 				} else {

@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
      * Users clientes
      */
     
-    addRoute('web/clientes');
+    addRoute('web/clients');
 });
 
 

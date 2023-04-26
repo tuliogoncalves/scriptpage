@@ -38,7 +38,7 @@
 			<li
 				class="nav-item"
 				:class="{
-					'menu-is-opening menu-open': route().current('clientes.*'),
+					'menu-is-opening menu-open': route().current('clients.*'),
 				}">
 				<a href="#" class="nav-link">
 					<i class="fas fa-handshake p-1"></i>
@@ -49,9 +49,9 @@
 				<ul class="nav nav-treeview">
 					<li class="nav-item">
 						<a
-							:href="route('clientes.index')"
+							:href="route('clients.index')"
 							class="nav-link"
-							:class="{ active: route().current('clientes.*') }">
+							:class="{ active: route().current('clients.*') }">
 							<i class="far fa-circle nav-icon"></i>
 							<p>Clientes</p>
 						</a>
