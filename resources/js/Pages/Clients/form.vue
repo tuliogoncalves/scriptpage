@@ -1,20 +1,19 @@
 <template>
     <head> </head>
     <crud
-        contentHeader="Cliente"
-        createTitle="Cadastro de Cliente"
-        updateTitle="Atualizar Cliente"
-        :urlUpdate="route('clientes.update', form.id ? form.id : 0)"
-        :urlStore="route('clientes.store', form.id ? form.id : 0)"
-        :urlDestroy="route('clientes.destroy', form.id ? form.id : 0)"
+        contentHeader="Client Manager"
+        createTitle="Add new Client"
+        updateTitle="Update Client"
+        :urlUpdate="route('clients.update', form.id ? form.id : 0)"
+        :urlStore="route('clients.store', form.id ? form.id : 0)"
+        :urlDestroy="route('clients.destroy', form.id ? form.id : 0)"
         :form="form"
     >
-    <div class="d-flex justify-content-between flex-wrap">
         <!-- Name -->
-        <div class="form-group w-50">
-            <label for="cliente-name">Nome</label>
+        <div class="form-group w-75">
+            <label for="client-name">Name</label>
             <input
-                id="cliente-name"
+                id="client-name"
                 type="text"
                 class="form-control"
                 :class="{ 'is-invalid': errors.name }"
@@ -24,10 +23,10 @@
         </div>
 
         <!-- CPF -->
-        <div class="form-group w-40">
-            <label for="cliente-cpf">CPF</label>
+        <div class="form-group w-50">
+            <label for="client-cpf">CPF</label>
             <input
-                id="cliente-cpf"
+                id="client-cpf"
                 type="text"
                 class="form-control"
                 :class="{ 'is-invalid': errors.cpf }"
@@ -35,11 +34,12 @@
             />
             <div class="invalid-feedback">{{ errors.cpf }}</div>
         </div>
+
         <!-- Email -->
-        <div class="form-group w-40">
-            <label for="cliente-email">Email</label>
+        <div class="form-group w-50">
+            <label for="client-email">Email</label>
             <input
-                id="user-email"
+                id="client-email"
                 type="text"
                 class="form-control"
                 :class="{ 'is-invalid': errors.email }"
@@ -47,23 +47,11 @@
             />
             <div class="invalid-feedback">{{ errors.email }}</div>
         </div>
-
-        <div class="form-group w-40">
-            <label for="cliente-telephone">Telefone</label>
+        <!-- Data de Nascimento -->
+        <div class="form-group w-50">
+            <label for="client-birth">Data de Nascimento</label>
             <input
-                id="cliente-telephone"
-                type="text"
-                class="form-control"
-                :class="{ 'is-invalid': errors.telephone }"
-                v-model="form.telephone"
-            />
-            <div class="invalid-feedback">{{ errors.telephone }}</div>
-        </div>
-
-        <div class="form-group w-30">
-            <label for="cliente-birth">Data de Nascimento</label>
-            <input
-                id="cliente-birth"
+                id="client-birth"
                 type="text"
                 class="form-control"
                 :class="{ 'is-invalid': errors.birth }"
@@ -71,11 +59,35 @@
             />
             <div class="invalid-feedback">{{ errors.birth }}</div>
         </div>
-
+        <!-- Numero de Telefone -->
         <div class="form-group w-50">
-            <label for="cliente-state">Estado</label>
+            <label for="client-tel_num">Telefone</label>
             <input
-                id="cliente-state"
+                id="client-tel_num"
+                type="text"
+                class="form-control"
+                :class="{ 'is-invalid': errors.tel_num }"
+                v-model="form.tel_num"
+            />
+            <div class="invalid-feedback">{{ errors.tel_num }}</div>
+        </div>
+        <!-- CEP -->
+        <div class="form-group w-50">
+            <label for="client-cep">CEP</label>
+            <input
+                id="client-cep"
+                type="text"
+                class="form-control"
+                :class="{ 'is-invalid': errors.cep }"
+                v-model="form.cep"
+            />
+            <div class="invalid-feedback">{{ errors.cep }}</div>
+        </div>
+        <!-- Estado -->
+        <div class="form-group w-50">
+            <label for="client-state">Estado</label>
+            <input
+                id="client-state"
                 type="text"
                 class="form-control"
                 :class="{ 'is-invalid': errors.state }"
@@ -83,11 +95,11 @@
             />
             <div class="invalid-feedback">{{ errors.state }}</div>
         </div>
-        <!-- TELEFONE -->
+        <!-- Cidade -->
         <div class="form-group w-50">
-            <label for="cliente-city">Cidade</label>
+            <label for="client-city">Cidade</label>
             <input
-                id="cliente-city"
+                id="client-city"
                 type="text"
                 class="form-control"
                 :class="{ 'is-invalid': errors.city }"
@@ -96,18 +108,7 @@
             <div class="invalid-feedback">{{ errors.city }}</div>
         </div>
 
-        <div class="form-group w-50">
-            <label for="cliente-address">Endereço</label>
-            <input
-                id="cliente-address"
-                type="text"
-                class="form-control"
-                :class="{ 'is-invalid': errors.address }"
-                v-model="form.address"
-            />
-            <div class="invalid-feedback">{{ errors.address }}</div>
-        </div>
-    </div>
+
     </crud>
 </template>
 
@@ -116,7 +117,6 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import Crud from "@/Scriptpage/Content/Crud.vue";
 
 export default {
- 
     components: {
         Crud,
     },
@@ -132,15 +132,19 @@ export default {
             form: useForm({
                 id: data.id,
                 name: data.name,
-                email: data.email,
                 cpf: data.cpf,
-                telephone: data.telephone,
+                email: data.email,
                 birth: data.birth,
+                tel_num: data.tel_num,
+                cep: data.cep,
                 state: data.state,
                 city: data.city,
-                address: data.address,
+               
             }),
         };
+    },
+
+    mounted() {
     },
 };
 </script>

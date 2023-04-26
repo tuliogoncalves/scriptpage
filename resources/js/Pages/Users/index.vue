@@ -10,7 +10,7 @@
 			<thead>
 				<tr>
 					<th scope="col"></th>
-					<th scope="col">Nome</th>
+					<th scope="col">Name</th>
 					<th scope="col">Email</th>
 				</tr>
 			</thead>
@@ -36,15 +36,12 @@
 <script>
 	import Index from "@/Scriptpage/Content/Index.vue";
 	import { Link } from "@inertiajs/inertia-vue3";
-
 	export default {
 		name: "UserIndex",
-
 		components: {
 			Index,
 			Link,
 		},
-
 		props: {
 			paginator: Object,
 		}

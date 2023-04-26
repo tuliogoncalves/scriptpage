@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
      * Users clientes
      */
     
+<<<<<<< HEAD
     addRoute('web/clientes');
 
     /**
@@ -39,6 +40,9 @@ Route::middleware('auth')->group(function () {
      addRoute('web/fornecedores');
 
 
+=======
+    addRoute('web/clients');
+>>>>>>> e0db464f58c50d51789226d675e254ea1fad349b
 });
 
 
