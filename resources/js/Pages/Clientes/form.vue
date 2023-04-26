@@ -64,7 +64,7 @@
             <label for="cliente-birth">Data de Nascimento</label>
             <input
                 id="cliente-birth"
-                type="date"
+                type="text"
                 class="form-control"
                 :class="{ 'is-invalid': errors.birth }"
                 v-model="form.birth"

@@ -103,4 +103,15 @@ class ClienteCrud extends BaseCrud
     // {
     //     return parent::delete($id);
     // }
+    function store()
+    {
+        $user = parent::store();
+        return $user;
+    }
+
+    function update($id)
+    {
+        $user = parent::update($id);
+        return $user;
+    }
 }
