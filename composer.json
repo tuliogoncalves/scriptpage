@@ -1,0 +1,24 @@
+{
+    "name": "scriptpage/framework",
+    "description": "Data layer",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Scriptpage\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Túlio Gonçalves"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers":[
+                "Scriptpage\\ScriptpageServiceProvider"
+            ]
+        }
+    }
+}

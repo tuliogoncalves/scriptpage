@@ -1,0 +1,10 @@
+/.docker
+/docker
+/storage
+/sail_client
+/.idea
+/.vscode
+/logs/*.*
+.env
+sail-docker-compose.yml
+sail-docker-compose-local.yml
