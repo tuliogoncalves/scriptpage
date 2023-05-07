@@ -1,6 +1,6 @@
 <?php
 
-namespace Scriptpage;
+namespace Scriptpage\Providers;
 
 
 use Illuminate\Support\ServiceProvider;
