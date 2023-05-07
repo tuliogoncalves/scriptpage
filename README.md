@@ -1,6 +1,6 @@
-# Scriptpage Core
+# Scriptpage Framework
 
-Scriptpage is a repository data used to abstract the data layer.
+> **Note:** This repository contains the core code of the Scriptpage framework. If you want to build an application using Laravel with scriptpage, you need know [Scriptpage Sail](https://github.com/tuliogoncalves/sail).
 
 
 #### See a Starter with VueJS using scriptpage: [starter-with-vuejs](https://github.com/tuliogoncalves/starter-with-vuejs) 
@@ -11,20 +11,6 @@ You want to know a little more about the Repository pattern? [Read this great ar
 ## Methods
 
 ### Scriptpage\BaseRepository
-
-- find($id, $columns = array('*'))
-- first($columns = array('*'))
-- get($columns = array('*'))
-- all($columns = array('*'))
-- paginate($limit = null, $columns = array('*'))
-- columns($columns = array('*'))
-- with(array $relations)
-- withCount(array $relations)
-- withSum(array $relations)
-- where(string $field, $value)
-- whereOr(string $field, $value)
-- whereBetween(string $field, $value)
-- orderBy($column, $direction = 'asc')
 
 #### CRUD
 - create(array $attributes)
