@@ -4,7 +4,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Scriptpage\\": "src/"
+            "Scriptpage\\": "src/framework/"
         }
     },
     "authors": [
@@ -17,7 +17,7 @@
     "extra": {
         "laravel": {
             "providers":[
-                "Scriptpage\\ScriptpageServiceProvider"
+                "Scriptpage\\providers\\ScriptpageServiceProvider"
             ]
         }
     }
