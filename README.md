@@ -7,7 +7,6 @@
 
 You want to know a little more about the Repository pattern? [Read this great article](http://scriptpage.com.br/using-scriptpage-repository).
 
-
 ## Methods
 
 ### Scriptpage\BaseRepository
@@ -24,8 +23,8 @@ You want to know a little more about the Repository pattern? [Read this great ar
 - with = $relation | array($relations)
 - withCount = $relation | array($relations)
 - withSum = $relation | array($relations)
-- where = $field:$value | array($field:$value)
-- orWhere = $field:$value | array($field:$value)
+- where = $field,[$comparisons = 'equal']:$value | array($field,[$comparisons = 'equal']:$value)
+- orWhere = $field,[$comparisons = 'equal']:$value | array($field,[$comparisons = 'equal']:$value)
 - whereBetween = $field:$min,$max
 - orWhereBetween = $field:$min,$max
 - join = $table:$field1,$field2
@@ -33,7 +32,17 @@ You want to know a little more about the Repository pattern? [Read this great ar
 - rightJoin = $table:$field1,$field2
 - take = $limit
 - orderBy = $column:[$direction = 'asc']
-- paginate = true | false
+- paginate = true|false
+
+#### Comparisons
+- equal
+- greater
+- greater_or_equal
+- less
+- less_or_equal
+- in
+- between
+- not_between
 
 ## Examples
 
@@ -47,7 +56,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 - GET `api/model/users?where=role_id:2`
 
-- GET `api/model/users?where=role_id:2,name:ester`
+- GET `api/model/users?where=role_id:2;name:ester`
 
 - GET `api/model/users?where=role_id:2&orWhere=name:ester`
 
@@ -65,8 +74,9 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 GET `api/table/users?join=contacts:users.id,contacts.user_id`
 
-
     GET api/table/users
             ?join=contacts:users.id,contacts.user_id
-            &join=orders:users.id,orders.user_id
+            ;orders:users.id,orders.user_id
+            &where=users.name:laravel
+            ;o
             &select=users.*,contacts.phone,orders.price
