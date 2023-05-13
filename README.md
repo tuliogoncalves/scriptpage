@@ -45,13 +45,13 @@ GET `api/model/users`
 
 #### Where clausule
 
-GET `api/model/users?where=role_id:2`
+- GET `api/model/users?where=role_id:2`
 
-GET `api/model/users?where=role_id:2,name:ester`
+- GET `api/model/users?where=role_id:2,name:ester`
 
-GET `api/model/users?where=role_id:2&orWhere=name:ester`
+- GET `api/model/users?where=role_id:2&orWhere=name:ester`
 
-GET `api/model/users?whereBetween=role_id:-1,5`
+- GET `api/model/users?whereBetween=role_id:-1,5`
 
 #### selecting fields
 
@@ -65,7 +65,6 @@ GET `api/table/users`
 
 GET `api/table/users?join=contacts:users.id,contacts.user_id`
 
-#### Example
 
     GET api/table/users
             ?join=contacts:users.id,contacts.user_id
