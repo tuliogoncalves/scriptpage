@@ -35,11 +35,11 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 ### Using repository by request
 
-without filter
+#### without filter
 
 GET `api/data/users`
 
-with filter
+#### with filter
 
 GET `api/data/users?where=role_id:2`
 
@@ -49,6 +49,6 @@ GET `api/data/users?orWhere=role_id:1-3`
 
 GET `api/data/users?whereBetween=role_id:-1,5`
 
-selecting fields
+#### selecting fields
 
 GET `api/data/users?columns=id,name,email`
