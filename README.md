@@ -42,8 +42,11 @@ GET `api/data/users`
 with filter
 
 GET `api/data/users?where=role_id:2`
+
 GET `api/data/users?where=role_id:2,name:ester`
+
 GET `api/data/users?orWhere=role_id:1-3`
+
 GET `api/data/users?whereBetween=role_id:-1,5`
 
 selecting fields
