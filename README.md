@@ -41,7 +41,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 #### Model
 
-GET `api/model/users`
+- GET `api/model/users`
 
 #### Where clausule
 
@@ -55,15 +55,15 @@ GET `api/model/users`
 
 #### selecting fields
 
-GET `api/model/users?select=id,name,email`
+- GET `api/model/users?select=id,name,email`
 
 #### Database
 
-GET `api/table/users`
+- GET `api/table/users`
 
 #### Add relationship
 
-GET `api/table/users?join=contacts:users.id,contacts.user_id`
+- GET `api/table/users?join=contacts:users.id,contacts.user_id`
 
 
     GET api/table/users
