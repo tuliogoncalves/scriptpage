@@ -20,7 +20,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
 - deleteWhere(array $where)
 
 ### URL query options
-- columns = $column | array($columns)
+- select = $column | array($columns)
 - with = $relation | array($relations)
 - withCount = $relation | array($relations)
 - withSum = $relation | array($relations)
@@ -28,6 +28,9 @@ You want to know a little more about the Repository pattern? [Read this great ar
 - orWhere = $field:$value | array($field:$value)
 - whereBetween = $field:$min,$max
 - orWhereBetween = $field:$min,$max
+- join = $table:$field1,$field2
+- leftJoin = $table:$field1,$field2
+- rightJoin = $table:$field1,$field2
 - take = $limit
 - orderBy = $column:[$direction = 'asc']
 - paginate = true | false
@@ -38,18 +41,32 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 #### Model
 
-GET `api/data/users`
+GET `api/model/users`
 
-#### where
+#### Where clausule
 
-GET `api/data/users?where=role_id:2`
+GET `api/model/users?where=role_id:2`
 
-GET `api/data/users?where=role_id:2,name:ester`
+GET `api/model/users?where=role_id:2,name:ester`
 
-GET `api/data/users?where=role_id:2&orWhere=name:ester`
+GET `api/model/users?where=role_id:2&orWhere=name:ester`
 
-GET `api/data/users?whereBetween=role_id:-1,5`
+GET `api/model/users?whereBetween=role_id:-1,5`
 
 #### selecting fields
 
-GET `api/data/users?columns=id,name,email`
+GET `api/model/users?select=id,name,email`
+
+#### Database
+
+GET `api/table/users`
+
+#### Add relationship
+
+GET `api/table/users?join=contacts:users.id,contacts.user_id`
+
+GET `api/table/users
+        ?join=contacts:users.id,contacts.user_id
+        &join=orders:users.id,orders.user_id
+        &select=users.*,contacts.phone,orders.price
+    `
