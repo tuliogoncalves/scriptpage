@@ -63,7 +63,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 #### Add relationship
 
-- GET `api/table/users?join=contacts:users.id,contacts.user_id`
+GET `api/table/users?join=contacts:users.id,contacts.user_id`
 
 
     GET api/table/users
