@@ -34,14 +34,18 @@ You want to know a little more about the Repository pattern? [Read this great ar
 ## Examples
 
 ### Using repository by request
+
 without filter
+
 GET `api/data/users`
 
 with filter
+
 GET `api/data/users?where=role_id:2`
 GET `api/data/users?where=role_id:2,name:ester`
 GET `api/data/users?orWhere=role_id:1-3`
 GET `api/data/users?whereBetween=role_id:-1,5`
 
 selecting fields
+
 GET `api/data/users?columns=id,name,email`
