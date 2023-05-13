@@ -20,36 +20,36 @@ You want to know a little more about the Repository pattern? [Read this great ar
 - deleteWhere(array $where)
 
 ### URL query options
-    - columns = $column | array($columns)
-    - with = $relation | array($relations)
-    - withCount = $relation | array($relations)
-    - withSum = $relation | array($relations)
-    - where = $field:$value | array($field:$value)
-    - orWhere = $field:$value | array($field:$value)
-    - whereBetween = $field:$min,$max
-    - orWhereBetween = $field:$min,$max
-    - take = $limit
-    - orderBy = $column:[$direction = 'asc']
-    - paginate = true | false
+- columns = $column | array($columns)
+- with = $relation | array($relations)
+- withCount = $relation | array($relations)
+- withSum = $relation | array($relations)
+- where = $field:$value | array($field:$value)
+- orWhere = $field:$value | array($field:$value)
+- whereBetween = $field:$min,$max
+- orWhereBetween = $field:$min,$max
+- take = $limit
+- orderBy = $column:[$direction = 'asc']
+- paginate = true | false
 
 ## Examples
 
-    ### Using repository by request
+### Using repository by request
 
-        #### Model
+#### Model
 
-            GET `api/data/users`
+GET `api/data/users`
 
-        #### where
+#### where
 
-            GET `api/data/users?where=role_id:2`
+GET `api/data/users?where=role_id:2`
 
-            GET `api/data/users?where=role_id:2,name:ester`
+GET `api/data/users?where=role_id:2,name:ester`
 
-            GET `api/data/users?where=role_id:2&orWhere=name:ester`
+GET `api/data/users?where=role_id:2&orWhere=name:ester`
 
-            GET `api/data/users?whereBetween=role_id:-1,5`
+GET `api/data/users?whereBetween=role_id:-1,5`
 
-        #### selecting fields
+#### selecting fields
 
-            GET `api/data/users?columns=id,name,email`
+GET `api/data/users?columns=id,name,email`
