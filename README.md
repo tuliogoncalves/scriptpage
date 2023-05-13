@@ -65,8 +65,9 @@ GET `api/table/users`
 
 GET `api/table/users?join=contacts:users.id,contacts.user_id`
 
-GET 
-    `api/table/users`
+#### Example
+
+    GET `api/table/users`
 
     `?join=contacts:users.id,contacts.user_id`
 
