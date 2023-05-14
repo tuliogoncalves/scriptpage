@@ -51,14 +51,18 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
         $field,less:$value
 
-- less_or_equal        `$field,less_or_equal:$value`
+- less_or_equal
 
-- in    `$field,in:$value1,$value2,$value3...`
+        $field,less_or_equal:$value
 
-    >multiple comparisons, must be the last clause
+- in
+    **multiple comparisons, must be the last clause**
 
-- between `$field,[$comparisons = 'equal']:$value`
-- not_between `$field,[$comparisons = 'equal']:$value`
+        $field,in:$value1,$value2,$value3...
+
+
+- between `$field,**between**:$value`
+- not_between `$field,**not_between**:$value`
 
 ## Examples
 
