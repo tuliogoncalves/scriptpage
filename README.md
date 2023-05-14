@@ -25,24 +25,33 @@ You want to know a little more about the Repository pattern? [Read this great ar
 - withSum = $relation | array($relations)
 - where = $field,[$comparisons = 'equal']:$value | array($field,[$comparisons = 'equal']:$value)
 - orWhere = $field,[$comparisons = 'equal']:$value | array($field,[$comparisons = 'equal']:$value)
-- whereBetween = $field:$min,$max
-- orWhereBetween = $field:$min,$max
 - join = $table:$field1,$field2
 - leftJoin = $table:$field1,$field2
 - rightJoin = $table:$field1,$field2
 - take = $limit
-- orderBy = $column:[$direction = 'asc']
+- orderBy = $column:[$direction = 'asc'] | array($column:[$direction = 'asc'])
 - paginate = true|false
+
+> array is separated by semicolons, example: expresion1; expression2; expresion3...
 
 #### Comparisons
 - equal
+    $field:$value
 - greater
+    $field,greater:$value
 - greater_or_equal
+    $field,greater_or_equal:$value
 - less
+    $field,less:$value
 - less_or_equal
+    $field,less_or_equal:$value
 - in
+    $field,in:$value1,$value2,$value3...
+    *multiple comparisons, must be the last clause*
 - between
+    $field,[$comparisons = 'equal']:$value
 - not_between
+    $field,[$comparisons = 'equal']:$value
 
 ## Examples
 
@@ -60,7 +69,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 - GET `api/model/users?where=role_id:2&orWhere=name:ester`
 
-- GET `api/model/users?whereBetween=role_id:-1,5`
+- GET `api/model/users?where=role_id,between:34,52`
 
 #### selecting fields
 
