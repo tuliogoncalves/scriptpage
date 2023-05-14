@@ -37,11 +37,11 @@ You want to know a little more about the Repository pattern? [Read this great ar
 #### Comparisons
 - equal
 
-    `$field:$value`
+        `$field:$value`
 
 - greater
 
-    ```$field,greater:$value```
+        `$field,greater:$value`
 
 - greater_or_equal
 
