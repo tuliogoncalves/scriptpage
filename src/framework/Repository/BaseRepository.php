@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Scriptpage\Repository;
+namespace Scriptpage\Repository;
 
-use App\Scriptpage\Contracts\IRepository;
+use Scriptpage\Contracts\IRepository;
+use Scriptpage\Contracts\traitActionable;
 use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseRepository implements IRepository
 {
+    use traitActionable;
+    
     /**
      * Model instance
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Scriptpage\Contracts;
+namespace Scriptpage\Contracts;
 
 interface IActionable
 {
