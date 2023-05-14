@@ -61,8 +61,10 @@ You want to know a little more about the Repository pattern? [Read this great ar
         $field,in:$value1,$value2,$value3...
 
 
-- between `$field,**between**:$value`
-- not_between `$field,**not_between**:$value`
+- between
+        $field,between:$value
+- not_between
+        $field,not_between:$value
 
 ## Examples
 
