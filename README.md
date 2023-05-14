@@ -37,11 +37,11 @@ You want to know a little more about the Repository pattern? [Read this great ar
 #### Comparisons
 - equal
 
-    $field:$value
+    `$field:$value`
 
 - greater
 
-    $field,greater:$value
+    ```$field,greater:$value```
 
 - greater_or_equal
 
@@ -60,7 +60,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
     $field,in:$value1,$value2,$value3...
 
     *multiple comparisons, must be the last clause*
-    
+
 - between
     $field,[$comparisons = 'equal']:$value
 - not_between
