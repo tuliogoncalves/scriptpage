@@ -66,31 +66,31 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 #### Model
 
-- GET `api/model/users`
+- get `api/model/users`
 
 #### Where clausule
 
-- GET `api/model/users?where=role_id:2`
+- get `api/model/users?where=role_id:2`
 
-- GET `api/model/users?where=role_id:2;name:ester`
+- get `api/model/users?where=role_id:2;name:ester`
 
-- GET `api/model/users?where=role_id:2&orWhere=name:ester`
+- get `api/model/users?where=role_id:2&orWhere=name:ester`
 
-- GET `api/model/users?where=role_id,between:34,52`
+- get `api/model/users?where=role_id,between:34,52`
 
 #### selecting fields
 
-- GET `api/model/users?select=id,name,email`
+- get `api/model/users?select=id,name,email`
 
 #### Database
 
-- GET `api/table/users`
+- get `api/table/users`
 
 #### Add relationship
 
-GET `api/table/users?join=contacts:users.id,contacts.user_id`
+get `api/table/users?join=contacts:users.id,contacts.user_id`
 
-    GET api/table/users
+    get api/table/users
             ?join=contacts:users.id,contacts.user_id
             ;orders:users.id,orders.user_id
             &where=users.name:laravel
