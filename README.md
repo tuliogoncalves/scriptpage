@@ -19,17 +19,17 @@ You want to know a little more about the Repository pattern? [Read this great ar
 - deleteWhere(array $where)
 
 ### URL query options
-- select = $column | array($columns)
-- with = $relation | array($relations)
-- withCount = $relation | array($relations)
-- withSum = $relation | array($relations)
-- where = $field,[$comparisons = 'equal']:$value | array($field,[$comparisons = 'equal']:$value)
-- orWhere = $field,[$comparisons = 'equal']:$value | array($field,[$comparisons = 'equal']:$value)
+- select = $column
+- with = $relation
+- withCount = $relation
+- withSum = $relation
+- where = $field,[$comparisons = 'equal']:$value
+- orWhere = $field,[$comparisons = 'equal']:$value
 - join = $table:$field1,$field2
 - leftJoin = $table:$field1,$field2
 - rightJoin = $table:$field1,$field2
 - take = $limit
-- orderBy = $column:[$direction = 'asc'] | array($column:[$direction = 'asc'])
+- orderBy = $column:[$direction = 'asc']
 - paginate = true|false
 
 > array is separated by semicolons, example: expresion1; expression2; expresion3...
