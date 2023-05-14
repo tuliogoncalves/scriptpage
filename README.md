@@ -34,7 +34,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 > array is separated by semicolons, example: expresion1; expression2; expresion3...
 
-#### Comparisons
+### Comparisons
 - equal
 
         $field:$value
@@ -57,7 +57,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 - in
 
-    **multiple comparisons, must be the last clause**
+    multiple comparisons, must be the last clause
 
         $field,in:$value1,$value2,$value3...
 
