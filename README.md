@@ -36,18 +36,31 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 #### Comparisons
 - equal
+
     $field:$value
+
 - greater
+
     $field,greater:$value
+
 - greater_or_equal
+
     $field,greater_or_equal:$value
+
 - less
+
     $field,less:$value
+
 - less_or_equal
+
     $field,less_or_equal:$value
+
 - in
+
     $field,in:$value1,$value2,$value3...
+
     *multiple comparisons, must be the last clause*
+    
 - between
     $field,[$comparisons = 'equal']:$value
 - not_between
