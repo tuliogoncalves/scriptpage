@@ -56,14 +56,18 @@ You want to know a little more about the Repository pattern? [Read this great ar
         $field,less_or_equal:$value
 
 - in
+
     **multiple comparisons, must be the last clause**
 
         $field,in:$value1,$value2,$value3...
 
 
 - between
+
         $field,between:$value
+
 - not_between
+
         $field,not_between:$value
 
 ## Examples
