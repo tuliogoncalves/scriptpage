@@ -2,8 +2,7 @@
 
 > **Note:** This repository contains the core code of the Scriptpage framework. If you want to build an application using Laravel with scriptpage, you need know [Scriptpage Sail](https://github.com/tuliogoncalves/sail).
 
-
-#### See a Starter with VueJS using scriptpage: [starter-with-vuejs](https://github.com/tuliogoncalves/starter-with-vuejs) 
+#### See a Starter with VueJS using scriptpage: [starter-with-vuejs](https://github.com/tuliogoncalves/starter-with-vuejs)
 
 You want to know a little more about the Repository pattern? [Read this great article](http://scriptpage.com.br/using-scriptpage-repository).
 
@@ -12,17 +11,19 @@ You want to know a little more about the Repository pattern? [Read this great ar
 ### Scriptpage\BaseRepository
 
 #### CRUD
+
 - create(array $attributes)
 - update(array $attributes, $id)
 - updateOrCreate(array $attributes, array $values = [])
 - delete($id)
 - deleteWhere(array $where)
 
-### URL query options
-- select = $column
-- with = $relation
-- withCount = $relation
-- withSum = $relation
+### URL query filters
+
+- select = $column1,$column2,...
+- with = $relation1,$relation2,...
+- withCount = $relation1,$relation2,...
+- withSum = $relation1,$relation2,...
 - where = $field,[$comparisons = 'equal']:$value
 - orWhere = $field,[$comparisons = 'equal']:$value
 - join = $table:$field1,$field2
@@ -35,6 +36,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
 > array is separated by semicolons, example: expresion1; expression2; expresion3...
 
 ### Comparisons
+
 - equal
 
         $field:$value
@@ -57,8 +59,6 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 - in
 
-    Multiple comparisons, must be the last clause.
-
         $field,in:$value1,$value2,$value3...
 
 - between
@@ -80,11 +80,8 @@ You want to know a little more about the Repository pattern? [Read this great ar
 #### Where clausule
 
 - get `api/model/users?where=role_id:2`
-
 - get `api/model/users?where=role_id:2;name:ester`
-
 - get `api/model/users?where=role_id:2&orWhere=name:ester`
-
 - get `api/model/users?where=role_id,between:34,52`
 
 #### selecting fields
@@ -106,4 +103,4 @@ get `api/table/users?join=contacts:users.id,contacts.user_id`
             ;o
             &select=users.*,contacts.phone,orders.price
 
-[^1]:A framework is an abstraction that links common code across multiple software projects to provide generic functionality. A framework can achieve specific functionality, by configuration, during application programming. Unlike libraries, it is the framework that dictates the flow of control of the application, called Inversion of Control..[wikipedia](https://pt.wikipedia.org/wiki/Framework)
+[^1]: A framework is an abstraction that links common code across multiple software projects to provide generic functionality. A framework can achieve specific functionality, by configuration, during application programming. Unlike libraries, it is the framework that dictates the flow of control of the application, called Inversion of Control..[wikipedia](https://pt.wikipedia.org/wiki/Framework)

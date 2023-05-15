@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 abstract class BaseRepository implements IRepository
 {
     use traitActionable;
-    
+
     /**
      * Model instance
      */
@@ -22,6 +22,9 @@ abstract class BaseRepository implements IRepository
      */
     protected string $modelClass;
 
+    protected $take = 5;
+    protected $paginate = true;
+
     /**
      * load default class dependencies.
      *
@@ -29,17 +32,61 @@ abstract class BaseRepository implements IRepository
      */
     function __construct()
     {
-        if (!empty($this->modelClass)) {
-            $this->model = app($this->modelClass);
+        $this->model = app($this->modelClass);
+    }
+
+    /**
+     * Summary of getModel
+     * @return Model
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    /**
+     * @return array()
+     */
+    protected function appends()
+    {
+        return array();
+    }
+
+    /**
+     * Execute the database/eloquent query
+     *
+     * @return void
+     */
+    final public function doQuery()
+    {
+        $model = $this->model;
+
+        if ($this->paginate) {
+            $paginator = $model->paginate($this->take);
+            return $paginator->appends($this->appends());
         }
+
+        if ($this->take > 0) {
+            $model->take($this->take);
+        }
+
+        return $model::get();
+    }
+
+    /**
+     * Summary of urlQuery
+     * @param array $query
+     * @return BaseRepository
+     */
+    function urlQuery(array $query = [])
+    {
+        return UrlFilter::make()->apply($this, $query);
     }
 
     /**
      * Trigger static method calls to the model
-     *
-     * @param $method
-     * @param $arguments
-     *
+     * @param mixed $method
+     * @param mixed $arguments
      * @return mixed
      */
     public static function __callStatic($method, $arguments)
@@ -59,4 +106,4 @@ abstract class BaseRepository implements IRepository
     {
         return call_user_func_array([$this->model, $method], $arguments);
     }
-} 
+}
