@@ -3,6 +3,7 @@
 namespace Scriptpage\Repository\Filters;
 
 use Illuminate\Contracts\Database\Query\Builder;
+use Scriptpage\Contracts\IRepository;
 use Scriptpage\Contracts\IUrlFilter;
 
 class WithFilter implements IUrlFilter
@@ -12,8 +13,9 @@ class WithFilter implements IUrlFilter
         return explode(',', $values);
     }
 
-    function apply(Builder $builder, String $values): Builder
+    function apply(IRepository $repository, String $values): Builder
     {
+        $builder = $repository->getBuilder();
         return $builder->with($this->parser($values));
     }
 }

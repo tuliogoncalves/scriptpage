@@ -30,8 +30,17 @@ abstract class BaseRepository implements IRepository
      */
     protected string $modelClass;
 
-    protected $take = 5;
-    protected $paginate = true;
+    /**
+     * Summary of take
+     * @var int
+     */
+    private $take = 5;
+
+    /**
+     * Summary of paginate
+     * @var 
+     */
+    private $paginate = true;
 
     /**
      * load default class dependencies.
@@ -42,6 +51,25 @@ abstract class BaseRepository implements IRepository
     {
         $this->model = app($this->modelClass);
     }
+
+    /**
+	 * @param mixed $take 
+	 * @return self
+	 */
+	public function setTake($take): self {
+		$this->take = $take;
+		return $this;
+	}
+
+    /**
+	 * paginate
+	 * @param  $paginate
+	 * @return self
+	 */
+	public function setPaginate(bool $paginate): self {
+		$this->paginate = $paginate;
+		return $this;
+	}
 
     /**
      * Summary of getModel
@@ -120,7 +148,8 @@ abstract class BaseRepository implements IRepository
     function urlFilter(array $parameters = [])
     {
         $urlFilter = new UrlFilter($this);
-        return $urlFilter->apply($parameters);
+        $urlFilter->apply($parameters);
+        return $this;
     }
 
     /**
@@ -146,13 +175,4 @@ abstract class BaseRepository implements IRepository
     {
         return call_user_func_array([$this->model, $method], $arguments);
     }
-
-	/**
-	 * @param mixed $take 
-	 * @return self
-	 */
-	public function setTake($take): self {
-		$this->take = $take;
-		return $this;
-	}
 }

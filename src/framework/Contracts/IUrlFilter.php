@@ -10,5 +10,5 @@ interface IUrlFilter
      *
      * @return void
      */
-    function apply(Builder $builder, String $values): Builder;
+    function apply(IRepository $repository, String $values): Builder;
 }

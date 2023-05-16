@@ -2,13 +2,15 @@
 
 namespace Scriptpage\Repository;
 
+use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
 use Scriptpage\Contracts\traitActionable;
+use Scriptpage\Repository\Filters\PaginateFilter;
 use Scriptpage\Repository\Filters\SelectFilter;
 use Scriptpage\Repository\Filters\TakeFilter;
 use Scriptpage\Repository\Filters\WithFilter;
 
-class UrlFilter 
+class UrlFilter
 {
     use traitActionable;
 
@@ -34,11 +36,12 @@ class UrlFilter
         $this->repository = $repository;
     }
 
-    public function apply(Array $parameters)
+    public function apply(array $parameters): Builder
     {
         $builder = $this->repository->getBuilder();
         foreach ($parameters as $filter => $values) {
-            $builder = app($this->filters[$filter])->apply($builder, $values);
+            if (isset($this->filters[$filter]))
+                $builder = app($this->filters[$filter])->apply($this->repository, $values);
         }
         return $builder;
     }
