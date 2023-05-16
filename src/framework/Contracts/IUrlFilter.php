@@ -1,6 +1,7 @@
 <?php
 
 namespace Scriptpage\Contracts;
+use Illuminate\Contracts\Database\Query\Builder;
 
 interface IUrlFilter
 {
@@ -9,5 +10,5 @@ interface IUrlFilter
      *
      * @return void
      */
-    function apply(IRepository $repository, String $values);
+    function apply(Builder $builder, String $values): Builder;
 }

@@ -5,6 +5,7 @@ namespace App\Scriptpage\Repository;
 use App\Scriptpage\Contracts\IRepository;
 use App\Scriptpage\Contracts\traitActionable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 
 abstract class BaseRepository
 implements IRepository
@@ -93,9 +94,9 @@ implements IRepository
     protected $paginate = true;
 
     /**
-     * @return EloquentQueryBuilder|QueryBuilder
+     * @return Builder
      */
-    final function newQuery($table = '')
+    final function newQuery($table = ''): Builder
     {
         if ($table <> '') {
             // QueryBuilder

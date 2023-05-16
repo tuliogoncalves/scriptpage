@@ -2,6 +2,8 @@
 
 namespace Scriptpage\Repository;
 
+use Illuminate\Contracts\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
 use Scriptpage\Contracts\IRepository;
 use Scriptpage\Contracts\traitActionable;
 use Illuminate\Database\Eloquent\Model;
@@ -14,6 +16,12 @@ abstract class BaseRepository implements IRepository
      * Model instance
      */
     protected Model $model;
+
+    /**
+     * Summary of builder
+     * @var Builder
+     */
+    protected Builder $builder;
 
     /**
      * Model class for repo.
@@ -44,6 +52,58 @@ abstract class BaseRepository implements IRepository
         return $this->model;
     }
 
+	/**
+	 * getBuilder
+	 * @return Builder
+	 */
+	public function getBuilder(): Builder {
+		return $this->builder;
+	}
+
+    /**
+     * @return Builder
+     */
+    final public function newQuery(): Builder
+    {
+        // Illuminate\Database\Eloquent\Builder
+        $this->builder = $this->model->newQuery();
+        
+        return $this->builder;
+    }
+
+    /**
+     * @return Builder
+     */
+    final public function newQueryDB(): Builder
+    {
+        // Illuminate\Database\Query\Builder
+        $this->builder = DB::table($this->model->getTable());
+
+        return $this->builder;
+    }
+
+
+    /**
+     * Execute Query Builder
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Support\Collection|
+     *          \Illuminate\Database\Eloquent\Collection|array<\Illuminate\Database\Eloquent\Builder>
+     */
+    final public function doQuery()
+    {
+        $builder= $this->builder;
+
+        if ($this->paginate) {
+            $paginator = $builder->paginate($this->take);
+            return $paginator->appends($this->appends());
+        }
+
+        if ($this->take > 0) {
+            $builder->take($this->take);
+        }
+
+        return $builder->get();
+    }
+
     /**
      * @return array()
      */
@@ -53,34 +113,14 @@ abstract class BaseRepository implements IRepository
     }
 
     /**
-     * Execute the database/eloquent query
-     *
-     * @return void
-     */
-    final public function doQuery()
-    {
-        $model = $this->model;
-
-        if ($this->paginate) {
-            $paginator = $model->paginate($this->take);
-            return $paginator->appends($this->appends());
-        }
-
-        if ($this->take > 0) {
-            $model->take($this->take);
-        }
-
-        return $model::get();
-    }
-
-    /**
      * Summary of urlQuery
      * @param array $query
      * @return BaseRepository
      */
-    function urlQuery(array $query = [])
+    function urlFilter(array $parameters = [])
     {
-        return UrlFilter::make()->apply($this, $query);
+        $urlFilter = new UrlFilter($this);
+        return $urlFilter->apply($parameters);
     }
 
     /**
@@ -106,4 +146,13 @@ abstract class BaseRepository implements IRepository
     {
         return call_user_func_array([$this->model, $method], $arguments);
     }
+
+	/**
+	 * @param mixed $take 
+	 * @return self
+	 */
+	public function setTake($take): self {
+		$this->take = $take;
+		return $this;
+	}
 }

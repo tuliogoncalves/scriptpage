@@ -2,14 +2,17 @@
 
 namespace Scriptpage\Repository;
 
-use Illuminate\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
 use Scriptpage\Contracts\traitActionable;
 use Scriptpage\Repository\Filters\SelectFilter;
+use Scriptpage\Repository\Filters\TakeFilter;
+use Scriptpage\Repository\Filters\WithFilter;
 
 class UrlFilter 
 {
     use traitActionable;
+
+    private IRepository $repository;
 
     private $filters = [
         'select' => SelectFilter::class,
@@ -26,14 +29,16 @@ class UrlFilter
         'paginate' => PaginateFilter::class
     ];
 
-    public function apply(IRepository $repository, Array $parameters)
+    public function __construct(IRepository $repository)
     {
-        $builder = $repository->getModel();
-        // refatorar: inicializar a query builder, 
-        // passar ela por parametro recebe-la e 
-        // atualizar o atributo querybuilder da classe baseRepository
+        $this->repository = $repository;
+    }
+
+    public function apply(Array $parameters)
+    {
+        $builder = $this->repository->getBuilder();
         foreach ($parameters as $filter => $values) {
-            $builder = app($this->filters[$filter])->apply($repository, $values);
+            $builder = app($this->filters[$filter])->apply($builder, $values);
         }
         return $builder;
     }
