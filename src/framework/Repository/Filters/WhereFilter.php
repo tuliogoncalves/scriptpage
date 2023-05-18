@@ -12,9 +12,12 @@ class WithFilter extends BaseFilter
         return true;
     }
 
-    function apply(IRepository $repository, String $values): Builder
+    function apply(IRepository $repository, String $expressions): Builder
     {
         $builder = $repository->getBuilder();
-        return $builder->with($this->parserValues($values));
+        foreach ($this->parserExpression($expressions) as $expression) {
+            $builder->with($this->parser($values));
+        }
+        return $builder;
     }
 }

@@ -4,13 +4,17 @@ namespace Scriptpage\Repository\Filters;
 
 use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
-use Scriptpage\Contracts\IUrlFilter;
 
-class PaginateFilter implements IUrlFilter
+class PaginateFilter extends BaseFilter
 {
-    function apply(IRepository $repository, String $value): Builder
+    function validate($value): bool
     {
-        $repository->setPaginate((bool)$value);
+        return true;
+    }
+
+    function apply(IRepository $repository, string $value): Builder
+    {
+        $repository->setPaginate((bool) $value);
         return $repository->getBuilder();
     }
 }

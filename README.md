@@ -26,8 +26,9 @@ You want to know a little more about the Repository pattern? [Read this great ar
 - withCount = $relation1,$relation2,...
 - withSum = $relation1,$relation2,...
 
-- where = $field,[$comparisons = 'equal']:$value
-- orWhere = $field,[$comparisons = 'equal']:$value
+- where = $field,[$condition = 'equal']:$value
+- orWhere = $field,[$condition = 'equal']:$value
+
 - join = $table:$field1,$field2
 - leftJoin = $table:$field1,$field2
 - rightJoin = $table:$field1,$field2
@@ -37,25 +38,25 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 > array is separated by semicolons, example: expresion1; expression2; expresion3...
 
-### Comparisons
+### Conditions
 
-- equal
+- equal( = )
 
         $field:$value
 
-- greater
+- greater( > )
 
         $field,greater:$value
 
-- greater_or_equal
+- greater_or_equal( >= )
 
         $field,greater_or_equal:$value
 
-- less
+- less( < )
 
         $field,less:$value
 
-- less_or_equal
+- less_or_equal( <= )
 
         $field,less_or_equal:$value
 
@@ -65,11 +66,11 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 - between
 
-        $field,between:$value
+        $field,between:$value1, $value2
 
 - not_between
 
-        $field,not_between:$value
+        $field,not_between:$value1, $value2
 
 ## Examples
 
