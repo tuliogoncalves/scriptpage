@@ -26,8 +26,8 @@ You want to know a little more about the Repository pattern? [Read this great ar
 - withCount = $relation1,$relation2,...
 - withSum = $relation1,$relation2,...
 
-- where = $field,[$condition = 'equal']:$value
-- orWhere = $field,[$condition = 'equal']:$value
+- where = $column,[$condition = 'equal']:$value
+- orWhere = $column,[$condition = 'equal']:$value
 
 - join = $table:$field1,$field2
 - leftJoin = $table:$field1,$field2
@@ -60,9 +60,35 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
         $field,less_or_equal:$value
 
+- different ( <> )
+
+        $field,different:$value
+
+- null_safe ( <=> )
+
+        $field,null_safe:$value
+
 - in
 
         $field,in:$value1,$value2,$value3...
+
+- not_in
+
+        $field,in:$value1,$value2,$value3...
+
+- like
+
+        $field,like:$pattern
+
+        $pattern, examples:
+
+                _value*
+                value*
+                *value_*
+
+- not_like
+
+        $field,like:$pattern
 
 - between
 
@@ -103,7 +129,6 @@ get `api/table/users?join=contacts:users.id,contacts.user_id`
             ?join=contacts:users.id,contacts.user_id
             ;orders:users.id,orders.user_id
             &where=users.name:laravel
-            ;o
             &select=users.*,contacts.phone,orders.price
 
 [^1]: A framework is an abstraction that links common code across multiple software projects to provide generic functionality. A framework can achieve specific functionality, by configuration, during application programming. Unlike libraries, it is the framework that dictates the flow of control of the application, called Inversion of Control..[wikipedia](https://pt.wikipedia.org/wiki/Framework)
