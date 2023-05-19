@@ -8,6 +8,7 @@ use Scriptpage\Contracts\traitActionable;
 use Scriptpage\Repository\Filters\PaginateFilter;
 use Scriptpage\Repository\Filters\SelectFilter;
 use Scriptpage\Repository\Filters\TakeFilter;
+use Scriptpage\Repository\Filters\WhereFilter;
 use Scriptpage\Repository\Filters\WithFilter;
 
 class UrlFilter
