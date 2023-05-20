@@ -7,11 +7,6 @@ use Scriptpage\Contracts\IRepository;
 
 class WithFilter extends BaseFilter
 {
-    function validate($value): bool
-    {
-        return true;
-    }
-
     function apply(IRepository $repository, String $values): Builder
     {
         $builder = $repository->getBuilder();

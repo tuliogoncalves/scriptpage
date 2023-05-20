@@ -5,6 +5,8 @@ namespace Scriptpage\Repository;
 use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
 use Scriptpage\Contracts\traitActionable;
+use Scriptpage\Repository\Filters\JoinFilter;
+use Scriptpage\Repository\Filters\OrWhereFilter;
 use Scriptpage\Repository\Filters\PaginateFilter;
 use Scriptpage\Repository\Filters\SelectFilter;
 use Scriptpage\Repository\Filters\TakeFilter;
@@ -42,7 +44,16 @@ class UrlFilter
         $builder = $this->repository->getBuilder();
         foreach ($parameters as $filter => $values) {
             if (isset($this->filters[$filter]))
-                $builder = app($this->filters[$filter])->apply($this->repository, $values);
+            {
+                if(is_array($values)) {
+                    foreach ($values as $value) {
+                        $value = $value ?? '';
+                        $builder = app($this->filters[$filter])->apply($this->repository, $value);
+                    }
+                } else {
+                    $builder = app($this->filters[$filter])->apply($this->repository, $values);
+                }
+            }
         }
         return $builder;
     }

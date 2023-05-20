@@ -119,7 +119,7 @@ abstract class BaseRepository implements IRepository
     final public function doQuery()
     {
         $builder= $this->builder;
-
+        
         if ($this->paginate) {
             $paginator = $builder->paginate($this->take);
             return $paginator->appends($this->appends());
@@ -140,6 +140,14 @@ abstract class BaseRepository implements IRepository
         return array();
     }
 
+    public function toSql()
+    {
+        $builder= $this->builder;
+        return [
+            'sql' => $builder->toSql(),
+            'bindings' => $builder->getBindings()
+        ];
+    }
     /**
      * Summary of urlQuery
      * @param array $query

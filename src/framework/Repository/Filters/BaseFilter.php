@@ -19,11 +19,11 @@ abstract class BaseFilter implements IUrlFilter
     }
 
     /**
-     * Splitting value by (:)
+     * Splitting an expression into two parts separated by the character (:)
      * @param mixed $expression
      * @return array<string>|bool
      */
-    final protected function parserValue(string $expression): array|bool
+    final protected function parserParts(string $expression): array|bool
     {
         return explode(':', $expression);
     }
@@ -40,5 +40,5 @@ abstract class BaseFilter implements IUrlFilter
     
     abstract function apply(IRepository $repository, String $values): Builder;
 
-    abstract protected function validate($value): bool;
+    // abstract protected function validate($value): bool;
 }

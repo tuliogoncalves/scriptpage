@@ -104,14 +104,21 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 #### Model
 
-- get `api/model/users`
+- get `api/users`
 
 #### Where clausule
 
-- get `api/model/users?where=role_id:2`
-- get `api/model/users?where=role_id:2;name:ester`
-- get `api/model/users?where=role_id:2&orWhere=name:ester`
-- get `api/model/users?where=role_id,between:34,52`
+- get `api/users?where=role_id:2`
+- get `api/users?where=role_id:2;name:ester`
+- get `api/users?where=role_id:2&orWhere=name:ester`
+- get `api/users?where=role_id,between:34,52`
+- get `api/users?where=email_verified_at:2023-05-14 14.02.20`
+
+#### to Sql
+
+Show sql statement result
+
+- get `api/users/sql?where=email_verified_at:2023-05-14 14.02.20`
 
 #### selecting fields
 
@@ -126,9 +133,9 @@ You want to know a little more about the Repository pattern? [Read this great ar
 get `api/table/users?join=contacts:users.id,contacts.user_id`
 
     get api/table/users
-            ?join=contacts:users.id,contacts.user_id
-            ;orders:users.id,orders.user_id
-            &where=users.name:laravel
-            &select=users.*,contacts.phone,orders.price
+                ?join=contacts:users.id,contacts.user_id
+                ;orders:users.id,orders.user_id
+                &where=users.name:laravel
+                &select=users.*,contacts.phone,orders.price
 
 [^1]: A framework is an abstraction that links common code across multiple software projects to provide generic functionality. A framework can achieve specific functionality, by configuration, during application programming. Unlike libraries, it is the framework that dictates the flow of control of the application, called Inversion of Control..[wikipedia](https://pt.wikipedia.org/wiki/Framework)

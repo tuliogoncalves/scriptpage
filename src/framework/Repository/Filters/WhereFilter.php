@@ -23,8 +23,16 @@ class WhereFilter extends BaseFilter
         'not_between' => 'not_between'
     ];
 
-    protected $filters = [
-        'default' => 'where',
+    protected $method = [
+        'equal' => 'where',
+        'greater' => 'where',
+        'less' => 'where',
+        'less_or_equal' => 'where',
+        'greater_or_equal' => 'where',
+        'different' => 'where',
+        'null_safe' => 'where',
+        'like' => 'where',
+        'not_like' => 'where',
         'in' => 'whereIn',
         'not_in' => 'whereNotIn',
         'between' => 'whereBetween',
@@ -35,42 +43,41 @@ class WhereFilter extends BaseFilter
 
     protected $builder;
 
-    function validate($value): bool
-    {
-        return true;
-    }
-
     function apply(IRepository $repository, string $expressions): Builder
     {
         $this->builder = $repository->getBuilder();
         foreach ($this->parserExpression($expressions) as $expression) {
-            // Value
-            $_tmp = $this->parserValue($expression);
-            $value = $_tmp[1] ?? '';
+            // Parts
+            $parts = $this->parserParts($expression);
+            $value = $parts[1] ?? '';
 
             // Conditions
-            $_tmp = $this->parserValues($_tmp[0]);
+            $_tmp = $this->parserValues($parts[0]);
             $column = $_tmp[0];
             $condition = $_tmp[1] ?? 'equal';
             $operator = $this->operators[$condition] ?? '=';
 
-            $filter = 'default';
-            if (in_array($condition, $this->filters)) {
-                $filter = $condition;
-            }
+            // Method
+            $method = $this->method[$condition];
 
-            $method = $this->filters[$filter];
-
-            $this->$method($column, $operator, $value, $this->boolean);
+            // Call mehthod when $column exists
+            if (empty($column) == false)
+                $this->$method($column, $operator, $value);
         }
         return $this->builder;
     }
 
-    function where($column, $operator, $value, $boolean): Builder
+    function where(string $column, string $operator, string $value): Builder
     {
-        dd($column, $operator, $value, $boolean);
         $builder = $this->builder;
+        $value = str_replace('*', '%', $value);
         return $builder->where($column, $operator, $value, $this->boolean);
     }
 
+    function whereIn(string $column, string $operator, string $value): Builder
+    {
+        $builder = $this->builder;
+        $values = $this->parserValues($value);
+        return $builder->whereIn($column, $values, $this->boolean);
+    }
 }
