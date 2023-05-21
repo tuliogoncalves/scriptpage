@@ -6,8 +6,10 @@ use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
 use Scriptpage\Contracts\traitActionable;
 use Scriptpage\Repository\Filters\JoinFilter;
+use Scriptpage\Repository\Filters\LeftJoinFilter;
 use Scriptpage\Repository\Filters\OrWhereFilter;
 use Scriptpage\Repository\Filters\PaginateFilter;
+use Scriptpage\Repository\Filters\RightJoinFilter;
 use Scriptpage\Repository\Filters\SelectFilter;
 use Scriptpage\Repository\Filters\TakeFilter;
 use Scriptpage\Repository\Filters\WhereFilter;
@@ -27,7 +29,7 @@ class UrlFilter
         'where' => WhereFilter::class,
         'orWhere' => OrWhereFilter::class,
         'join' => JoinFilter::class,
-        'leftJoin' => LeftFilter::class,
+        'leftJoin' => LeftJoinFilter::class,
         'rightJoin' => RightJoinFilter::class,
         'take' => TakeFilter::class,
         'orderBy' => OrderByFilter::class,

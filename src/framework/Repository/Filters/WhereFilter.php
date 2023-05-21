@@ -41,7 +41,7 @@ class WhereFilter extends BaseFilter
 
     protected $boolean = 'and';
 
-    protected $builder;
+    protected Builder $builder;
 
     function apply(IRepository $repository, string $expressions): Builder
     {
@@ -62,7 +62,7 @@ class WhereFilter extends BaseFilter
 
             // Call mehthod when $column exists
             if (empty($column) == false)
-                $this->$method($column, $operator, $value);
+                $this->builder = $this->$method($column, $operator, $value);
         }
         return $this->builder;
     }

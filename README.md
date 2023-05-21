@@ -32,6 +32,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
 - join = $table:$field1,$field2
 - leftJoin = $table:$field1,$field2
 - rightJoin = $table:$field1,$field2
+
 - take = $limit
 - orderBy = $column:[$direction = 'asc']
 - paginate = true|false
