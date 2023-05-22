@@ -2,6 +2,7 @@
 
 namespace Scriptpage\Repository;
 
+use Exception;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Scriptpage\Contracts\IRepository;
@@ -53,29 +54,32 @@ abstract class BaseRepository implements IRepository
     }
 
     /**
-	 * @param mixed $take 
-	 * @return self
-	 */
-	public function setTake($take): self {
-		$this->take = $take;
-		return $this;
-	}
+     * @param mixed $take 
+     * @return self
+     */
+    public function setTake($take): self
+    {
+        $this->take = $take;
+        return $this;
+    }
 
     /**
-	 * paginate
-	 * @param  $paginate
-	 * @return self
-	 */
-	public function setPaginate(bool $paginate): self {
-		$this->paginate = $paginate;
-		return $this;
-	}
+     * paginate
+     * @param  $paginate
+     * @return self
+     */
+    public function setPaginate(bool $paginate): self
+    {
+        $this->paginate = $paginate;
+        return $this;
+    }
 
     public function getPaginate()
     {
         return $this->paginate;
     }
-    
+
+
     /**
      * Summary of getModel
      * @return Model
@@ -85,13 +89,14 @@ abstract class BaseRepository implements IRepository
         return $this->model;
     }
 
-	/**
-	 * getBuilder
-	 * @return Builder
-	 */
-	public function getBuilder(): Builder {
-		return $this->builder;
-	}
+    /**
+     * getBuilder
+     * @return Builder
+     */
+    public function getBuilder(): Builder
+    {
+        return $this->builder;
+    }
 
     /**
      * @return Builder
@@ -100,7 +105,7 @@ abstract class BaseRepository implements IRepository
     {
         // Illuminate\Database\Eloquent\Builder
         $this->builder = $this->model->newQuery();
-        
+
         return $this->builder;
     }
 
@@ -123,18 +128,32 @@ abstract class BaseRepository implements IRepository
      */
     final public function doQuery()
     {
-        $builder= $this->builder;
-        
-        if ($this->paginate) {
-            $paginator = $builder->paginate($this->take);
-            return $paginator->appends($this->appends());
+        $builder = $this->builder;
+
+        $result = [
+            'code_error' => 0,
+            'message' => ''
+        ];
+
+        try {
+            if ($this->paginate) {
+                $paginator = $builder->paginate();
+                $result = $paginator->appends($this->appends());
+            } else {
+                if ($this->take > 0) {
+                    $builder->take($this->take);
+                }
+
+                $result = $builder->get();
+            }
+        } catch (Exception $e) {
+            $result = [
+                'code_error' => '??',
+                'message' => $e->getMessage()
+            ];
         }
 
-        if ($this->take > 0) {
-            $builder->take($this->take);
-        }
-
-        return $builder->get();
+        return $result;
     }
 
     /**
@@ -147,12 +166,13 @@ abstract class BaseRepository implements IRepository
 
     public function toSql()
     {
-        $builder= $this->builder;
+        $builder = $this->builder;
         return [
             'sql' => $builder->toSql(),
             'bindings' => $builder->getBindings()
         ];
     }
+    
     /**
      * Summary of urlQuery
      * @param array $query
