@@ -5,7 +5,7 @@ namespace Scriptpage\Repository\Filters;
 use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
 
-class WithFilter extends BaseFilter
+class WithCountFilter extends BaseFilter
 {
     function apply(IRepository $repository, String $values): Builder
     {
@@ -14,6 +14,6 @@ class WithFilter extends BaseFilter
         // Relations
         $relations = $this->parserValues($values);
         
-        return $builder->with($relations);
+        return $builder->withCount($relations);
     }
 }

@@ -7,13 +7,16 @@ use Scriptpage\Contracts\IRepository;
 use Scriptpage\Contracts\traitActionable;
 use Scriptpage\Repository\Filters\JoinFilter;
 use Scriptpage\Repository\Filters\LeftJoinFilter;
+use Scriptpage\Repository\Filters\OrderByFilter;
 use Scriptpage\Repository\Filters\OrWhereFilter;
 use Scriptpage\Repository\Filters\PaginateFilter;
 use Scriptpage\Repository\Filters\RightJoinFilter;
 use Scriptpage\Repository\Filters\SelectFilter;
 use Scriptpage\Repository\Filters\TakeFilter;
 use Scriptpage\Repository\Filters\WhereFilter;
+use Scriptpage\Repository\Filters\WithCountFilter;
 use Scriptpage\Repository\Filters\WithFilter;
+use Scriptpage\Repository\Filters\WithSumFilter;
 
 class UrlFilter
 {

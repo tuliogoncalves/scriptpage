@@ -9,7 +9,7 @@ class PaginateFilter extends BaseFilter
 {
    function apply(IRepository $repository, string $value): Builder
     {
-        $repository->setPaginate((bool) $value);
+        $repository->setPaginate($value=='true');
         return $repository->getBuilder();
     }
 }

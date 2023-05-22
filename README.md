@@ -21,18 +21,14 @@ You want to know a little more about the Repository pattern? [Read this great ar
 ### URL query filters
 
 - select = $column1,$column2,...
-
 - with = $relation1,$relation2,...
 - withCount = $relation1,$relation2,...
-- withSum = $relation1,$relation2,...
-
+- withSum = $relation:$column
 - where = $column,[$condition = 'equal']:$value
 - orWhere = $column,[$condition = 'equal']:$value
-
 - join = $table:$field1,$field2
 - leftJoin = $table:$field1,$field2
 - rightJoin = $table:$field1,$field2
-
 - take = $limit
 - orderBy = $column:[$direction = 'asc']
 - paginate = true|false

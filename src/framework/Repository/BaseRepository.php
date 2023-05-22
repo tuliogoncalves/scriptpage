@@ -71,6 +71,11 @@ abstract class BaseRepository implements IRepository
 		return $this;
 	}
 
+    public function getPaginate()
+    {
+        return $this->paginate;
+    }
+    
     /**
      * Summary of getModel
      * @return Model
