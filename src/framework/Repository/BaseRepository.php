@@ -130,25 +130,24 @@ abstract class BaseRepository implements IRepository
     {
         $builder = $this->builder;
 
-        $result = [
-            'code_error' => 0,
-            'message' => ''
-        ];
-
         try {
             if ($this->paginate) {
-                $paginator = $builder->paginate();
+                $paginator = $builder->paginate($this->take);
                 $result = $paginator->appends($this->appends());
+                $result = $result->toArray();
             } else {
                 if ($this->take > 0) {
                     $builder->take($this->take);
                 }
-
-                $result = $builder->get();
+                $result = $builder->get()->flatten(1);
+                $result = [
+                    'data' =>$result->toArray()
+                ];
             }
         } catch (Exception $e) {
             $result = [
-                'code_error' => '??',
+                'success' => false,
+                'code' => 500,
                 'message' => $e->getMessage()
             ];
         }
