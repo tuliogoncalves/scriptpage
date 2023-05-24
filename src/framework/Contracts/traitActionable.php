@@ -8,9 +8,9 @@ trait traitActionable
     /**
      * make
      *
-     * @return this
+     * @return self
      */
-    public static function make()
+    public static function make(): self
     {
         return app(static::class);
     }

@@ -84,7 +84,7 @@ abstract class BaseRepository implements IRepository
      * Summary of getModel
      * @return Model
      */
-    public function getModel()
+    public function getModel(): Model
     {
         return $this->model;
     }
@@ -144,9 +144,9 @@ abstract class BaseRepository implements IRepository
                     'data' =>$result->toArray()
                 ];
             }
+            $result['message'] = 'Success query.';
         } catch (Exception $e) {
             $result = [
-                'success' => false,
                 'code' => 500,
                 'message' => $e->getMessage()
             ];
@@ -167,7 +167,7 @@ abstract class BaseRepository implements IRepository
     {
         $builder = $this->builder;
         return [
-            'sql' => $builder->toSql(),
+            'data' => $builder->toSql(),
             'bindings' => $builder->getBindings()
         ];
     }
@@ -177,34 +177,11 @@ abstract class BaseRepository implements IRepository
      * @param array $query
      * @return BaseRepository
      */
-    function urlFilter(array $parameters = [])
+    function urlFilter(array $parameters = []): self
     {
         $urlFilter = new UrlFilter($this);
         $urlFilter->apply($parameters);
         return $this;
     }
 
-    /**
-     * Trigger static method calls to the model
-     * @param mixed $method
-     * @param mixed $arguments
-     * @return mixed
-     */
-    public static function __callStatic($method, $arguments)
-    {
-        return call_user_func_array([new static(), $method], $arguments);
-    }
-
-    /**
-     * Trigger method calls to the model
-     *
-     * @param string $method
-     * @param array  $arguments
-     *
-     * @return mixed
-     */
-    public function __call($method, $arguments)
-    {
-        return call_user_func_array([$this->model, $method], $arguments);
-    }
 }
