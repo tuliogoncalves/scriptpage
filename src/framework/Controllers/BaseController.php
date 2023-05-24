@@ -2,27 +2,21 @@
 
 namespace Scriptpage\Controllers;
 
-use App\Http\Controllers\Controller;
-use Scriptpage\Contracts\IRepository;
-use Scriptpage\Contracts\IService;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
+use Scriptpage\Contracts\IRepository;
 
 class BaseController extends Controller
 {
     protected IRepository $repository;
-
-    protected IService $service;
-
     protected $repositoryClass;
-
-    protected $serviceClass;
-
     protected $urlFilter = false;
-
-    private $error404 = [
-        'code' => 404,
-        'message' => 'permission denied.'
+    protected $responseError = [
+        '403' => [
+            'code' => 403,
+            'message' => '403 Forbidden. urlFilter is False.'
+        ]
     ];
 
     /**
@@ -34,53 +28,6 @@ class BaseController extends Controller
     public function getRepository()
     {
         return app($this->repositoryClass);
-    }
-
-    /**
-     * Summary of index
-     * @param \Illuminate\Http\Request $request
-     * @return JsonResponse
-     */
-    public function index(Request $request)
-    {
-        $repository = $this->getRepository();
-        $repository->newQuery();
-        if ($this->urlFilter)
-            $repository->urlFilter($request->all());
-        $result = $repository->doQuery();
-        return $this->sendResponse($result);
-    }
-
-    /**
-     * Summary of queryDb
-     * @param \Illuminate\Http\Request $request
-     * @return JsonResponse
-     */
-    public function queryDb(Request $request)
-    {
-        $repository = $this->getRepository();
-        $repository->newQueryDB();
-        if ($this->urlFilter) {
-            $repository->urlFilter($request->all());
-            $result = $repository->doQuery();
-        }
-        return $this->sendResponse($result ?? $this->error404);
-    }
-
-    /**
-     * Summary of toSql
-     * @param \Illuminate\Http\Request $request
-     * @return JsonResponse
-     */
-    public function toSql(Request $request)
-    {
-        $repository = $this->getRepository();
-        $repository->newQuery();
-        if ($this->urlFilter) {
-            $repository->urlFilter($request->all());
-            $result = $repository->toSql();
-        }
-        return $this->sendResponse($result ?? $this->error404);
     }
 
     /**

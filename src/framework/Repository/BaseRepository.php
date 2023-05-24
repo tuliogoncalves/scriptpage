@@ -13,50 +13,18 @@ abstract class BaseRepository implements IRepository
 {
     use traitActionable;
 
-    /**
-     * Model instance
-     */
     protected Model $model;
-
-    /**
-     * Summary of builder
-     * @var Builder
-     */
     protected Builder $builder;
-
-    /**
-     * Model class for repo.
-     *
-     * @var string
-     */
     protected string $modelClass;
-
-    /**
-     * Summary of take
-     * @var int
-     */
+    private $requestData;
     private $take = 5;
-
-    /**
-     * Summary of paginate
-     * @var 
-     */
     private $paginate = true;
 
-    /**
-     * load default class dependencies.
-     *
-     * @dependencies Model $model Illuminate\Database\Eloquent\Model
-     */
     function __construct()
     {
         $this->model = app($this->modelClass);
     }
 
-    /**
-     * @param mixed $take 
-     * @return self
-     */
     public function setTake($take): self
     {
         $this->take = $take;
@@ -78,7 +46,6 @@ abstract class BaseRepository implements IRepository
     {
         return $this->paginate;
     }
-
 
     /**
      * Summary of getModel
@@ -120,7 +87,6 @@ abstract class BaseRepository implements IRepository
         return $this->builder;
     }
 
-
     /**
      * Execute Query Builder
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Support\Collection|
@@ -133,7 +99,7 @@ abstract class BaseRepository implements IRepository
         try {
             if ($this->paginate) {
                 $paginator = $builder->paginate($this->take);
-                $result = $paginator->appends($this->appends());
+                $result = $paginator->appends(array_merge($this->requestData,$this->appends()));
                 $result = $result->toArray();
             } else {
                 if ($this->take > 0) {
@@ -155,9 +121,6 @@ abstract class BaseRepository implements IRepository
         return $result;
     }
 
-    /**
-     * @return array()
-     */
     protected function appends()
     {
         return array();
@@ -179,6 +142,7 @@ abstract class BaseRepository implements IRepository
      */
     function urlFilter(array $parameters = []): self
     {
+        $this->requestData = $parameters;
         $urlFilter = new UrlFilter($this);
         $urlFilter->apply($parameters);
         return $this;

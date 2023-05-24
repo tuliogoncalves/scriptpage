@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Scriptpage\Controllers;
+namespace Scriptpage\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
-class CrudController extends BaseController
+class CrudController extends RepositoryController
 {
-    use traitCrud;
-
+ 
     public function index(Request $request, $id = null, $id2 = null)
     {
         $this->makeRepository($request->all());

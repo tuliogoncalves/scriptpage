@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Scriptpage\Crud;
+namespace Scriptpage\Crud;
 
-use App\Scriptpage\Contracts\ICrud;
+use Scriptpage\Contracts\ICrud;
 use Illuminate\Database\Eloquent\Model;
-use App\Scriptpage\Contracts\traitActionable;
-use App\Scriptpage\Contracts\traitWithAttributes;
-use App\Scriptpage\Repository\traitRepository;
+use Scriptpage\Contracts\traitActionable;
+use Scriptpage\Contracts\traitWithAttributes;
+use Scriptpage\Repository\traitRepository;
 
 abstract class BaseCrud
 implements ICrud

@@ -31,6 +31,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
 - rightJoin = $table:$field1,$field2
 - take = $limit
 - orderBy = $column:[$direction = 'asc']
+- groupBy = ???
 - paginate = true|false
 
 > array is separated by semicolons, example: expresion1; expression2; expresion3...
