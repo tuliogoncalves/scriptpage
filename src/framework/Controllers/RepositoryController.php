@@ -30,7 +30,7 @@ class RepositoryController extends BaseController
     public function queryDb(Request $request)
     {
         $repository = $this->getRepository();
-        $repository->newQueryDB();
+        $repository->newDB();
         if ($this->urlFilter) {
             $repository->urlFilter($request->all());
             $result = $repository->doQuery();

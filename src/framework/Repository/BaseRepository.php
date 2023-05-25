@@ -62,24 +62,27 @@ abstract class BaseRepository implements IRepository
      */
     public function getBuilder(): Builder
     {
+        if(empty($this->builder)) 
+            $this->builder = $this->newQuery();
+
         return $this->builder;
     }
 
     /**
      * @return Builder
      */
-    final public function newQuery(): Builder
+    public function newQuery(): Builder
     {
         // Illuminate\Database\Eloquent\Builder
         $this->builder = $this->model->newQuery();
-
+        
         return $this->builder;
     }
 
     /**
      * @return Builder
      */
-    final public function newQueryDB(): Builder
+    public function newDB(): Builder
     {
         // Illuminate\Database\Query\Builder
         $this->builder = DB::table($this->model->getTable());
@@ -87,14 +90,15 @@ abstract class BaseRepository implements IRepository
         return $this->builder;
     }
 
+
     /**
-     * Execute Query Builder
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Support\Collection|
-     *          \Illuminate\Database\Eloquent\Collection|array<\Illuminate\Database\Eloquent\Builder>
+     * Summary of doQuery
+     * @return array
      */
-    final public function doQuery()
+    public function doQuery(): array
     {
         $builder = $this->builder;
+        $result = [];
 
         try {
             if ($this->paginate) {
@@ -123,7 +127,7 @@ abstract class BaseRepository implements IRepository
         return $result;
     }
 
-    protected function appends()
+    protected function appends(): array
     {
         return array();
     }
