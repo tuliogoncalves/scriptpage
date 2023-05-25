@@ -99,7 +99,9 @@ abstract class BaseRepository implements IRepository
         try {
             if ($this->paginate) {
                 $paginator = $builder->paginate($this->take);
-                $result = $paginator->appends(array_merge($this->requestData,$this->appends()));
+                $result = $paginator->appends(
+                    array_merge($this->requestData ?? [], $this->appends())
+                );
                 $result = $result->toArray();
             } else {
                 if ($this->take > 0) {
@@ -107,7 +109,7 @@ abstract class BaseRepository implements IRepository
                 }
                 $result = $builder->get()->flatten(1);
                 $result = [
-                    'data' =>$result->toArray()
+                    'data' => $result->toArray()
                 ];
             }
             $result['message'] = 'Success query.';
@@ -134,7 +136,7 @@ abstract class BaseRepository implements IRepository
             'bindings' => $builder->getBindings()
         ];
     }
-    
+
     /**
      * Summary of urlQuery
      * @param array $query
@@ -143,8 +145,8 @@ abstract class BaseRepository implements IRepository
     function urlFilter(array $parameters = []): self
     {
         $this->requestData = $parameters;
-        $urlFilter = new UrlFilter($this);
-        $urlFilter->apply($parameters);
+        $urlFilter = new UrlFilter();
+        $urlFilter->apply($this, $parameters);
         return $this;
     }
 

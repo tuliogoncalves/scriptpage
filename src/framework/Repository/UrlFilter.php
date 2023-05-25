@@ -22,8 +22,6 @@ class UrlFilter
 {
     use traitActionable;
 
-    private IRepository $repository;
-
     private $filters = [
         'select' => SelectFilter::class,
         'with' => WithFilter::class,
@@ -39,24 +37,26 @@ class UrlFilter
         'paginate' => PaginateFilter::class
     ];
 
-    public function __construct(IRepository $repository)
+    public function apply(IRepository $repository, array $parameters): Builder
     {
-        $this->repository = $repository;
-    }
-
-    public function apply(array $parameters): Builder
-    {
-        $builder = $this->repository->getBuilder();
+        $builder = $repository->getBuilder();
         foreach ($parameters as $filter => $values) {
+            // isFilter
             if (isset($this->filters[$filter]))
             {
                 if(is_array($values)) {
                     foreach ($values as $value) {
                         $value = $value ?? '';
-                        $builder = app($this->filters[$filter])->apply($this->repository, $value);
+                        $builder = app($this->filters[$filter])->apply($repository, $value);
                     }
                 } else {
-                    $builder = app($this->filters[$filter])->apply($this->repository, $values);
+                    $builder = app($this->filters[$filter])->apply($repository, $values);
+                }
+            } 
+            // isCustomFilter
+            else {
+                if(method_exists($repository, $filter)){
+
                 }
             }
         }

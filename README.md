@@ -11,7 +11,6 @@ You want to know a little more about the Repository pattern? [Read this great ar
 ### Scriptpage\BaseRepository
 
 #### CRUD
-
 - create(array $attributes)
 - update(array $attributes, $id)
 - updateOrCreate(array $attributes, array $values = [])
