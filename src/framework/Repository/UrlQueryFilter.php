@@ -18,7 +18,7 @@ use Scriptpage\Repository\Filters\WithCountFilter;
 use Scriptpage\Repository\Filters\WithFilter;
 use Scriptpage\Repository\Filters\WithSumFilter;
 
-class UrlFilter
+class UrlQueryFilter
 {
     use traitActionable;
 

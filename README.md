@@ -6,6 +6,25 @@
 
 You want to know a little more about the Repository pattern? [Read this great article](http://scriptpage.com.br/using-scriptpage-repository).
 
+## Config
+
+#### file Config/App.php
+
+add:
+
+        /*
+        |--------------------------------------------------------------------------
+        | Application Version
+        |--------------------------------------------------------------------------
+        |
+        | This value is the version of your application. This value is used when
+        | the framework needs to place the application's version in a notification
+        | or any other location as required by the application or its packages.
+        */
+
+        'version' => env('APP_VERSION', '1.0.0'),
+        'project_name' => env('APP_PROJECT_NAME', 'app'),
+
 ## Methods
 
 ### Scriptpage\BaseRepository

@@ -19,10 +19,26 @@ abstract class BaseRepository implements IRepository
     private $requestData;
     private $take = 5;
     private $paginate = true;
+    protected $urlQueryFilter = false;
 
     function __construct()
     {
         $this->model = app($this->modelClass);
+    }
+
+	/**
+	 * @param mixed $urlQueryFilter 
+	 * @return self
+	 */
+	public function setUrlQueryFilter(bool $urlQueryFilter): self {
+		$this->urlQueryFilter = $urlQueryFilter;
+		return $this;
+	}
+
+    public function setRequestData(Array $requestData)
+    {
+        $this->requestData = $requestData;
+        return $this;
     }
 
     public function setTake($take): self
@@ -73,6 +89,8 @@ abstract class BaseRepository implements IRepository
      */
     public function newQuery(): Builder
     {
+        unset($this->builder);
+ 
         // Illuminate\Database\Eloquent\Builder
         $this->builder = $this->model->newQuery();
         
@@ -84,6 +102,8 @@ abstract class BaseRepository implements IRepository
      */
     public function newDB(): Builder
     {
+        unset($this->builder);
+ 
         // Illuminate\Database\Query\Builder
         $this->builder = DB::table($this->model->getTable());
 
@@ -95,9 +115,11 @@ abstract class BaseRepository implements IRepository
      * Summary of doQuery
      * @return array
      */
-    public function doQuery(): array
+    public function doQuery(array $filters = null): array
     {
-        $builder = $this->builder;
+        if($this->urlQueryFilter) $this->applyFilters($filters);
+
+        $builder = $this->getBuilder();
         $result = [];
 
         try {
@@ -146,12 +168,37 @@ abstract class BaseRepository implements IRepository
      * @param array $query
      * @return BaseRepository
      */
-    function urlFilter(array $parameters = []): self
+    function applyFilters(array $filters = null): self
     {
-        $this->requestData = $parameters;
-        $urlFilter = new UrlFilter();
-        $urlFilter->apply($this, $parameters);
+        $urlQueryFilter = new UrlQueryFilter();
+        // dd($filters ?? $this->requestData);
+        $urlQueryFilter->apply($this, $filters ?? $this->requestData);
         return $this;
     }
 
+    /**
+     * Trigger static method calls to the model
+     *
+     * @param $method
+     * @param $arguments
+     *
+     * @return mixed
+     */
+    public static function __callStatic($method, $arguments)
+    {
+        return call_user_func_array([new static(), $method], $arguments);
+    }
+
+    /**
+     * Trigger method calls to the model
+     *
+     * @param string $method
+     * @param array  $arguments
+     *
+     * @return mixed
+     */
+    public function __call($method, $arguments)
+    {
+        return call_user_func_array([$this->getBuilder(), $method], $arguments);
+    }
 }

@@ -14,12 +14,7 @@ class RepositoryController extends BaseController
      */
     public function index(Request $request)
     {
-        $repository = $this->getRepository();
-        $repository->newQuery();
-        if ($this->urlFilter)
-            $repository->urlFilter($request->all());
-        $result = $repository->doQuery();
-        return $this->sendResponse($result);
+        return $this->sendResponse($this->repository->doQuery());
     }
 
     /**
@@ -29,13 +24,14 @@ class RepositoryController extends BaseController
      */
     public function queryDb(Request $request)
     {
-        $repository = $this->getRepository();
+        $repository = $this->repository;
         $repository->newDB();
-        if ($this->urlFilter) {
-            $repository->urlFilter($request->all());
-            $result = $repository->doQuery();
-        }
-        return $this->sendResponse($result ?? $this->responseError['403']);
+
+        $result = $this->urlQueryFilter
+                    ? $repository->doQuery()
+                    : $this->responseError['403'];
+
+        return $this->sendResponse($result);
     }
 
     /**
@@ -45,12 +41,10 @@ class RepositoryController extends BaseController
      */
     public function toSql(Request $request)
     {
-        $repository = $this->getRepository();
-        $repository->newQuery();
-        if ($this->urlFilter) {
-            $repository->urlFilter($request->all());
-            $result = $repository->toSql();
-        }
-        return $this->sendResponse($result ?? $this->responseError['403']);
+        $result = $this->urlQueryFilter
+                    ? $this->repository->doQuery()
+                    : $this->responseError['403'];
+
+        return $this->sendResponse($result);
     }
 }

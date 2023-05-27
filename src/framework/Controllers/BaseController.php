@@ -2,16 +2,18 @@
 
 namespace Scriptpage\Controllers;
 
+use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
-use Scriptpage\Contracts\IRepository;
+use Scriptpage\Framework;
+use Scriptpage\Repository\BaseRepository;
 
 class BaseController extends Controller
 {
-    protected IRepository $repository;
+    protected BaseRepository $repository;
     protected $repositoryClass;
-    protected $urlFilter = false;
+    protected $urlQueryFilter = false;
     protected $responseError = [
         '403' => [
             'code' => 403,
@@ -19,15 +21,12 @@ class BaseController extends Controller
         ]
     ];
 
-    /**
-     * Summary of getRepository
-     * @return \Illuminate\Contracts\Foundation\Application |
-     *          \Illuminate\Foundation\Application |
-     *          mixed
-     */
-    public function getRepository()
+    function __construct(Request $request)
     {
-        return app($this->repositoryClass);
+        $this->repository = 
+            app($this->repositoryClass)
+            ->setRequestData($request->all())
+            ->setUrlQueryFilter($this->urlQueryFilter);
     }
 
     /**
@@ -38,7 +37,7 @@ class BaseController extends Controller
      * @param mixed $code
      * @return JsonResponse
      */
-    public function sendResponse(array $result, $message = []): JsonResponse
+    public function sendResponse(array $result, array $message = []): JsonResponse
     {
         $resp = [
             'data' => null,
@@ -56,5 +55,17 @@ class BaseController extends Controller
             ['Content-type' => 'application/json; charset=utf-8'],
             JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
         );
+    }
+
+    public function getVersion()
+    {
+        return $this->sendResponse([
+            'data' => [
+                'php' => PHP_VERSION,
+                'laravel' => Application::VERSION,
+                'scriptpage' => Framework::VERSION,
+                config('app.project_name', 'app?') => config('app.version','?.0.0')
+            ]
+        ], ['Ok']);
     }
 }
