@@ -9,7 +9,10 @@ class TakeFilter extends BaseFilter
 {   
     function apply(IRepository $repository, String $value): Builder
     {
+        $value = (int)$value;
+        $builder = $repository->getBuilder();
+
         $repository->setTake((int)$value);
-        return $repository->getBuilder();
+        return $builder;
     }
 }

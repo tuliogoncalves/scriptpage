@@ -2,8 +2,11 @@
 
 namespace Scriptpage\Controllers;
 
+use Exception;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+
 
 class RepositoryController extends BaseController
 {
@@ -14,7 +17,7 @@ class RepositoryController extends BaseController
      */
     public function index(Request $request)
     {
-        return $this->sendResponse($this->repository->doQuery());
+        return $this->response($this->doQuery());
     }
 
     /**
@@ -28,10 +31,10 @@ class RepositoryController extends BaseController
         $repository->newDB();
 
         $result = $this->urlQueryFilter
-                    ? $repository->doQuery()
-                    : $this->responseError['403'];
+            ? $this->doQuery()
+            : $this->responseError['403'];
 
-        return $this->sendResponse($result);
+        return $this->response($result);
     }
 
     /**
@@ -42,9 +45,9 @@ class RepositoryController extends BaseController
     public function toSql(Request $request)
     {
         $result = $this->urlQueryFilter
-                    ? $this->repository->doQuery()
-                    : $this->responseError['403'];
+            ? $this->repository->toSql()
+            : $this->responseError['403'];
 
-        return $this->sendResponse($result);
+        return $this->response($result);
     }
 }

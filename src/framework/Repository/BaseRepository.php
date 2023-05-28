@@ -26,16 +26,17 @@ abstract class BaseRepository implements IRepository
         $this->model = app($this->modelClass);
     }
 
-	/**
-	 * @param mixed $urlQueryFilter 
-	 * @return self
-	 */
-	public function setUrlQueryFilter(bool $urlQueryFilter): self {
-		$this->urlQueryFilter = $urlQueryFilter;
-		return $this;
-	}
+    /**
+     * @param mixed $urlQueryFilter 
+     * @return self
+     */
+    public function setUrlQueryFilter(bool $urlQueryFilter): self
+    {
+        $this->urlQueryFilter = $urlQueryFilter;
+        return $this;
+    }
 
-    public function setRequestData(Array $requestData)
+    public function setRequestData(array $requestData)
     {
         $this->requestData = $requestData;
         return $this;
@@ -78,7 +79,7 @@ abstract class BaseRepository implements IRepository
      */
     public function getBuilder(): Builder
     {
-        if(empty($this->builder)) 
+        if (empty($this->builder))
             $this->builder = $this->newQuery();
 
         return $this->builder;
@@ -90,10 +91,10 @@ abstract class BaseRepository implements IRepository
     public function newQuery(): Builder
     {
         unset($this->builder);
- 
+
         // Illuminate\Database\Eloquent\Builder
         $this->builder = $this->model->newQuery();
-        
+
         return $this->builder;
     }
 
@@ -103,7 +104,7 @@ abstract class BaseRepository implements IRepository
     public function newDB(): Builder
     {
         unset($this->builder);
- 
+
         // Illuminate\Database\Query\Builder
         $this->builder = DB::table($this->model->getTable());
 
@@ -113,37 +114,26 @@ abstract class BaseRepository implements IRepository
 
     /**
      * Summary of doQuery
-     * @return array
+     * @param mixed $filters
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Support\Collection
      */
-    public function doQuery(array $filters = null): array
+    public function doQuery(array $filters = [])
     {
-        if($this->urlQueryFilter) $this->applyFilters($filters);
+        $this->applyFilters($filters);
 
         $builder = $this->getBuilder();
         $result = [];
 
-        try {
-            if ($this->paginate) {
-                $paginator = $builder->paginate($this->take);
-                $result = $paginator->appends(
-                    array_merge($this->requestData ?? [], $this->appends())
-                );
-                $result = $result->toArray();
-            } else {
-                if ($this->take > 0) {
-                    $builder->take($this->take);
-                }
-                $result = $builder->get()->flatten(1);
-                $result = [
-                    'data' => $result->toArray()
-                ];
-            }
-            $result['message'] = 'Success query.';
-        } catch (Exception $e) {
-            $result = [
-                'code' => 500,
-                'message' => $e->getMessage()
-            ];
+        if ($this->paginate) {
+            $perPage = ($this->take > 0) ? $this->take : 1;
+            $paginator = $builder->paginate($perPage);
+            $result = $paginator->appends(
+                array_merge($this->requestData ?? [], $this->appends())
+            );
+        } else {
+            if ($this->take > 0)
+                $builder = $builder->take($this->take);
+            $result = $builder->get();
         }
 
         return $result;
@@ -154,9 +144,12 @@ abstract class BaseRepository implements IRepository
         return array();
     }
 
-    public function toSql()
+    public function toSql(): array
     {
-        $builder = $this->builder;
+        if ($this->urlQueryFilter)
+            $this->applyFilters();
+
+        $builder = $this->getBuilder();
         return [
             'data' => $builder->toSql(),
             'bindings' => $builder->getBindings()
@@ -168,11 +161,14 @@ abstract class BaseRepository implements IRepository
      * @param array $query
      * @return BaseRepository
      */
-    function applyFilters(array $filters = null): self
+    function applyFilters(array $filters = []): self
     {
+        $requestData = $this->urlQueryFilter ? $this->requestData : [];
+        $requestData['paginate'] = $this->requestData['paginate'] ?? 'true';
+        $requestData['take'] = $this->requestData['take'] ?? 5;
+
         $urlQueryFilter = new UrlQueryFilter();
-        // dd($filters ?? $this->requestData);
-        $urlQueryFilter->apply($this, $filters ?? $this->requestData);
+        $urlQueryFilter->apply($this, array_merge($requestData, $filters));
         return $this;
     }
 

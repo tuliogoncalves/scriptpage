@@ -2,6 +2,7 @@
 
 namespace Scriptpage\Controllers;
 
+use Exception;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -14,40 +15,104 @@ class BaseController extends Controller
     protected BaseRepository $repository;
     protected $repositoryClass;
     protected $urlQueryFilter = false;
+    protected $cleanResponse = false;
     protected $responseError = [
         '403' => [
             'code' => 403,
-            'message' => '403 Forbidden. urlFilter is False.'
+            'message' => '403 Forbidden. urlQueryFilter is False.'
         ]
     ];
 
     function __construct(Request $request)
     {
-        $this->repository = 
+        $this->repository =
             app($this->repositoryClass)
-            ->setRequestData($request->all())
-            ->setUrlQueryFilter($this->urlQueryFilter);
+                ->setRequestData($request->all())
+                ->setUrlQueryFilter($this->urlQueryFilter);
+    }
+
+    protected function doQuery(array $filters = []): array
+    {
+        try {
+            $result = $this->repository->doQuery();
+            if ($result instanceof LengthAwarePaginator) {
+                $result = $result->toArray();
+            } else {
+                $result = [
+                    'data' => $result->toArray()
+                ];
+            }
+            $result['message'] = 'Success query.';
+        } catch (Exception $e) {
+            $result = [
+                'code' => 500,
+                'message' => $e->getMessage()
+            ];
+        }
+        
+        return  $result;
     }
 
     /**
-     * Summary of sendResponse
+     * Summary of response
      * @param mixed $result
      * @param mixed $message
      * @param mixed $success
      * @param mixed $code
      * @return JsonResponse
      */
-    public function sendResponse(array $result, array $message = []): JsonResponse
+    protected function response(array $result, string $message = ''): JsonResponse
     {
         $resp = [
-            'data' => null,
             'success' => true,
             'code' => 200,
             'message' => $message,
+            'total' => null,
+            'per_page' => null,
+            'current_page' => null,
+            'last_page' => null,
+            'first_page_url' => null,
+            'last_page_url' => null,
+            'next_page_url' => null,
+            'prev_page_url' => null,
+            'path' => null,
+            'from' => null,
+            'to' => null,
+            'data' => [],
+            'links' => null,
         ];
 
         $response = array_merge($resp, $result);
         $response['success'] = ($response['code'] == 200);
+
+        if (is_null($response['per_page'])) {
+            unset($response['per_page']);
+            unset($response['current_page']);
+            unset($response['last_page']);
+            unset($response['from']);
+            unset($response['to']);
+            unset($response['first_page_url']);
+            unset($response['last_page_url']);
+            unset($response['next_page_url']);
+            unset($response['prev_page_url']);
+            unset($response['path']);
+            unset($response['links']);
+
+            if (is_array($response['data'])) {
+                $response['total'] = count($response['data']);
+            } else {
+                unset($response['total']);
+            }
+        }
+
+        if ($this->cleanResponse == true) {
+            unset($response['first_page_url']);
+            unset($response['last_page_url']);
+            unset($response['next_page_url']);
+            unset($response['prev_page_url']);
+            unset($response['path']);
+            unset($response['links']);
+        }
 
         return response()->json(
             $response,
@@ -57,15 +122,15 @@ class BaseController extends Controller
         );
     }
 
-    public function getVersion()
+    protected function getVersion()
     {
-        return $this->sendResponse([
+        return $this->response([
             'data' => [
                 'php' => PHP_VERSION,
                 'laravel' => Application::VERSION,
                 'scriptpage' => Framework::VERSION,
-                config('app.project_name', 'app?') => config('app.version','?.0.0')
+                config('app.project_name', 'app?') => config('app.version', '?.0.0')
             ]
-        ], ['Ok']);
+        ], 'Ok');
     }
 }
