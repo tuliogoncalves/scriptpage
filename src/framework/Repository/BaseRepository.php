@@ -16,7 +16,7 @@ abstract class BaseRepository implements IRepository
     protected Model $model;
     protected Builder $builder;
     protected string $modelClass;
-    private $requestData;
+    private $data;
     private $take = 5;
     private $paginate = true;
     protected $urlQueryFilter = false;
@@ -36,9 +36,9 @@ abstract class BaseRepository implements IRepository
         return $this;
     }
 
-    public function setRequestData(array $requestData)
+    public function setData(array $data)
     {
-        $this->requestData = $requestData;
+        $this->data = $data;
         return $this;
     }
 
@@ -128,7 +128,7 @@ abstract class BaseRepository implements IRepository
             $perPage = ($this->take > 0) ? $this->take : 1;
             $paginator = $builder->paginate($perPage);
             $result = $paginator->appends(
-                array_merge($this->requestData ?? [], $this->appends())
+                array_merge($this->data ?? [], $this->appends())
             );
         } else {
             if ($this->take > 0)
@@ -163,12 +163,12 @@ abstract class BaseRepository implements IRepository
      */
     function applyFilters(array $filters = []): self
     {
-        $requestData = $this->urlQueryFilter ? $this->requestData : [];
-        $requestData['paginate'] = $this->requestData['paginate'] ?? 'true';
-        $requestData['take'] = $this->requestData['take'] ?? 5;
+        $data = $this->urlQueryFilter ? $this->data : [];
+        $data['paginate'] = $this->data['paginate'] ?? 'true';
+        $data['take'] = $this->data['take'] ?? 5;
 
         $urlQueryFilter = new UrlQueryFilter();
-        $urlQueryFilter->apply($this, array_merge($requestData, $filters));
+        $urlQueryFilter->apply($this, array_merge($data, $filters));
         return $this;
     }
 
