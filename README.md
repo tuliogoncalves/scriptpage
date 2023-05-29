@@ -51,6 +51,7 @@ add:
 - orderBy = $column:[$direction = 'asc']
 - groupBy = ???
 - paginate = true|false
+- <CustomField> = $value1,$valu2,...
 
 > array is separated by semicolons, example: expresion1; expression2; expresion3...
 

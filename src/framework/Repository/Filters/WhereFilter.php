@@ -80,4 +80,18 @@ class WhereFilter extends BaseFilter
         $values = $this->parserValues($value);
         return $builder->whereIn($column, $values, $this->boolean);
     }
+
+    function whereBetween(string $column, string $operator, string $value): Builder
+    {
+        $builder = $this->builder;
+        $values = $this->parserValues($value);
+        return $builder->whereBetween($column, $values, $this->boolean);
+    }
+
+    function whereNotBetween(string $column, string $operator, string $value): Builder
+    {
+        $builder = $this->builder;
+        $values = $this->parserValues($value);
+        return $builder->whereNotBetween($column, $values, $this->boolean);
+    }
 }

@@ -17,6 +17,7 @@ use Scriptpage\Repository\Filters\WhereFilter;
 use Scriptpage\Repository\Filters\WithCountFilter;
 use Scriptpage\Repository\Filters\WithFilter;
 use Scriptpage\Repository\Filters\WithSumFilter;
+use Scriptpage\Repository\Filters\CustomFilter;
 
 class UrlQueryFilter
 {
@@ -56,7 +57,7 @@ class UrlQueryFilter
             // isCustomFilter
             else {
                 if(method_exists($repository, $filter)){
-
+                    $builder = app(CustomFilter::class)->customApply($repository, $filter, $values);
                 }
             }
         }
