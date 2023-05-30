@@ -3,71 +3,65 @@
 namespace Scriptpage\Crud;
 
 use Exception;
-use Scriptpage\Contracts\ICrud;
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Contracts\Validation\Validator as ValidationValidator;
+use Scriptpage\Crud\Validator as ScriptpageValidator;
 
 abstract class BaseCrud
-implements ICrud
 {
     protected Model $model;
     protected string $modelClass;
+    protected array $messages = [];
+    protected array $customAttributes = [];
+    protected Validator|array $validation;
 
     function __construct()
     {
-        $this->model = app($this->modelClass);
+        $this->makeModel();
     }
 
     public function makeModel()
     {
-        $model = $this->app->make($this->model());
+        $model = app($this->modelClass);
 
         if (!$model instanceof Model) {
-            throw new Exception("Class {$this::class} must be an instance of Illuminate\\Database\\Eloquent\\Model");
+            throw new Exception('Class ' . $this::class . ' must be an instance of Illuminate\\Database\\Eloquent\\Model');
         }
 
         return $this->model = $model;
     }
 
     /**
-     * messages
+     * validate
      *
-     * @var array
+     * @return Validator
      */
-    protected array $messages = [];
-
-
-    /**
-     * customAttributes
-     *
-     * @var array
-     */
-    protected array $customAttributes = [];
-
-    /**
-     * create new model.
-     *
-     * @return Model new model object.
-     */
-    public function create(): Model
+    final function validate(): ValidationValidator
     {
-        $this->object = $this->model->with($this->with)->getModel()->newInstance();
+        $validator = Validator::make(
+            $this->all(),
+            $this->setDataValidation(),
+            $this->messages,
+            $this->customAttributes
+        );
+
+        return $validator;
+    }
+
+    public function create(array $attributes = []): Model
+    {
+        // $this->object = $this->model->with($this->with)->getModel()->newInstance();
         return $this->object;
 
-        ###
-        # l5-repository
-        ###
         if (!is_null($this->validator)) {
-            // we should pass data that has been casts by the model
-            // to make sure data type are same because validator may need to use
-            // this data to compare with data that fetch from database.
-            if ($this->versionCompare($this->app->version(), "5.2.*", ">")) {
-                $attributes = $this->model->newInstance()->forceFill($attributes)->makeVisible($this->model->getHidden())->toArray();
-            } else {
-                $model = $this->model->newInstance()->forceFill($attributes);
-                $model->makeVisible($this->model->getHidden());
-                $attributes = $model->toArray();
-            }
+            $attributes = $this->model
+                ->newInstance()
+                ->forceFill($attributes)
+                ->makeVisible(
+                    $this->model->getHidden()
+                )->toArray();
 
             $this->validator->with($attributes)->passesOrFail(ValidatorInterface::RULE_CREATE);
         }
@@ -83,23 +77,11 @@ implements ICrud
         return $this->parserResult($model);
     }
 
-
-    /**
-     * getModelKey
-     *
-     * @return mixed
-     */
     function getModelKey()
     {
         return $this->model->getKey();
     }
 
-
-    /**
-     * Create new record in database.
-     *
-     * @return Model model object with data.
-     */
     public function store()
     {
         $this->setDataPayload($this->all());
@@ -114,12 +96,6 @@ implements ICrud
         return $obj;
     }
 
-    /**
-     * update existing item.
-     *
-     * @param Integer $id integer item primary key.
-     * @return Model updated item object.
-     */
     public function update()
     {
         $obj = $this->object;
@@ -168,12 +144,6 @@ implements ICrud
         return $this->parserResult($model);
     }
 
-    /**
-     * Delete item by primary key id.
-     *
-     * @param  Integer $id integer of primary key id.
-     * @return boolean
-     */
     public function delete($key): bool
     {
         return $this->model->destroy($key);
