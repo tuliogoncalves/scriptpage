@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Scriptpage\Contracts;
+namespace Scriptpage\Contracts;
 
 trait traitWithAttributes
 {
@@ -16,8 +16,7 @@ trait traitWithAttributes
      */
     public function __get($key)
     {
-        // dd($this->values);
-        return isset($this->values[$key]) ? $this->values[$key] : null;
+        return $this->values[$key] ?? null;
     }
 
     /**
@@ -29,18 +28,6 @@ trait traitWithAttributes
      */
     public function __set($key, $value)
     {
-        return $this->set($key,$value);
-    }
-
-    /**
-     * set
-     *
-     * @param  mixed $key
-     * @param  mixed $value
-     * @return void
-     */
-    public function set($key, $value)
-    {
         $this->values[$key] = $value;
         return $this;
     }
@@ -51,10 +38,10 @@ trait traitWithAttributes
      * @param  mixed $data
      * @return void
      */
-    public function fill(array $data)
+    public function fill(array $data):self
     {
         $this->values = array_merge($this->values, $data);
-        return $this;
+        return self;
     }
 
     /**
@@ -62,7 +49,7 @@ trait traitWithAttributes
      *
      * @return array
      */
-    public function all()
+    public function getValues()
     {
         return $this->values;
     }

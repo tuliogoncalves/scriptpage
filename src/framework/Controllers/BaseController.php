@@ -3,10 +3,12 @@
 namespace Scriptpage\Controllers;
 
 use Exception;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Collection;
 use Scriptpage\Framework;
 use Scriptpage\Repository\BaseRepository;
 
@@ -27,30 +29,46 @@ class BaseController extends Controller
     {
         $this->repository =
             app($this->repositoryClass)
-                ->setRequestData($request->all())
+                ->setUrlQuery($request->all())
                 ->setUrlQueryFilter($this->urlQueryFilter);
     }
 
-    protected function doQuery(array $filters = []): array
+    protected function doQuery(LengthAwarePaginator|Collection $result, array $filters = []): array
     {
-        try {
-            $result = $this->repository->doQuery();
-            if ($result instanceof LengthAwarePaginator) {
-                $result = $result->toArray();
-            } else {
-                $result = [
-                    'data' => $result->toArray()
-                ];
-            }
-            $result['message'] = 'Success query.';
-        } catch (Exception $e) {
-            $result = [
-                'code' => 500,
-                'message' => $e->getMessage()
-            ];
+        if ($result instanceof Collection) {
+            $result = $result->flatten(1);
         }
-        
-        return  $result;
+        $result = $result->toArray();
+
+        return $result;
+
+        // try {
+        //     if ($result instanceof Collection) {
+        //         $result = $result->flatten(1);
+        //         $result = [
+        //             'data' => $result->toArray()
+        //         ];
+        //     } else {
+        //         $result = $result->toArray();
+        //     }
+        //     $result['message'] = 'Success query.';
+        // } catch (Exception $e) {
+        //     $result = [
+        //         'code' => 500,
+        //         'message' => $e->getMessage()
+        //     ];
+        // }
+
+        // return $result;
+    }
+
+    public function formatResult(array $result)
+    {
+        return isset($result['data'])
+            ? $result
+            : $result[] = [
+                'data' => $result
+            ];
     }
 
     /**
@@ -66,7 +84,7 @@ class BaseController extends Controller
         $resp = [
             'success' => true,
             'code' => 200,
-            'message' => $message,
+            'message' => empty($message) ? 'Ok.' : $message,
             'total' => null,
             'per_page' => null,
             'current_page' => null,
@@ -78,11 +96,11 @@ class BaseController extends Controller
             'path' => null,
             'from' => null,
             'to' => null,
-            'data' => [],
+            'data' => null,
             'links' => null,
         ];
 
-        $response = array_merge($resp, $result);
+        $response = array_merge($resp, $this->formatResult($result));
         $response['success'] = ($response['code'] == 200);
 
         if (is_null($response['per_page'])) {

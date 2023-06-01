@@ -1,26 +1,21 @@
 <?php
 
-namespace Scriptpage\Crud;
+namespace Scriptpage\Repository\Crud;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Contracts\Validation\Validator as ValidationValidator;
-use Scriptpage\Crud\Validator as ScriptpageValidator;
+use Illuminate\Contracts\Validation\Validator as IValidationValidator;
 
-abstract class BaseCrud
+trait traitCrud
 {
+
     protected Model $model;
     protected string $modelClass;
     protected array $messages = [];
     protected array $customAttributes = [];
-    protected Validator|array $validation;
-
-    function __construct()
-    {
-        $this->makeModel();
-    }
+    protected array $validator;
 
     public function makeModel()
     {
@@ -33,12 +28,17 @@ abstract class BaseCrud
         return $this->model = $model;
     }
 
+    function getModelKey()
+    {
+        return $this->model->getKey();
+    }
+
     /**
      * validate
      *
      * @return Validator
      */
-    final function validate(): ValidationValidator
+    final function validate(): IValidationValidator
     {
         $validator = Validator::make(
             $this->all(),
@@ -52,8 +52,14 @@ abstract class BaseCrud
 
     public function create(array $attributes = []): Model
     {
-        // $this->object = $this->model->with($this->with)->getModel()->newInstance();
-        return $this->object;
+        $attributes = $this->model
+            ->newInstance()
+            ->forceFill($attributes)
+            ->makeVisible(
+                $this->model->getHidden()
+            )->toArray();
+
+        return $this->model->newInstance(array_merge($this->model->getAttributes(), $attributes));
 
         if (!is_null($this->validator)) {
             $attributes = $this->model
@@ -66,20 +72,9 @@ abstract class BaseCrud
             $this->validator->with($attributes)->passesOrFail(ValidatorInterface::RULE_CREATE);
         }
 
-        event(new RepositoryEntityCreating($this, $attributes));
-
         $model = $this->model->newInstance($attributes);
         $model->save();
         $this->resetModel();
-
-        event(new RepositoryEntityCreated($this, $model));
-
-        return $this->parserResult($model);
-    }
-
-    function getModelKey()
-    {
-        return $this->model->getKey();
     }
 
     public function store()
@@ -116,13 +111,7 @@ abstract class BaseCrud
             $model = $this->model->newInstance();
             $model->setRawAttributes([]);
             $model->setAppends([]);
-            if ($this->versionCompare($this->app->version(), "5.2.*", ">")) {
-                $attributes = $model->forceFill($attributes)->makeVisible($this->model->getHidden())->toArray();
-            } else {
-                $model->forceFill($attributes);
-                $model->makeVisible($this->model->getHidden());
-                $attributes = $model->toArray();
-            }
+            $attributes = $model->forceFill($attributes)->makeVisible($this->model->getHidden())->toArray();
 
             $this->validator->with($attributes)->setId($id)->passesOrFail(ValidatorInterface::RULE_UPDATE);
         }
@@ -171,31 +160,5 @@ abstract class BaseCrud
         event(new RepositoryEntityUpdated($this, $model));
 
         return $this->parserResult($model);
-    }
-
-    /**
-     * Trigger static method calls to the model
-     *
-     * @param $method
-     * @param $arguments
-     *
-     * @return mixed
-     */
-    public static function __callStatic($method, $arguments)
-    {
-        return call_user_func_array([new static(), $method], $arguments);
-    }
-
-    /**
-     * Trigger method calls to the model
-     *
-     * @param string $method
-     * @param array  $arguments
-     *
-     * @return mixed
-     */
-    public function __call($method, $arguments)
-    {
-        return call_user_func_array([$this->model, $method], $arguments);
     }
 }
