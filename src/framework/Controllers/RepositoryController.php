@@ -18,7 +18,7 @@ class RepositoryController extends BaseController
     public function index(Request $request)
     {
         $repository = $this->repository;
-        return $this->response($this->doQuery($repository->doQuery()));
+        return $this->response($repository->doQuery());
     }
 
     /**
@@ -32,7 +32,7 @@ class RepositoryController extends BaseController
         $repository->newDB();
 
         $result = $this->urlQueryFilter
-            ? $this->doQuery($repository->doQuery())
+            ? $repository->doQuery()
             : $this->responseError['403'];
 
         return $this->response($result);

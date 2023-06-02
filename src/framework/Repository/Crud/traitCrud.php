@@ -52,29 +52,7 @@ trait traitCrud
 
     public function create(array $attributes = []): Model
     {
-        $attributes = $this->model
-            ->newInstance()
-            ->forceFill($attributes)
-            ->makeVisible(
-                $this->model->getHidden()
-            )->toArray();
-
-        return $this->model->newInstance(array_merge($this->model->getAttributes(), $attributes));
-
-        if (!is_null($this->validator)) {
-            $attributes = $this->model
-                ->newInstance()
-                ->forceFill($attributes)
-                ->makeVisible(
-                    $this->model->getHidden()
-                )->toArray();
-
-            $this->validator->with($attributes)->passesOrFail(ValidatorInterface::RULE_CREATE);
-        }
-
-        $model = $this->model->newInstance($attributes);
-        $model->save();
-        $this->resetModel();
+        return $this->model->newInstance()->forceFill($attributes);
     }
 
     public function store()

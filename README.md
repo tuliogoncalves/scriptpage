@@ -49,9 +49,12 @@ add:
 - rightJoin = $table:$field1,$field2
 - take = $limit
 - orderBy = $column:[$direction = 'asc']
-- groupBy = ???
 - paginate = true|false
-- <CustomField> = $value1,$valu2,...
+- <CustomField> = $param1,$param2,...
+
+- skip = $offset
+- groupBy = $column1,$column2,...
+- having = $column,[$condition = 'equal']:$value
 
 > array is separated by semicolons, example: expresion1; expression2; expresion3...
 

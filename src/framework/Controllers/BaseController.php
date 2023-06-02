@@ -4,6 +4,7 @@ namespace Scriptpage\Controllers;
 
 use Exception;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -33,74 +34,32 @@ class BaseController extends Controller
                 ->setUrlQueryFilter($this->urlQueryFilter);
     }
 
-    protected function doQuery(LengthAwarePaginator|Collection $result, array $filters = []): array
+
+    protected function getVersion()
     {
-        if ($result instanceof Collection) {
-            $result = $result->flatten(1);
-        }
-        $result = $result->toArray();
-
-        return $result;
-
-        // try {
-        //     if ($result instanceof Collection) {
-        //         $result = $result->flatten(1);
-        //         $result = [
-        //             'data' => $result->toArray()
-        //         ];
-        //     } else {
-        //         $result = $result->toArray();
-        //     }
-        //     $result['message'] = 'Success query.';
-        // } catch (Exception $e) {
-        //     $result = [
-        //         'code' => 500,
-        //         'message' => $e->getMessage()
-        //     ];
-        // }
-
-        // return $result;
+        return $this->response([
+            'data' => [
+                'php' => PHP_VERSION,
+                'laravel' => Application::VERSION,
+                'scriptpage' => Framework::VERSION,
+                config('app.project_name', 'app?') => config('app.version', '?.0.0')
+            ]
+        ], 'Ok');
     }
-
-    public function formatResult(array $result)
-    {
-        return isset($result['data'])
-            ? $result
-            : $result[] = [
-                'data' => $result
-            ];
-    }
-
+    
     /**
      * Summary of response
-     * @param mixed $result
-     * @param mixed $message
-     * @param mixed $success
-     * @param mixed $code
+     * @param LengthAwarePaginator|Collection|array $result
+     * @param string $message
      * @return JsonResponse
      */
-    protected function response(array $result, string $message = ''): JsonResponse
+    protected function response(Model|LengthAwarePaginator|Collection|array $result, string $message = ''): JsonResponse
     {
-        $resp = [
-            'success' => true,
-            'code' => 200,
-            'message' => empty($message) ? 'Ok.' : $message,
-            'total' => null,
-            'per_page' => null,
-            'current_page' => null,
-            'last_page' => null,
-            'first_page_url' => null,
-            'last_page_url' => null,
-            'next_page_url' => null,
-            'prev_page_url' => null,
-            'path' => null,
-            'from' => null,
-            'to' => null,
-            'data' => null,
-            'links' => null,
-        ];
+        $total = $this->getTotalElements($result);
+        $response = array_merge($this->baseResponse(), $this->dataResult($result));
 
-        $response = array_merge($resp, $this->formatResult($result));
+        if(is_null($response['total'])) $response['total'] = $total;
+        $response['message'] = empty($message) ? 'Ok.' : $message;
         $response['success'] = ($response['code'] == 200);
 
         if (is_null($response['per_page'])) {
@@ -115,12 +74,6 @@ class BaseController extends Controller
             unset($response['prev_page_url']);
             unset($response['path']);
             unset($response['links']);
-
-            if (is_array($response['data'])) {
-                $response['total'] = count($response['data']);
-            } else {
-                unset($response['total']);
-            }
         }
 
         if ($this->cleanResponse == true) {
@@ -140,15 +93,47 @@ class BaseController extends Controller
         );
     }
 
-    protected function getVersion()
-    {
-        return $this->response([
-            'data' => [
-                'php' => PHP_VERSION,
-                'laravel' => Application::VERSION,
-                'scriptpage' => Framework::VERSION,
-                config('app.project_name', 'app?') => config('app.version', '?.0.0')
-            ]
-        ], 'Ok');
+    private function getTotalElements(Model|LengthAwarePaginator|Collection|array  &$result): int {
+        $total = 0;
+        if($result instanceof Model) $total = 1;
+        if($result instanceof Collection) $total = $result->count();
+        if(is_array($result)) $total = count($result);
+        return $total;
     }
+
+    private function dataResult(Model|LengthAwarePaginator|Collection|array  &$result)
+    {
+        if(!is_array($result)) {
+            $result = $result->toArray();
+        } 
+        
+        return isset($result['data'])
+            ? $result
+            : $result[] = [
+                'data' => $result
+            ];
+    }
+
+    private function baseResponse()
+    {
+        return [
+            'success' => true,
+            'code' => 200,
+            'message' => null,
+            'total' => null,
+            'per_page' => null,
+            'current_page' => null,
+            'last_page' => null,
+            'first_page_url' => null,
+            'last_page_url' => null,
+            'next_page_url' => null,
+            'prev_page_url' => null,
+            'path' => null,
+            'from' => null,
+            'to' => null,
+            'data' => null,
+            'links' => null,
+        ];
+    }
+
 }

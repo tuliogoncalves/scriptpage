@@ -116,6 +116,17 @@ abstract class BaseRepository implements IRepository
     }
 
     /**
+     * Summary of with
+     * @param | $relations
+     * @return BaseRepository
+     */
+    final public function with(array|string $relations): self {
+        $model = $this->getModel();
+        $model->with($relations);
+        return $this;
+    }
+
+    /**
      * Summary of doQuery
      * @param mixed $filters
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Support\Collection
@@ -124,18 +135,17 @@ abstract class BaseRepository implements IRepository
     {
         $this->applyFilters($filters);
 
-        $builder = $this->getBuilder();
         $result = [];
+        $builder = $this->getBuilder();
+        $take = ($this->take > 0) ? $this->take : null;
 
         if ($this->paginate) {
-            $perPage = ($this->take > 0) ? $this->take : 1;
-            $paginator = $builder->paginate($perPage);
+            $paginator = $builder->paginate($take);
             $result = $paginator->appends(
                 array_merge($this->urlQuery ?? [], $this->appends())
             );
         } else {
-            if ($this->take > 0)
-                $builder = $builder->take($this->take);
+            $builder = $builder->take($take);
             $result = $builder->get();
         }
 
