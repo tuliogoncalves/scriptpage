@@ -2,7 +2,7 @@
 
 namespace Scriptpage\Repository\Filters;
 
-class OrWhereFilter extends WhereFilter
+class OrHavingFilter extends HavingFilter
 {
     protected $boolean = 'or';
 }

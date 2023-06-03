@@ -1,6 +1,6 @@
 <?php
 
-namespace Scriptpage\Crud;
+namespace Scriptpage\Repository\Crud;
 
 /**
  * Summary of Validator

@@ -10,22 +10,16 @@ use Illuminate\Contracts\Validation\Validator as IValidationValidator;
 
 trait traitCrud
 {
-
     protected Model $model;
     protected string $modelClass;
     protected array $messages = [];
     protected array $customAttributes = [];
-    protected array $validator;
+    protected $validator;
 
     public function makeModel()
     {
-        $model = app($this->modelClass);
-
-        if (!$model instanceof Model) {
-            throw new Exception('Class ' . $this::class . ' must be an instance of Illuminate\\Database\\Eloquent\\Model');
-        }
-
-        return $this->model = $model;
+        $this->model = app($this->modelClass);
+        return $this->model;
     }
 
     function getModelKey()

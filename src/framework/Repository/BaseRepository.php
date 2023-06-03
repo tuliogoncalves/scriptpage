@@ -4,24 +4,26 @@ namespace Scriptpage\Repository;
 
 use Exception;
 use Illuminate\Contracts\Database\Query\Builder;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Scriptpage\Contracts\IRepository;
 use Scriptpage\Contracts\traitActionable;
 use Illuminate\Database\Eloquent\Model;
-use Scriptpage\Contracts\traitWithAttributes;
 use Scriptpage\Repository\Crud\traitCrud;
 
 abstract class BaseRepository implements IRepository
 {
     use traitCrud;
     use traitActionable;
-    // use traitWithAttributes;
 
     protected Model $model;
     protected Builder $builder;
     protected string $modelClass;
     private $urlQuery;
     private $take = 5;
+    private $skip = 0;
     private $paginate = true;
     protected $urlQueryFilter = false;
 
@@ -49,6 +51,12 @@ abstract class BaseRepository implements IRepository
     final public function setTake($take): self
     {
         $this->take = $take;
+        return $this;
+    }
+
+    final public function setSkip($offset): self
+    {
+        $this->skip = $offset;
         return $this;
     }
 
@@ -94,7 +102,7 @@ abstract class BaseRepository implements IRepository
      */
     final public function newQuery(): Builder
     {
-        unset($this->builder);
+        // unset($this->builder);
 
         // Illuminate\Database\Eloquent\Builder
         $this->builder = $this->model->newQuery();
@@ -107,7 +115,7 @@ abstract class BaseRepository implements IRepository
      */
     final public function newDB(): Builder
     {
-        unset($this->builder);
+        // unset($this->builder);
 
         // Illuminate\Database\Query\Builder
         $this->builder = DB::table($this->model->getTable());
@@ -120,18 +128,32 @@ abstract class BaseRepository implements IRepository
      * @param | $relations
      * @return BaseRepository
      */
-    final public function with(array|string $relations): self {
-        $model = $this->getModel();
-        $model->with($relations);
+    final public function with(array|string $relations): self
+    {
+        $builder = $this->getBuilder();
+        $this->builder = $builder->with($relations);
         return $this;
     }
 
     /**
      * Summary of doQuery
      * @param mixed $filters
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Support\Collection
+     * @return LengthAwarePaginator|Collection|array
      */
-    final public function doQuery(array $filters = [])
+    final public function doQuery(array $filters = []): LengthAwarePaginator|Collection|array
+    {
+        try {
+            return $this->runQuery($filters);
+        } catch (Exception $e) {
+            return [
+                'code' => 500,
+                'message' => $e->getMessage().'.Error code:'.$e->getCode(),
+                'data' => []
+            ];
+        }
+    }
+
+    private function runQuery(array $filters = []): LengthAwarePaginator|Collection|array
     {
         $this->applyFilters($filters);
 
@@ -146,6 +168,8 @@ abstract class BaseRepository implements IRepository
             );
         } else {
             $builder = $builder->take($take);
+            // dd($this->skip);
+            if($this->skip > 0) $builder = $builder->skip($this->skip);
             $result = $builder->get();
         }
 
@@ -184,6 +208,13 @@ abstract class BaseRepository implements IRepository
         return $this;
     }
 
+    public function __set($key, $value)
+    {
+        $model = $this->model;
+        $model->$key = $value;
+        return $this;
+    }
+
     /**
      * Trigger static method calls to the model
      *
@@ -207,6 +238,13 @@ abstract class BaseRepository implements IRepository
      */
     public function __call($method, $arguments)
     {
-        return call_user_func_array([$this->model, $method], $arguments);
+        $result = call_user_func_array([$this->model, $method], $arguments);
+
+        if ($result instanceof EloquentBuilder)
+            $this->builder = $result;
+        if ($result instanceof Model)
+            $this->model = $result;
+
+        return $result;
     }
 }

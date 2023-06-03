@@ -1,4 +1,4 @@
-# Scriptpage Framework[^1]
+# Scriptpage Framework[^1](in development, refactoring)
 
 > **Note:** This repository contains the core code of the Scriptpage framework. If you want to build an application using Laravel with scriptpage, you need know [Scriptpage Sail](https://github.com/tuliogoncalves/sail).
 
@@ -48,13 +48,13 @@ add:
 - leftJoin = $table:$field1,$field2
 - rightJoin = $table:$field1,$field2
 - take = $limit
-- orderBy = $column:[$direction = 'asc']
-- paginate = true|false
-- <CustomField> = $param1,$param2,...
-
 - skip = $offset
+- orderBy = $column:[$direction = 'asc']
 - groupBy = $column1,$column2,...
 - having = $column,[$condition = 'equal']:$value
+- orHaving = $column,[$condition = 'equal']:$value
+- paginate = true|false
+- <CustomField> = $param1,$param2,...
 
 > array is separated by semicolons, example: expresion1; expression2; expresion3...
 
@@ -126,6 +126,10 @@ add:
 
 - get `api/users`
 
+#### With clausule
+
+- get `api/users?select=id,name,email&with=roles`
+
 #### Where clausule
 
 - get `api/users?where=role_id:2`
@@ -146,7 +150,7 @@ Show sql statement result
 
 #### Database
 
-- get `api/table/users`
+- get `api/users/db?select=name,email&where=id,greater:200`
 
 #### Add relationship
 

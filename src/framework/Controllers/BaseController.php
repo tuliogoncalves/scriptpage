@@ -46,22 +46,24 @@ class BaseController extends Controller
             ]
         ], 'Ok');
     }
-    
+
     /**
      * Summary of response
      * @param LengthAwarePaginator|Collection|array $result
      * @param string $message
      * @return JsonResponse
      */
-    protected function response(Model|LengthAwarePaginator|Collection|array $result, string $message = ''): JsonResponse
+    protected function response(BaseRepository|Model|LengthAwarePaginator|Collection|array $result, string $message = ''): JsonResponse
     {
         $total = $this->getTotalElements($result);
         $response = array_merge($this->baseResponse(), $this->dataResult($result));
 
-        if(is_null($response['total'])) $response['total'] = $total;
-        $response['message'] = empty($message) ? 'Ok.' : $message;
+        if (is_null($response['total']))
+            $response['total'] = $total;
+        $response['message'] = (empty($message) and empty($response['message'])) ? 'Ok.' : $response['message'].'.'.$message;
         $response['success'] = ($response['code'] == 200);
 
+        // Clean Paginate Response
         if (is_null($response['per_page'])) {
             unset($response['per_page']);
             unset($response['current_page']);
@@ -76,6 +78,7 @@ class BaseController extends Controller
             unset($response['links']);
         }
 
+        // Clean response by user definition
         if ($this->cleanResponse == true) {
             unset($response['first_page_url']);
             unset($response['last_page_url']);
@@ -93,20 +96,34 @@ class BaseController extends Controller
         );
     }
 
-    private function getTotalElements(Model|LengthAwarePaginator|Collection|array  &$result): int {
+    /**
+     * Summary of getTotalElements
+     * @param mixed $result
+     * @return int
+     */
+    private function getTotalElements(mixed &$result): int
+    {
         $total = 0;
-        if($result instanceof Model) $total = 1;
-        if($result instanceof Collection) $total = $result->count();
-        if(is_array($result)) $total = count($result);
+        if ($result instanceof Model)
+            $total = 1;
+        if ($result instanceof Collection)
+            $total = $result->count();
+        if (is_array($result))
+            $total = count($result);
         return $total;
     }
 
-    private function dataResult(Model|LengthAwarePaginator|Collection|array  &$result)
+    /**
+     * When none data key, add one
+     * @param mixed $result
+     * @return array
+     */
+    private function dataResult(mixed &$result): array
     {
-        if(!is_array($result)) {
+        if (!is_array($result)) {
             $result = $result->toArray();
-        } 
-        
+        }
+
         return isset($result['data'])
             ? $result
             : $result[] = [
@@ -119,7 +136,7 @@ class BaseController extends Controller
         return [
             'success' => true,
             'code' => 200,
-            'message' => null,
+            'message' => '',
             'total' => null,
             'per_page' => null,
             'current_page' => null,
