@@ -47,9 +47,32 @@ class BaseController extends Controller
         ], 'Ok');
     }
 
+    private function baseResponse()
+    {
+        return [
+            'success' => true,
+            'code' => 200,
+            'message' => '',
+            'total' => null,
+            'per_page' => null,
+            'current_page' => null,
+            'last_page' => null,
+            'first_page_url' => null,
+            'last_page_url' => null,
+            'next_page_url' => null,
+            'prev_page_url' => null,
+            'path' => null,
+            'from' => null,
+            'to' => null,
+            'data' => null,
+            'errors' => null,
+            'links' => null,
+        ];
+    }
+
     /**
      * Summary of response
-     * @param LengthAwarePaginator|Collection|array $result
+     * @param Model|LengthAwarePaginator|Collection|array $result
      * @param string $message
      * @return JsonResponse
      */
@@ -108,8 +131,8 @@ class BaseController extends Controller
             $total = 1;
         if ($result instanceof Collection)
             $total = $result->count();
-        if (is_array($result))
-            $total = count($result);
+        // if (is_array($result))
+        //     $total = count($result);
         return $total;
     }
 
@@ -130,27 +153,4 @@ class BaseController extends Controller
                 'data' => $result
             ];
     }
-
-    private function baseResponse()
-    {
-        return [
-            'success' => true,
-            'code' => 200,
-            'message' => '',
-            'total' => null,
-            'per_page' => null,
-            'current_page' => null,
-            'last_page' => null,
-            'first_page_url' => null,
-            'last_page_url' => null,
-            'next_page_url' => null,
-            'prev_page_url' => null,
-            'path' => null,
-            'from' => null,
-            'to' => null,
-            'data' => null,
-            'links' => null,
-        ];
-    }
-
 }

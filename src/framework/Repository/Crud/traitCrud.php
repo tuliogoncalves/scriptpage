@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Validation\Validator as IValidationValidator;
+use Scriptpage\Repository\Rules;
 
 trait traitCrud
 {
-    protected Model $model;
-    protected string $modelClass;
     protected array $messages = [];
     protected array $customAttributes = [];
     protected $validator;
@@ -22,7 +21,7 @@ trait traitCrud
         return $this->model;
     }
 
-    function getModelKey()
+    function getKey()
     {
         return $this->model->getKey();
     }
@@ -32,11 +31,15 @@ trait traitCrud
      *
      * @return Validator
      */
-    final function validate(): IValidationValidator
+    final function validate(string $rule = null, array $attributes, array $messages, array $customAttributes): IValidationValidator
     {
+        $validation = is_null($rule)
+            ? $this->validator
+            : $this->validator[$rule] ?? null;
+
         $validator = Validator::make(
-            $this->all(),
-            $this->setDataValidation(),
+            $attributes,
+            $validation,
             $this->messages,
             $this->customAttributes
         );
@@ -49,18 +52,35 @@ trait traitCrud
         return $this->model->newInstance()->forceFill($attributes);
     }
 
-    public function store()
+    public function store(array $attributes = [], string $rule = Rules::CREATE): array|Model
     {
-        $this->setDataPayload($this->all());
-        $this->setStoreDataPayload($this->all());
+        if (!is_null($this->validator)) {
+            $validator = $this->validate(
+                $rule,
+                $attributes,
+                $this->messages,
+                $this->customAttributes
+            );
 
-        $obj = $this->object;
-        $obj->fill($this->all());
-        $obj->save();
+            if ($validator->fails())
+                return $this->response(
+                    'Validations error',
+                    $validator->errors()->toArray(),
+                    $code = 500
+                );
+        }
 
-        $this->key = $obj->getkey();
+        dd('aqui');
+        // $this->setDataPayload($this->all());
+        // $this->setStoreDataPayload($this->all());
 
-        return $obj;
+        // $obj = $this->object;
+        // $obj->fill($this->all());
+        // $obj->save();
+
+        // $this->key = $obj->getkey();
+
+        // return $obj;
     }
 
     public function update()

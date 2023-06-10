@@ -2,6 +2,6 @@
 
 namespace Scriptpage\Contracts;
 
-interface IRepository extends IActionable
+interface IRepository
 {
 }

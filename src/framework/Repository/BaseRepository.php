@@ -18,14 +18,16 @@ abstract class BaseRepository implements IRepository
     use traitCrud;
     use traitActionable;
 
-    protected Model $model;
-    protected Builder $builder;
-    protected string $modelClass;
+    private Model $model;
+    private Builder $builder;
     private $urlQuery;
     private $take = 5;
     private $skip = 0;
     private $paginate = true;
+
+    protected $modelClass;
     protected $urlQueryFilter = false;
+    protected $customFilters = [];
 
     function __construct()
     {
@@ -136,6 +138,22 @@ abstract class BaseRepository implements IRepository
     }
 
     /**
+     * Summary of response
+     * @param string $message
+     * @param int $code
+     * @return array
+     */
+    final public function response(string $message, array $errors=[], int $code = 200)
+    {
+        return [
+            'code' => $code,
+            'message' => $message,
+            'data' => [],
+            'errors' => $errors
+        ];
+    }
+
+    /**
      * Summary of doQuery
      * @param mixed $filters
      * @return LengthAwarePaginator|Collection|array
@@ -145,11 +163,10 @@ abstract class BaseRepository implements IRepository
         try {
             return $this->runQuery($filters);
         } catch (Exception $e) {
-            return [
-                'code' => 500,
-                'message' => $e->getMessage().'.Error code:'.$e->getCode(),
-                'data' => []
-            ];
+            return $this->response(
+                $e->getMessage() . '.Error code:' . $e->getCode(),
+                $code = 500
+            );
         }
     }
 
@@ -168,8 +185,8 @@ abstract class BaseRepository implements IRepository
             );
         } else {
             $builder = $builder->take($take);
-            // dd($this->skip);
-            if($this->skip > 0) $builder = $builder->skip($this->skip);
+            if ($this->skip > 0)
+                $builder = $builder->skip($this->skip);
             $result = $builder->get();
         }
 
@@ -208,6 +225,17 @@ abstract class BaseRepository implements IRepository
         return $this;
     }
 
+    final public function existsCustomFilter(string $customFilter)
+    {
+        return in_array($customFilter, $this->customFilters);
+    }
+
+    /**
+     * Trigger method calls to the attributes model
+     * @param mixed $key
+     * @param mixed $value
+     * @return BaseRepository
+     */
     public function __set($key, $value)
     {
         $model = $this->model;
@@ -229,7 +257,7 @@ abstract class BaseRepository implements IRepository
     }
 
     /**
-     * Trigger method calls to the model
+     * Trigger method calls to the model or builder
      *
      * @param string $method
      * @param array  $arguments

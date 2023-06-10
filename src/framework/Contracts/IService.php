@@ -2,6 +2,6 @@
 
 namespace Scriptpage\Contracts;
 
-interface IService extends IActionable
+interface IService
 {
 }
