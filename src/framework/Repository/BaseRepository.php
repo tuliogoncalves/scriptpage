@@ -31,7 +31,7 @@ abstract class BaseRepository implements IRepository
 
     function __construct()
     {
-        $this->model = app($this->modelClass);
+        $this->model = new $this->modelClass;
     }
 
     /**
@@ -165,6 +165,7 @@ abstract class BaseRepository implements IRepository
         } catch (Exception $e) {
             return $this->response(
                 $e->getMessage() . '.Error code:' . $e->getCode(),
+                $errors = [],
                 $code = 500
             );
         }

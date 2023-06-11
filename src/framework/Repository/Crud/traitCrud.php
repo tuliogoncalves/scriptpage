@@ -70,17 +70,19 @@ trait traitCrud
                 );
         }
 
-        dd('aqui');
-        // $this->setDataPayload($this->all());
-        // $this->setStoreDataPayload($this->all());
+        try {
+            $obj = $this->create($attributes);
+            $obj->save();
+            return $obj;
+        } catch (Exception $e) {
+            return $this->response(
+                $e->getMessage() . '.Error code:' . $e->getCode(),
+                $errors = [],
+                $code = 500
+            );
+        }
 
-        // $obj = $this->object;
-        // $obj->fill($this->all());
-        // $obj->save();
-
-        // $this->key = $obj->getkey();
-
-        // return $obj;
+        ;
     }
 
     public function update()
