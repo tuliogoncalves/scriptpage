@@ -11,22 +11,20 @@ use Illuminate\Support\Facades\DB;
 use Scriptpage\Contracts\IRepository;
 use Scriptpage\Contracts\traitActionable;
 use Illuminate\Database\Eloquent\Model;
-use Scriptpage\Repository\Crud\traitCrud;
 
 abstract class BaseRepository implements IRepository
 {
     use traitCrud;
-    use traitActionable;
 
     private Model $model;
     private Builder $builder;
-    private $urlQuery;
-    private $take = 5;
-    private $skip = 0;
+    private $filters = [];
+    private int $take = 5;
+    private int $skip = 0;
     private $paginate = true;
 
     protected $modelClass;
-    protected $urlQueryFilter = false;
+    protected $allowFilters = false;
     protected $customFilters = [];
 
     function __construct()
@@ -35,18 +33,19 @@ abstract class BaseRepository implements IRepository
     }
 
     /**
-     * @param mixed $urlQueryFilter 
+     * Summary of setApplyFilters
+     * @param mixed $applyFilters
      * @return self
      */
-    final public function setUrlQueryFilter(bool $urlQueryFilter): self
+    final public function setAllowFilters(bool $allowFilters): self
     {
-        $this->urlQueryFilter = $urlQueryFilter;
+        $this->allowFilters = $allowFilters;
         return $this;
     }
 
-    final public function setUrlQuery(array $urlQuery): self
+    final public function setFilters(array $filters): self
     {
-        $this->urlQuery = $urlQuery;
+        $this->filters = $filters;
         return $this;
     }
 
@@ -104,8 +103,6 @@ abstract class BaseRepository implements IRepository
      */
     final public function newQuery(): Builder
     {
-        // unset($this->builder);
-
         // Illuminate\Database\Eloquent\Builder
         $this->builder = $this->model->newQuery();
 
@@ -117,8 +114,6 @@ abstract class BaseRepository implements IRepository
      */
     final public function newDB(): Builder
     {
-        // unset($this->builder);
-
         // Illuminate\Database\Query\Builder
         $this->builder = DB::table($this->model->getTable());
 
@@ -143,7 +138,7 @@ abstract class BaseRepository implements IRepository
      * @param int $code
      * @return array
      */
-    final public function response(string $message, array $errors=[], int $code = 200)
+    final public function response(string $message, array $errors = [], int $code = 200)
     {
         return [
             'code' => $code,
@@ -171,7 +166,7 @@ abstract class BaseRepository implements IRepository
         }
     }
 
-    private function runQuery(array $filters = []): LengthAwarePaginator|Collection|array
+    private function runQuery(array $filters = []): LengthAwarePaginator|Collection
     {
         $this->applyFilters($filters);
 
@@ -182,7 +177,7 @@ abstract class BaseRepository implements IRepository
         if ($this->paginate) {
             $paginator = $builder->paginate($take);
             $result = $paginator->appends(
-                array_merge($this->urlQuery ?? [], $this->appends())
+                array_merge($this->filters, $this->appends())
             );
         } else {
             $builder = $builder->take($take);
@@ -194,6 +189,32 @@ abstract class BaseRepository implements IRepository
         return $result;
     }
 
+    /**
+     * applyFilters
+     * @param array $query
+     * @return self
+     */
+    final function applyFilters(array $filters = []): self
+    {
+        $data = $this->filters;
+
+        if (isset($data['paginate']))
+            $this->setPaginate($data['paginate'] == 'true');
+
+        if (isset($data['take']))
+            $this->setTake($data['take']);
+
+        if (isset($data['skip']))
+            $this->setSkip($data['skip']);
+
+        if ($this->allowFilters) {
+            $urlQueryFilter = new UrlQueryFilter();
+            $urlQueryFilter->apply($this, array_merge($data, $filters));
+        }
+
+        return $this;
+    }
+
     protected function appends(): array
     {
         return array();
@@ -201,29 +222,15 @@ abstract class BaseRepository implements IRepository
 
     final public function toSql(): array
     {
-        if ($this->urlQueryFilter)
+        if ($this->allowFilters)
             $this->applyFilters();
 
         $builder = $this->getBuilder();
+
         return [
             'data' => $builder->toSql(),
             'bindings' => $builder->getBindings()
         ];
-    }
-
-    /**
-     * Summary of urlQuery
-     * @param array $query
-     * @return BaseRepository
-     */
-    final function applyFilters(array $filters = []): self
-    {
-        $data = $this->urlQueryFilter ? $this->urlQuery : [];
-        $data['paginate'] = $data['paginate'] ?? 'true';
-        $data['take'] = $data['take'] ?? 5;
-        $urlQueryFilter = new UrlQueryFilter();
-        $urlQueryFilter->apply($this, array_merge($data, $filters));
-        return $this;
     }
 
     final public function existsCustomFilter(string $customFilter)

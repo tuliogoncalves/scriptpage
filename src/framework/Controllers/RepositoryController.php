@@ -31,7 +31,7 @@ class RepositoryController extends BaseController
         $repository = $this->repository;
         $repository->newDB();
 
-        $result = $this->urlQueryFilter
+        $result = $this->allowFilters
             ? $repository->doQuery()
             : $this->responseError['403'];
 
@@ -45,9 +45,7 @@ class RepositoryController extends BaseController
      */
     public function toSql(Request $request)
     {
-        $result = $this->urlQueryFilter
-            ? $this->repository->toSql()
-            : $this->responseError['403'];
+        $result = $this->repository->toSql();
 
         return $this->response($result);
     }

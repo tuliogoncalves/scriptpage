@@ -1,6 +1,6 @@
 <?php
 
-namespace Scriptpage\Repository\Crud;
+namespace Scriptpage\Repository;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;
@@ -13,11 +13,12 @@ trait traitCrud
 {
     protected array $messages = [];
     protected array $customAttributes = [];
+    protected $storeClass;
     protected $validator;
 
     public function makeModel()
     {
-        $this->model = app($this->modelClass);
+        $this->model = new $this->modelClass;
         return $this->model;
     }
 
@@ -31,7 +32,7 @@ trait traitCrud
      *
      * @return Validator
      */
-    final function validate(string $rule = null, array $attributes, array $messages, array $customAttributes): IValidationValidator
+    final protected function validate(string $rule = null, array $attributes, array $messages, array $customAttributes): IValidationValidator
     {
         $validation = is_null($rule)
             ? $this->validator
@@ -47,33 +48,58 @@ trait traitCrud
         return $validator;
     }
 
+    /**
+     * create a new instance
+     * @param array $attributes
+     * @return \Illuminate\Database\Eloquent\Model
+     */
     public function create(array $attributes = []): Model
     {
         return $this->model->newInstance()->forceFill($attributes);
     }
 
+    /**
+     * Summary of store
+     * @param array $attributes
+     * @param string $rule
+     * @return array|\Illuminate\Database\Eloquent\Model
+     */
     public function store(array $attributes = [], string $rule = Rules::CREATE): array|Model
     {
-        if (!is_null($this->validator)) {
-            $validator = $this->validate(
-                $rule,
+        $rules = null;
+
+        if (isset($this->storeClass)) {
+            $store = new $this->storeClass;
+            $x = $store->validateResolved();
+            $rules = $store->rules();
+        } else {
+            $rules = is_null($rule)
+                ? $this->validator
+                : $this->validator[$rule] ?? null;
+        }
+
+        if (!is_null($rules)) {
+            $validator = Validator::make(
                 $attributes,
+                $rules,
                 $this->messages,
                 $this->customAttributes
             );
 
+            // dd($attributes, $rules, $validator->fails(), $validator->errors()->toArray());
+
             if ($validator->fails())
                 return $this->response(
-                    'Validations error',
+                    'the server cannot or will not process the request due to something that is perceived to be a client error',
                     $validator->errors()->toArray(),
-                    $code = 500
+                    $code = 400
                 );
         }
 
         try {
-            $obj = $this->create($attributes);
-            $obj->save();
-            return $obj;
+            $newInstance = $this->create($attributes);
+            $newInstance->save();
+            return $newInstance;
         } catch (Exception $e) {
             return $this->response(
                 $e->getMessage() . '.Error code:' . $e->getCode(),
@@ -81,8 +107,11 @@ trait traitCrud
                 $code = 500
             );
         }
+    }
 
-        ;
+    public function save(array $attributes = [], string $rule = Rules::CREATE): array|Model
+    {
+        return $this->store($attributes, $rule);
     }
 
     public function update()

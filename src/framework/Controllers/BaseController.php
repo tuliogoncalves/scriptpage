@@ -17,21 +17,21 @@ class BaseController extends Controller
 {
     protected BaseRepository $repository;
     protected $repositoryClass;
-    protected $urlQueryFilter = false;
+    protected $allowFilters = false;
     protected $cleanResponse = false;
     protected $responseError = [
         '403' => [
             'code' => 403,
-            'message' => '403 Forbidden. urlQueryFilter is False.'
+            'message' => '403 Forbidden. allowFilters is False.'
         ]
     ];
 
     function __construct(Request $request)
     {
-        $this->repository =
-            app($this->repositoryClass)
-                ->setUrlQuery($request->all())
-                ->setUrlQueryFilter($this->urlQueryFilter);
+        $this->repository = new $this->repositoryClass;
+        $this->repository
+                ->setFilters($request->query())
+                ->setAllowFilters($this->allowFilters);
     }
 
 

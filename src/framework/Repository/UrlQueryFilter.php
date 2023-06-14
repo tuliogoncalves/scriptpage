@@ -53,19 +53,21 @@ class UrlQueryFilter
             // isFilter
             if (isset($this->filters[$filter]))
             {
+                $queryFilter = new $this->filters[$filter];
                 if(is_array($values)) {
                     foreach ($values as $value) {
                         $value = $value ?? '';
-                        $builder = app($this->filters[$filter])->apply($repository, $value);
+                        $builder = $queryFilter->apply($repository, $value);
                     }
                 } else {
-                    $builder = app($this->filters[$filter])->apply($repository, $values);
+                    $builder = $queryFilter->apply($repository, $values);
                 }
-            } 
+            }
             // isCustomFilter
             else {
                 if(method_exists($repository, $filter) and $repository->existsCustomFilter($filter)){
-                    $builder = app(CustomFilter::class)->customApply($repository, $filter, $values);
+                    $customFilter= new CustomFilter();
+                    $builder = $customFilter->customApply($repository, $filter, $values);
                 }
             }
         }
