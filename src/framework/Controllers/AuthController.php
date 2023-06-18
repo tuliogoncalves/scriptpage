@@ -2,6 +2,7 @@
 
 namespace Scriptpage\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 
 class AuthController extends BaseController
@@ -13,13 +14,28 @@ class AuthController extends BaseController
      */
     public function login(Request $request)
     {
+        $result = [];
+        $message = '';
         $credentials = $request->only(['email', 'password']);
 
-        if (!$token = auth('api')->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+        try {
+            $result = [
+                // 'code' => 200,
+                // 'data' => [],
+                'access_token' => auth('api')->attempt($credentials),
+                'token_type' => 'bearer',
+                'expires_in' => auth('api')->factory()->getTTL() * 60
+            ];
+        } catch (Exception $e) {
+            $message = 'Unauthorized';
+            $result = [
+                'code' => 500,
+                'data' => [],
+                'errors' => [$e->getMessage() . '.Error code:' . $e->getCode()]
+            ];
         }
 
-        return $this->responseWithToken($token);
+        return $this->response($result, $message);
     }
 
     /**
@@ -30,7 +46,8 @@ class AuthController extends BaseController
     public function me(Request $request)
     {
         $user = auth('api')->user();
-        return $this->response($user->with('roles')->first());
+        $user->roles;
+        return $this->response($user);
     }
 
     /**
@@ -56,21 +73,5 @@ class AuthController extends BaseController
     public function refresh(Request $request)
     {
         return $this->responseWithToken(auth('api')->refresh());
-    }
-
-    /**
-     * Get the token array structure.
-     *
-     * @param  string $token
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    protected function responseWithToken($token)
-    {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth('api')->factory()->getTTL() * 60
-        ]);
     }
 }

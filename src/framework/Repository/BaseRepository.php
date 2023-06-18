@@ -8,13 +8,14 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Scriptpage\Assets\traitResponse;
 use Scriptpage\Contracts\IRepository;
-use Scriptpage\Contracts\traitActionable;
 use Illuminate\Database\Eloquent\Model;
 use Scriptpage\Repository\Crud\traitCrud;
 
 abstract class BaseRepository implements IRepository
 {
+    use traitResponse;
     use traitCrud;
 
     private Model $model;
@@ -134,22 +135,6 @@ abstract class BaseRepository implements IRepository
     }
 
     /**
-     * Summary of response
-     * @param string $message
-     * @param int $code
-     * @return array
-     */
-    final public function response(string $message, array $errors = [], int $code = 200)
-    {
-        return [
-            'code' => $code,
-            'message' => $message,
-            'data' => [],
-            'errors' => $errors
-        ];
-    }
-
-    /**
      * Summary of doQuery
      * @param mixed $filters
      * @return LengthAwarePaginator|Collection|array
@@ -159,7 +144,7 @@ abstract class BaseRepository implements IRepository
         try {
             return $this->runQuery($filters);
         } catch (Exception $e) {
-            return $this->response(
+            return $this->baseResponse(
                 $e->getMessage() . '.Error code:' . $e->getCode(),
                 $errors = [],
                 $code = 500

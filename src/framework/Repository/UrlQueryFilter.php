@@ -25,7 +25,7 @@ use Scriptpage\Repository\Filters\CustomFilter;
 
 class UrlQueryFilter
 {
-    use traitActionable;
+    // use traitActionable;
 
     private $filters = [
         'select' => SelectFilter::class,

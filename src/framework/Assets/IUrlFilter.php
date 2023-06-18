@@ -1,6 +1,6 @@
 <?php
 
-namespace Scriptpage\Contracts;
+namespace Scriptpage\Assets;
 use Illuminate\Contracts\Database\Query\Builder;
 
 interface IUrlFilter

@@ -5,11 +5,14 @@ namespace Scriptpage\Middleware;
 use Closure;
 use Exception;
 use Illuminate\Http\Request;
+use Scriptpage\Assets\traitResponse;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 
 class EnsureUserHasRole
 {
+    use traitResponse;
+
     /**
      * Handle an incoming request.
      *
@@ -28,15 +31,36 @@ class EnsureUserHasRole
                 : $user->hasRole($role);
         } catch (Exception $e) {
             if ($e instanceof TokenInvalidException) {
-                return response()->json(['status' => '498 Token is Invalid'], 498);
-            } elseif ($e instanceof TokenExpiredException) {
-                return response()->json(['status' => '401 Token is Expired'], 401);
+                return $this->response('498 Token is Invalid', 498);
             }
+
+            if ($e instanceof TokenExpiredException) {
+                return $this->response('401 Token is Expired', 401);
+            }
+
+            return $this->response(
+                '500 Unexpected Exception',
+                500,
+                [$e->getMessage() . '.Error code:' . $e->getCode()],
+            );
+
         }
 
         if (!$hasRole)
-           return response()->json(['status' => '403 Unauthorized'], 403);
+            return $this->response('403 Unauthorized', 403);
 
         return $next($request);
+    }
+
+    function response($message, $code, $errors = null)
+    {
+        return response()->json(
+            $this->baseResponse(
+                $message,
+                $errors,
+                $code
+            ),
+            $code
+        );
     }
 }

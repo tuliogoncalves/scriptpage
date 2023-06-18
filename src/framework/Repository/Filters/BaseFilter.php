@@ -3,8 +3,8 @@
 namespace Scriptpage\Repository\Filters;
 
 use Illuminate\Contracts\Database\Query\Builder;
+use Scriptpage\Assets\IUrlFilter;
 use Scriptpage\Contracts\IRepository;
-use Scriptpage\Contracts\IUrlFilter;
 
 abstract class BaseFilter implements IUrlFilter
 {

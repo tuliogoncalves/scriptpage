@@ -11,6 +11,7 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
 use Scriptpage\Framework;
+use Scriptpage\Repository\BaseRepository;
 
 class BaseController extends Controller
 {
@@ -119,8 +120,8 @@ class BaseController extends Controller
             $total = 1;
         if ($result instanceof Collection)
             $total = $result->count();
-        // if (is_array($result))
-        //     $total = count($result);
+        if (is_array($result))
+            $total = 1; //count($result);
         return $total;
     }
 

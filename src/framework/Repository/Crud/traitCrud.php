@@ -87,8 +87,6 @@ trait traitCrud
                 $this->customAttributes
             );
 
-            // dd($attributes, $rules, $validator->fails(), $validator->errors()->toArray());
-
             if ($validator->fails())
                 return $this->response(
                     'the server cannot or will not process the request due to something that is perceived to be a client error',
