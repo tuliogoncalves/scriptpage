@@ -4,7 +4,6 @@ namespace Scriptpage\Repository;
 
 use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
-use Scriptpage\Contracts\traitActionable;
 use Scriptpage\Repository\Filters\GroupByFilter;
 use Scriptpage\Repository\Filters\HavingFilter;
 use Scriptpage\Repository\Filters\JoinFilter;

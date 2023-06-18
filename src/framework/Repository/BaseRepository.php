@@ -152,6 +152,11 @@ abstract class BaseRepository implements IRepository
         }
     }
 
+    /**
+     * Summary of runQuery
+     * @param array $filters
+     * @return LengthAwarePaginator|Collection
+     */
     private function runQuery(array $filters = []): LengthAwarePaginator|Collection
     {
         $this->applyFilters($filters);
@@ -160,12 +165,18 @@ abstract class BaseRepository implements IRepository
         $builder = $this->getBuilder();
         $take = ($this->take > 0) ? $this->take : null;
 
-        if ($this->paginate) {
+        // With paginate result
+        if (
+            get_class($builder) == 'Illuminate\Database\Eloquent\Builder'
+            and $this->paginate
+        ) {
             $paginator = $builder->paginate($take);
             $result = $paginator->appends(
                 array_merge($this->filters, $this->appends())
             );
-        } else {
+        } 
+        // No paginate result
+        else {
             $builder = $builder->take($take);
             if ($this->skip > 0)
                 $builder = $builder->skip($this->skip);
@@ -184,13 +195,13 @@ abstract class BaseRepository implements IRepository
     {
         $data = $this->filters;
 
-        if (isset($data['paginate']))
+        if (array_key_exists('paginate', $data))
             $this->setPaginate($data['paginate'] == 'true');
 
-        if (isset($data['take']))
+        if (array_key_exists('take', $data))
             $this->setTake($data['take']);
 
-        if (isset($data['skip']))
+        if (array_key_exists('skip', $data))
             $this->setSkip($data['skip']);
 
         if ($this->allowFilters) {

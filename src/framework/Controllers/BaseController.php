@@ -10,11 +10,14 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
+use Scriptpage\Assets\traitResponse;
 use Scriptpage\Framework;
 use Scriptpage\Repository\BaseRepository;
 
 class BaseController extends Controller
 {
+    use traitResponse;
+
     protected $cleanResponse = false;
 
     protected $responseError = [
@@ -36,7 +39,11 @@ class BaseController extends Controller
         ], 'Ok');
     }
 
-    private function baseResponse()
+    /**
+     * Sorting of data presentation
+     * @return array
+     */
+    private function startResponseWithPaginate()
     {
         return [
             'success' => true,
@@ -68,36 +75,26 @@ class BaseController extends Controller
     protected function response(BaseRepository|Model|LengthAwarePaginator|Collection|array $result, string $message = ''): JsonResponse
     {
         $total = $this->getTotalElements($result);
-        $response = array_merge($this->baseResponse(), $this->dataResult($result));
 
-        if (is_null($response['total']))
-            $response['total'] = $total;
-        $response['message'] = (empty($message) and empty($response['message'])) ? 'Ok.' : $response['message'].'.'.$message;
-        $response['success'] = ($response['code'] == 200);
-
-        // Clean Paginate Response
-        if (is_null($response['per_page'])) {
-            unset($response['per_page']);
-            unset($response['current_page']);
-            unset($response['last_page']);
-            unset($response['from']);
-            unset($response['to']);
-            unset($response['first_page_url']);
-            unset($response['last_page_url']);
-            unset($response['next_page_url']);
-            unset($response['prev_page_url']);
-            unset($response['path']);
-            unset($response['links']);
+        if ($result instanceof LengthAwarePaginator) {
+            $response = array_merge($this->startResponseWithPaginate(), $this->baseResponse(), $this->dataResult($result));
+        } else {
+            $response = array_merge($this->baseResponse(), $this->dataResult($result));
         }
 
-        // Clean response by user definition
+        $response['message'] = (empty($message) and empty($response['message'])) ? 'Ok.' : $response['message'] . '.' . $message;
+        $response['success'] = ($response['code'] == 200);
+        $response['total'] = $response['total'] > 0
+            ? $response['total']
+            : $total;
+
+        // Clean response by user definition in controller
         if ($this->cleanResponse == true) {
-            unset($response['first_page_url']);
-            unset($response['last_page_url']);
-            unset($response['next_page_url']);
-            unset($response['prev_page_url']);
-            unset($response['path']);
-            unset($response['links']);
+            $baseResponse = $this->baseResponse();
+            foreach ($response as $key => $value) {
+                if (!array_key_exists($key, $baseResponse))
+                    unset($response[$key]);
+            }
         }
 
         return response()->json(
@@ -119,6 +116,8 @@ class BaseController extends Controller
         if ($result instanceof Model)
             $total = 1;
         if ($result instanceof Collection)
+            $total = $result->count();
+        if ($result instanceof LengthAwarePaginator)
             $total = $result->count();
         if (is_array($result))
             $total = 1; //count($result);

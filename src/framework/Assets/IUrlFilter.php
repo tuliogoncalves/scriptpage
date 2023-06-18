@@ -2,6 +2,7 @@
 
 namespace Scriptpage\Assets;
 use Illuminate\Contracts\Database\Query\Builder;
+use Scriptpage\Contracts\IRepository;
 
 interface IUrlFilter
 {
