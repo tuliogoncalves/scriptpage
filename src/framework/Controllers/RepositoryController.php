@@ -3,13 +3,25 @@
 namespace Scriptpage\Controllers;
 
 use Exception;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Scriptpage\Repository\BaseRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
 
 class RepositoryController extends BaseController
 {
+    protected $repositoryClass;
+    protected BaseRepository $repository;
+    protected $allowFilters = false;
+
+    function __construct(Request $request)
+    {
+        $this->repository = new $this->repositoryClass;
+        $this->repository
+                ->setFilters($request->query())
+                ->setAllowFilters($this->allowFilters);
+    }
+
     /**
      * Summary of index
      * @param \Illuminate\Http\Request $request

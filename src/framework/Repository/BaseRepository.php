@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Scriptpage\Contracts\IRepository;
 use Scriptpage\Contracts\traitActionable;
 use Illuminate\Database\Eloquent\Model;
+use Scriptpage\Repository\Crud\traitCrud;
 
 abstract class BaseRepository implements IRepository
 {

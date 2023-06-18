@@ -3,7 +3,9 @@
 namespace Scriptpage\Providers;
 
 
+use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\ServiceProvider;
+use Scriptpage\Framework;
 
 class ScriptpageServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,6 @@ class ScriptpageServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        AboutCommand::add('Scriptpage', fn () => ['Version' => Framework::VERSION]);
     }
 }

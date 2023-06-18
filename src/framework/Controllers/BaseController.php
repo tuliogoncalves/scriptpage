@@ -11,29 +11,17 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
 use Scriptpage\Framework;
-use Scriptpage\Repository\BaseRepository;
 
 class BaseController extends Controller
 {
-    protected BaseRepository $repository;
-    protected $repositoryClass;
-    protected $allowFilters = false;
     protected $cleanResponse = false;
+
     protected $responseError = [
         '403' => [
             'code' => 403,
             'message' => '403 Forbidden. allowFilters is False.'
         ]
     ];
-
-    function __construct(Request $request)
-    {
-        $this->repository = new $this->repositoryClass;
-        $this->repository
-                ->setFilters($request->query())
-                ->setAllowFilters($this->allowFilters);
-    }
-
 
     protected function getVersion()
     {

@@ -4,7 +4,7 @@ namespace Scriptpage\Repository\Crud;
 
 // use Illuminate\Foundation\Http\FormRequest;
 
-abstract class Validator
+abstract class Validation
 {
     function __construct()
     {

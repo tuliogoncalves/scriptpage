@@ -1,6 +1,6 @@
 <?php
 
-namespace Scriptpage\Repository;
+namespace Scriptpage\Repository\Crud;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;
@@ -14,12 +14,14 @@ trait traitCrud
     protected array $messages = [];
     protected array $customAttributes = [];
     protected $storeClass;
-    protected $validator;
 
-    public function makeModel()
+    protected $validator;
+    private Validation $validation;
+
+    public function makeValidation(string $class)
     {
-        $this->model = new $this->modelClass;
-        return $this->model;
+        $this->validation = new $class;
+        return $this->validation;
     }
 
     function getKey()
@@ -69,9 +71,8 @@ trait traitCrud
         $rules = null;
 
         if (isset($this->storeClass)) {
-            $store = new $this->storeClass;
-            $x = $store->validateResolved();
-            $rules = $store->rules();
+            $store = $this->makeValidation($this->storeClass);
+            $rules = $store->getRules();
         } else {
             $rules = is_null($rule)
                 ? $this->validator
