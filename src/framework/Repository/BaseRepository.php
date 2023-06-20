@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Scriptpage\Assets\traitResponse;
 use Scriptpage\Contracts\IRepository;
 use Illuminate\Database\Eloquent\Model;
+use Scriptpage\Exceptions\AuthorizationException;
 use Scriptpage\Repository\Crud\traitCrud;
 
 abstract class BaseRepository implements IRepository
@@ -32,6 +33,10 @@ abstract class BaseRepository implements IRepository
     function __construct()
     {
         $this->model = new $this->modelClass;
+        
+        if (! $this->passesAuthorization()) {
+            $this->failedAuthorization();
+        }
     }
 
     /**
@@ -235,6 +240,32 @@ abstract class BaseRepository implements IRepository
         return in_array($customFilter, $this->customFilters);
     }
 
+    /**
+     * Determine if the request passes the authorization check.
+     *
+     * @return bool
+     */
+    function passesAuthorization()
+    {
+        if (method_exists($this, 'authorize')) {
+            return $this->authorize();
+        }
+
+        return true;
+    }
+
+    /**
+     * Handle a failed authorization attempt.
+     *
+     * @return void
+     *
+     * @throws AuthorizationException
+     */
+    protected function failedAuthorization()
+    {
+        throw new AuthorizationException;
+    }
+    
     /**
      * Trigger method calls to the attributes model
      * @param mixed $key
