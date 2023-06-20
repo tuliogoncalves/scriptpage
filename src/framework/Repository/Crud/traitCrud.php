@@ -6,13 +6,13 @@ use Exception;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Contracts\Validation\Validator as IValidationValidator;
+use Illuminate\Contracts\Validation\Validator as IValidator;
 use Scriptpage\Repository\Rules;
 
 trait traitCrud
 {
     protected array $messages = [];
-    protected array $customAttributes = [];
+    protected array $attributes = [];
     protected $storeClass;
 
     protected $validator;
@@ -24,28 +24,19 @@ trait traitCrud
         return $this->validation;
     }
 
-    function getKey()
-    {
-        return $this->model->getKey();
-    }
-
     /**
      * validate
      *
-     * @return Validator
+     * @return IValidator
      */
-    final protected function validate(string $rule = null, array $attributes, array $messages, array $customAttributes): IValidationValidator
+    protected function createValidator(array $data, array $rules, array $messages=[], array $attributes =[])
     {
-        $validation = is_null($rule)
-            ? $this->validator
-            : $this->validator[$rule] ?? null;
-
         $validator = Validator::make(
-            $attributes,
-            $validation,
-            $this->messages,
-            $this->customAttributes
-        );
+            $data,
+            $rules,
+            $messages,
+            $attributes
+        )->stopOnFirstFailure(false);
 
         return $validator;
     }
@@ -55,9 +46,9 @@ trait traitCrud
      * @param array $attributes
      * @return \Illuminate\Database\Eloquent\Model
      */
-    public function create(array $attributes = [])
+    public function create(array $data = [])
     {
-        return $this->model->newInstance()->forceFill($attributes);
+        return $this->model->newInstance()->forceFill($data);
     }
 
     /**
@@ -66,9 +57,10 @@ trait traitCrud
      * @param string $rule
      * @return array|\Illuminate\Database\Eloquent\Model
      */
-    public function store(array $attributes = [], string $rule = Rules::CREATE): array|Model
+    public function store(array $data = [], string $rule = Rules::CREATE): array|Model
     {
         $rules = null;
+        $store = null;
 
         if (isset($this->storeClass)) {
             $store = $this->makeValidation($this->storeClass);
@@ -77,18 +69,30 @@ trait traitCrud
             $rules = is_null($rule)
                 ? $this->validator
                 : $this->validator[$rule] ?? null;
+            $messages = $this->messages;
+            $attributes = $this->attributes;
+        }
+
+        if(isset($store)) {
+            if(!$store->passesAuthorization()) {
+                return $this->baseResponse(
+                    'filed Authorization to store crud',
+                    [],
+                    $code = 403
+                );                
+            }
         }
 
         if (!is_null($rules)) {
-            $validator = Validator::make(
-                $attributes,
+            $validator = $this->createValidator(
+                $data,
                 $rules,
-                $this->messages,
-                $this->customAttributes
+                $messages,
+                $attributes
             );
 
             if ($validator->fails())
-                return $this->response(
+                return $this->baseResponse(
                     'the server cannot or will not process the request due to something that is perceived to be a client error',
                     $validator->errors()->toArray(),
                     $code = 400
@@ -96,11 +100,11 @@ trait traitCrud
         }
 
         try {
-            $newInstance = $this->create($attributes);
+            $newInstance = $this->create($data);
             $newInstance->save();
             return $newInstance;
         } catch (Exception $e) {
-            return $this->response(
+            return $this->baseResponse(
                 $e->getMessage() . '.Error code:' . $e->getCode(),
                 $errors = [],
                 $code = 500
@@ -108,9 +112,9 @@ trait traitCrud
         }
     }
 
-    public function save(array $attributes = [], string $rule = Rules::CREATE): array|Model
+    public function save(array $data = [], string $rule = Rules::CREATE): array|Model
     {
-        return $this->store($attributes, $rule);
+        return $this->store($data, $rule);
     }
 
     public function update()

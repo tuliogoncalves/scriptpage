@@ -24,7 +24,7 @@ class RepositoryController extends BaseController
 
     /**
      * Summary of index
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return JsonResponse
      */
     public function index(Request $request)
@@ -35,7 +35,7 @@ class RepositoryController extends BaseController
 
     /**
      * Summary of queryDb
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return JsonResponse
      */
     public function queryDb(Request $request)
@@ -52,7 +52,7 @@ class RepositoryController extends BaseController
 
     /**
      * Summary of toSql
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return JsonResponse
      */
     public function toSql(Request $request)
