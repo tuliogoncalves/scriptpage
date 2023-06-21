@@ -3,6 +3,8 @@
 namespace Scriptpage\Controllers;
 
 use Exception;
+use Scriptpage\Exceptions\AuthorizationException;
+use Scriptpage\Exceptions\RepositoryException;
 use Scriptpage\Repository\BaseRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -18,8 +20,26 @@ class RepositoryController extends BaseController
     {
         $this->repository = new $this->repositoryClass;
         $this->repository
-                ->setFilters($request->query())
-                ->setAllowFilters($this->allowFilters);
+            ->setFilters($request->query())
+            ->setAllowFilters($this->allowFilters);
+    }
+
+    function doQuery()
+    {
+        $result = null;
+        $repository = $this->repository;
+        try {
+            $result = $this->response($repository->doQuery());
+        } catch (Exception $e) {
+            $code = 500;
+            if ($e instanceof AuthorizationException) $code = 403;
+            $result = $this->baseResponse(
+                $e->getMessage(),
+                $errors = [],
+                $code
+            );
+        }
+        return $result;
     }
 
     /**
@@ -29,8 +49,7 @@ class RepositoryController extends BaseController
      */
     public function index(Request $request)
     {
-        $repository = $this->repository;
-        return $this->response($repository->doQuery());
+        return $this->response($this->doQuery());
     }
 
     /**
@@ -44,7 +63,7 @@ class RepositoryController extends BaseController
         $repository->newDB();
 
         $result = $this->allowFilters
-            ? $repository->doQuery()
+            ? $this->doQuery()
             : $this->responseError['403'];
 
         return $this->response($result);

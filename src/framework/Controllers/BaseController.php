@@ -23,7 +23,7 @@ class BaseController extends Controller
     protected $responseError = [
         '403' => [
             'code' => 403,
-            'message' => '403 Forbidden. allowFilters is False.'
+            'message' => '403 Forbidden. This action is unauthorized. allowFilters is False.'
         ]
     ];
 
@@ -68,16 +68,17 @@ class BaseController extends Controller
 
     /**
      * Summary of response
-     * @param Model|LengthAwarePaginator|Collection|array $result
+     * @param mixed $result
      * @param string $message
      * @return JsonResponse
      */
-    protected function response(BaseRepository|Model|LengthAwarePaginator|Collection|array $result, string $message = ''): JsonResponse
+    protected function response(mixed $result, string $message = ''): JsonResponse
     {
         $total = $this->getTotalElements($result);
 
         if ($result instanceof LengthAwarePaginator) {
             $response = array_merge($this->startResponseWithPaginate(), $this->baseResponse(), $this->dataResult($result));
+            // $response = array_merge($this->baseResponse(), $this->dataResult($result));
         } else {
             $response = array_merge($this->baseResponse(), $this->dataResult($result));
         }
@@ -89,7 +90,7 @@ class BaseController extends Controller
             : $total;
 
         // Clean response by user definition in controller
-        if ($this->cleanResponse == true) {
+        if ($this->cleanResponse) {
             $baseResponse = $this->baseResponse();
             foreach ($response as $key => $value) {
                 if (!array_key_exists($key, $baseResponse))
@@ -120,7 +121,7 @@ class BaseController extends Controller
         if ($result instanceof LengthAwarePaginator)
             $total = $result->count();
         if (is_array($result))
-            $total = 1; //count($result);
+            $total = 1;
         return $total;
     }
 

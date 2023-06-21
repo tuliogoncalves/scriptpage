@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of scriptpage framework.
+ *
+ * (c) Túlio Gonçalves <tuliogoncalves@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Scriptpage\Repository;
 
 use Exception;
@@ -8,15 +17,14 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Scriptpage\Assets\traitResponse;
 use Scriptpage\Contracts\IRepository;
 use Illuminate\Database\Eloquent\Model;
 use Scriptpage\Exceptions\AuthorizationException;
+use Scriptpage\Exceptions\RepositoryException;
 use Scriptpage\Repository\Crud\traitCrud;
 
 abstract class BaseRepository implements IRepository
 {
-    use traitResponse;
     use traitCrud;
 
     private Model $model;
@@ -33,10 +41,6 @@ abstract class BaseRepository implements IRepository
     function __construct()
     {
         $this->model = new $this->modelClass;
-        
-        if (! $this->passesAuthorization()) {
-            $this->failedAuthorization();
-        }
     }
 
     /**
@@ -129,7 +133,7 @@ abstract class BaseRepository implements IRepository
 
     /**
      * Summary of with
-     * @param | $relations
+     * @param array|string $relations
      * @return BaseRepository
      */
     final public function with(array|string $relations): self
@@ -146,13 +150,16 @@ abstract class BaseRepository implements IRepository
      */
     final public function doQuery(array $filters = []): LengthAwarePaginator|Collection|array
     {
+        if (!$this->passesAuthorization()) {
+            $this->failedAuthorization();
+        }
+
         try {
             return $this->runQuery($filters);
         } catch (Exception $e) {
-            return $this->baseResponse(
+            throw new RepositoryException(
                 $e->getMessage() . '.Error code:' . $e->getCode(),
-                $errors = [],
-                $code = 500
+                $e->getCode()
             );
         }
     }
@@ -179,7 +186,7 @@ abstract class BaseRepository implements IRepository
             $result = $paginator->appends(
                 array_merge($this->filters, $this->appends())
             );
-        } 
+        }
         // No paginate result
         else {
             $builder = $builder->take($take);
@@ -263,9 +270,9 @@ abstract class BaseRepository implements IRepository
      */
     protected function failedAuthorization()
     {
-        throw new AuthorizationException;
+        throw new AuthorizationException(null, $code = 403);
     }
-    
+
     /**
      * Trigger method calls to the attributes model
      * @param mixed $key
