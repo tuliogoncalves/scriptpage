@@ -1,98 +1,212 @@
 <?php
 
-namespace App\Scriptpage\Controllers;
+/*
+ * This file is part of scriptpage framework.
+ *
+ * (c) Túlio Gonçalves <tuliogoncalves@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Validation\ValidationException;
+namespace Scriptpage\Repository\Crud;
+
+use Exception;
+use Illuminate\Database\Eloquent\Model;
+
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Contracts\Validation\Validator as IValidator;
 
 trait traitCrud
 {
-    /**
-     * store
-     * @param mixed $id
-     * @param mixed $id2
-     * @return RedirectResponse
-     */
-    final function crudStore(Request $request, $id = null, $id2 = null)
+    protected array $messages = [];
+    protected array $attributes = [];
+    protected $storeClass;
+
+    protected $validator;
+    private Validation $validation;
+
+    public function makeValidation(string $class)
     {
-        // Create object
-        $this->crud->create();
-
-        // Set request data
-        $this->crud->fill($request->all());
-
-        // Valida data
-        $validator = $this->crud->validate();
-        $validator->validate();
-
-        // Try storage new data
-        $this->crud->store();
-
-        // Success flash message
-        Session::flash('success', 'Record Added Successfully.');
+        $this->validation = new $class;
+        return $this->validation;
     }
 
-
     /**
-     * update
+     * validate
      *
-     * @param mixed $request
-     * @param mixed $id
-     * @param mixed $id2
-     * @return RedirectResponse
-     * @throws ValidationException
+     * @return IValidator
      */
-    final function crudUpdate(Request $request, $id = null, $id2 = null)
+    protected function createValidator(array $data, array $rules, array $messages=[], array $attributes =[])
     {
-        // Get Object
-        $key = $this->getModelId($id, $id2);
-        $this->crud->read($key);
+        $validator = Validator::make(
+            $data,
+            $rules,
+            $messages,
+            $attributes
+        )->stopOnFirstFailure(false);
 
-        // Set request data
-        $this->crud->fill($request->all());
-
-        // Valida data
-        $validator = $this->crud->validate();
-        $validator->validate();
-
-        // Update data
-        $this->crud->update();
-
-        // Success flash message
-        Session::flash('success', 'Registration Successfully Updated.');
+        return $validator;
     }
 
+    /**
+     * create a new instance
+     * @param array $attributes
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function create(array $data = [])
+    {
+        return $this->model->newInstance()->forceFill($data);
+    }
 
     /**
-     * destroy
-     *
-     * @param  mixed $request
-     * @param  mixed $id
-     * @param  mixed $id2
-     * @return RedirectResponse
+     * Summary of store
+     * @param array $attributes
+     * @param string $rule
+     * @return Model
      */
-    final function crudDestroy(Request $request, $id = null, $id2 = null)
+    public function store(array $data = [])
     {
-        // Success flash message
-        if( $this->crud->delete($this->getModelId($id, $id2)) ) {
-            Session::flash('success', 'Successfully Deleted Record.');
+        if (isset($this->storeClass)) {
+            $validation = $this->makeValidation($this->storeClass);
         } else {
-            Session::flash('fail', 'Fail Deleting Record.');
+            $validation = $this;
+        }
+
+        if (!$validation->passesAuthorization()) {
+            $validation->failedAuthorization();
+        }
+
+        $validator = $this->createValidator(
+            $data,
+            $validation->getRules(),
+            $messages,
+            $attributes
+        );
+
+        if (!is_null($rules)) {
+
+
+            if ($validator->fails())
+                return $this->baseResponse(
+                    'the server cannot or will not process the request due to something that is perceived to be a client error',
+                    $validator->errors()->toArray(),
+                    $code = 400
+                );
+        }
+
+        try {
+            $newInstance = $this->create($data);
+            $newInstance->save();
+            return $newInstance;
+        } catch (Exception $e) {
+            return $this->baseResponse(
+                $e->getMessage() . '.Error code:' . $e->getCode(),
+                $errors = [],
+                $code = 500
+            );
         }
     }
 
+    public function save(array $data = [])
+    {
+        return $this->store($data);
+    }
+
+    public function update()
+    {
+        $obj = $this->object;
+        $this->setDataPayload($this->all());
+        $obj->fill($this->all());
+        $obj->save();
+        return $obj;
+
+        ###
+        # l5-repository
+        ###
+        $this->applyScope();
+
+        if (!is_null($this->validator)) {
+            // we should pass data that has been casts by the model
+            // to make sure data type are same because validator may need to use
+            // this data to compare with data that fetch from database.
+            $model = $this->model->newInstance();
+            $model->setRawAttributes([]);
+            $model->setAppends([]);
+            $attributes = $model->forceFill($attributes)->makeVisible($this->model->getHidden())->toArray();
+
+            $this->validator->with($attributes)->setId($id)->passesOrFail(ValidatorInterface::RULE_UPDATE);
+        }
+
+        $temporarySkipPresenter = $this->skipPresenter;
+
+        $this->skipPresenter(true);
+
+        $model = $this->model->findOrFail($id);
+
+        $model->fill($attributes);
+        $model->save();
+
+        $this->skipPresenter($temporarySkipPresenter);
+        $this->resetModel();
+
+        event(new RepositoryEntityUpdated($this, $model));
+
+        return $this->parserResult($model);
+    }
+
+    public function delete($key)
+    {
+        return $this->model->destroy($key);
+    }
+
+    public function updateOrCreate(array $attributes, array $values = [])
+    {
+        $this->applyScope();
+
+        if (!is_null($this->validator)) {
+            $this->validator->with(array_merge($attributes, $values))->passesOrFail(ValidatorInterface::RULE_CREATE);
+        }
+
+        $temporarySkipPresenter = $this->skipPresenter;
+
+        $this->skipPresenter(true);
+
+        event(new RepositoryEntityCreating($this, $attributes));
+
+        $model = $this->model->updateOrCreate($attributes, $values);
+
+        $this->skipPresenter($temporarySkipPresenter);
+        $this->resetModel();
+
+        event(new RepositoryEntityUpdated($this, $model));
+
+        return $this->parserResult($model);
+    }
+
+        /**
+     * Determine if the request passes the authorization check.
+     *
+     * @return bool
+     */
+    function passesAuthorization()
+    {
+        if (method_exists($this, 'authorize')) {
+            return $this->authorize();
+        }
+
+        return true;
+    }
 
     /**
-     * getModelId
+     * Handle a failed authorization attempt.
      *
-     * @param  mixed $id
-     * @param  mixed $id2
-     * @return mixed
+     * @return void
+     *
+     * @throws AuthorizationException
      */
-    final function getModelId($id = null, $id2 = null)
+    protected function failedAuthorization()
     {
-        return is_null($id2) ? $id : $id2;
+        throw new AuthorizationException(null, $code = 403);
     }
 }

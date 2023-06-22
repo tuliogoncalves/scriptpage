@@ -10,7 +10,7 @@ trait traitResponse
      * @param int $code
      * @return array
      */
-    final public function baseResponse(string $message = null, array $errors = [], int $code = 200)
+    public function baseResponse(string $message = null, array $errors = [], int $code = 200)
     {
         return [
             'code' => $code,
@@ -18,8 +18,8 @@ trait traitResponse
             'message' => $message,
             'total' => null,
             'current_page' => null,
-            'data' => [],
-            'errors' => $errors
+            'errors' => $errors,
+            'data' => []
         ];
     }
 }

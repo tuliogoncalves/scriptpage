@@ -17,18 +17,21 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Scriptpage\Assets\traitValidation;
 use Scriptpage\Contracts\IRepository;
 use Illuminate\Database\Eloquent\Model;
-use Scriptpage\Exceptions\AuthorizationException;
 use Scriptpage\Exceptions\RepositoryException;
-use Scriptpage\Repository\Crud\traitCrud;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Contracts\Validation\Validator as IValidator;
 
 abstract class BaseRepository implements IRepository
 {
-    use traitCrud;
+    use traitValidation;
 
     private Model $model;
     private Builder $builder;
+    private Validation $validation;
+    private $input = [];
     private $filters = [];
     private int $take = 5;
     private int $skip = 0;
@@ -44,7 +47,7 @@ abstract class BaseRepository implements IRepository
     }
 
     /**
-     * Summary of setApplyFilters
+     * Define allows to use Filters in URL
      * @param mixed $applyFilters
      * @return self
      */
@@ -54,9 +57,34 @@ abstract class BaseRepository implements IRepository
         return $this;
     }
 
+    /**
+     * Set data of query string in URL
+     * @param array $filters
+     * @return self
+     */
     final public function setFilters(array $filters): self
     {
         $this->filters = $filters;
+        return $this;
+    }
+
+    /**
+     * Get all of the input and files for the request.
+     * @return array
+     */
+    final public function getinput()
+    {
+        return $this->input;
+    }
+
+    /**
+     * Set all of the input and files for the request.
+     * @param mixed $data 
+     * @return self
+     */
+    final public function setInput($input)
+    {
+        $this->input = $input;
         return $this;
     }
 
@@ -73,7 +101,7 @@ abstract class BaseRepository implements IRepository
     }
 
     /**
-     * paginate
+     * Set paginate
      * @param  $paginate
      * @return self
      */
@@ -150,7 +178,7 @@ abstract class BaseRepository implements IRepository
      */
     final public function doQuery(array $filters = []): LengthAwarePaginator|Collection|array
     {
-        if (!$this->passesAuthorization()) {
+        if (!$this->authorize()) {
             $this->failedAuthorization();
         }
 
@@ -247,43 +275,159 @@ abstract class BaseRepository implements IRepository
         return in_array($customFilter, $this->customFilters);
     }
 
-    /**
-     * Determine if the request passes the authorization check.
-     *
-     * @return bool
-     */
-    function passesAuthorization()
+    public function makeValidation(string $class)
     {
-        if (method_exists($this, 'authorize')) {
-            return $this->authorize();
+        $this->validation = new $class;
+        return $this->validation;
+    }
+
+    /**
+     * validate
+     *
+     * @return IValidator
+     */
+    protected function createValidator(array $data, array $rules, array $messages = [], array $attributes = [])
+    {
+        $this->validator = Validator::make(
+            $data,
+            $rules,
+            $messages,
+            $attributes
+        )->stopOnFirstFailure(false);
+
+        return $this->validator;
+    }
+
+    /**
+     * create a new instance
+     * @param array $attributes
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function create(array $data = [])
+    {
+        return $this->model->newInstance()->forceFill($data);
+    }
+
+    /**
+     * Summary of store
+     * @param array $attributes
+     * @param string $rule
+     * @return Model
+     */
+    public function store(array $data = [])
+    {
+        if (!$this->authorize()) {
+            $this->failedAuthorization();
+        }
+        
+        if (isset($this->storeClass)) {
+            $validation = $this->makeValidation($this->storeClass);
+        } else {
+            $validation = $this;
         }
 
-        return true;
+        if (!$validation->authorize()) {
+            $this->failedAuthorization();
+        }
+
+        $validation->setDataPayload($this->getInput());
+
+        $validator = $this->createValidator(
+            array_merge($data, $validation->getDataPayload()),
+            $validation->getRules(),
+            $validation->messages(),
+            $validation->attributes()
+        );
+
+        if ($validator->fails()) 
+            $this->failedValidation(
+                'the server cannot or will not process the request due to something that is perceived to be a client error',
+                $validator->errors()->toArray()
+            );
+
+        try {
+            $obj = $this->create(array_merge($data, $validation->getDataPayload()));
+            $obj->save();
+            return $obj;
+        } catch (Exception $e) {
+            $this->failedRepository( $e->getMessage() . '.Error code:' . $e->getCode());
+        }
     }
 
-    /**
-     * Handle a failed authorization attempt.
-     *
-     * @return void
-     *
-     * @throws AuthorizationException
-     */
-    protected function failedAuthorization()
+    public function save(array $data = [])
     {
-        throw new AuthorizationException(null, $code = 403);
+        return $this->store($data);
     }
 
-    /**
-     * Trigger method calls to the attributes model
-     * @param mixed $key
-     * @param mixed $value
-     * @return BaseRepository
-     */
-    public function __set($key, $value)
+    public function update()
     {
-        $model = $this->model;
-        $model->$key = $value;
-        return $this;
+        $obj = $this->object;
+        $this->setDataPayload($this->all());
+        $obj->fill($this->all());
+        $obj->save();
+        return $obj;
+
+        ###
+        # l5-repository
+        ###
+        $this->applyScope();
+
+        if (!is_null($this->validator)) {
+            // we should pass data that has been casts by the model
+            // to make sure data type are same because validator may need to use
+            // this data to compare with data that fetch from database.
+            $model = $this->model->newInstance();
+            $model->setRawAttributes([]);
+            $model->setAppends([]);
+            $attributes = $model->forceFill($attributes)->makeVisible($this->model->getHidden())->toArray();
+
+            $this->validator->with($attributes)->setId($id)->passesOrFail(ValidatorInterface::RULE_UPDATE);
+        }
+
+        $temporarySkipPresenter = $this->skipPresenter;
+
+        $this->skipPresenter(true);
+
+        $model = $this->model->findOrFail($id);
+
+        $model->fill($attributes);
+        $model->save();
+
+        $this->skipPresenter($temporarySkipPresenter);
+        $this->resetModel();
+
+        event(new RepositoryEntityUpdated($this, $model));
+
+        return $this->parserResult($model);
+    }
+
+    public function delete($key)
+    {
+        return $this->model->destroy($key);
+    }
+
+    public function updateOrCreate(array $attributes, array $values = [])
+    {
+        $this->applyScope();
+
+        if (!is_null($this->validator)) {
+            $this->validator->with(array_merge($attributes, $values))->passesOrFail(ValidatorInterface::RULE_CREATE);
+        }
+
+        $temporarySkipPresenter = $this->skipPresenter;
+
+        $this->skipPresenter(true);
+
+        event(new RepositoryEntityCreating($this, $attributes));
+
+        $model = $this->model->updateOrCreate($attributes, $values);
+
+        $this->skipPresenter($temporarySkipPresenter);
+        $this->resetModel();
+
+        event(new RepositoryEntityUpdated($this, $model));
+
+        return $this->parserResult($model);
     }
 
     /**

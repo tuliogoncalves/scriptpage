@@ -21,6 +21,8 @@ class BaseException extends Exception
      */
     protected $message = 'An error occurred';
     
+    protected $errors = [];
+    
     /**
      * Create a new exception instance.
      *
@@ -29,10 +31,15 @@ class BaseException extends Exception
      * @param  \Throwable|null  $previous
      * @return void
      */
-    public function __construct($message = null, $code = null, Throwable $previous = null)
+    public function __construct($message = null, $code = null, array $errors=[], Throwable $previous = null)
     {
         parent::__construct($message ?? $this->message, 0, $previous);
 
         $this->code = $code ?: 0;
+        $this->errors = $errors;
+    }
+
+    public function getErrors() {
+        return $this->errors;
     }
 }

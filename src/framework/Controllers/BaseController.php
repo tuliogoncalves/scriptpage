@@ -2,17 +2,14 @@
 
 namespace Scriptpage\Controllers;
 
-use Exception;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Application;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
 use Scriptpage\Assets\traitResponse;
 use Scriptpage\Framework;
-use Scriptpage\Repository\BaseRepository;
 
 class BaseController extends Controller
 {
@@ -60,8 +57,8 @@ class BaseController extends Controller
             'path' => null,
             'from' => null,
             'to' => null,
+            'errors' => [],
             'data' => null,
-            'errors' => null,
             'links' => null,
         ];
     }
@@ -78,7 +75,6 @@ class BaseController extends Controller
 
         if ($result instanceof LengthAwarePaginator) {
             $response = array_merge($this->startResponseWithPaginate(), $this->baseResponse(), $this->dataResult($result));
-            // $response = array_merge($this->baseResponse(), $this->dataResult($result));
         } else {
             $response = array_merge($this->baseResponse(), $this->dataResult($result));
         }

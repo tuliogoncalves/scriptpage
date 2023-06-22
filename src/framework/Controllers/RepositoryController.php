@@ -5,6 +5,7 @@ namespace Scriptpage\Controllers;
 use Exception;
 use Scriptpage\Exceptions\AuthorizationException;
 use Scriptpage\Exceptions\RepositoryException;
+use Scriptpage\Exceptions\ValidationException;
 use Scriptpage\Repository\BaseRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -20,6 +21,7 @@ class RepositoryController extends BaseController
     {
         $this->repository = new $this->repositoryClass;
         $this->repository
+            ->setInput($request->all())
             ->setFilters($request->query())
             ->setAllowFilters($this->allowFilters);
     }
@@ -29,10 +31,11 @@ class RepositoryController extends BaseController
         $result = null;
         $repository = $this->repository;
         try {
-            $result = $this->response($repository->doQuery());
+            $result = $repository->doQuery();
         } catch (Exception $e) {
             $code = 500;
-            if ($e instanceof AuthorizationException) $code = 403;
+            if ($e instanceof AuthorizationException)
+                $code = 403;
             $result = $this->baseResponse(
                 $e->getMessage(),
                 $errors = [],
@@ -78,6 +81,30 @@ class RepositoryController extends BaseController
     {
         $result = $this->repository->toSql();
 
+        return $this->response($result);
+    }
+
+    function store(Request $request)
+    {
+        $result = null;
+        $errors = [];
+        $repository = $this->repository;
+        try {
+            $result = $repository->store();
+        } catch (Exception $e) {
+            $code = 500;
+            if ($e instanceof AuthorizationException)
+                $code = 403;
+            if ($e instanceof ValidationException) {
+                $errors = $e->getErrors();
+                $code = 400;
+            }
+            $result = $this->baseResponse(
+                $e->getMessage(),
+                $errors,
+                $code
+            );
+        }
         return $this->response($result);
     }
 }
