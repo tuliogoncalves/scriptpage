@@ -30,7 +30,7 @@ abstract class BaseRepository implements IRepository
 
     private Model $model;
     private Builder $builder;
-    private Validation $validation;
+    // private Validation $validation;
     private $input = [];
     private $filters = [];
     private int $take = 5;
@@ -298,29 +298,11 @@ abstract class BaseRepository implements IRepository
         return $this->validator;
     }
 
-    /**
-     * create a new instance
-     * @param array $attributes
-     * @return \Illuminate\Database\Eloquent\Model
-     */
-    public function create(array $data = [])
+    protected function validation($class, $data = [])
     {
-        return $this->model->newInstance()->forceFill($data);
-    }
+        $validation = null;
 
-    /**
-     * Summary of store
-     * @param array $attributes
-     * @param string $rule
-     * @return Model
-     */
-    public function store(array $data = [])
-    {
-        if (!$this->authorize()) {
-            $this->failedAuthorization();
-        }
-        
-        if (isset($this->storeClass)) {
+        if (isset($class)) {
             $validation = $this->makeValidation($this->storeClass);
         } else {
             $validation = $this;
@@ -339,19 +321,47 @@ abstract class BaseRepository implements IRepository
             $validation->attributes()
         );
 
-        if ($validator->fails()) 
+        $validation->withValidator($validator);
+
+        if ($validator->fails())
             $this->failedValidation(
                 'the server cannot or will not process the request due to something that is perceived to be a client error',
                 $validator->errors()->toArray()
             );
 
+        return $validation;
+    }
+
+    /**
+     * create a new instance
+     * @param array $attributes
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function create(array $data = [])
+    {
+        return $this->model->newInstance()->forceFill($data);
+    }
+
+    /**
+     * Summary of store
+     * @param array $attributes
+     * @param string $rule
+     * @return Model
+     */
+    public function store(array $data = [])
+    {
+        $model = null;
+
+        $validation = $this->validation($this->storeClass, $data);
+
         try {
-            $obj = $this->create(array_merge($data, $validation->getDataPayload()));
-            $obj->save();
-            return $obj;
+            $model = $this->create(array_merge($data, $validation->getDataPayload()));
+            $model->save();
         } catch (Exception $e) {
-            $this->failedRepository( $e->getMessage() . '.Error code:' . $e->getCode());
+            $this->failedRepository($e->getMessage() . '.Error code:' . $e->getCode());
         }
+
+        return $model;
     }
 
     public function save(array $data = [])

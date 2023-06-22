@@ -13,6 +13,7 @@ namespace Scriptpage\Assets;
 
 use Scriptpage\Exceptions\AuthorizationException;
 use Scriptpage\Exceptions\ValidationException;
+use Illuminate\Contracts\Validation\Validator as IValidator;
 
 trait traitValidation
 {
@@ -21,7 +22,10 @@ trait traitValidation
     protected array $attributes = [];
     protected $storeClass;
 
-    protected $validator;
+    public function authorize()
+    {
+        return true;
+    }
 
     /**
      * Set data Payload
@@ -31,15 +35,6 @@ trait traitValidation
      */
     public function setDataPayload(array $data)
     {
-    }
-
-    /**
-     * Get data Payload
-     * @return array
-     */
-    public function getDataPayload()
-    {
-        return $this->dataPayload;
     }
 
     /**
@@ -62,9 +57,18 @@ trait traitValidation
         return [];
     }
 
-    public function authorize()
+    public function withValidator(IValidator $validator)
     {
         return true;
+    }
+
+    /**
+     * Get data Payload
+     * @return array
+     */
+    public function getDataPayload()
+    {
+        return $this->dataPayload;
     }
 
     /**
@@ -115,7 +119,18 @@ trait traitValidation
     }
 
     /**
-     * Trigger method calls to the attributes class
+     * Dynamically retrieve attributes on the repository.
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    public function __get($key)
+    {
+        return $this->dataPayload[$key] ?? null;
+    }
+
+    /**
+     * Trigger method calls to the attributes repository.
      * @param mixed $key
      * @param mixed $value
      * @return self
