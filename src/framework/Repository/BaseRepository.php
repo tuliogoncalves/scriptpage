@@ -11,6 +11,7 @@
 
 namespace Scriptpage\Repository;
 
+use App\Models\User;
 use Exception;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -46,14 +47,6 @@ abstract class BaseRepository implements IRepository
     function __construct()
     {
         $this->model = new $this->modelClass;
-    }
-
-    /**
-     * Summary of setDataPayloadWithInputs
-     * @return void
-     */
-    public function fill(array $data) {
-        $this->dataPayload = array_merge($this->dataPayload, $data);
     }
 
     /**
@@ -427,7 +420,6 @@ abstract class BaseRepository implements IRepository
         event(new RepositoryEntityCreating($this, $attributes));
 
         $model = $this->model->updateOrCreate($attributes, $values);
-
         $this->skipPresenter($temporarySkipPresenter);
         $this->resetModel();
 

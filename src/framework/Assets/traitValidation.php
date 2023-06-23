@@ -28,6 +28,15 @@ trait traitValidation
     }
 
     /**
+     * Summary of setDataPayloadWithInputs
+     * @return void
+     */
+    public function fill(array $data)
+    {
+        $this->dataPayload = array_merge($this->dataPayload, $data);
+    }
+
+    /**
      * Set data Payload
      *
      * @param array $data

@@ -4,7 +4,6 @@ namespace Scriptpage\Controllers;
 
 use Exception;
 use Scriptpage\Exceptions\AuthorizationException;
-use Scriptpage\Exceptions\RepositoryException;
 use Scriptpage\Exceptions\ValidationException;
 use Scriptpage\Repository\BaseRepository;
 use Illuminate\Http\Request;
@@ -33,14 +32,7 @@ class RepositoryController extends BaseController
         try {
             $result = $repository->doQuery();
         } catch (Exception $e) {
-            $code = 500;
-            if ($e instanceof AuthorizationException)
-                $code = 403;
-            $result = $this->baseResponse(
-                $e->getMessage(),
-                $errors = [],
-                $code
-            );
+            $result = $this->catchException($e);
         }
         return $result;
     }
@@ -87,23 +79,12 @@ class RepositoryController extends BaseController
     function store(Request $request)
     {
         $result = null;
-        $errors = [];
+
         $repository = $this->repository;
         try {
             $result = $repository->store();
         } catch (Exception $e) {
-            $code = 500;
-            if ($e instanceof AuthorizationException)
-                $code = 403;
-            if ($e instanceof ValidationException) {
-                $errors = $e->getErrors();
-                $code = 400;
-            }
-            $result = $this->baseResponse(
-                $e->getMessage(),
-                $errors,
-                $code
-            );
+            $result = $this->catchException($e);
         }
         return $this->response($result);
     }
@@ -111,24 +92,30 @@ class RepositoryController extends BaseController
     function update(Request $request, $id)
     {
         $result = null;
-        $errors = [];
         $repository = $this->repository;
         try {
             $result = $repository->update($id);
         } catch (Exception $e) {
-            $code = 500;
-            if ($e instanceof AuthorizationException)
-                $code = 403;
-            if ($e instanceof ValidationException) {
-                $errors = $e->getErrors();
-                $code = 400;
-            }
-            $result = $this->baseResponse(
-                $e->getMessage(),
-                $errors,
-                $code
-            );
+            $result = $this->catchException($e);
         }
         return $this->response($result);
+    }
+
+    protected function catchException(Exception $e)
+    {
+        $code = 500;
+        $errors = [];
+        if ($e instanceof AuthorizationException)
+            $code = 403;
+        if ($e instanceof ValidationException) {
+            $errors = $e->getErrors();
+            $code = 400;
+        }
+        $result = $this->baseResponse(
+            $e->getMessage(),
+            $errors,
+            $code
+        );
+        return $result;
     }
 }
