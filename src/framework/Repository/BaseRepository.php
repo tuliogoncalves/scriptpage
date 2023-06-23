@@ -31,7 +31,8 @@ abstract class BaseRepository implements IRepository
     private Model $model;
     private Builder $builder;
     // private Validation $validation;
-    private $input = [];
+    private $validator;
+    private $inputs = [];
     private $filters = [];
     private int $take = 5;
     private int $skip = 0;
@@ -40,10 +41,19 @@ abstract class BaseRepository implements IRepository
     protected $modelClass;
     protected $allowFilters = false;
     protected $customFilters = [];
+    protected $stopOnFirstFailure = false;
 
     function __construct()
     {
         $this->model = new $this->modelClass;
+    }
+
+    /**
+     * Summary of setDataPayloadWithInputs
+     * @return void
+     */
+    public function fill(array $data) {
+        $this->dataPayload = array_merge($this->dataPayload, $data);
     }
 
     /**
@@ -72,9 +82,9 @@ abstract class BaseRepository implements IRepository
      * Get all of the input and files for the request.
      * @return array
      */
-    final public function getinput()
+    final public function getInputs()
     {
-        return $this->input;
+        return $this->inputs;
     }
 
     /**
@@ -82,21 +92,21 @@ abstract class BaseRepository implements IRepository
      * @param mixed $data 
      * @return self
      */
-    final public function setInput($input)
+    final public function setInputs(array $inputs)
     {
-        $this->input = $input;
+        $this->inputs = $inputs;
         return $this;
     }
 
     final public function setTake($take): self
     {
-        $this->take = $take;
+        $this->take = (int)$take;
         return $this;
     }
 
     final public function setSkip($offset): self
     {
-        $this->skip = $offset;
+        $this->skip = (int)$offset;
         return $this;
     }
 
@@ -293,17 +303,17 @@ abstract class BaseRepository implements IRepository
             $rules,
             $messages,
             $attributes
-        )->stopOnFirstFailure(false);
+        )->stopOnFirstFailure($this->stopOnFirstFailure);
 
         return $this->validator;
     }
 
-    protected function validation($class, $data = [])
+    protected function validation($class=null, $data = [])
     {
         $validation = null;
 
         if (isset($class)) {
-            $validation = $this->makeValidation($this->storeClass);
+            $validation = $this->makeValidation($class);
         } else {
             $validation = $this;
         }
@@ -312,7 +322,7 @@ abstract class BaseRepository implements IRepository
             $this->failedAuthorization();
         }
 
-        $validation->setDataPayload($this->getInput());
+        $validation->setDataPayload($this->getInputs());
 
         $validator = $this->createValidator(
             array_merge($data, $validation->getDataPayload()),
@@ -335,7 +345,7 @@ abstract class BaseRepository implements IRepository
     /**
      * create a new instance
      * @param array $attributes
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return Model
      */
     public function create(array $data = [])
     {
@@ -364,51 +374,37 @@ abstract class BaseRepository implements IRepository
         return $model;
     }
 
+    /**
+     * Summary of save
+     * @param array $data
+     * @return Model
+     */
     public function save(array $data = [])
     {
         return $this->store($data);
     }
 
-    public function update()
+    /**
+     * Summary of update
+     * @param mixed $id
+     * @param array $data
+     * @return mixed
+     */
+    public function update($id, array $data = [])
     {
-        $obj = $this->object;
-        $this->setDataPayload($this->all());
-        $obj->fill($this->all());
-        $obj->save();
-        return $obj;
+        $model = null;
 
-        ###
-        # l5-repository
-        ###
-        $this->applyScope();
+        $validation = $this->validation($this->updateClass, $data);
 
-        if (!is_null($this->validator)) {
-            // we should pass data that has been casts by the model
-            // to make sure data type are same because validator may need to use
-            // this data to compare with data that fetch from database.
-            $model = $this->model->newInstance();
-            $model->setRawAttributes([]);
-            $model->setAppends([]);
-            $attributes = $model->forceFill($attributes)->makeVisible($this->model->getHidden())->toArray();
-
-            $this->validator->with($attributes)->setId($id)->passesOrFail(ValidatorInterface::RULE_UPDATE);
+        try {
+            $model = $this->model->findOrFail($id);
+            $model->fill(array_merge($data, $validation->getDataPayload()));
+            $model->save();
+        } catch (Exception $e) {
+            $this->failedRepository($e->getMessage() . '.Error code:' . $e->getCode());
         }
 
-        $temporarySkipPresenter = $this->skipPresenter;
-
-        $this->skipPresenter(true);
-
-        $model = $this->model->findOrFail($id);
-
-        $model->fill($attributes);
-        $model->save();
-
-        $this->skipPresenter($temporarySkipPresenter);
-        $this->resetModel();
-
-        event(new RepositoryEntityUpdated($this, $model));
-
-        return $this->parserResult($model);
+        return $model;
     }
 
     public function delete($key)

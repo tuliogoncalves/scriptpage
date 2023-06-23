@@ -21,7 +21,7 @@ class RepositoryController extends BaseController
     {
         $this->repository = new $this->repositoryClass;
         $this->repository
-            ->setInput($request->all())
+            ->setInputs($request->all())
             ->setFilters($request->query())
             ->setAllowFilters($this->allowFilters);
     }
@@ -91,6 +91,30 @@ class RepositoryController extends BaseController
         $repository = $this->repository;
         try {
             $result = $repository->store();
+        } catch (Exception $e) {
+            $code = 500;
+            if ($e instanceof AuthorizationException)
+                $code = 403;
+            if ($e instanceof ValidationException) {
+                $errors = $e->getErrors();
+                $code = 400;
+            }
+            $result = $this->baseResponse(
+                $e->getMessage(),
+                $errors,
+                $code
+            );
+        }
+        return $this->response($result);
+    }
+
+    function update(Request $request, $id)
+    {
+        $result = null;
+        $errors = [];
+        $repository = $this->repository;
+        try {
+            $result = $repository->update($id);
         } catch (Exception $e) {
             $code = 500;
             if ($e instanceof AuthorizationException)
