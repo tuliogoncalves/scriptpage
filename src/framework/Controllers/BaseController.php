@@ -2,6 +2,7 @@
 
 namespace Scriptpage\Controllers;
 
+use Exception;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Application;
@@ -16,13 +17,6 @@ class BaseController extends Controller
     use traitResponse;
 
     protected $cleanResponse = false;
-
-    protected $responseError = [
-        '403' => [
-            'code' => 403,
-            'message' => '403 Forbidden. This action is unauthorized. allowFilters is False.'
-        ]
-    ];
 
     protected function getVersion()
     {
@@ -116,7 +110,7 @@ class BaseController extends Controller
             $total = $result->count();
         if ($result instanceof LengthAwarePaginator)
             $total = $result->count();
-        if (is_array($result))
+        if (is_array($result) or is_object($result))
             $total = 1;
         return $total;
     }
@@ -128,14 +122,22 @@ class BaseController extends Controller
      */
     private function dataResult(mixed &$result): array
     {
-        if (!is_array($result)) {
+        if (is_object($result)) {
             $result = $result->toArray();
         }
 
-        return isset($result['data'])
+        if (is_string($result)) {
+            $result = [
+                'data' => null,
+                'message' => $result
+            ];
+        }
+
+        return array_key_exists('data', $result)
             ? $result
             : $result[] = [
                 'data' => $result
             ];
     }
+
 }

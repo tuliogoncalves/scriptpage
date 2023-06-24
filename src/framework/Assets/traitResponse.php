@@ -1,8 +1,15 @@
 <?php
 
 namespace Scriptpage\Assets;
+
 use Exception;
 use Illuminate\Http\Request;
+use Scriptpage\Exceptions\AuthorizationException;
+use Scriptpage\Exceptions\ValidationException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
+use Tymon\JWTAuth\Exceptions\UserNotDefinedException;
 
 trait traitResponse
 {
@@ -16,7 +23,7 @@ trait traitResponse
     {
         return [
             'code' => $code,
-            'success' => ($code==200),
+            'success' => ($code == 200),
             'message' => $message,
             'total' => null,
             'current_page' => null,
@@ -28,18 +35,71 @@ trait traitResponse
     /**
      * defining a register method on your application's App\Exceptions\Handler class.
      * add:
-     *   $this->renderable(function (MethodNotAllowedHttpException $e, Request $request) {
-     *        return $this->apiRenderableResponse($e, $request);
+     *    $this->renderable(function (Exception $e, Request $request) {
+     *       return $this->apiRenderableResponse($e, $request);
      *    });
      */
-    public function apiRenderableResponse(Exception $e, Request $request) {
-        // if ($request->is('api/*')) {
+    public function apiRenderableResponse(Exception $e, Request $request)
+    {
+        if ($request->is('api/*')) {
+            $response = $this->catchException($e);
             return response()->json(
-                $this->baseResponse(
-                    $e->getMessage(),
-                    [],
-                    500
-            ), 500);
-        // }
+                $response,
+                $response['code']
+            );
+        }
+    }
+
+    /**
+     * Catch Exceptions
+     * @param \Exception $e
+     * @return array
+     */
+    protected function catchException(Exception $e)
+    {
+        $code = 500;
+        $message = $e->getMessage();
+        $errors = [
+            'error_code:' => $e->getCode(),
+            'error_message' => $e->getMessage(),
+            'exception_class:' => get_class($e)
+        ];
+
+        if ($e instanceof TokenInvalidException) {
+            $code = 498;
+            $message = '498 Token is Invalid';
+        }
+
+        if ($e instanceof TokenExpiredException) {
+            $code = 401;
+            $message = '401 Token is Expired';
+        }
+
+        if ($e instanceof UserNotDefinedException) {
+            $code = 400;
+            $message = '400 Token is invalid';
+        }
+
+        if ($e instanceof AuthorizationException) {
+            $code = 403;
+            $message = '403 Unauthorized';
+        }
+        if ($e instanceof NotFoundHttpException) {
+            $code = 404;
+            $message = '404 Not Found';
+        }
+
+        if ($e instanceof ValidationException) {
+            $code = 400;
+            $message = 'the server cannot or will not process the request due to something that is perceived to be a client error';
+            $errors = $e->getErrors();
+        }
+
+        $result = $this->baseResponse(
+            $message,
+            $errors,
+            $code
+        );
+        return $result;
     }
 }

@@ -31,15 +31,19 @@ abstract class BaseRepository implements IRepository
 
     private Model $model;
     private Builder $builder;
-    // private Validation $validation;
+
+    
     private $validator;
+    private $validation;
+    
     private $inputs = [];
     private $filters = [];
     private int $take = 5;
     private int $skip = 0;
     private $paginate = true;
-
+    
     protected $modelClass;
+    protected $validationClass = [];
     protected $allowFilters = false;
     protected $customFilters = [];
     protected $stopOnFirstFailure = false;
@@ -47,6 +51,15 @@ abstract class BaseRepository implements IRepository
     function __construct()
     {
         $this->model = new $this->modelClass;
+    }
+
+    /**
+     * Define validation rules
+     * @return array
+     */
+    public function rules()
+    {
+        return [];
     }
 
     /**
@@ -93,13 +106,13 @@ abstract class BaseRepository implements IRepository
 
     final public function setTake($take): self
     {
-        $this->take = (int)$take;
+        $this->take = (int) $take;
         return $this;
     }
 
     final public function setSkip($offset): self
     {
-        $this->skip = (int)$offset;
+        $this->skip = (int) $offset;
         return $this;
     }
 
@@ -162,6 +175,16 @@ abstract class BaseRepository implements IRepository
         return $this->builder;
     }
 
+    private function isEloquentBuilder()
+    {
+        return get_class($this->getBuilder()) == 'Illuminate\Database\Eloquent\Builder';
+    }
+
+    private function isQueryBuilder()
+    {
+        return get_class($this->getBuilder()) == 'Illuminate\Database\Query\Builder';
+    }
+
     /**
      * Summary of with
      * @param array|string $relations
@@ -185,14 +208,12 @@ abstract class BaseRepository implements IRepository
             $this->failedAuthorization();
         }
 
-        try {
-            return $this->runQuery($filters);
-        } catch (Exception $e) {
-            throw new RepositoryException(
-                $e->getMessage() . '.Error code:' . $e->getCode(),
-                $e->getCode()
-            );
+        if (!$this->allowFilters and $this->isQueryBuilder()) {
+            $this->failedAuthorization();
         }
+
+        return $this->runQuery($filters);
+
     }
 
     /**
@@ -209,10 +230,7 @@ abstract class BaseRepository implements IRepository
         $take = ($this->take > 0) ? $this->take : null;
 
         // With paginate result
-        if (
-            get_class($builder) == 'Illuminate\Database\Eloquent\Builder'
-            and $this->paginate
-        ) {
+        if ($this->isEloquentBuilder() and $this->paginate) {
             $paginator = $builder->paginate($take);
             $result = $paginator->appends(
                 array_merge($this->filters, $this->appends())
@@ -281,6 +299,11 @@ abstract class BaseRepository implements IRepository
     public function makeValidation(string $class)
     {
         $this->validation = new $class;
+        if (!$this->validation instanceof Validation) {
+            $this->failedValidation('must be an instance of Scriptpage\\repository\\Validation', [
+                'class: ' . get_class($this->validation)
+            ], 500);
+        }
         return $this->validation;
     }
 
@@ -301,12 +324,12 @@ abstract class BaseRepository implements IRepository
         return $this->validator;
     }
 
-    protected function validation($class=null, $data = [])
+    protected function validation($validationKey = null, $data = [])
     {
         $validation = null;
-
-        if (isset($class)) {
-            $validation = $this->makeValidation($class);
+        $validationClass = $this->validationClass[$validationKey] ?? null;
+        if (isset($validationClass)) {
+            $validation = $this->makeValidation($validationClass);
         } else {
             $validation = $this;
         }
@@ -328,7 +351,7 @@ abstract class BaseRepository implements IRepository
 
         if ($validator->fails())
             $this->failedValidation(
-                'the server cannot or will not process the request due to something that is perceived to be a client error',
+                '400 Validator fails',
                 $validator->errors()->toArray()
             );
 
@@ -346,56 +369,46 @@ abstract class BaseRepository implements IRepository
     }
 
     /**
-     * Summary of store
+     * save data to the database
      * @param array $attributes
      * @param string $rule
      * @return Model
      */
-    public function store(array $data = [])
+    public function store(array $data = [], string $validationKey = 'store')
     {
         $model = null;
-
-        $validation = $this->validation($this->storeClass, $data);
-
-        try {
-            $model = $this->create(array_merge($data, $validation->getDataPayload()));
-            $model->save();
-        } catch (Exception $e) {
-            $this->failedRepository($e->getMessage() . '.Error code:' . $e->getCode());
-        }
+        $validation = $this->validation($validationKey, $data);
+        $model = $this->create(array_merge($data, $validation->getDataPayload()));
+        $model->save();
 
         return $model;
     }
 
     /**
-     * Summary of save
+     * save data to the database
      * @param array $data
      * @return Model
      */
-    public function save(array $data = [])
-    {
-        return $this->store($data);
-    }
+    // public function save(array $data = [], string $validationKey = 'store')
+    // {
+    //     return $this->store($data, $validationKey);
+    // }
 
     /**
-     * Summary of update
+     * update data to the database
      * @param mixed $id
      * @param array $data
      * @return mixed
      */
-    public function update($id, array $data = [])
+    public function update($id, array $data = [], string $validationKey = 'update')
     {
         $model = null;
+        $validationClass = $this->validationClass[$validationKey] ?? null;
+        $validation = $this->validation($validationClass, $data);
 
-        $validation = $this->validation($this->updateClass, $data);
-
-        try {
-            $model = $this->model->findOrFail($id);
-            $model->fill(array_merge($data, $validation->getDataPayload()));
-            $model->save();
-        } catch (Exception $e) {
-            $this->failedRepository($e->getMessage() . '.Error code:' . $e->getCode());
-        }
+        $model = $this->model->findOrFail($id);
+        $model->fill(array_merge($data, $validation->getDataPayload()));
+        $model->save();
 
         return $model;
     }
@@ -405,27 +418,37 @@ abstract class BaseRepository implements IRepository
         return $this->model->destroy($key);
     }
 
-    public function updateOrCreate(array $attributes, array $values = [])
+    // public function updateOrCreate(array $attributes, array $values = [])
+    // {
+    //     $this->applyScope();
+
+    //     if (!is_null($this->validator)) {
+    //         $this->validator->with(array_merge($attributes, $values))->passesOrFail(ValidatorInterface::RULE_CREATE);
+    //     }
+
+    //     $temporarySkipPresenter = $this->skipPresenter;
+
+    //     $this->skipPresenter(true);
+
+    //     event(new RepositoryEntityCreating($this, $attributes));
+
+    //     $model = $this->model->updateOrCreate($attributes, $values);
+    //     $this->skipPresenter($temporarySkipPresenter);
+    //     $this->resetModel();
+
+    //     event(new RepositoryEntityUpdated($this, $model));
+
+    //     return $this->parserResult($model);
+    // }
+
+    /**
+     * make
+     *
+     * @return self
+     */
+    public static function make(): self
     {
-        $this->applyScope();
-
-        if (!is_null($this->validator)) {
-            $this->validator->with(array_merge($attributes, $values))->passesOrFail(ValidatorInterface::RULE_CREATE);
-        }
-
-        $temporarySkipPresenter = $this->skipPresenter;
-
-        $this->skipPresenter(true);
-
-        event(new RepositoryEntityCreating($this, $attributes));
-
-        $model = $this->model->updateOrCreate($attributes, $values);
-        $this->skipPresenter($temporarySkipPresenter);
-        $this->resetModel();
-
-        event(new RepositoryEntityUpdated($this, $model));
-
-        return $this->parserResult($model);
+        return new static();
     }
 
     /**

@@ -11,9 +11,10 @@
 
 namespace Scriptpage\Assets;
 
-use Scriptpage\Exceptions\AuthorizationException;
-use Scriptpage\Exceptions\ValidationException;
 use Illuminate\Contracts\Validation\Validator as IValidator;
+use Scriptpage\Exceptions\AuthorizationException;
+use Scriptpage\Exceptions\RepositoryException;
+use Scriptpage\Exceptions\ValidationException;
 
 trait traitValidation
 {
@@ -28,7 +29,7 @@ trait traitValidation
     }
 
     /**
-     * Summary of setDataPayloadWithInputs
+     * Set data payload with all data
      * @return void
      */
     public function fill(array $data)
@@ -120,11 +121,11 @@ trait traitValidation
      *
      * @return void
      *
-     * @throws ValidationException
+     * @throws RepositoryException
      */
     protected function failedRepository($message = '', $errors = [], $code = 500)
     {
-        throw new ValidationException($message, $code, $errors);
+        throw new RepositoryException($message, $code, $errors);
     }
 
     /**

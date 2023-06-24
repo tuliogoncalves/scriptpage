@@ -162,4 +162,30 @@ get `api/table/users?join=contacts:users.id,contacts.user_id`
                 &where=users.name:laravel
                 &select=users.*,contacts.phone,orders.price
 
+## Laravel Eloquent Query: Using WHERE with OR AND OR
+
+### Make use of [Logical Grouping](https://laravel.com/docs/master/queries#logical-grouping)
+
+        Model::where(function ($query) {
+        $query->where('a', '=', 1)
+                ->orWhere('b', '=', 1);
+        })->where(function ($query) {
+        $query->where('c', '=', 1)
+                ->orWhere('d', '=', 1);
+        });
+
+### With parameters for a,b,c,d
+
+    $a = 1;
+    $b = 1;
+    $c = 1;
+    $d = 1;
+    Model::where(function ($query) use ($a, $b) {
+        return $query->where('a', '=', $a)
+            ->orWhere('b', '=', $b);
+    })->where(function ($query) use ($c, $d) {
+        return $query->where('c', '=', $c)
+            ->orWhere('d', '=', $d);
+    });
+
 [^1]: A framework is an abstraction that links common code across multiple software projects to provide generic functionality. A framework can achieve specific functionality, by configuration, during application programming. Unlike libraries, it is the framework that dictates the flow of control of the application, called Inversion of Control..[wikipedia](https://pt.wikipedia.org/wiki/Framework)

@@ -26,25 +26,10 @@ class EnsureUserHasRole
         $hasRole = false;
         $errors = [];
 
-        try {
-            $user = auth('api')->userOrFail();
-            $hasRole = is_null($role)
-                ? true
-                : $user->hasRole($role);
-        } catch (Exception $e) {
-            $errors = [
-                $e->getMessage() . '.Error code:' . $e->getCode(),
-                // 'error_class: ' . get_class($e)
-            ];
-
-            if ($e instanceof TokenInvalidException) {
-                return $this->response('498 Token is Invalid', 498, $errors);
-            }
-
-            if ($e instanceof TokenExpiredException) {
-                return $this->response('401 Token is Expired', 401, $errors);
-            }
-        }
+        $user = auth('api')->userOrFail();
+        $hasRole = is_null($role)
+            ? true
+            : $user->hasRole($role);
 
         if (!$hasRole)
             return $this->response('403 Unauthorized', 403, $errors);
