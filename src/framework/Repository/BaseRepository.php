@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\DB;
 use Scriptpage\Assets\traitValidation;
 use Scriptpage\Contracts\IRepository;
 use Illuminate\Database\Eloquent\Model;
-use Scriptpage\Exceptions\RepositoryException;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Validation\Validator as IValidator;
 
@@ -334,11 +333,12 @@ abstract class BaseRepository implements IRepository
             $validation = $this;
         }
 
+        $validation->fill($this->dataPayload);
+        $validation->setDataPayload($this->getInputs());
+
         if (!$validation->authorize()) {
             $this->failedAuthorization();
         }
-
-        $validation->setDataPayload($this->getInputs());
 
         $validator = $this->createValidator(
             array_merge($data, $validation->getDataPayload()),
@@ -403,8 +403,7 @@ abstract class BaseRepository implements IRepository
     public function update($id, array $data = [], string $validationKey = 'update')
     {
         $model = null;
-        $validationClass = $this->validationClass[$validationKey] ?? null;
-        $validation = $this->validation($validationClass, $data);
+        $validation = $this->validation($validationKey, $data);
 
         $model = $this->model->findOrFail($id);
         $model->fill(array_merge($data, $validation->getDataPayload()));
