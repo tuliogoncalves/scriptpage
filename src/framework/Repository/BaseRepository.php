@@ -31,21 +31,22 @@ abstract class BaseRepository implements IRepository
     private Model $model;
     private Builder $builder;
 
-    
+
     private $validator;
     private $validation;
-    
+
     private $inputs = [];
     private $filters = [];
     private int $take = 5;
     private int $skip = 0;
     private $paginate = true;
-    
+
     protected $modelClass;
     protected $validationClass = [];
     protected $allowFilters = false;
     protected $customFilters = [];
     protected $stopOnFirstFailure = false;
+    protected $ignoreValidation = false;
 
     function __construct()
     {
@@ -295,7 +296,12 @@ abstract class BaseRepository implements IRepository
         return in_array($customFilter, $this->customFilters);
     }
 
-    public function makeValidation(string $class)
+    /**
+     * Get valition class
+     *
+     * @return Validation
+     */
+    private function getValidation(string $class)
     {
         $this->validation = new $class;
         if (!$this->validation instanceof Validation) {
@@ -323,12 +329,18 @@ abstract class BaseRepository implements IRepository
         return $this->validator;
     }
 
-    protected function validation($validationKey = null, $data = [])
+    /**
+     * Prepare validation and create validator
+     * @param mixed $validationKey
+     * @param mixed $data
+     * @return BaseRepository|Validation
+     */
+    public function makeValidation($validationKey = null, $data = [])
     {
         $validation = null;
         $validationClass = $this->validationClass[$validationKey] ?? null;
         if (isset($validationClass)) {
-            $validation = $this->makeValidation($validationClass);
+            $validation = $this->getValidation($validationClass);
         } else {
             $validation = $this;
         }
@@ -347,15 +359,19 @@ abstract class BaseRepository implements IRepository
             $validation->attributes()
         );
 
+        $this->validator = $validator;
+
         $validation->withValidator($validator);
 
-        if ($validator->fails())
-            $this->failedValidation(
-                '400 Validator fails',
-                $validator->errors()->toArray()
-            );
-
         return $validation;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValidator()
+    {
+        return $this->validator;
     }
 
     /**
@@ -369,15 +385,25 @@ abstract class BaseRepository implements IRepository
     }
 
     /**
-     * save data to the database
-     * @param array $attributes
-     * @param string $rule
+     * Summary of store
+     * @param array $data
+     * @param string $validationKey
      * @return Model
      */
     public function store(array $data = [], string $validationKey = 'store')
     {
         $model = null;
-        $validation = $this->validation($validationKey, $data);
+        $validation = $this->makeValidation($validationKey, $data);
+
+        if (!$this->ignoreValidation) {
+            $validator = $this->getValidator();
+            if ($validator->fails())
+                $this->failedValidation(
+                    '400 Validator fails',
+                    $validator->errors()->toArray()
+                );
+        }
+
         $model = $this->create(array_merge($data, $validation->getDataPayload()));
         $model->save();
 
@@ -403,7 +429,16 @@ abstract class BaseRepository implements IRepository
     public function update($id, array $data = [], string $validationKey = 'update')
     {
         $model = null;
-        $validation = $this->validation($validationKey, $data);
+        $validation = $this->makeValidation($validationKey, $data);
+
+        if (!$this->ignoreValidation) {
+            $validator = $this->getValidator();
+            if ($validator->fails())
+                $this->failedValidation(
+                    '400 Validator fails',
+                    $validator->errors()->toArray()
+                );
+        }
 
         $model = $this->model->findOrFail($id);
         $model->fill(array_merge($data, $validation->getDataPayload()));
@@ -482,4 +517,5 @@ abstract class BaseRepository implements IRepository
 
         return $result;
     }
+
 }
