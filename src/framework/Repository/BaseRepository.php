@@ -31,15 +31,13 @@ abstract class BaseRepository implements IRepository
     private Model $model;
     private Builder $builder;
 
-
-    private $validator;
-    private $validation;
-
     private $inputs = [];
     private $filters = [];
     private int $take = 5;
     private int $skip = 0;
     private $paginate = true;
+
+    protected $validator;
 
     protected $modelClass;
     protected $validationClass = [];
@@ -313,32 +311,16 @@ abstract class BaseRepository implements IRepository
     }
 
     /**
-     * validate
-     *
-     * @return IValidator
-     */
-    protected function createValidator(array $data, array $rules, array $messages = [], array $attributes = [])
-    {
-        $this->validator = Validator::make(
-            $data,
-            $rules,
-            $messages,
-            $attributes
-        )->stopOnFirstFailure($this->stopOnFirstFailure);
-
-        return $this->validator;
-    }
-
-    /**
      * Prepare validation and create validator
      * @param mixed $validationKey
      * @param mixed $data
      * @return BaseRepository|Validation
      */
-    public function makeValidation($validationKey = null, $data = [])
+    private function makeValidation($validationKey = null, $data = [])
     {
         $validation = null;
         $validationClass = $this->validationClass[$validationKey] ?? null;
+
         if (isset($validationClass)) {
             $validation = $this->getValidation($validationClass);
         } else {
@@ -352,16 +334,14 @@ abstract class BaseRepository implements IRepository
             $this->failedAuthorization();
         }
 
-        $validator = $this->createValidator(
+        $this->validator = Validator::make(
             array_merge($data, $validation->getDataPayload()),
             $validation->getRules(),
             $validation->messages(),
             $validation->attributes()
-        );
+        )->stopOnFirstFailure($this->stopOnFirstFailure);
 
-        $this->validator = $validator;
-
-        $validation->withValidator($validator);
+        $validation->withValidator($this->validator);
 
         return $validation;
     }
@@ -369,8 +349,10 @@ abstract class BaseRepository implements IRepository
     /**
      * @return mixed
      */
-    public function getValidator()
+    public function getValidator($validationKey = null, $data = [])
     {
+        if (!isset($this->validator))
+            $this->makeValidation($validationKey, $data);
         return $this->validator;
     }
 
@@ -411,16 +393,6 @@ abstract class BaseRepository implements IRepository
     }
 
     /**
-     * save data to the database
-     * @param array $data
-     * @return Model
-     */
-    // public function save(array $data = [], string $validationKey = 'store')
-    // {
-    //     return $this->store($data, $validationKey);
-    // }
-
-    /**
      * update data to the database
      * @param mixed $id
      * @param array $data
@@ -451,29 +423,6 @@ abstract class BaseRepository implements IRepository
     {
         return $this->model->destroy($key);
     }
-
-    // public function updateOrCreate(array $attributes, array $values = [])
-    // {
-    //     $this->applyScope();
-
-    //     if (!is_null($this->validator)) {
-    //         $this->validator->with(array_merge($attributes, $values))->passesOrFail(ValidatorInterface::RULE_CREATE);
-    //     }
-
-    //     $temporarySkipPresenter = $this->skipPresenter;
-
-    //     $this->skipPresenter(true);
-
-    //     event(new RepositoryEntityCreating($this, $attributes));
-
-    //     $model = $this->model->updateOrCreate($attributes, $values);
-    //     $this->skipPresenter($temporarySkipPresenter);
-    //     $this->resetModel();
-
-    //     event(new RepositoryEntityUpdated($this, $model));
-
-    //     return $this->parserResult($model);
-    // }
 
     /**
      * make
