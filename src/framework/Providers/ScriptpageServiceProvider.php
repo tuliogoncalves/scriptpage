@@ -26,6 +26,6 @@ class ScriptpageServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        AboutCommand::add('Scriptpage', fn () => ['Version' => Framework::VERSION]);
+        // AboutCommand::add('Scriptpage', fn () => ['Version' => Framework::VERSION]);
     }
 }
