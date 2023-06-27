@@ -1,4 +1,4 @@
-# Scriptpage Framework[^1](in development, refactoring)
+# Scriptpage Framework[^1]
 
 > **Note:** This repository contains the core code of the Scriptpage framework. If you want to build an application using Laravel with scriptpage, you need know [Scriptpage Sail](https://github.com/tuliogoncalves/sail).
 

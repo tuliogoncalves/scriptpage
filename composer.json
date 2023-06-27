@@ -1,6 +1,13 @@
 {
-    "name": "area51/framework",
-    "description": "Data layer",
+    "name": "scriptpage/framework",
+    "description": "Core code of the Scriptpage framework",
+    "keywords": [
+        "laravel",
+        "repository",
+        "eloquent",
+        "jwt",
+        "url query string"
+      ],
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -9,16 +16,19 @@
     },
     "authors": [
         {
-            "name": "Túlio Gonçalves"
+          "name": "Túlio Gonçalves",
+          "homepage": "http://scriptpage.com.br",
+          "email": "framework@scriptpage.com.br",
+          "role": "Developer"
         }
-    ],
-    "minimum-stability": "dev",
-    "require": {},
-    "extra": {
-        "laravel": {
-            "providers":[
-                "Scriptpage\\Providers\\ScriptpageServiceProvider"
-            ]
-        }
-    }
+      ],
+      "require": {},
+      "extra": {
+          "laravel": {
+              "providers":[
+                  "Scriptpage\\Providers\\ScriptpageServiceProvider"
+                ]
+            }
+        },
+        "minimum-stability": "stable"
 }

@@ -29,7 +29,7 @@ class AuthController extends BaseController
         } catch (Exception $e) {
             $message = 'Unauthorized';
             $result = [
-                'code' => 500,
+                'code' => 403,
                 'data' => [],
                 'errors' => [$e->getMessage() . '.Error code:' . $e->getCode()]
             ];

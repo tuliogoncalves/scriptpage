@@ -173,11 +173,19 @@ abstract class BaseRepository implements IRepository
         return $this->builder;
     }
 
+    /**
+     * isEloquentBuilder
+     * @return bool
+     */
     private function isEloquentBuilder()
     {
         return get_class($this->getBuilder()) == 'Illuminate\Database\Eloquent\Builder';
     }
 
+    /**
+     * isQueryBuilder (DB)
+     * @return bool
+     */
     private function isQueryBuilder()
     {
         return get_class($this->getBuilder()) == 'Illuminate\Database\Query\Builder';
