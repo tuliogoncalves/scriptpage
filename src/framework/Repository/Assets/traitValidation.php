@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Scriptpage\Assets;
+namespace Scriptpage\Repository\Assets;
 
 use Illuminate\Contracts\Validation\Validator as IValidator;
 use Scriptpage\Exceptions\AuthorizationException;
@@ -99,9 +99,9 @@ trait traitValidation
      *
      * @throws AuthorizationException
      */
-    protected function failedAuthorization()
+    protected function failedAuthorization($message = null, $errors = [], $code = 400)
     {
-        throw new AuthorizationException(null, $code = 403);
+        throw new AuthorizationException($message ?? 'Fail authorization in '.$this::class, $code = 403, $errors);
     }
 
     /**

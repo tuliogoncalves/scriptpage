@@ -188,4 +188,15 @@ get `api/table/users?join=contacts:users.id,contacts.user_id`
             ->orWhere('d', '=', $d);
     });
 
+## Add Global Exception
+
+In file App\Exceptions\Handler@register, add:
+
+        use traitResponse;
+
+        $this->renderable(function (Exception $e, Request $request) {
+           return $this->apiRenderableResponse($e, $request);
+        });
+
+
 [^1]: A framework is an abstraction that links common code across multiple software projects to provide generic functionality. A framework can achieve specific functionality, by configuration, during application programming. Unlike libraries, it is the framework that dictates the flow of control of the application, called Inversion of Control..[wikipedia](https://pt.wikipedia.org/wiki/Framework)

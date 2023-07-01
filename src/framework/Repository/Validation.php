@@ -1,7 +1,7 @@
 <?php
 
 namespace Scriptpage\Repository;
-use Scriptpage\Assets\traitValidation;
+use Scriptpage\Repository\Assets\traitValidation;
 
 // use Illuminate\Foundation\Http\FormRequest;
 

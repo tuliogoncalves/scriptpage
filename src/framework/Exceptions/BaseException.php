@@ -28,6 +28,7 @@ class BaseException extends Exception
      *
      * @param  string|null  $message
      * @param  mixed  $code
+     * @param  array $errors
      * @param  \Throwable|null  $previous
      * @return void
      */

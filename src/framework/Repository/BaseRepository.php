@@ -18,11 +18,11 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Scriptpage\Assets\traitValidation;
 use Scriptpage\Contracts\IRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Validation\Validator as IValidator;
+use Scriptpage\Repository\Assets\traitValidation;
 
 abstract class BaseRepository implements IRepository
 {
@@ -210,10 +210,12 @@ abstract class BaseRepository implements IRepository
      */
     final public function doQuery(array $filters = []): LengthAwarePaginator|Collection|array
     {
+        // Throw Authorization Exception 
         if (!$this->authorize()) {
             $this->failedAuthorization();
         }
 
+        // Throw Authorization Exception 
         if (!$this->allowFilters and $this->isQueryBuilder()) {
             $this->failedAuthorization();
         }
@@ -329,6 +331,7 @@ abstract class BaseRepository implements IRepository
         $validation = null;
         $validationClass = $this->validationClass[$validationKey] ?? null;
 
+        // Get Valition class or use this
         if (isset($validationClass)) {
             $validation = $this->getValidation($validationClass);
         } else {
@@ -338,6 +341,7 @@ abstract class BaseRepository implements IRepository
         $validation->fill($this->dataPayload);
         $validation->setDataPayload($this->getInputs());
 
+        // Throw Authorization Exception 
         if (!$validation->authorize()) {
             $this->failedAuthorization();
         }
@@ -465,6 +469,11 @@ abstract class BaseRepository implements IRepository
      */
     public function __call($method, $arguments)
     {
+        // Throw Authorization Exception 
+        if (!$this->authorize()) {
+            $this->failedAuthorization();
+        }
+
         $result = call_user_func_array([$this->model, $method], $arguments);
 
         if ($result instanceof EloquentBuilder)
