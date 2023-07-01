@@ -393,7 +393,7 @@ abstract class BaseRepository implements IRepository
             $validator = $this->getValidator();
             if ($validator->fails())
                 $this->failedValidation(
-                    '400 Validator fails',
+                    '400 Validator fails to create',
                     $validator->errors()->toArray()
                 );
         }
@@ -419,7 +419,7 @@ abstract class BaseRepository implements IRepository
             $validator = $this->getValidator();
             if ($validator->fails())
                 $this->failedValidation(
-                    '400 Validator fails',
+                    '400 Validator fails to update',
                     $validator->errors()->toArray()
                 );
         }
@@ -431,9 +431,21 @@ abstract class BaseRepository implements IRepository
         return $model;
     }
 
-    public function delete($key)
+    public function delete($id, array $data = [], string $validationKey = 'delete')
     {
-        return $this->model->destroy($key);
+        $model = null;
+        $validation = $this->makeValidation($validationKey, $data);
+
+        if (!$this->ignoreValidation) {
+            $validator = $this->getValidator();
+            if ($validator->fails())
+                $this->failedValidation(
+                    '400 Validator fails to delete',
+                    $validator->errors()->toArray()
+                );
+        }
+
+        return $this->model->destroy($id);
     }
 
     /**
