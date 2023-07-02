@@ -99,7 +99,7 @@ trait traitValidation
      *
      * @throws AuthorizationException
      */
-    protected function failedAuthorization($message = null, $errors = [], $code = 400)
+    protected function failedAuthorization($message = null, $errors = [], $code = 403)
     {
         throw new AuthorizationException($message ?? 'Fail authorization in '.$this::class, $code = 403, $errors);
     }

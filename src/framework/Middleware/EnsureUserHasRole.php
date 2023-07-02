@@ -32,7 +32,7 @@ class EnsureUserHasRole
             : $user->hasRole($role);
 
         if (!$hasRole)
-            return $this->response('403 Unauthorized - middleware', 403, $errors);
+            return $this->response('403 Unauthorized Roles (Middleware)', 403, $errors);
 
         return $next($request);
     }

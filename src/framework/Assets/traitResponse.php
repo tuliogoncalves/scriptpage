@@ -5,6 +5,7 @@ namespace Scriptpage\Assets;
 use Exception;
 use Illuminate\Http\Request;
 use Scriptpage\Exceptions\AuthorizationException;
+use Scriptpage\Exceptions\RepositoryException;
 use Scriptpage\Exceptions\ValidationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
@@ -19,7 +20,7 @@ trait traitResponse
      * @param int $code
      * @return array
      */
-    public function baseResponse(string $message = null, array $errors = [], int $code = 200)
+    public function baseResponse(string $message = null, array $errors = [], string $result = null, int $code = 200)
     {
         return [
             'code' => $code,
@@ -28,7 +29,7 @@ trait traitResponse
             'total' => null,
             'current_page' => null,
             'errors' => $errors,
-            'data' => []
+            'data' => isset($result) ? [$result] : []
         ];
     }
 
@@ -83,6 +84,10 @@ trait traitResponse
         if ($e instanceof AuthorizationException) {
             $code = 403;
             $message = '403 Unauthorized';
+            $errors = array_merge(
+                $e->getErrors(),
+                $errors
+            );
         }
         if ($e instanceof NotFoundHttpException) {
             $code = 404;
@@ -92,12 +97,23 @@ trait traitResponse
         if ($e instanceof ValidationException) {
             $code = 400;
             $message = 'the server cannot or will not process the request due to something that is perceived to be a client error';
-            $errors = $e->getErrors();
+            $errors = array_merge(
+                $e->getErrors(),
+                $errors
+            );
+        }
+
+        if ($e instanceof RepositoryException) {
+            $errors = array_merge(
+                $e->getErrors(),
+                $errors
+            );
         }
 
         $result = $this->baseResponse(
             $message,
             $errors,
+            $result=null,
             $code
         );
         return $result;

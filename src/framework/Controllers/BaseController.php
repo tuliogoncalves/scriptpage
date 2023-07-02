@@ -126,11 +126,8 @@ class BaseController extends Controller
             $result = $result->toArray();
         }
 
-        if (is_string($result)) {
-            $result = [
-                'data' => null,
-                'message' => $result
-            ];
+        if (!is_array($result)) {
+            $result = (array)strval($result);
         }
 
         return array_key_exists('data', $result)
