@@ -2,14 +2,13 @@
 
 namespace Scriptpage\Repository\Filters;
 
-use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
 
 class JoinFilter extends BaseFilter
 {
     protected string $type = "inner";
 
-    function apply(IRepository $repository, string $expressions): Builder
+    function apply(IRepository $repository, string $expressions)
     {
         $builder = $repository->getBuilder();
         foreach ($this->parserExpression($expressions) as $expression) {

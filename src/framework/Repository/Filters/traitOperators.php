@@ -2,7 +2,6 @@
 
 namespace Scriptpage\Repository\Filters;
 
-use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
 
 trait traitOperators
@@ -23,9 +22,9 @@ trait traitOperators
         'not_between' => 'not_between'
     ];
    
-    protected Builder $builder;
+    protected $builder;
 
-    function apply(IRepository $repository, string $expressions): Builder
+    function apply(IRepository $repository, string $expressions)
     {
         $this->builder = $repository->getBuilder();
         foreach ($this->parserExpression($expressions) as $expression) {

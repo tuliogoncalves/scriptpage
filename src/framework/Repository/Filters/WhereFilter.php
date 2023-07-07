@@ -2,7 +2,6 @@
 
 namespace Scriptpage\Repository\Filters;
 
-use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
 
 class WhereFilter extends BaseFilter
@@ -27,28 +26,28 @@ class WhereFilter extends BaseFilter
 
     protected $boolean = 'and';
 
-    function where(string $column, string $operator, string $value): Builder
+    function where(string $column, string $operator, string $value)
     {
         $builder = $this->builder;
         $value = str_replace('*', '%', $value);
         return $builder->where($column, $operator, $value, $this->boolean);
     }
 
-    function whereIn(string $column, string $operator, string $value): Builder
+    function whereIn(string $column, string $operator, string $value)
     {
         $builder = $this->builder;
         $values = $this->parserValues($value);
         return $builder->whereIn($column, $values, $this->boolean);
     }
 
-    function whereBetween(string $column, string $operator, string $value): Builder
+    function whereBetween(string $column, string $operator, string $value)
     {
         $builder = $this->builder;
         $values = $this->parserValues($value);
         return $builder->whereBetween($column, $values, $this->boolean);
     }
 
-    function whereNotBetween(string $column, string $operator, string $value): Builder
+    function whereNotBetween(string $column, string $operator, string $value)
     {
         $builder = $this->builder;
         $values = $this->parserValues($value);

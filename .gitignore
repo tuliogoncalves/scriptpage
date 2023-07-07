@@ -5,6 +5,7 @@
 /.idea
 /.vscode
 /logs/*.*
+/vendor
 .env
 sail-docker-compose.yml
 sail-docker-compose-local.yml

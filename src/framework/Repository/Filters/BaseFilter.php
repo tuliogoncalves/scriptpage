@@ -2,7 +2,6 @@
 
 namespace Scriptpage\Repository\Filters;
 
-use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Assets\IUrlFilter;
 use Scriptpage\Contracts\IRepository;
 
@@ -38,7 +37,7 @@ abstract class BaseFilter implements IUrlFilter
         return explode(',', $values);
     }
     
-    abstract function apply(IRepository $repository, String $values): Builder;
+    abstract function apply(IRepository $repository, String $values);
 
     // abstract protected function validate($value): bool;
 }

@@ -2,12 +2,11 @@
 
 namespace Scriptpage\Repository\Filters;
 
-use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
 
 class WithCountFilter extends BaseFilter
 {
-    function apply(IRepository $repository, String $values): Builder
+    function apply(IRepository $repository, String $values)
     {
         $builder = $repository->getBuilder();
 

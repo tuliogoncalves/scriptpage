@@ -2,16 +2,15 @@
 
 namespace Scriptpage\Repository\Filters;
 
-use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
 
 class CustomFilter extends BaseFilter
 {
-    function apply(IRepository $repository, string $expressions): Builder {
+    function apply(IRepository $repository, string $expressions) {
         return $repository->getBuilder();
     }
 
-    function customApply(IRepository $repository, string $method, string $expressions): Builder
+    function customApply(IRepository $repository, string $method, string $expressions)
     {
         $builder = $repository->getBuilder();
         foreach ($this->parserExpression($expressions) as $expression) {

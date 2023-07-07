@@ -2,12 +2,11 @@
 
 namespace Scriptpage\Repository\Filters;
 
-use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
 
 class SkipFilter extends BaseFilter
 {   
-    function apply(IRepository $repository, String $value): Builder
+    function apply(IRepository $repository, String $value)
     {
         $offset = (int)$value;
         $repository->setSkip($offset);

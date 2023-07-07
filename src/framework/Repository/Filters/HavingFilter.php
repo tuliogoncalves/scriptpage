@@ -2,7 +2,6 @@
 
 namespace Scriptpage\Repository\Filters;
 
-use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
 
 class HavingFilter extends BaseFilter
@@ -27,21 +26,21 @@ class HavingFilter extends BaseFilter
 
     protected $boolean = 'and';
 
-    function having(string $column, string $operator, string $value): Builder
+    function having(string $column, string $operator, string $value)
     {
         $builder = $this->builder;
         $value = str_replace('*', '%', $value);
         return $builder->having($column, $operator, $value, $this->boolean);
     }
 
-    function havingBetween(string $column, string $operator, string $value): Builder
+    function havingBetween(string $column, string $operator, string $value)
     {
         $builder = $this->builder;
         $values = $this->parserValues($value);
         return $builder->havingBetween($column, $values, $this->boolean);
     }
 
-    function havingNotBetween(string $column, string $operator, string $value): Builder
+    function havingNotBetween(string $column, string $operator, string $value)
     {
         $builder = $this->builder;
         $values = $this->parserValues($value);

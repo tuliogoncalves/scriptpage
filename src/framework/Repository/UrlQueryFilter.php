@@ -2,7 +2,6 @@
 
 namespace Scriptpage\Repository;
 
-use Illuminate\Contracts\Database\Query\Builder;
 use Scriptpage\Contracts\IRepository;
 use Scriptpage\Repository\Filters\GroupByFilter;
 use Scriptpage\Repository\Filters\HavingFilter;
@@ -45,7 +44,7 @@ class UrlQueryFilter
         'paginate' => PaginateFilter::class
     ];
 
-    public function apply(IRepository $repository, array $parameters): Builder
+    public function apply(IRepository $repository, array $parameters)
     {
         $builder = $repository->getBuilder();
         foreach ($parameters as $filter => $values) {

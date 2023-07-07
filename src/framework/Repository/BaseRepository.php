@@ -14,7 +14,6 @@ namespace Scriptpage\Repository;
 use Error;
 use ErrorException;
 use Exception;
-use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Collection;
@@ -30,7 +29,7 @@ abstract class BaseRepository implements IRepository
     use traitValidation;
 
     private Model $model;
-    private Builder $builder;
+    private $builder;
 
     private $inputs = [];
     private $filters = [];
@@ -140,11 +139,8 @@ abstract class BaseRepository implements IRepository
         return $this->model;
     }
 
-    /**
-     * getBuilder
-     * @return Builder
-     */
-    final public function getBuilder(): Builder
+
+    final public function getBuilder()
     {
         if (empty($this->builder))
             $this->builder = $this->newQuery();
@@ -152,10 +148,7 @@ abstract class BaseRepository implements IRepository
         return $this->builder;
     }
 
-    /**
-     * @return Builder
-     */
-    final public function newQuery(): Builder
+    final public function newQuery()
     {
         // Illuminate\Database\Eloquent\Builder
         $this->builder = $this->model->newQuery();
@@ -163,10 +156,7 @@ abstract class BaseRepository implements IRepository
         return $this->builder;
     }
 
-    /**
-     * @return Builder
-     */
-    final public function newDB(): Builder
+    final public function newDB()
     {
         // Illuminate\Database\Query\Builder
         $this->builder = DB::table($this->model->getTable());
@@ -209,7 +199,7 @@ abstract class BaseRepository implements IRepository
      * @param mixed $filters
      * @return LengthAwarePaginator|Collection|array
      */
-    final public function doQuery(array $filters = []): LengthAwarePaginator|Collection|array
+    final public function doQuery(array $filters = [])
     {
         // Throw Authorization Exception 
         if (!$this->authorize()) {
@@ -230,7 +220,7 @@ abstract class BaseRepository implements IRepository
      * @param array $filters
      * @return LengthAwarePaginator|Collection
      */
-    private function runQuery(array $filters = []): LengthAwarePaginator|Collection
+    private function runQuery(array $filters = [])
     {
         $this->applyFilters($filters);
 
@@ -460,7 +450,7 @@ abstract class BaseRepository implements IRepository
                 );
         }
 
-        return 0; //$this->model->destroy($id);
+        return $this->model->destroy($id);
     }
 
     /**
