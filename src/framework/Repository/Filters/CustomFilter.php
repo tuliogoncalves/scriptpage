@@ -17,10 +17,6 @@ class CustomFilter extends BaseFilter
             // Conditions
             $values = $this->parserValues($expression);
 
-            // Parts
-            // $parts = $this->parserParts($expression);
-            // $value = $parts[1] ?? '';
-
             call_user_func_array([$repository, $method], array_filter($values));
         }
         return $builder;

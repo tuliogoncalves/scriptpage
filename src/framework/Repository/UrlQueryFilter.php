@@ -65,7 +65,7 @@ class UrlQueryFilter
             else {
                 if(method_exists($repository, $filter) and $repository->existsCustomFilter($filter)){
                     $customFilter= new CustomFilter();
-                    $builder = $customFilter->customApply($repository, $filter, $values);
+                    $builder = $customFilter->customApply($repository, $filter, $values ?? "");
                 }
             }
         }

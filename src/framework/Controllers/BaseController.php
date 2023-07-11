@@ -61,9 +61,9 @@ class BaseController extends Controller
      * Summary of response
      * @param mixed $result
      * @param string $message
-     * @return JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
-    protected function response(mixed $result, string $message = ''): JsonResponse
+    protected function response($result, string $message = '')
     {
         $total = $this->getTotalElements($result);
 
@@ -101,7 +101,7 @@ class BaseController extends Controller
      * @param mixed $result
      * @return int
      */
-    private function getTotalElements(mixed &$result): int
+    private function getTotalElements(&$result): int
     {
         $total = 0;
         if ($result instanceof Model)
@@ -120,7 +120,7 @@ class BaseController extends Controller
      * @param mixed $result
      * @return array
      */
-    private function dataResult(mixed &$result): array
+    private function dataResult(&$result): array
     {
         if (is_object($result)) {
             $result = $result->toArray();

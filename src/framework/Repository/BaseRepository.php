@@ -12,8 +12,6 @@
 namespace Scriptpage\Repository;
 
 use Error;
-use ErrorException;
-use Exception;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Collection;
@@ -21,13 +19,9 @@ use Illuminate\Support\Facades\DB;
 use Scriptpage\Contracts\IRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
-use Scriptpage\Repository\Assets\traitValidation;
-use TypeError;
 
-abstract class BaseRepository implements IRepository
+abstract class BaseRepository extends Validation implements IRepository
 {
-    use traitValidation;
-
     private Model $model;
     private $builder;
 
@@ -44,7 +38,7 @@ abstract class BaseRepository implements IRepository
     protected $allowFilters = false;
     protected $customFilters = [];
     protected $stopOnFirstFailure = false;
-    protected $ignoreValidation = false;
+    protected $ignoreValidationException = false;
 
     function __construct()
     {
@@ -139,7 +133,6 @@ abstract class BaseRepository implements IRepository
         return $this->model;
     }
 
-
     final public function getBuilder()
     {
         if (empty($this->builder))
@@ -187,7 +180,7 @@ abstract class BaseRepository implements IRepository
      * @param array|string $relations
      * @return BaseRepository
      */
-    final public function with(array|string $relations): self
+    final public function with($relations): self
     {
         $builder = $this->getBuilder();
         $this->builder = $builder->with($relations);
@@ -212,7 +205,6 @@ abstract class BaseRepository implements IRepository
         }
 
         return $this->runQuery($filters);
-
     }
 
     /**
@@ -300,74 +292,67 @@ abstract class BaseRepository implements IRepository
     /**
      * Get valition class
      *
-     * @return null|Validation
+     * @return Validation
      */
     private function getValidation(string $validationKey)
     {
+        $validation = null;
         $validationClass = $this->validationClass[$validationKey] ?? null;
 
-        if (!isset($validationClass))
-            return null;
-
         try {
-            $this->validation = new $validationClass;
+            $validation = isset($validationClass)
+                ? new $validationClass
+                : $this;
         } catch (Error $e) {
             $this->failedRepository('An error occurred creating instance of validation', [
                 'validationClass' => $validationClass
             ]);
         }
 
-        if (!$this->validation instanceof Validation)
+        if (!$validation instanceof Validation)
             $this->failedRepository('The class must be an instance of Scriptpage\\repository\\Validation', [
                 'validationClass' => $validationClass
             ]);
 
-        return $this->validation;
-    }
+        $validation->fill($this->getDataPayload() ?? []);
 
-    /**
-     * Prepare validation and create validator
-     * @param mixed $validationKey
-     * @param mixed $data
-     * @return BaseRepository|Validation
-     */
-    private function makeValidation($data = [], string $validationKey)
-    {
-        $validation = $this->getValidation($validationKey) ?? $this;
-        $validation = $this->runValidation($data, $validation);
         return $validation;
     }
 
-    private function runValidation($data, $validation)
+    // private function makeValidation(array $data = [], string $validationKey)
+    // {
+    //     $validation = $this->getValidation($validationKey);
+    //     $validation = $this->runValidation($data, $validation);
+    //     return $validation;
+    // }
+
+    public function getValidator(string $validationKey = '', array $data = [])
     {
-        $validation->fill($this->dataPayload);
-        $validation->setDataPayload($this->getInputs());
+        if (!isset($this->validator))
+            $this->validator = $this->runValidation($data, $validationKey);
+
+        return $this->validator;
+    }
+
+    private function runValidation(array $data, string $validationKey)
+    {
+        $validation = $this->getValidation($validationKey);
 
         // Throw Authorization Exception 
         if (!$validation->authorize()) {
             $this->failedAuthorization();
         }
 
-        $this->validator = Validator::make(
+        $validator = Validator::make(
             array_merge($data, $validation->getDataPayload()),
             $validation->getRules(),
             $validation->messages(),
             $validation->attributes()
         )->stopOnFirstFailure($this->stopOnFirstFailure);
 
-        $validation->withValidator($this->validator);
+        $validation->withValidator($validator);
 
-        return $validation;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getValidator($data = [], $validationKey = null)
-    {
-        if (!isset($this->validator))
-            $this->makeValidation($validationKey, $data);
-        return $this->validator;
+        return $validator;
     }
 
     /**
@@ -377,7 +362,7 @@ abstract class BaseRepository implements IRepository
      */
     public function create(array $data = [])
     {
-        return $this->model->newInstance()->forceFill($data);
+        return $this->model->getModel()->newInstance()->fill($data);
     }
 
     /**
@@ -389,13 +374,13 @@ abstract class BaseRepository implements IRepository
     public function store(array $data = [], string $validationKey = 'store')
     {
         $model = null;
-        $validation = $this->makeValidation($validationKey, $data);
+        $validator = $this->getValidator($validationKey, $data);
+        $validation = $this->getValidation($validationKey);
 
-        if (!$this->ignoreValidation) {
-            $validator = $this->getValidator();
+        if (!$this->ignoreValidationException) {
             if ($validator->fails())
                 $this->failedValidation(
-                    '400 Validator fails to create',
+                    '400 Validator fails to store',
                     $validator->errors()->toArray()
                 );
         }
@@ -415,10 +400,10 @@ abstract class BaseRepository implements IRepository
     public function update($id, array $data = [], string $validationKey = 'update')
     {
         $model = null;
-        $validation = $this->makeValidation($validationKey, $data);
+        $validator = $this->getValidator($validationKey, $data);
+        $validation = $this->getValidation($validationKey);
 
-        if (!$this->ignoreValidation) {
-            $validator = $this->getValidator();
+        if (!$this->ignoreValidationException) {
             if ($validator->fails())
                 $this->failedValidation(
                     '400 Validator fails to update',
@@ -433,24 +418,10 @@ abstract class BaseRepository implements IRepository
         return $model;
     }
 
-    public function delete($id, array $data = [], string $validationKey = 'delete')
+    public function delete($id)
     {
-        $validation = $this->getValidation($validationKey);
-
-        if (!$this->ignoreValidation and isset($validation)) {
-            $model = $this->model->findOrFail($id);
-
-            $validation->fill($model->getAttributes());
-            $validation = $this->runValidation($data, $validation);
-            $validator = $this->getValidator();
-            if ($validator->fails())
-                $this->failedValidation(
-                    '400 Validator fails (on delete)',
-                    $validator->errors()->toArray()
-                );
-        }
-
-        return $this->model->destroy($id);
+        $model = $this->model->findOrFail($id);
+        return $model->destroy($id);
     }
 
     /**

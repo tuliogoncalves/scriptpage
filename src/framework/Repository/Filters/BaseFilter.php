@@ -12,7 +12,7 @@ abstract class BaseFilter implements IUrlFilter
      * @param mixed $values
      * @return array<string>|bool
      */
-    final protected function parserExpression(string $expressions): array|bool
+    final protected function parserExpression(string $expressions)
     {
         return explode(';', $expressions);
     }
@@ -22,7 +22,7 @@ abstract class BaseFilter implements IUrlFilter
      * @param mixed $expression
      * @return array<string>|bool
      */
-    final protected function parserParts(string $expression): array|bool
+    final protected function parserParts(string $expression)
     {
         return explode(':', $expression);
     }
@@ -32,7 +32,7 @@ abstract class BaseFilter implements IUrlFilter
      * @param mixed $values
      * @return array<string>|bool
      */
-    final protected function parserValues(string $values): array|bool
+    final protected function parserValues(string $values)
     {
         return explode(',', $values);
     }
