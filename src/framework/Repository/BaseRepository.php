@@ -183,7 +183,9 @@ abstract class BaseRepository extends Validation implements IRepository
     final public function with($relations): self
     {
         $builder = $this->getBuilder();
+        $model = $this->model;
         $this->builder = $builder->with($relations);
+        $this->model = $model->with($relations);
         return $this;
     }
 
