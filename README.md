@@ -8,7 +8,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 ## Config
 
-#### file Config/App.php
+### file Config/App.php
 
 add:
 
