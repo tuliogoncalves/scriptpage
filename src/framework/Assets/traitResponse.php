@@ -61,9 +61,9 @@ trait traitResponse
         $code = 500;
         $message = $e->getMessage();
         $errors = [
-            'error_code:' => $e->getCode(),
+            'error_code' => $e->getCode(),
             'error_message' => $e->getMessage(),
-            'exception_class:' => get_class($e)
+            'exception_class' => get_class($e)
         ];
 
         if ($e instanceof TokenInvalidException) {
