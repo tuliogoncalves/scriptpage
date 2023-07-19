@@ -72,12 +72,12 @@ trait traitResponse
         }
 
         if ($e instanceof TokenExpiredException) {
-            $code = 401;
+            $code = 498;
             $message = '401 Token is Expired';
         }
 
         if ($e instanceof UserNotDefinedException) {
-            $code = 400;
+            $code = 498;
             $message = '400 Token is invalid';
         }
 
