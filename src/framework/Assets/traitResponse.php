@@ -20,7 +20,7 @@ trait traitResponse
      * @param int $code
      * @return array
      */
-    public function baseResponse(string $message = null, array $errors = [], string $result = null, int $code = 200)
+    public function baseResponse(string $message = null, array $errors = null, string $result = null, int $code = 200)
     {
         return [
             'code' => $code,
@@ -73,12 +73,12 @@ trait traitResponse
 
         if ($e instanceof TokenExpiredException) {
             $code = 498;
-            $message = '401 Token is Expired';
+            $message = '498 Token is Expired';
         }
 
         if ($e instanceof UserNotDefinedException) {
             $code = 498;
-            $message = '400 Token is invalid';
+            $message = '498 Token is invalid';
         }
 
         if ($e instanceof AuthorizationException) {
