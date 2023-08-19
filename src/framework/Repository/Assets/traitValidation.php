@@ -21,7 +21,7 @@ trait traitValidation
     private $dataPayload = [];
     protected array $messages = [];
     protected array $attributes = [];
-    protected $storeClass;
+
 
     public function authorize()
     {
