@@ -9,12 +9,12 @@ use Illuminate\Foundation\Application;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
-use Scriptpage\Assets\traitResponse;
 use Scriptpage\Framework;
+use App\Traits\traitBaseResponse;
 
 class BaseController extends Controller
 {
-    use traitResponse;
+    use traitBaseResponse;
 
     protected $cleanResponse = false;
 
@@ -30,32 +30,6 @@ class BaseController extends Controller
         ], 'Ok');
     }
 
-    /**
-     * Sorting of data presentation
-     * @return array
-     */
-    private function startResponseWithPaginate()
-    {
-        return [
-            'success' => true,
-            'code' => 200,
-            'message' => '',
-            'total' => null,
-            'per_page' => null,
-            'current_page' => null,
-            'last_page' => null,
-            'first_page_url' => null,
-            'last_page_url' => null,
-            'next_page_url' => null,
-            'prev_page_url' => null,
-            'path' => null,
-            'from' => null,
-            'to' => null,
-            'errors' => [],
-            'data' => null,
-            'links' => null,
-        ];
-    }
 
     /**
      * Summary of response
@@ -68,17 +42,18 @@ class BaseController extends Controller
         $total = $this->getTotalElements($result);
 
         if ($result instanceof LengthAwarePaginator) {
-            $response = array_merge($this->startResponseWithPaginate(), $this->baseResponse(), $this->dataResult($result));
+            $response = array_merge($this->baseResponseWithPaginate(), $this->baseResponse(), $this->dataResult($result));
         } else {
             $response = array_merge($this->baseResponse(), $this->dataResult($result));
         }
 
         $response['message'] = (empty($message) and empty($response['message'])) ? 'Ok.' : $response['message'] . '.' . $message;
         $response['success'] = ($response['code'] == 200);
-        $response['total'] = $response['total'] > 0
-            ? $response['total']
-            : $total;
-
+        if (isset($response['total'])) {
+            $response['total'] = $response['total'] > 0
+                ? $response['total']
+                : $total;
+        }
         // Clean response by user definition in controller
         if ($this->cleanResponse) {
             $baseResponse = $this->baseResponse();
@@ -136,5 +111,4 @@ class BaseController extends Controller
                 'data' => $result
             ];
     }
-
 }

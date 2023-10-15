@@ -1,6 +1,6 @@
 <?php
 
-namespace Scriptpage\Repository\Filters;
+namespace Scriptpage\Query\Filters;
 
 class OrHavingFilter extends HavingFilter
 {

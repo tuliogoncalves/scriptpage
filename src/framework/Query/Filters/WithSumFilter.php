@@ -1,14 +1,12 @@
 <?php
 
-namespace Scriptpage\Repository\Filters;
-
-use Scriptpage\Contracts\IRepository;
+namespace Scriptpage\Query\Filters;
 
 class WithSumFilter extends BaseFilter
 {
-    function apply(IRepository $repository, string $expressions)
+    function apply(string $expressions)
     {
-        $builder = $repository->getBuilder();
+        $builder = $this->urlFilter->getBuilder();
 
         foreach ($this->parserExpression($expressions) as $expression) {
             $parts = $this->parserParts($expression);

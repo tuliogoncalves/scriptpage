@@ -1,18 +1,15 @@
 <?php
 
-namespace Scriptpage\Repository\Filters;
-
-use Scriptpage\Contracts\IRepository;
+namespace Scriptpage\Query\Filters;
 
 class JoinFilter extends BaseFilter
 {
     protected string $type = "inner";
 
-    function apply(IRepository $repository, string $expressions)
+    function apply(string $expressions)
     {
-        $builder = $repository->getBuilder();
+        $builder = $this->urlFilter->getBuilder();
         foreach ($this->parserExpression($expressions) as $expression) {
-
             // Parts
             $parts = $this->parserParts($expression);
             $table = $parts[0] ?? '';

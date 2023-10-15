@@ -1,14 +1,12 @@
 <?php
 
-namespace Scriptpage\Repository\Filters;
-
-use Scriptpage\Contracts\IRepository;
+namespace Scriptpage\Query\Filters;
 
 class GroupByFilter extends BaseFilter
 {
-    function apply(IRepository $repository, String $values)
+    function apply(String $values)
     {
-        $builder = $repository->getBuilder();
+        $builder = $this->urlFilter->getBuilder();
         $expresions = $this->parserExpression($values);
 
         // Relations

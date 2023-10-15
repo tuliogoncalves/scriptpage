@@ -1,8 +1,8 @@
 <?php
 
-namespace Scriptpage\Repository\Filters;
+namespace Scriptpage\Query\Filters;
 
-use Scriptpage\Contracts\IRepository;
+use Illuminate\Contracts\Database\Query\Builder as IBuilder;
 
 trait traitOperators
 {
@@ -24,9 +24,9 @@ trait traitOperators
    
     protected $builder;
 
-    function apply(IRepository $repository, string $expressions)
+    function apply(string $expressions)
     {
-        $this->builder = $repository->getBuilder();
+        $this->builder = $this->urlFilter->getBuilder();
         foreach ($this->parserExpression($expressions) as $expression) {
             // Parts
             $parts = $this->parserParts($expression);

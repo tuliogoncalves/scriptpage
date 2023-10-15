@@ -1,5 +1,5 @@
 {
-    "name": "scriptpage/framework",
+    "name": "scriptpagex/framework",
     "description": "Core code of the Scriptpage framework",
     "keywords": [
         "laravel",
@@ -30,6 +30,6 @@
                 ]
             }
         },
-        "minimum-stability": "stable",
-        "prefer-stable": true
+        "minimum-stability": "dev",
+        "prefer-stable": false
 }

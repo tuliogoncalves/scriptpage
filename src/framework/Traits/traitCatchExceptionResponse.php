@@ -1,9 +1,8 @@
 <?php
 
-namespace Scriptpage\Assets;
+namespace App\Traits;
 
 use Exception;
-use Illuminate\Http\Request;
 use Scriptpage\Exceptions\AuthorizationException;
 use Scriptpage\Exceptions\RepositoryException;
 use Scriptpage\Exceptions\ValidationException;
@@ -12,45 +11,8 @@ use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use Tymon\JWTAuth\Exceptions\UserNotDefinedException;
 
-trait traitResponse
+trait traitCatchExceptionResponse
 {
-    /**
-     * Summary of response
-     * @param string $message
-     * @param int $code
-     * @return array
-     */
-    public function baseResponse(string $message = null, array $errors = null, string $result = null, int $code = 200)
-    {
-        return [
-            'code' => $code,
-            'success' => ($code == 200),
-            'message' => $message,
-            'total' => null,
-            'current_page' => null,
-            'errors' => $errors,
-            'data' => isset($result) ? [$result] : []
-        ];
-    }
-
-    /**
-     * defining a register method on your application's App\Exceptions\Handler class.
-     * add:
-     *    $this->renderable(function (Exception $e, Request $request) {
-     *       return $this->apiRenderableResponse($e, $request);
-     *    });
-     */
-    public function apiRenderableResponse(Exception $e, Request $request)
-    {
-        if ($request->is('api/*')) {
-            $response = $this->catchException($e);
-            return response()->json(
-                $response,
-                $response['code']
-            );
-        }
-    }
-
     /**
      * Catch Exceptions
      * @param \Exception $e
@@ -116,6 +78,7 @@ trait traitResponse
             $result=null,
             $code
         );
+
         return $result;
     }
 }

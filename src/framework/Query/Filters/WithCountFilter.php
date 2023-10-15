@@ -1,14 +1,12 @@
 <?php
 
-namespace Scriptpage\Repository\Filters;
-
-use Scriptpage\Contracts\IRepository;
+namespace Scriptpage\Query\Filters;
 
 class WithCountFilter extends BaseFilter
 {
-    function apply(IRepository $repository, String $values)
+    function apply(String $values)
     {
-        $builder = $repository->getBuilder();
+        $builder = $this->urlFilter->getBuilder();
 
         // Relations
         $relations = $this->parserValues($values);

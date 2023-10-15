@@ -1,12 +1,12 @@
 <?php
 
-namespace Scriptpage\Repository\Filters;
+namespace Scriptpage\Query\Filters;
 
-use Scriptpage\Contracts\IRepository;
+use Illuminate\Contracts\Database\Query\Builder as IBuilder;
 
 class CustomFilter extends BaseFilter
 {
-    function apply(IRepository $repository, string $expressions) {
+    function apply(IBuilder $repository, string $expressions) {
         return $repository->getBuilder();
     }
 

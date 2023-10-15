@@ -11,5 +11,5 @@ class Framework
      *
      * @var string
      */
-    const VERSION = '2.1.3';
+    const VERSION = '3.0.0';
 }

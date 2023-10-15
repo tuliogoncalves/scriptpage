@@ -1,8 +1,6 @@
 <?php
 
-namespace Scriptpage\Repository\Filters;
-
-use Scriptpage\Contracts\IRepository;
+namespace Scriptpage\Query\Filters;
 
 class HavingFilter extends BaseFilter
 {

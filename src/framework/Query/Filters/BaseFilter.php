@@ -1,12 +1,20 @@
 <?php
 
-namespace Scriptpage\Repository\Filters;
+namespace Scriptpage\Query\Filters;
 
-use Scriptpage\Assets\IUrlFilter;
-use Scriptpage\Contracts\IRepository;
+use Scriptpage\Contracts\IUrlFilter;
+use Illuminate\Contracts\Database\Query\Builder as IBuilder;
+use Scriptpage\Query\UrlFilter;
 
 abstract class BaseFilter implements IUrlFilter
 {
+    protected UrlFilter $urlFilter;
+
+    function __construct(UrlFilter $urlFilter)
+    {
+        $this->urlFilter = $urlFilter;
+    }
+
     /**
      * Parser expression by semicolons (;)
      * @param mixed $values
@@ -36,8 +44,8 @@ abstract class BaseFilter implements IUrlFilter
     {
         return explode(',', $values);
     }
-    
-    abstract function apply(IRepository $repository, String $values);
+
+    abstract function apply(String $values);
 
     // abstract protected function validate($value): bool;
 }

@@ -1,11 +1,8 @@
 <?php
 
-namespace Scriptpage\Repository\Filters;
-
-use Scriptpage\Contracts\IRepository;
+namespace Scriptpage\Query\Filters;
 
 class LeftJoinFilter extends JoinFilter
 {
     protected string $type = "left";
-
 }

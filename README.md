@@ -1,40 +1,65 @@
 # Scriptpage Framework[^1]
 
+## v3.0
+
 > **Note:** This repository contains the core code of the Scriptpage framework. If you want to build an application using Laravel with scriptpage, you need know [Scriptpage Sail](https://github.com/tuliogoncalves/sail).
 
-#### See a Starter with VueJS using scriptpage: [starter-with-vuejs](https://github.com/tuliogoncalves/starter-with-vuejs)
+#### See a MVC Starter with VueJS using scriptpage: [starter-with-vuejs](https://github.com/tuliogoncalves/starter-with-vuejs)
 
 You want to know a little more about the Repository pattern? [Read this great article](http://scriptpage.com.br/using-scriptpage-repository).
 
-## Config
+## Table of Contents
 
-### file Config/App.php
+- <a href="#installation">Installation</a>
+    - <a href="#composer">Composer</a>
+    - <a href="#laravel">Laravel</a>
+- <a href="#methods">Methods</a>
+    - <a href="#prettusrepositorycontractsrepositoryinterface">RepositoryInterface</a>
+    - <a href="#prettusrepositorycontractsrepositorycriteriainterface">RepositoryCriteriaInterface</a>
+    - <a href="#prettusrepositorycontractscacheableinterface">CacheableInterface</a>
+    - <a href="#prettusrepositorycontractspresenterinterface">PresenterInterface</a>
+    - <a href="#prettusrepositorycontractscriteriainterface">CriteriaInterface</a>
+- <a href="#usage">Usage</a>
+	- <a href="#create-a-model">Create a Model</a>
+	- <a href="#create-a-repository">Create a Repository</a>
+	- <a href="#generators">Generators</a>
+	- <a href="#use-methods">Use methods</a>
+	- <a href="#create-a-criteria">Create a Criteria</a>
+	- <a href="#using-the-criteria-in-a-controller">Using the Criteria in a Controller</a>
+	- <a href="#using-the-requestcriteria">Using the RequestCriteria</a>
+
+## Installation
+
+### Composer
+
+Execute the following command to get the latest version of the package:
+
+```terminal
+composer require scriptpage/framework
+```
+
+### Laravel
+
+#### Routes
+
+Execute the following command to get the routes methods:
+
+```terminal
+php artisan vendor:publish --tag=scriptpage-install
+```
+
+#### Application Version 
+
+Add lines in Config/App.php file:
 
 add:
 
-        /*
-        |--------------------------------------------------------------------------
-        | Application Version
-        |--------------------------------------------------------------------------
-        |
-        | This value is the version of your application. This value is used when
-        | the framework needs to place the application's version in a notification
-        | or any other location as required by the application or its packages.
-        */
-
-        'version' => env('APP_VERSION', '1.0.0'),
-        'project_name' => env('APP_PROJECT_NAME', 'app'),
+```terminal
+'version' => env('APP_VERSION', '1.0.0'),
+'project_name' => env('APP_PROJECT_NAME', 'app'),
+```
 
 ## Methods
-
-### Scriptpage\BaseRepository
-
-#### CRUD
-- create(array $attributes)
-- update(array $attributes, $id)
-- updateOrCreate(array $attributes, array $values = [])
-- delete($id)
-- deleteWhere(array $where)
 
 ### URL query filters
 
@@ -54,7 +79,6 @@ add:
 - having = $column,[$condition = 'equal']:$value
 - orHaving = $column,[$condition = 'equal']:$value
 - paginate = true|false
-- <CustomFilter> = $param1,$param2,...
 
 > array is separated by semicolons, example: expresion1; expression2; expresion3...
 
@@ -157,10 +181,10 @@ Show sql statement result
 get `api/table/users?join=contacts:users.id,contacts.user_id`
 
     get api/table/users
-                ?join=contacts:users.id,contacts.user_id
-                ;orders:users.id,orders.user_id
-                &where=users.name:laravel
-                &select=users.*,contacts.phone,orders.price
+        ?join=contacts:users.id,contacts.user_id
+        ;orders:users.id,orders.user_id
+        &where=users.name:laravel
+        &select=users.*,contacts.phone,orders.price
 
 ## Laravel Eloquent Query: Using WHERE with OR AND OR
 
