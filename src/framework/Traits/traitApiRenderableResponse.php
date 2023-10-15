@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 trait traitApiRenderableResponse
 {
 
+    use traitCatchExceptionResponse;
+    
     /**
      * defining a register method on your application's App\Exceptions\Handler class.
      * add:

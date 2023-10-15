@@ -1,18 +1,29 @@
 <?php
 
-namespace App\Traits;
+namespace Scriptpage\Traits;
 
 use Exception;
-use Scriptpage\Exceptions\AuthorizationException;
-use Scriptpage\Exceptions\RepositoryException;
-use Scriptpage\Exceptions\ValidationException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Tymon\JWTAuth\Exceptions\TokenExpiredException;
-use Tymon\JWTAuth\Exceptions\TokenInvalidException;
-use Tymon\JWTAuth\Exceptions\UserNotDefinedException;
 
 trait traitCatchExceptionResponse
 {
+    use traitBaseResponse;
+
+    private $classException = [
+        'Scriptpage\Exceptions\AuthorizationException' => 403,
+        'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' => 404,
+        'Tymon\JWTAuth\Exceptions\TokenExpiredException' => 498,
+        'Tymon\JWTAuth\Exceptions\TokenInvalidException' => 498,
+        'Tymon\JWTAuth\Exceptions\UserNotDefinedException' => 498,
+    ];
+
+    private $messageCodeError = [
+        400 => 'the server cannot or will not process the request due to something that is perceived to be a client error',
+        403 => '403 Unauthorized',
+        404 => '404 Not Found',
+        498 => '498 Token is Invalid',
+        500 => '500 Error Server'
+    ];
+
     /**
      * Catch Exceptions
      * @param \Exception $e
@@ -28,48 +39,10 @@ trait traitCatchExceptionResponse
             'exception_class' => get_class($e)
         ];
 
-        if ($e instanceof TokenInvalidException) {
-            $code = 498;
-            $message = '498 Token is Invalid';
-        }
-
-        if ($e instanceof TokenExpiredException) {
-            $code = 498;
-            $message = '498 Token is Expired';
-        }
-
-        if ($e instanceof UserNotDefinedException) {
-            $code = 498;
-            $message = '498 Token is invalid';
-        }
-
-        if ($e instanceof AuthorizationException) {
-            $code = 403;
-            $message = '403 Unauthorized';
-            $errors = array_merge(
-                $e->getErrors(),
-                $errors
-            );
-        }
-        if ($e instanceof NotFoundHttpException) {
-            $code = 404;
-            $message = '404 Not Found';
-        }
-
-        if ($e instanceof ValidationException) {
-            $code = 400;
-            $message = 'the server cannot or will not process the request due to something that is perceived to be a client error';
-            $errors = array_merge(
-                $e->getErrors(),
-                $errors
-            );
-        }
-
-        if ($e instanceof RepositoryException) {
-            $errors = array_merge(
-                $e->getErrors(),
-                $errors
-            );
+        $class = get_class($e);
+        if(isset($this->classException[$class])) {
+            $code = $this->classException[$class];
+            $message = $this->messageCodeError[$code];
         }
 
         $result = $this->baseResponse(
