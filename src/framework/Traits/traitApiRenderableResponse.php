@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits;
+namespace Scriptpage\Traits;
 
 use Exception;
 use Illuminate\Http\Request;
@@ -11,11 +11,14 @@ trait traitApiRenderableResponse
     use traitCatchExceptionResponse;
     
     /**
-     * defining a register method on your application's App\Exceptions\Handler class.
+     * defining a global exception on your application's in App\Exceptions\Handler@register class.
+     * 
      * add:
+     * 
      *    $this->renderable(function (Exception $e, Request $request) {
      *       return $this->apiRenderableResponse($e, $request);
      *    });
+     * 
      */
     public function apiRenderableResponse(Exception $e, Request $request)
     {

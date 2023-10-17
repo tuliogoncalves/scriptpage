@@ -3,6 +3,7 @@
 namespace Scriptpage\Traits;
 
 use Exception;
+use App\Traits\traitBaseResponse;
 
 trait traitCatchExceptionResponse
 {

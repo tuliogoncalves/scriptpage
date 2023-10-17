@@ -13,6 +13,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
 - <a href="#installation">Installation</a>
     - <a href="#composer">Composer</a>
     - <a href="#laravel">Laravel</a>
+        - <a href="#globalexception">Global Exception</a>
 - <a href="#methods">Methods</a>
     - <a href="#prettusrepositorycontractsrepositoryinterface">RepositoryInterface</a>
     - <a href="#prettusrepositorycontractsrepositorycriteriainterface">RepositoryCriteriaInterface</a>
@@ -40,13 +41,27 @@ composer require scriptpage/framework
 
 ### Laravel
 
-#### Routes
-
-Execute the following command to get the routes methods:
+Execute the following command to install componente on project:
 
 ```terminal
 php artisan vendor:publish --tag=scriptpage-install
 ```
+
+#### Global Exception
+
+Defining a global exception on your application's in App\Exceptions\Handler@register class.
+      
+        use Scriptpage\Traits\traitApiRenderableResponse;
+
+        class Handler extends ExceptionHandler
+        {
+                use traitApiRenderableResponse;
+
+                ...
+
+                $this->renderable(function (Exception $e, Request $request) {
+                        return $this->apiRenderableResponse($e, $request);
+                });
 
 #### Application Version 
 
