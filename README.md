@@ -14,6 +14,8 @@ You want to know a little more about the Repository pattern? [Read this great ar
     - <a href="#composer">Composer</a>
     - <a href="#laravel">Laravel</a>
         - <a href="#globalexception">Global Exception</a>
+        - <a href="#JWTAuthorization">JWT Authorization</a>
+        - <a href="#ApplicationVersion">Application Version</a>
 - <a href="#methods">Methods</a>
     - <a href="#prettusrepositorycontractsrepositoryinterface">RepositoryInterface</a>
     - <a href="#prettusrepositorycontractsrepositorycriteriainterface">RepositoryCriteriaInterface</a>
@@ -45,6 +47,14 @@ Execute the following command to install componente on project:
 
 ```terminal
 php artisan vendor:publish --tag=scriptpage-install
+```
+
+### JWT Authorization
+
+```terminal
+composer require tymon/jwt-auth
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+php artisan jwt:secret
 ```
 
 #### Global Exception
@@ -226,16 +236,6 @@ get `api/table/users?join=contacts:users.id,contacts.user_id`
         return $query->where('c', '=', $c)
             ->orWhere('d', '=', $d);
     });
-
-## Add Global Exception
-
-In file App\Exceptions\Handler@register, add:
-
-        use traitResponse;
-
-        $this->renderable(function (Exception $e, Request $request) {
-           return $this->apiRenderableResponse($e, $request);
-        });
 
 
 [^1]: A framework is an abstraction that links common code across multiple software projects to provide generic functionality. A framework can achieve specific functionality, by configuration, during application programming. Unlike libraries, it is the framework that dictates the flow of control of the application, called Inversion of Control..[wikipedia](https://pt.wikipedia.org/wiki/Framework)

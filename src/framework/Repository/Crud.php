@@ -34,9 +34,9 @@ class Crud
      * @param string $validationKey
      * @return Model
      */
-    public function store(array $data = [])
+    static function store(array $data = [])
     {
-        $model = $this->create($data);
+        $model = self::create($data);
         $model->save();
 
         return $model;
@@ -48,7 +48,7 @@ class Crud
      * @param array $data
      * @return mixed
      */
-    public function update($id, array $data = [])
+    static function update($id, array $data = [])
     {
         $model = null;
 
@@ -59,7 +59,7 @@ class Crud
         return $model;
     }
 
-    public function delete($id)
+    static function delete($id)
     {
         $model = $this->model->findOrFail($id);
         return $model->destroy($id);

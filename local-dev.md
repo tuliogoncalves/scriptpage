@@ -1,11 +1,11 @@
 # Developement local
 
-change to brant dev
+1) change to brant dev
 
     git switch dev
     git merge <branch>
 
-add in composer.json:
+2) add in composer.json on your project:
 
     "repositories": [
         {
@@ -17,10 +17,14 @@ add in composer.json:
         }
     ],
 
-add volume in app container(sail-docker-compose.yml):
+3) create simbolic link:
+
+    ln -s ../../framework ./scriptpage
+
+4) add volume in app container php (sail-docker-compose.yml):
 
     - ../framework:/var/www/scriptpage
 
-add in your project to dev:
+5) add in your project to dev:
 
     composer require scriptpagex/framework:dev-main
