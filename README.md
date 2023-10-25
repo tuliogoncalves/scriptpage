@@ -13,9 +13,9 @@ You want to know a little more about the Repository pattern? [Read this great ar
 - <a href="#installation">Installation</a>
     - <a href="#composer">Composer</a>
     - <a href="#laravel">Laravel</a>
-        - <a href="#globalexception">Global Exception</a>
-        - <a href="#JWTAuthorization">JWT Authorization</a>
-        - <a href="#ApplicationVersion">Application Version</a>
+        - <a href="#jwtauthorization">JWT Authorization</a>
+        - <a href="#Application Version">Application Version</a>
+        - <a href="#Global Exception">Global Exception</a>
 - <a href="#methods">Methods</a>
     - <a href="#prettusrepositorycontractsrepositoryinterface">RepositoryInterface</a>
     - <a href="#prettusrepositorycontractsrepositorycriteriainterface">RepositoryCriteriaInterface</a>
@@ -33,7 +33,7 @@ You want to know a little more about the Repository pattern? [Read this great ar
 
 ## Installation
 
-### Composer
+#### Composer
 
 Execute the following command to get the latest version of the package:
 
@@ -41,7 +41,7 @@ Execute the following command to get the latest version of the package:
 composer require scriptpage/framework
 ```
 
-### Laravel
+#### Laravel
 
 Execute the following command to install componente on project:
 
@@ -49,7 +49,7 @@ Execute the following command to install componente on project:
 php artisan vendor:publish --tag=scriptpage-install
 ```
 
-### JWT Authorization
+#### JWT Authorization
 
 ```terminal
 composer require tymon/jwt-auth
@@ -60,18 +60,20 @@ php artisan jwt:secret
 #### Global Exception
 
 Defining a global exception on your application's in App\Exceptions\Handler@register class.
-      
-        use Scriptpage\Traits\traitApiRenderableResponse;
 
-        class Handler extends ExceptionHandler
-        {
-                use traitApiRenderableResponse;
+```php     
+use Scriptpage\Traits\traitApiRenderableResponse;
 
-                ...
+class Handler extends ExceptionHandler
+{
+        use traitApiRenderableResponse;
 
-                $this->renderable(function (Exception $e, Request $request) {
-                        return $this->apiRenderableResponse($e, $request);
-                });
+        ...
+
+        $this->renderable(function (Exception $e, Request $request) {
+                return $this->apiRenderableResponse($e, $request);
+        });
+```
 
 #### Application Version 
 
@@ -79,14 +81,14 @@ Add lines in Config/App.php file:
 
 add:
 
-```terminal
+```php
 'version' => env('APP_VERSION', '1.0.0'),
 'project_name' => env('APP_PROJECT_NAME', 'app'),
 ```
 
 ## Methods
 
-### URL query filters
+#### URL query filters
 
 - select = $column1,$column2,...
 - with = $relation1,$relation2,...
@@ -107,7 +109,7 @@ add:
 
 > array is separated by semicolons, example: expresion1; expression2; expresion3...
 
-### Conditions
+#### Conditions
 
 - equal( = )
 
@@ -169,7 +171,7 @@ add:
 
 ## Examples
 
-### Using repository by request
+#### Using repository by request
 
 #### Model
 
@@ -213,7 +215,7 @@ get `api/table/users?join=contacts:users.id,contacts.user_id`
 
 ## Laravel Eloquent Query: Using WHERE with OR AND OR
 
-### Make use of [Logical Grouping](https://laravel.com/docs/master/queries#logical-grouping)
+#### Make use of [Logical Grouping](https://laravel.com/docs/master/queries#logical-grouping)
 
         Model::where(function ($query) {
         $query->where('a', '=', 1)
@@ -223,7 +225,7 @@ get `api/table/users?join=contacts:users.id,contacts.user_id`
                 ->orWhere('d', '=', 1);
         });
 
-### With parameters for a,b,c,d
+#### With parameters for a,b,c,d
 
     $a = 1;
     $b = 1;
