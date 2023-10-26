@@ -5,14 +5,14 @@ namespace Scriptpage\Middleware;
 use Closure;
 use Exception;
 use Illuminate\Http\Request;
-use Scriptpage\Assets\traitResponse;
+use App\Traits\traitBaseResponse;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\UserNotDefinedException;
 
 class EnsureUserHasRole
 {
-    use traitResponse;
+    use traitBaseResponse;
 
     /**
      * Handle an incoming request.

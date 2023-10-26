@@ -1,9 +1,10 @@
 <?php
 
-namespace Scriptpage\Controllers;
+namespace App\Http\Controllers;
 
 use Exception;
 use Illuminate\Http\Request;
+use Scriptpage\Controllers\BaseController;
 
 class AuthController extends BaseController
 {
@@ -20,8 +21,6 @@ class AuthController extends BaseController
 
         try {
             $result = [
-                // 'code' => 200,
-                // 'data' => [],
                 'access_token' => auth('api')->attempt($credentials),
                 'token_type' => 'bearer',
                 'expires_in' => auth('api')->factory()->getTTL() * 60

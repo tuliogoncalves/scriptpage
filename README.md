@@ -51,11 +51,59 @@ php artisan vendor:publish --tag=scriptpage-install
 
 #### JWT Authorization
 
+Execute the following commands to install and configure JWT package with scriptpage:
+
 ```terminal
 composer require tymon/jwt-auth
 php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
 php artisan jwt:secret
+php artisan vendor:publish --tag=scriptpage-jwt
 ```
+
+Add in App\Http\Kernel class.
+
+```php     
+protected $middlewareAliases = [
+        ...
+
+        'roles' => \Scriptpage\Middleware\EnsureUserHasRole::class,
+];
+```
+
+Inside the config/auth.php make the following changes to the file:
+
+```php
+'defaults' => [
+    'guard' => 'api',
+    'passwords' => 'users',
+],
+
+...
+
+'guards' => [
+    'api' => [
+        'driver' => 'jwt',
+        'provider' => 'users',
+    ],
+],
+```
+
+Add trait in Models\User class.
+
+```php
+
+...
+
+use App\Traits\traitUserJWT;
+
+class User extends Authenticatable implements JWTSubject
+{
+  ...
+
+  use traitUserJWT;
+
+```
+
 
 #### Global Exception
 
