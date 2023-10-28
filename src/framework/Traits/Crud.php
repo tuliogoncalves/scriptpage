@@ -9,21 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Scriptpage\Repository;
+namespace Scriptpage\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Crud
+trait traitCrud
 {
 
     /**
      * create a new instance
      * @param array $attributes
-     * @return Model
+     * @return $self
      */
-    static function create(Model $model, array $data = [])
+    static function create(array $data = [])
     {
-        $model = $model->newInstance()->forceFill($data);
+        $model = $this->newInstance()->forceFill($data);
         $model->makeVisible($model->getHidden());
         return $model;
     }
@@ -32,7 +32,7 @@ class Crud
      * Summary of store
      * @param array $data
      * @param string $validationKey
-     * @return Model
+     * @return $self
      */
     static function store(array $data = [])
     {
@@ -46,14 +46,12 @@ class Crud
      * update data to the database
      * @param mixed $id
      * @param array $data
-     * @return mixed
+     * @return $self
      */
     static function update($id, array $data = [])
     {
-        $model = null;
-
-        $model = $this->model->findOrFail($id);
-        $model->fill(array_merge($data, $validation->getDataPayload()));
+        $model = $this->findOrFail($id);
+        $model->fill($data);
         $model->save();
 
         return $model;

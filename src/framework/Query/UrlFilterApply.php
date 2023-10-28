@@ -69,10 +69,10 @@ class UrlFilterApply
             }
             // isCustomFilter
             else {
-                // if(method_exists($repository, $filter) and $repository->existsCustomFilter($filter)){
-                //     $customFilter= new CustomFilter();
-                //     $builder = $customFilter->customApply($repository, $filter, $values ?? "");
-                // }
+                if(method_exists($this->urlFilter, $filter) and $this->urlFilter->existsCustomFilter($filter)){
+                    $customFilter= new CustomFilter($this->urlFilter);
+                    $builder = $customFilter->customApply($filter, $values ?? "");
+                }
             }
         }
         return $builder;

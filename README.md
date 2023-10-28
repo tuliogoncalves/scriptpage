@@ -49,6 +49,54 @@ Execute the following command to install componente on project:
 php artisan vendor:publish --tag=scriptpage-install
 ```
 
+To enable helpers.php file, add in composer.json:
+
+```json
+    "autoload": {
+        "psr-4": {
+        ...
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+```
+
+Then, execute the following command to reload componentes on project:
+
+```terminal
+composer dumpautoload -o
+```
+
+Add in api or web route file:
+
+```php     
+Route::middleware('auth')->group(function () {
+
+    /**
+     * Home routes
+     */
+    addRoute('web/home');
+
+    /**
+     * Users routes
+     */
+    addRoute('web/users');
+
+});
+
+/**
+ * Auth routes
+ */
+addRoute('api/auth');
+
+/**
+ * Users routes
+ */
+Route::prefix('v1')->group(function () {
+        addRoute('api/users');
+});
+```
+
 #### JWT Authorization
 
 Execute the following commands to install and configure JWT package with scriptpage:
@@ -58,16 +106,6 @@ composer require tymon/jwt-auth
 php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
 php artisan jwt:secret
 php artisan vendor:publish --tag=scriptpage-jwt
-```
-
-Add in App\Http\Kernel class.
-
-```php     
-protected $middlewareAliases = [
-        ...
-
-        'roles' => \Scriptpage\Middleware\EnsureUserHasRole::class,
-];
 ```
 
 Inside the config/auth.php make the following changes to the file:
@@ -91,7 +129,6 @@ Inside the config/auth.php make the following changes to the file:
 Add trait in Models\User class.
 
 ```php
-
 ...
 
 use App\Traits\traitUserJWT;
@@ -101,9 +138,35 @@ class User extends Authenticatable implements JWTSubject
   ...
 
   use traitUserJWT;
-
 ```
 
+Add in App\Http\Kernel class.
+
+```php     
+protected $middlewareAliases = [
+        ...
+
+        'auth' => \Scriptpage\Middleware\EnsureUserAuth::class,
+];
+```
+
+#### Role permissions
+
+Execute the following commands to install and configure role permissions of scriptpage:
+
+```terminal
+php artisan vendor:publish --tag=scriptpage-role
+```
+
+Add in App\Http\Kernel class.
+
+```php     
+protected $middlewareAliases = [
+        ...
+
+        'roles' => \Scriptpage\Middleware\EnsureUserHasRole::class,
+];
+```
 
 #### Global Exception
 
@@ -125,9 +188,7 @@ class Handler extends ExceptionHandler
 
 #### Application Version 
 
-Add lines in Config/App.php file:
-
-add:
+Add this lines in Config/App.php file:
 
 ```php
 'version' => env('APP_VERSION', '1.0.0'),
