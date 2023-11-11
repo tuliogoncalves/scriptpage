@@ -15,10 +15,11 @@ trait traitCatchExceptionResponse
         'Tymon\JWTAuth\Exceptions\TokenExpiredException' => 498,
         'Tymon\JWTAuth\Exceptions\TokenInvalidException' => 498,
         'Tymon\JWTAuth\Exceptions\UserNotDefinedException' => 498,
+        // 'Illuminate\Validation\ValidationException'=> 400,
     ];
 
     private $messageCodeError = [
-        400 => 'the server cannot or will not process the request due to something that is perceived to be a client error',
+        400 => '400 Bad Request',
         403 => '403 Unauthorized',
         404 => '404 Not Found',
         498 => '498 Token is Invalid',
@@ -39,6 +40,10 @@ trait traitCatchExceptionResponse
             'error_message' => $e->getMessage(),
             'exception_class' => get_class($e)
         ];
+        
+        if(isset($e->validator)) {
+            $errors = array_merge($errors, $e->validator->errors()->toArray());
+        }
 
         $class = get_class($e);
         if(isset($this->classException[$class])) {

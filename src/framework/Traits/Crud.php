@@ -13,7 +13,7 @@ namespace Scriptpage\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 
-trait traitCrud
+trait traitRest
 {
 
     /**
@@ -48,9 +48,9 @@ trait traitCrud
      * @param array $data
      * @return $self
      */
-    static function update($id, array $data = [])
+    static function update($model, array $data = [])
     {
-        $model = $this->findOrFail($id);
+        // $model = $this->findOrFail($id);
         $model->fill($data);
         $model->save();
 
