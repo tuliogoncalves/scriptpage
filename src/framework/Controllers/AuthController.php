@@ -45,7 +45,7 @@ class AuthController extends BaseController
     public function me(Request $request)
     {
         $user = auth('api')->user();
-        $user->roles;
+        // $user->roles;
         return $this->response($user);
     }
 
