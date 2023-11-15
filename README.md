@@ -16,20 +16,14 @@ You want to know a little more about the Repository pattern? [Read this great ar
         - <a href="#jwtauthorization">JWT Authorization</a>
         - <a href="#Application Version">Application Version</a>
         - <a href="#Global Exception">Global Exception</a>
-- <a href="#methods">Methods</a>
-    - <a href="#prettusrepositorycontractsrepositoryinterface">RepositoryInterface</a>
-    - <a href="#prettusrepositorycontractsrepositorycriteriainterface">RepositoryCriteriaInterface</a>
-    - <a href="#prettusrepositorycontractscacheableinterface">CacheableInterface</a>
-    - <a href="#prettusrepositorycontractspresenterinterface">PresenterInterface</a>
-    - <a href="#prettusrepositorycontractscriteriainterface">CriteriaInterface</a>
+- <a href="#methods">URL Query Filters</a>
+    - <a href="#filters">RepositoryInterface</a>
+    - <a href="#prettusrepositorycontractsrepositorycriteriainterface">Filters</a>
 - <a href="#usage">Usage</a>
 	- <a href="#create-a-model">Create a Model</a>
-	- <a href="#create-a-repository">Create a Repository</a>
-	- <a href="#generators">Generators</a>
 	- <a href="#use-methods">Use methods</a>
 	- <a href="#create-a-criteria">Create a Criteria</a>
-	- <a href="#using-the-criteria-in-a-controller">Using the Criteria in a Controller</a>
-	- <a href="#using-the-requestcriteria">Using the RequestCriteria</a>
+	- <a href="#using-the-filter-in-a-controller">Using the Filter in a Controller</a>
 
 ## Installation
 
@@ -195,9 +189,9 @@ Add this lines in Config/App.php file:
 'project_name' => env('APP_PROJECT_NAME', 'app'),
 ```
 
-## Methods
+## URL Query Filters
 
-#### URL query filters
+#### filters
 
 - select = $column1,$column2,...
 - with = $relation1,$relation2,...
