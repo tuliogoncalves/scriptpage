@@ -82,6 +82,14 @@ class ScriptpageServiceProvider extends ServiceProvider
             ],
             'scriptpage-install'
         );
+
+        // Userrequest
+        $this->publishes(
+            [
+                __DIR__ . '/../Requests/UserRequest.php' =>  app_path('Http/Controllers/Requests/UserRequest.php')
+            ],
+            'scriptpage-install'
+        );
     }
 
     private function scriptpageJwt()
