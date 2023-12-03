@@ -96,7 +96,7 @@ class UrlFilter
      * @param mixed $filters
      * @return LengthAwarePaginator|Collection|array
      */
-    public function doQuery(IBuilder $builder, array $filters = [])
+    public function doQuery($builder, array $filters = [])
     {
         $request = request();
         $this->setFilters($request->query());
@@ -178,7 +178,7 @@ class UrlFilter
     }
 
 
-    static function apply(IBuilder $builder, array $filters = [])
+    static function apply($builder, array $filters = [])
     {
         $urlFilter = new static();
         return $urlFilter->doQuery($builder, $filters);

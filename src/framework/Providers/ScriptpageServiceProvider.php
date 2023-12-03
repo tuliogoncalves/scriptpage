@@ -86,7 +86,7 @@ class ScriptpageServiceProvider extends ServiceProvider
         // Userrequest
         $this->publishes(
             [
-                __DIR__ . '/../Requests/UserRequest.php' =>  app_path('Http/Controllers/Requests/UserRequest.php')
+                __DIR__ . '/../Requests/UserRequest.php' =>  app_path('Http/Requests/UserRequest.php')
             ],
             'scriptpage-install'
         );
