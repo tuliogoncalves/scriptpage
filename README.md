@@ -175,7 +175,7 @@ class Handler extends ExceptionHandler
 
         ...
 
-        $this->renderable(function (Exception $e, Request $request) {
+        $this->renderable(function (Exception $e, $request) {
                 return $this->apiRenderableResponse($e, $request);
         });
 ```
