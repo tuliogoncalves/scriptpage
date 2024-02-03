@@ -63,7 +63,7 @@ composer dumpautoload -o
 
 Add in api or web route file:
 
-```php     
+```php
 Route::middleware('auth')->group(function () {
 
     /**

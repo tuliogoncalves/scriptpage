@@ -11,4 +11,3 @@ Route::get('users/{id}/show', [UserController::class, 'show'])->middleware('role
 Route::post('users', [UserController::class, 'store'])->middleware('roles:users.store');
 Route::put('users/{id}', [UserController::class, 'update'])->middleware('roles:users.update');
 Route::delete('users/{id}', [UserController::class, 'delete'])->middleware('roles:users.delete');
-
