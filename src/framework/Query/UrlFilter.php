@@ -72,6 +72,12 @@ class UrlFilter
         return $this->builder;
     }
 
+    public function setBuilder(IBuilder $builder)
+    {
+        $this->builder = $builder;
+        return $this->builder;
+    }
+
     /**
      * isEloquentBuilder
      * @return bool
@@ -182,5 +188,11 @@ class UrlFilter
     {
         $urlFilter = new static();
         return $urlFilter->doQuery($builder, $filters);
+    }
+
+    static function init(IBuilder $builder)
+    {
+        $urlFilter = new static();
+        return $urlFilter->setBuilder($builder);
     }
 }
