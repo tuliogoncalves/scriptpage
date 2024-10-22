@@ -193,6 +193,6 @@ class UrlFilter
     static function init(IBuilder $builder)
     {
         $urlFilter = new static();
-        return $urlFilter->setBuilder($builder);
+        return $urlFilter;
     }
 }
